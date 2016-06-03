@@ -1,0 +1,876 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>hdx.data package &mdash; HDX Project API 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="HDX Project API 0.1 documentation" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="hdx-data-package">
+<h1>hdx.data package<a class="headerlink" href="#hdx-data-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-hdx.data.dataset">
+<span id="hdx-data-dataset-module"></span><h2>hdx.data.dataset module<a class="headerlink" href="#module-hdx.data.dataset" title="Permalink to this headline">¶</a></h2>
+<p>Dataset class containing all logic for creating, checking, and updating datasets.</p>
+<p>It also handles resource and gallery items.</p>
+<dl class="class">
+<dt id="hdx.data.dataset.Dataset">
+<em class="property">class </em><code class="descclassname">hdx.data.dataset.</code><code class="descname">Dataset</code><span class="sig-paren">(</span><em>configuration: hdx.configuration.Configuration</em>, <em>initial_data: typing.Union[dict</em>, <em>NoneType] = None</em>, <em>include_gallery: typing.Union[bool</em>, <em>NoneType] = True</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#hdx.data.hdxobject.HDXObject" title="hdx.data.hdxobject.HDXObject"><code class="xref py py-class docutils literal"><span class="pre">hdx.data.hdxobject.HDXObject</span></code></a></p>
+<p>Dataset class enabling operations on datasets and associated resources and gallery items.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>configuration</strong> (<a class="reference internal" href="hdx.html#hdx.configuration.Configuration" title="hdx.configuration.Configuration"><em>Configuration</em></a>) &#8211; HDX Configuration</li>
+<li><strong>initial_data</strong> (<em>Optional[dict]</em>) &#8211; Initial dataset metadata dictionary. Defaults to None.</li>
+<li><strong>include_gallery</strong> (<em>Optional[bool]</em>) &#8211; Whether to include gallery items in dataset. Defaults to True.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="hdx.data.dataset.Dataset.action_url">
+<code class="descname">action_url</code><em class="property"> = {'show': 'package_show?id=', 'update': 'package_update', 'create': 'package_create'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.action_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.dataset.Dataset.add_update_gallery">
+<code class="descname">add_update_gallery</code><span class="sig-paren">(</span><em>gallery: typing.List[typing.Any]</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.add_update_gallery" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add new or update existing gallery items with new metadata to the dataset</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>gallery</strong> (<em>List[Any]</em>) &#8211; Gallery metadata from a list of either GalleryItem objects or dictionaries</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.dataset.Dataset.add_update_galleryitem">
+<code class="descname">add_update_galleryitem</code><span class="sig-paren">(</span><em>galleryitem</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.dataset.Dataset.add_update_galleryitem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add new or update existing gallery item in dataset with new metadata</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>galleryitem</strong> (<em>Any</em>) &#8211; Gallery item metadata either from a GalleryItem object or a dictionary</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.dataset.Dataset.add_update_resource">
+<code class="descname">add_update_resource</code><span class="sig-paren">(</span><em>resource: typing.Any</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.dataset.Dataset.add_update_resource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add new or update existing resource in dataset with new metadata</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>resource</strong> (<em>Any</em>) &#8211; Resource metadata either from a Resource object or a dictionary</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.dataset.Dataset.add_update_resources">
+<code class="descname">add_update_resources</code><span class="sig-paren">(</span><em>resources: typing.List[typing.Any]</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.dataset.Dataset.add_update_resources" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add new or update existing resources with new metadata to the dataset</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>resources</strong> (<em>List[Any]</em>) &#8211; Resources metadata from a list of either Resource objects or dictionaries</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.dataset.Dataset.check_required_fields">
+<code class="descname">check_required_fields</code><span class="sig-paren">(</span><em>ignore_fields: typing.List[str] = []</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.dataset.Dataset.check_required_fields" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check that metadata for dataset and its resources and gallery is complete</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ignore_fields</strong> (<em>List[str]</em>) &#8211; Any fields to ignore in the check. Default is empty list.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.dataset.Dataset.create_in_hdx">
+<code class="descname">create_in_hdx</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.dataset.Dataset.create_in_hdx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if dataset exists in HDX and if so, update it, otherwise create it</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.dataset.Dataset.delete_from_hdx">
+<code class="descname">delete_from_hdx</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.dataset.Dataset.delete_from_hdx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes a dataset from HDX.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.dataset.Dataset.delete_galleryitem">
+<code class="descname">delete_galleryitem</code><span class="sig-paren">(</span><em>identifier: str</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.dataset.Dataset.delete_galleryitem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete a gallery item from the dataset</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>identifier</strong> (<em>str</em>) &#8211; Id of gallery item to delete</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.dataset.Dataset.delete_resource">
+<code class="descname">delete_resource</code><span class="sig-paren">(</span><em>identifier: str</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.dataset.Dataset.delete_resource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete a resource from the dataset</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>identifier</strong> (<em>str</em>) &#8211; Id of resource to delete</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.dataset.Dataset.get_gallery">
+<code class="descname">get_gallery</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; typing.List[hdx.data.galleryitem.GalleryItem]<a class="headerlink" href="#hdx.data.dataset.Dataset.get_gallery" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get dataset&#8217;s gallery</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">List of GalleryItem objects</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">List[GalleryItem]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.dataset.Dataset.get_resources">
+<code class="descname">get_resources</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; typing.List[hdx.data.resource.Resource]<a class="headerlink" href="#hdx.data.dataset.Dataset.get_resources" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get dataset&#8217;s resources</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">List of Resource objects</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">List[Resource]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.dataset.Dataset.init_gallery">
+<code class="descname">init_gallery</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.dataset.Dataset.init_gallery" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialise self.gallery list</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.dataset.Dataset.init_resources">
+<code class="descname">init_resources</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.dataset.Dataset.init_resources" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialise self.resources list</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.dataset.Dataset.load_from_hdx">
+<code class="descname">load_from_hdx</code><span class="sig-paren">(</span><em>id_or_name: str</em><span class="sig-paren">)</span> &rarr; bool<a class="headerlink" href="#hdx.data.dataset.Dataset.load_from_hdx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads the dataset given by either id or name from HDX</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>id_or_name</strong> (<em>str</em>) &#8211; Either id or name of dataset</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if loaded, False if not</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.dataset.Dataset.separate_gallery">
+<code class="descname">separate_gallery</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.separate_gallery" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move contents of gallery key in internal dictionary into self.gallery</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.dataset.Dataset.separate_resources">
+<code class="descname">separate_resources</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.dataset.Dataset.separate_resources" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move contents of resources key in internal dictionary into self.resources</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.dataset.Dataset.update_in_hdx">
+<code class="descname">update_in_hdx</code><span class="sig-paren">(</span><em>update_resources: typing.Union[bool</em>, <em>NoneType] = True</em>, <em>update_gallery: typing.Union[bool</em>, <em>NoneType] = True</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.dataset.Dataset.update_in_hdx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if dataset exists in HDX and if so, update it</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>update_resources</strong> (<em>Optional[bool]</em>) &#8211; Whether to update resources. Defaults to True.</li>
+<li><strong>update_gallery</strong> (<em>Optional[bool]</em>) &#8211; Whether to update resources. Defaults to True.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.dataset.Dataset.update_json">
+<code class="descname">update_json</code><span class="sig-paren">(</span><em>path: typing.Union[str</em>, <em>NoneType] = 'config/hdx_dataset_static.json'</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.dataset.Dataset.update_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update dataset metadata with static metadata from JSON file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>Optional[str]</em>) &#8211; Path to JSON dataset metadata. Defaults to config/hdx_dataset_static.json.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.dataset.Dataset.update_yaml">
+<code class="descname">update_yaml</code><span class="sig-paren">(</span><em>path: typing.Union[str</em>, <em>NoneType] = 'config/hdx_dataset_static.yml'</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.dataset.Dataset.update_yaml" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update dataset metadata with static metadata from YAML file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>Optional[str]</em>) &#8211; Path to YAML dataset metadata. Defaults to config/hdx_dataset_static.yml.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-hdx.data.galleryitem">
+<span id="hdx-data-galleryitem-module"></span><h2>hdx.data.galleryitem module<a class="headerlink" href="#module-hdx.data.galleryitem" title="Permalink to this headline">¶</a></h2>
+<p>GalleryItem class containing all logic for creating, checking, and updating gallery items.</p>
+<dl class="class">
+<dt id="hdx.data.galleryitem.GalleryItem">
+<em class="property">class </em><code class="descclassname">hdx.data.galleryitem.</code><code class="descname">GalleryItem</code><span class="sig-paren">(</span><em>configuration: hdx.configuration.Configuration</em>, <em>initial_data: typing.Union[dict</em>, <em>NoneType] = None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.galleryitem.GalleryItem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#hdx.data.hdxobject.HDXObject" title="hdx.data.hdxobject.HDXObject"><code class="xref py py-class docutils literal"><span class="pre">hdx.data.hdxobject.HDXObject</span></code></a></p>
+<p>GalleryItem class containing all logic for creating, checking, and updating gallery items.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>configuration</strong> (<a class="reference internal" href="hdx.html#hdx.configuration.Configuration" title="hdx.configuration.Configuration"><em>Configuration</em></a>) &#8211; HDX Configuration</li>
+<li><strong>initial_data</strong> (<em>Optional[dict]</em>) &#8211; Initial gallery item metadata dictionary. Defaults to None.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="hdx.data.galleryitem.GalleryItem.action_url">
+<code class="descname">action_url</code><em class="property"> = {'show': 'related_show?id=', 'update': 'related_update', 'create': 'related_create', 'list': 'related_list?id='}</em><a class="headerlink" href="#hdx.data.galleryitem.GalleryItem.action_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.galleryitem.GalleryItem.check_required_fields">
+<code class="descname">check_required_fields</code><span class="sig-paren">(</span><em>ignore_fields: typing.List[str] = []</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.galleryitem.GalleryItem.check_required_fields" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check that metadata for gallery item is complete</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ignore_fields</strong> (<em>List[str]</em>) &#8211; Any fields to ignore in the check. Default is empty list.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.galleryitem.GalleryItem.create_in_hdx">
+<code class="descname">create_in_hdx</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.galleryitem.GalleryItem.create_in_hdx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if gallery item exists in HDX and if so, update it, otherwise create it</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.galleryitem.GalleryItem.delete_from_hdx">
+<code class="descname">delete_from_hdx</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.galleryitem.GalleryItem.delete_from_hdx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes a gallery item from HDX.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.galleryitem.GalleryItem.load_from_hdx">
+<code class="descname">load_from_hdx</code><span class="sig-paren">(</span><em>identifier: str</em><span class="sig-paren">)</span> &rarr; bool<a class="headerlink" href="#hdx.data.galleryitem.GalleryItem.load_from_hdx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads the gallery item given by identifier from HDX</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>identifier</strong> (<em>str</em>) &#8211; Identifier of gallery item</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if loaded, False if not</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.galleryitem.GalleryItem.update_in_hdx">
+<code class="descname">update_in_hdx</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.galleryitem.GalleryItem.update_in_hdx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if gallery item exists in HDX and if so, update it</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.galleryitem.GalleryItem.update_json">
+<code class="descname">update_json</code><span class="sig-paren">(</span><em>path: str = 'config/hdx_galleryitem_static.json'</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.galleryitem.GalleryItem.update_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update gallery item metadata with static metadata from JSON file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>Optional[str]</em>) &#8211; Path to JSON dataset metadata. Defaults to config/hdx_galleryitem_static.json.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.galleryitem.GalleryItem.update_yaml">
+<code class="descname">update_yaml</code><span class="sig-paren">(</span><em>path: str = 'config/hdx_galleryitem_static.yml'</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.galleryitem.GalleryItem.update_yaml" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update gallery item metadata with static metadata from YAML file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>Optional[str]</em>) &#8211; Path to YAML dataset metadata. Defaults to config/hdx_galleryitem_static.yml.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-hdx.data.hdxobject">
+<span id="hdx-data-hdxobject-module"></span><h2>hdx.data.hdxobject module<a class="headerlink" href="#module-hdx.data.hdxobject" title="Permalink to this headline">¶</a></h2>
+<p>HDXObject abstract class containing helper functions for creating, checking, and updating HDX objects.
+New HDX objects should extend this in similar fashion to Resource for example.</p>
+<dl class="exception">
+<dt id="hdx.data.hdxobject.HDXError">
+<em class="property">exception </em><code class="descclassname">hdx.data.hdxobject.</code><code class="descname">HDXError</code><a class="headerlink" href="#hdx.data.hdxobject.HDXError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">Exception</span></code></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="hdx.data.hdxobject.HDXObject">
+<em class="property">class </em><code class="descclassname">hdx.data.hdxobject.</code><code class="descname">HDXObject</code><span class="sig-paren">(</span><em>configuration: hdx.configuration.Configuration</em>, <em>action_url: dict</em>, <em>initial_data: dict</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.hdxobject.HDXObject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">collections.UserDict</span></code></p>
+<p>HDXObject abstract class containing helper functions for creating, checking, and updating HDX objects.
+New HDX objects should extend this in similar fashion to Resource for example.</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>Args:</dt>
+<dd>configuration (Configuration): HDX Configuration
+action_url (dict): Dictionary of CKAN actions that HDX object can perform
+initial_data (dict): Initial metadata dictionary</dd>
+</dl>
+</div></blockquote>
+<dl class="attribute">
+<dt id="hdx.data.hdxobject.HDXObject.action_api_url">
+<code class="descname">action_api_url</code><em class="property"> = '/api/3/action/'</em><a class="headerlink" href="#hdx.data.hdxobject.HDXObject.action_api_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.hdxobject.HDXObject.check_required_fields">
+<code class="descname">check_required_fields</code><span class="sig-paren">(</span><em>ignore_fields: typing.List[str] = []</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.hdxobject.HDXObject.check_required_fields" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract method to check that metadata for HDX object is complete</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ignore_fields</strong> (<em>List[str]</em>) &#8211; Any fields to ignore in the check. Default is empty list.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.hdxobject.HDXObject.create_in_hdx">
+<code class="descname">create_in_hdx</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.hdxobject.HDXObject.create_in_hdx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract method to check if resource exists in HDX and if so, update it, otherwise create it</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.hdxobject.HDXObject.delete_from_hdx">
+<code class="descname">delete_from_hdx</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.hdxobject.HDXObject.delete_from_hdx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract method to deletes a resource from HDX</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.hdxobject.HDXObject.get_old_data_dict">
+<code class="descname">get_old_data_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.hdxobject.HDXObject.get_old_data_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get previous internal dictionary</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Previous internal dictionary</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dict</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.hdxobject.HDXObject.load_from_hdx">
+<code class="descname">load_from_hdx</code><span class="sig-paren">(</span><em>id_field: str</em><span class="sig-paren">)</span> &rarr; bool<a class="headerlink" href="#hdx.data.hdxobject.HDXObject.load_from_hdx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract method to load the HDX object given by identifier from HDX</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>id_field</strong> (<em>str</em>) &#8211; HDX object identifier</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if loaded, False if not</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.hdxobject.HDXObject.update_in_hdx">
+<code class="descname">update_in_hdx</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.hdxobject.HDXObject.update_in_hdx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract method to check if HDX object exists in HDX and if so, update it</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.hdxobject.HDXObject.update_json">
+<code class="descname">update_json</code><span class="sig-paren">(</span><em>path: str</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.hdxobject.HDXObject.update_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update metadata with static metadata from JSON file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>str</em>) &#8211; Path to JSON dataset metadata</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.hdxobject.HDXObject.update_yaml">
+<code class="descname">update_yaml</code><span class="sig-paren">(</span><em>path: str</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.hdxobject.HDXObject.update_yaml" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update metadata with static metadata from YAML file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>str</em>) &#8211; Path to YAML dataset metadata</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-hdx.data.resource">
+<span id="hdx-data-resource-module"></span><h2>hdx.data.resource module<a class="headerlink" href="#module-hdx.data.resource" title="Permalink to this headline">¶</a></h2>
+<p>Resource class containing all logic for creating, checking, and updating resources.</p>
+<dl class="class">
+<dt id="hdx.data.resource.Resource">
+<em class="property">class </em><code class="descclassname">hdx.data.resource.</code><code class="descname">Resource</code><span class="sig-paren">(</span><em>configuration: hdx.configuration.Configuration</em>, <em>initial_data: typing.Union[dict</em>, <em>NoneType] = None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#hdx.data.hdxobject.HDXObject" title="hdx.data.hdxobject.HDXObject"><code class="xref py py-class docutils literal"><span class="pre">hdx.data.hdxobject.HDXObject</span></code></a></p>
+<p>Resource class containing all logic for creating, checking, and updating resources.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>configuration</strong> (<a class="reference internal" href="hdx.html#hdx.configuration.Configuration" title="hdx.configuration.Configuration"><em>Configuration</em></a>) &#8211; HDX Configuration</li>
+<li><strong>initial_data</strong> (<em>Optional[dict]</em>) &#8211; Initial resource metadata dictionary. Defaults to None.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="hdx.data.resource.Resource.action_url">
+<code class="descname">action_url</code><em class="property"> = {'show': 'resource_show?id=', 'update': 'resource_update', 'create': 'resource_create'}</em><a class="headerlink" href="#hdx.data.resource.Resource.action_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.resource.Resource.check_required_fields">
+<code class="descname">check_required_fields</code><span class="sig-paren">(</span><em>ignore_fields: typing.List[str] = []</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.check_required_fields" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check that metadata for resource is complete</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ignore_fields</strong> (<em>List[str]</em>) &#8211; Any fields to ignore in the check. Default is empty list.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.resource.Resource.create_datastore">
+<code class="descname">create_datastore</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.create_datastore" title="Permalink to this definition">¶</a></dt>
+<dd><p>TODO</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.resource.Resource.create_in_hdx">
+<code class="descname">create_in_hdx</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.create_in_hdx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if resource exists in HDX and if so, update it, otherwise create it</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.resource.Resource.delete_from_hdx">
+<code class="descname">delete_from_hdx</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.delete_from_hdx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes a resource from HDX</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.resource.Resource.load_from_hdx">
+<code class="descname">load_from_hdx</code><span class="sig-paren">(</span><em>identifier: str</em><span class="sig-paren">)</span> &rarr; bool<a class="headerlink" href="#hdx.data.resource.Resource.load_from_hdx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads the resource given by identifier from HDX</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>identifier</strong> (<em>str</em>) &#8211; Identifier of resource</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if loaded, False if not</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.resource.Resource.update_in_hdx">
+<code class="descname">update_in_hdx</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.update_in_hdx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if resource exists in HDX and if so, update it</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.resource.Resource.update_json">
+<code class="descname">update_json</code><span class="sig-paren">(</span><em>path: str = 'config/hdx_resource_static.json'</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.update_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update resource metadata with static metadata from JSON file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>Optional[str]</em>) &#8211; Path to JSON dataset metadata. Defaults to config/hdx_resource_static.json.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.resource.Resource.update_yaml">
+<code class="descname">update_yaml</code><span class="sig-paren">(</span><em>path: str = 'config/hdx_resource_static.yml'</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.update_yaml" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update resource metadata with static metadata from YAML file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>Optional[str]</em>) &#8211; Path to YAML dataset metadata. Defaults to config/hdx_resource_static.yml.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-hdx.data">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-hdx.data" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">hdx.data package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-hdx.data.dataset">hdx.data.dataset module</a></li>
+<li><a class="reference internal" href="#module-hdx.data.galleryitem">hdx.data.galleryitem module</a></li>
+<li><a class="reference internal" href="#module-hdx.data.hdxobject">hdx.data.hdxobject module</a></li>
+<li><a class="reference internal" href="#module-hdx.data.resource">hdx.data.resource module</a></li>
+<li><a class="reference internal" href="#module-hdx.data">Module contents</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/hdx.data.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Michael Rans.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.8</a>
+      
+      |
+      <a href="_sources/hdx.data.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

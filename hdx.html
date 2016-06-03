@@ -1,0 +1,262 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>hdx package &mdash; HDX Project API 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="HDX Project API 0.1 documentation" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="hdx-package">
+<h1>hdx package<a class="headerlink" href="#hdx-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="hdx.collector.html">hdx.collector package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hdx.collector.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hdx.collector.html#module-hdx.collector.scraperwiki">hdx.collector.scraperwiki module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hdx.collector.html#module-hdx.collector.simple">hdx.collector.simple module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hdx.collector.html#module-hdx.collector">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hdx.data.html">hdx.data package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hdx.data.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hdx.data.html#module-hdx.data.dataset">hdx.data.dataset module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hdx.data.html#module-hdx.data.galleryitem">hdx.data.galleryitem module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hdx.data.html#module-hdx.data.hdxobject">hdx.data.hdxobject module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hdx.data.html#module-hdx.data.resource">hdx.data.resource module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hdx.data.html#module-hdx.data">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hdx.utilities.html">hdx.utilities package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hdx.utilities.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hdx.utilities.html#module-hdx.utilities.dictionary">hdx.utilities.dictionary module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hdx.utilities.html#module-hdx.utilities.json">hdx.utilities.json module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hdx.utilities.html#module-hdx.utilities.loader">hdx.utilities.loader module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hdx.utilities.html#module-hdx.utilities">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-hdx.configuration">
+<span id="hdx-configuration-module"></span><h2>hdx.configuration module<a class="headerlink" href="#module-hdx.configuration" title="Permalink to this headline">¶</a></h2>
+<p>Configuration for HDX</p>
+<dl class="class">
+<dt id="hdx.configuration.Configuration">
+<em class="property">class </em><code class="descclassname">hdx.configuration.</code><code class="descname">Configuration</code><span class="sig-paren">(</span><em>hdx_key_file: typing.Union[str</em>, <em>NoneType] = '/home/mcarans/.hdxkey'</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.configuration.Configuration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">collections.UserDict</span></code></p>
+<p>Configuration for HDX</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>hdx_key_file</strong> (<em>Optional[str]</em>) &#8211; Path to HDX key file. Defaults to ~/.hdxkey</li>
+<li><strong>**kwargs</strong> &#8211; See below</li>
+<li><strong>hdx_config_dict</strong> (<em>dict</em>) &#8211; HDX configuration dictionary OR</li>
+<li><strong>hdx_config_json</strong> (<em>str</em>) &#8211; Path to JSON HDX configuration OR</li>
+<li><strong>hdx_config_yaml</strong> (<em>str</em>) &#8211; Path to YAML HDX configuration. Defaults to internal hdx_configuration.yml.</li>
+<li><strong>scraper_config_dict</strong> (<em>dict</em>) &#8211; Scraper configuration dictionary OR</li>
+<li><strong>scraper_config_json</strong> (<em>str</em>) &#8211; Path to JSON Scraper configuration OR</li>
+<li><strong>scraper_config_yaml</strong> (<em>str</em>) &#8211; Path to YAML Scraper configuration. Defaults to internal scraper_configuration.yml.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="hdx.configuration.Configuration.get_api_key">
+<code class="descname">get_api_key</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; str<a class="headerlink" href="#hdx.configuration.Configuration.get_api_key" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">HDX api key</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.configuration.Configuration.get_hdx_site">
+<code class="descname">get_hdx_site</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; str<a class="headerlink" href="#hdx.configuration.Configuration.get_hdx_site" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">HDX web site url</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="hdx.configuration.Configuration.load_api_key">
+<em class="property">static </em><code class="descname">load_api_key</code><span class="sig-paren">(</span><em>path: str</em><span class="sig-paren">)</span> &rarr; str<a class="headerlink" href="#hdx.configuration.Configuration.load_api_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load configuration parameters.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>str</em>) &#8211; Path to HDX key</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">HDX api key</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="hdx.configuration.ConfigurationError">
+<em class="property">exception </em><code class="descclassname">hdx.configuration.</code><code class="descname">ConfigurationError</code><a class="headerlink" href="#hdx.configuration.ConfigurationError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">Exception</span></code></p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-hdx.logging">
+<span id="hdx-logging-module"></span><h2>hdx.logging module<a class="headerlink" href="#module-hdx.logging" title="Permalink to this headline">¶</a></h2>
+<p>Configuration of logging</p>
+<dl class="exception">
+<dt id="hdx.logging.LoggingError">
+<em class="property">exception </em><code class="descclassname">hdx.logging.</code><code class="descname">LoggingError</code><a class="headerlink" href="#hdx.logging.LoggingError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">Exception</span></code></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="hdx.logging.setup_logging">
+<code class="descclassname">hdx.logging.</code><code class="descname">setup_logging</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.logging.setup_logging" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setup logging configuration</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>**kwargs</strong> &#8211; See below</li>
+<li><strong>logging_config_dict</strong> (<em>dict</em>) &#8211; Logging configuration dictionary OR</li>
+<li><strong>logging_config_json</strong> (<em>str</em>) &#8211; Path to JSON Logging configuration OR</li>
+<li><strong>logging_config_yaml</strong> (<em>str</em>) &#8211; Path to YAML Logging configuration. Defaults to internal logging_configuration.yml.</li>
+<li><strong>smtp_config_dict</strong> (<em>dict</em>) &#8211; Email Logging configuration dictionary OR</li>
+<li><strong>smtp_config_json</strong> (<em>str</em>) &#8211; Path to JSON Email Logging configuration OR</li>
+<li><strong>smtp_config_yaml</strong> (<em>str</em>) &#8211; Path to YAML Email Logging configuration. Defaults to internal smtp_configuration.yml.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-hdx">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-hdx" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">hdx package</a><ul>
+<li><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-hdx.configuration">hdx.configuration module</a></li>
+<li><a class="reference internal" href="#module-hdx.logging">hdx.logging module</a></li>
+<li><a class="reference internal" href="#module-hdx">Module contents</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/hdx.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Michael Rans.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.8</a>
+      
+      |
+      <a href="_sources/hdx.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

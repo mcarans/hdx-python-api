@@ -1,0 +1,30 @@
+hdx.collector package
+=====================
+
+Submodules
+----------
+
+hdx.collector.scraperwiki module
+--------------------------------
+
+.. automodule:: hdx.collector.scraperwiki
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+hdx.collector.simple module
+---------------------------
+
+.. automodule:: hdx.collector.simple
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: hdx.collector
+    :members:
+    :undoc-members:
+    :show-inheritance:
