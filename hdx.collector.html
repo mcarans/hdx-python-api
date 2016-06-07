@@ -45,17 +45,17 @@
 </div>
 <div class="section" id="module-hdx.collector.scraperwiki">
 <span id="hdx-collector-scraperwiki-module"></span><h2>hdx.collector.scraperwiki module<a class="headerlink" href="#module-hdx.collector.scraperwiki" title="Permalink to this headline">¶</a></h2>
-<p>Wrapper that handles ScraperWiki and calls scraper main function</p>
+<p>Wrapper that handles ScraperWiki and calls collector main function</p>
 <dl class="function">
 <dt id="hdx.collector.scraperwiki.wrapper">
-<code class="descclassname">hdx.collector.scraperwiki.</code><code class="descname">wrapper</code><span class="sig-paren">(</span><em>scrapermainfn: typing.Callable[[hdx.configuration.Configuration], NoneType], **kwargs</em><span class="sig-paren">)</span> &rarr; bool<a class="headerlink" href="#hdx.collector.scraperwiki.wrapper" title="Permalink to this definition">¶</a></dt>
-<dd><p>Wrapper that handles ScraperWiki and calls scraper main function</p>
+<code class="descclassname">hdx.collector.scraperwiki.</code><code class="descname">wrapper</code><span class="sig-paren">(</span><em>collectormainfn: typing.Callable[[hdx.configuration.Configuration], NoneType], **kwargs</em><span class="sig-paren">)</span> &rarr; bool<a class="headerlink" href="#hdx.collector.scraperwiki.wrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wrapper that handles ScraperWiki and calls collector main function</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>scrapermainfn</strong> (<em>(configuration</em>) &#8211; main function of scraper</li>
+<li><strong>collectormainfn</strong> (<em>(configuration</em>) &#8211; main function of collector</li>
 <li><strong>**kwargs</strong> &#8211; configuration parameters to pass to HDX Configuration class</li>
 </ul>
 </td>
@@ -73,17 +73,17 @@
 </div>
 <div class="section" id="module-hdx.collector.simple">
 <span id="hdx-collector-simple-module"></span><h2>hdx.collector.simple module<a class="headerlink" href="#module-hdx.collector.simple" title="Permalink to this headline">¶</a></h2>
-<p>Wrapper to simplify scraper setup that calls scraper main function</p>
+<p>Wrapper to simplify collector setup that calls collector main function</p>
 <dl class="function">
 <dt id="hdx.collector.simple.wrapper">
-<code class="descclassname">hdx.collector.simple.</code><code class="descname">wrapper</code><span class="sig-paren">(</span><em>scrapermainfn: typing.Callable[[hdx.configuration.Configuration], NoneType], **kwargs</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.collector.simple.wrapper" title="Permalink to this definition">¶</a></dt>
-<dd><p>Wrapper to simplify scraper setup that calls scraper main function</p>
+<code class="descclassname">hdx.collector.simple.</code><code class="descname">wrapper</code><span class="sig-paren">(</span><em>collectormainfn: typing.Callable[[hdx.configuration.Configuration], NoneType], **kwargs</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.collector.simple.wrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wrapper to simplify collector setup that calls collector main function</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>scrapermainfn</strong> (<em>(configuration</em>) &#8211; main function of scraper</li>
+<li><strong>collectormainfn</strong> (<em>(configuration</em>) &#8211; main function of collector</li>
 <li><strong>**kwargs</strong> &#8211; configuration parameters to pass to HDX Configuration class</li>
 </ul>
 </td>
