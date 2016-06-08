@@ -265,19 +265,25 @@
 </table>
 </dd></dl>
 
-<dl class="method">
-<dt id="hdx.data.dataset.Dataset.load_from_hdx">
-<code class="descname">load_from_hdx</code><span class="sig-paren">(</span><em>id_or_name: str</em><span class="sig-paren">)</span> &rarr; bool<a class="headerlink" href="#hdx.data.dataset.Dataset.load_from_hdx" title="Permalink to this definition">¶</a></dt>
-<dd><p>Loads the dataset given by either id or name from HDX</p>
+<dl class="staticmethod">
+<dt id="hdx.data.dataset.Dataset.read_from_hdx">
+<em class="property">static </em><code class="descname">read_from_hdx</code><span class="sig-paren">(</span><em>configuration: hdx.configuration.Configuration</em>, <em>identifier: str</em><span class="sig-paren">)</span> &rarr; typing.Union[typing.Dataset, NoneType]<a class="headerlink" href="#hdx.data.dataset.Dataset.read_from_hdx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the dataset given by identifier from HDX and returns Dataset object</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>id_or_name</strong> (<em>str</em>) &#8211; Either id or name of dataset</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>configuration</strong> (<a class="reference internal" href="hdx.html#hdx.configuration.Configuration" title="hdx.configuration.Configuration"><em>Configuration</em></a>) &#8211; HDX Configuration</li>
+<li><strong>identifier</strong> (<em>str</em>) &#8211; Identifier of dataset</li>
+</ul>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if loaded, False if not</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Dataset object if successful read, None if not</p>
+</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Optional[Dataset]</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -431,19 +437,25 @@
 </table>
 </dd></dl>
 
-<dl class="method">
-<dt id="hdx.data.galleryitem.GalleryItem.load_from_hdx">
-<code class="descname">load_from_hdx</code><span class="sig-paren">(</span><em>identifier: str</em><span class="sig-paren">)</span> &rarr; bool<a class="headerlink" href="#hdx.data.galleryitem.GalleryItem.load_from_hdx" title="Permalink to this definition">¶</a></dt>
-<dd><p>Loads the gallery item given by identifier from HDX</p>
+<dl class="staticmethod">
+<dt id="hdx.data.galleryitem.GalleryItem.read_from_hdx">
+<em class="property">static </em><code class="descname">read_from_hdx</code><span class="sig-paren">(</span><em>configuration: hdx.configuration.Configuration</em>, <em>identifier: str</em><span class="sig-paren">)</span> &rarr; typing.Union[typing.GalleryItem, NoneType]<a class="headerlink" href="#hdx.data.galleryitem.GalleryItem.read_from_hdx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the gallery item given by identifier from HDX and returns GalleryItem object</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>identifier</strong> (<em>str</em>) &#8211; Identifier of gallery item</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>configuration</strong> (<a class="reference internal" href="hdx.html#hdx.configuration.Configuration" title="hdx.configuration.Configuration"><em>Configuration</em></a>) &#8211; HDX Configuration</li>
+<li><strong>identifier</strong> (<em>str</em>) &#8211; Identifier of gallery item</li>
+</ul>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if loaded, False if not</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">GalleryItem object if successful read, None if not</p>
+</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Optional[GalleryItem]</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -585,7 +597,7 @@ initial_data (dict): Initial metadata dictionary</dd>
 <dl class="method">
 <dt id="hdx.data.hdxobject.HDXObject.load_from_hdx">
 <code class="descname">load_from_hdx</code><span class="sig-paren">(</span><em>id_field: str</em><span class="sig-paren">)</span> &rarr; bool<a class="headerlink" href="#hdx.data.hdxobject.HDXObject.load_from_hdx" title="Permalink to this definition">¶</a></dt>
-<dd><p>Abstract method to load the HDX object given by identifier from HDX</p>
+<dd><p>Abstract method to load the HDX object given by identifier from HDX, saving any existing content in old_data</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -595,6 +607,30 @@ initial_data (dict): Initial metadata dictionary</dd>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if loaded, False if not</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="hdx.data.hdxobject.HDXObject.read_from_hdx">
+<em class="property">static </em><code class="descname">read_from_hdx</code><span class="sig-paren">(</span><em>configuration: hdx.configuration.Configuration</em>, <em>id_field: str</em><span class="sig-paren">)</span> &rarr; typing.Union[T, NoneType]<a class="headerlink" href="#hdx.data.hdxobject.HDXObject.read_from_hdx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract method to read the HDX object given by identifier from HDX and return it</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>configuration</strong> (<a class="reference internal" href="hdx.html#hdx.configuration.Configuration" title="hdx.configuration.Configuration"><em>Configuration</em></a>) &#8211; HDX Configuration</li>
+<li><strong>id_field</strong> (<em>str</em>) &#8211; HDX object identifier</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">HDX object if successful read, None if not</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Optional[T &lt;= HDXObject]</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -719,19 +755,25 @@ initial_data (dict): Initial metadata dictionary</dd>
 </table>
 </dd></dl>
 
-<dl class="method">
-<dt id="hdx.data.resource.Resource.load_from_hdx">
-<code class="descname">load_from_hdx</code><span class="sig-paren">(</span><em>identifier: str</em><span class="sig-paren">)</span> &rarr; bool<a class="headerlink" href="#hdx.data.resource.Resource.load_from_hdx" title="Permalink to this definition">¶</a></dt>
-<dd><p>Loads the resource given by identifier from HDX</p>
+<dl class="staticmethod">
+<dt id="hdx.data.resource.Resource.read_from_hdx">
+<em class="property">static </em><code class="descname">read_from_hdx</code><span class="sig-paren">(</span><em>configuration: hdx.configuration.Configuration</em>, <em>identifier: str</em><span class="sig-paren">)</span> &rarr; typing.Union[typing.Resource, NoneType]<a class="headerlink" href="#hdx.data.resource.Resource.read_from_hdx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the resource given by identifier from HDX and returns Resource object</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>identifier</strong> (<em>str</em>) &#8211; Identifier of resource</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>configuration</strong> (<a class="reference internal" href="hdx.html#hdx.configuration.Configuration" title="hdx.configuration.Configuration"><em>Configuration</em></a>) &#8211; HDX Configuration</li>
+<li><strong>identifier</strong> (<em>str</em>) &#8211; Identifier of resource</li>
+</ul>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if loaded, False if not</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Resource object if successful read, None if not</p>
+</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Optional[Resource]</p>
+</td>
 </tr>
 </tbody>
 </table>
