@@ -8,13 +8,16 @@ HDX Python API Documentation
 
 The HDX Python Library is designed to enable you to easily develop code that interacts with the Humanitarian Data Exchange platform. The major goal of the library is to make interacting with HDX as simple as possible for the end user.
 
-Contents:
----------
+Contents
+--------
 
 .. toctree::
    :maxdepth: 2
 
    hdx.rst
+   hdx.data.rst
+   hdx.collector.rst
+   hdx.utilities.rst
 
 Indices and tables
 ------------------
