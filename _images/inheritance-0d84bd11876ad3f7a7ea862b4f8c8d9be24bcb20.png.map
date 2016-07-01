@@ -1,6 +1,0 @@
-<map id="inheritance36f6c42872" name="inheritance36f6c42872">
-<area shape="rect" id="node8" href="#hdx.data.hdxobject.HDXObject" target="_top" title="HDXObject abstract class containing helper functions for creating, checking, and updating HDX objects." alt="" coords="504,80,618,94"/>
-<area shape="rect" id="node7" href="#hdx.data.dataset.Dataset" target="_top" title="Dataset class enabling operations on datasets and associated resources and gallery items." alt="" coords="655,67,753,80"/>
-<area shape="rect" id="node9" href="#hdx.data.galleryitem.GalleryItem" target="_top" title="GalleryItem class containing all logic for creating, checking, and updating gallery items." alt="" coords="643,93,765,106"/>
-<area shape="rect" id="node10" href="#hdx.data.hdxobject.HDXError" target="_top" title="hdx.data.hdxobject.HDXError" alt="" coords="3,28,112,42"/>
-</map>

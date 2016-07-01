@@ -6,8 +6,8 @@ Subpackages
 
 .. toctree::
 
-    hdx.collector
     hdx.data
+    hdx.facades
     hdx.utilities
 
 Submodules

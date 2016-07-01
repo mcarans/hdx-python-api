@@ -14,10 +14,10 @@ Contents
 .. toctree::
    :maxdepth: 1
 
-   hdx.rst
-   hdx.data.rst
-   hdx.collector.rst
-   hdx.utilities.rst
+   source/hdx.rst
+   source/hdx.data.rst
+   source/hdx.facades.rst
+   source/hdx.utilities.rst
 
 Indices and tables
 ------------------

@@ -6,29 +6,29 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>hdx.data package &mdash; HDX Python API 0.1 documentation</title>
+    <title>hdx.data package &mdash; HDX Python API 0.3 documentation</title>
     
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '0.1',
+        URL_ROOT:    '../',
+        VERSION:     '0.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
       };
     </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="HDX Python API 0.1 documentation" href="index.html" />
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="HDX Python API 0.3 documentation" href="../index.html" />
     <link rel="up" title="hdx package" href="hdx.html" />
-    <link rel="next" title="hdx.utilities package" href="hdx.utilities.html" />
-    <link rel="prev" title="hdx.collector package" href="hdx.collector.html" />
+    <link rel="next" title="hdx.facades package" href="hdx.facades.html" />
+    <link rel="prev" title="hdx package" href="hdx.html" />
    
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
@@ -561,31 +561,32 @@ New HDX objects should extend this in similar fashion to Resource for example.</
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">collections.UserDict</span></code></p>
 <p>HDXObject abstract class containing helper functions for creating, checking, and updating HDX objects.
 New HDX objects should extend this in similar fashion to Resource for example.</p>
-<blockquote>
-<div><dl class="docutils">
-<dt>Args:</dt>
-<dd>configuration (Configuration): HDX Configuration
-initial_data (dict): Initial metadata dictionary</dd>
-</dl>
-</div></blockquote>
-<dl class="attribute">
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>configuration</strong> (<a class="reference internal" href="hdx.html#hdx.configuration.Configuration" title="hdx.configuration.Configuration"><em>Configuration</em></a>) &#8211; HDX Configuration</li>
+<li><strong>initial_data</strong> (<em>dict</em>) &#8211; Initial metadata dictionary</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="staticmethod">
 <dt id="hdx.data.hdxobject.HDXObject.actions">
-<code class="descname">actions</code><a class="headerlink" href="#hdx.data.hdxobject.HDXObject.actions" title="Permalink to this definition">¶</a></dt>
-<dd><p>A decorator indicating abstract staticmethods.</p>
-<p>Similar to abstractmethod.</p>
-<p>Usage:</p>
-<blockquote>
-<div><dl class="docutils">
-<dt>class C(metaclass=ABCMeta):</dt>
-<dd><p class="first">&#64;abstractstaticmethod
-def my_abstract_staticmethod(...):</p>
-<blockquote class="last">
-<div>...</div></blockquote>
-</dd>
-</dl>
-</div></blockquote>
-<p>&#8216;abstractstaticmethod&#8217; is deprecated. Use &#8216;staticmethod&#8217; with
-&#8216;abstractmethod&#8217; instead.</p>
+<em class="property">static </em><code class="descname">actions</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; dict<a class="headerlink" href="#hdx.data.hdxobject.HDXObject.actions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dictionary of actions that can be performed on object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">dictionary of actions that can be performed on object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dict</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -648,24 +649,28 @@ def my_abstract_staticmethod(...):</p>
 </table>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="staticmethod">
 <dt id="hdx.data.hdxobject.HDXObject.read_from_hdx">
-<code class="descname">read_from_hdx</code><a class="headerlink" href="#hdx.data.hdxobject.HDXObject.read_from_hdx" title="Permalink to this definition">¶</a></dt>
-<dd><p>A decorator indicating abstract staticmethods.</p>
-<p>Similar to abstractmethod.</p>
-<p>Usage:</p>
-<blockquote>
-<div><dl class="docutils">
-<dt>class C(metaclass=ABCMeta):</dt>
-<dd><p class="first">&#64;abstractstaticmethod
-def my_abstract_staticmethod(...):</p>
-<blockquote class="last">
-<div>...</div></blockquote>
-</dd>
-</dl>
-</div></blockquote>
-<p>&#8216;abstractstaticmethod&#8217; is deprecated. Use &#8216;staticmethod&#8217; with
-&#8216;abstractmethod&#8217; instead.</p>
+<em class="property">static </em><code class="descname">read_from_hdx</code><span class="sig-paren">(</span><em>configuration: hdx.configuration.Configuration</em>, <em>id_field: str</em><span class="sig-paren">)</span> &rarr; typing.Union[T, NoneType]<a class="headerlink" href="#hdx.data.hdxobject.HDXObject.read_from_hdx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract method to read the HDX object given by identifier from HDX and return it</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>configuration</strong> (<a class="reference internal" href="hdx.html#hdx.configuration.Configuration" title="hdx.configuration.Configuration"><em>Configuration</em></a>) &#8211; HDX Configuration</li>
+<li><strong>id_field</strong> (<em>str</em>) &#8211; HDX object identifier</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">HDX object if successful read, None if not</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Optional[T &lt;= HDXObject]</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -887,7 +892,7 @@ def my_abstract_staticmethod(...):</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Table Of Contents</a></h3>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">hdx.data package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
@@ -902,10 +907,10 @@ def my_abstract_staticmethod(...):</p>
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
-  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
   <li><a href="hdx.html">hdx package</a><ul>
-      <li>Previous: <a href="hdx.collector.html" title="previous chapter">hdx.collector package</a></li>
-      <li>Next: <a href="hdx.utilities.html" title="next chapter">hdx.utilities package</a></li>
+      <li>Previous: <a href="hdx.html" title="previous chapter">hdx package</a></li>
+      <li>Next: <a href="hdx.facades.html" title="next chapter">hdx.facades package</a></li>
   </ul></li>
   </ul></li>
 </ul>
@@ -913,13 +918,13 @@ def my_abstract_staticmethod(...):</p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/hdx.data.txt"
+      <li><a href="../_sources/source/hdx.data.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
-    <form class="search" action="search.html" method="get">
+    <form class="search" action="../search.html" method="get">
       <div><input type="text" name="q" /></div>
       <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
@@ -939,7 +944,7 @@ def my_abstract_staticmethod(...):</p>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.8</a>
       
       |
-      <a href="_sources/hdx.data.txt"
+      <a href="../_sources/source/hdx.data.txt"
           rel="nofollow">Page source</a>
     </div>
 

@@ -12,14 +12,6 @@ hdx.utilities.dictionary module
     :undoc-members:
     :show-inheritance:
 
-hdx.utilities.json module
--------------------------
-
-.. automodule:: hdx.utilities.json
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
 hdx.utilities.loader module
 ---------------------------
 

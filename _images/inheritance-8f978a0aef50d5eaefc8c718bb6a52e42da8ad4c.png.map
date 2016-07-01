@@ -1,4 +1,0 @@
-<map id="inheritance8cdd0ca901" name="inheritance8cdd0ca901">
-<area shape="rect" id="node7" href="#hdx.data.hdxobject.HDXObject" target="_top" title="HDXObject abstract class containing helper functions for creating, checking, and updating HDX objects." alt="" coords="511,30,629,43"/>
-<area shape="rect" id="node8" href="#hdx.data.resource.Resource" target="_top" title="Resource class containing all logic for creating, checking, and updating resources." alt="" coords="656,30,765,43"/>
-</map>

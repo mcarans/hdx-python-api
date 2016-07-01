@@ -6,26 +6,28 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>hdx.utilities package &mdash; HDX Python API 0.1 documentation</title>
+    <title>hdx.utilities package &mdash; HDX Python API 0.3 documentation</title>
     
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '0.1',
+        URL_ROOT:    '../',
+        VERSION:     '0.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
       };
     </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="HDX Python API 0.1 documentation" href="index.html" />
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="HDX Python API 0.3 documentation" href="../index.html" />
+    <link rel="up" title="hdx package" href="hdx.html" />
+    <link rel="prev" title="hdx.facades package" href="hdx.facades.html" />
    
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
@@ -112,37 +114,6 @@
 </tr>
 </tbody>
 </table>
-</dd></dl>
-
-</div>
-<div class="section" id="module-hdx.utilities.json">
-<span id="hdx-utilities-json-module"></span><h2>hdx.utilities.json module<a class="headerlink" href="#module-hdx.utilities.json" title="Permalink to this headline">¶</a></h2>
-<p>Extend JSON encoding to support UserDict</p>
-<p>Usage example: json.dumps(data, cls=EnhancedJSONEncoder)</p>
-<dl class="class">
-<dt id="hdx.utilities.json.EnhancedJSONEncoder">
-<em class="property">class </em><code class="descclassname">hdx.utilities.json.</code><code class="descname">EnhancedJSONEncoder</code><span class="sig-paren">(</span><em>skipkeys=False</em>, <em>ensure_ascii=True</em>, <em>check_circular=True</em>, <em>allow_nan=True</em>, <em>sort_keys=False</em>, <em>indent=None</em>, <em>separators=None</em>, <em>default=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.utilities.json.EnhancedJSONEncoder" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">json.encoder.JSONEncoder</span></code></p>
-<p>Extend JSON encoding to support UserDict</p>
-<p>Usage example: json.dumps(data, cls=EnhancedJSONEncoder)</p>
-<dl class="method">
-<dt id="hdx.utilities.json.EnhancedJSONEncoder.default">
-<code class="descname">default</code><span class="sig-paren">(</span><em>obj: typing.Any</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.utilities.json.EnhancedJSONEncoder.default" title="Permalink to this definition">¶</a></dt>
-<dd><p>Override default method of JSONEncoder</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>obj</strong> (<em>Any</em>) &#8211; Any object</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Internal object dictionary if a UserDict or result of call to JSONEncoder.default</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Any</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
 </dd></dl>
 
 </div>
@@ -312,12 +283,11 @@
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Table Of Contents</a></h3>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">hdx.utilities package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
 <li><a class="reference internal" href="#module-hdx.utilities.dictionary">hdx.utilities.dictionary module</a></li>
-<li><a class="reference internal" href="#module-hdx.utilities.json">hdx.utilities.json module</a></li>
 <li><a class="reference internal" href="#module-hdx.utilities.loader">hdx.utilities.loader module</a></li>
 <li><a class="reference internal" href="#module-hdx.utilities">Module contents</a></li>
 </ul>
@@ -326,20 +296,23 @@
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
-  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="hdx.html">hdx package</a><ul>
+      <li>Previous: <a href="hdx.facades.html" title="previous chapter">hdx.facades package</a></li>
+  </ul></li>
   </ul></li>
 </ul>
 </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/hdx.utilities.txt"
+      <li><a href="../_sources/source/hdx.utilities.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
-    <form class="search" action="search.html" method="get">
+    <form class="search" action="../search.html" method="get">
       <div><input type="text" name="q" /></div>
       <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
@@ -359,7 +332,7 @@
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.8</a>
       
       |
-      <a href="_sources/hdx.utilities.txt"
+      <a href="../_sources/source/hdx.utilities.txt"
           rel="nofollow">Page source</a>
     </div>
 

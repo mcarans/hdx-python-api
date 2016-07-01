@@ -6,28 +6,28 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>hdx package &mdash; HDX Python API 0.1 documentation</title>
+    <title>hdx package &mdash; HDX Python API 0.3 documentation</title>
     
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '0.1',
+        URL_ROOT:    '../',
+        VERSION:     '0.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
       };
     </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="HDX Python API 0.1 documentation" href="index.html" />
-    <link rel="next" title="hdx.collector package" href="hdx.collector.html" />
-    <link rel="prev" title="HDX Python API Documentation" href="index.html" />
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="HDX Python API 0.3 documentation" href="../index.html" />
+    <link rel="next" title="hdx.data package" href="hdx.data.html" />
+    <link rel="prev" title="HDX Python API Documentation" href="../index.html" />
    
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
@@ -46,13 +46,6 @@
 <h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="hdx.collector.html">hdx.collector package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="hdx.collector.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hdx.collector.html#module-hdx.collector.scraperwiki">hdx.collector.scraperwiki module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hdx.collector.html#module-hdx.collector.simple">hdx.collector.simple module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hdx.collector.html#module-hdx.collector">Module contents</a></li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="hdx.data.html">hdx.data package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="hdx.data.html#submodules">Submodules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hdx.data.html#module-hdx.data.dataset">hdx.data.dataset module</a></li>
@@ -62,10 +55,16 @@
 <li class="toctree-l2"><a class="reference internal" href="hdx.data.html#module-hdx.data">Module contents</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="hdx.facades.html">hdx.facades package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hdx.facades.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hdx.facades.html#module-hdx.facades.scraperwiki">hdx.facades.scraperwiki module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hdx.facades.html#module-hdx.facades.simple">hdx.facades.simple module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hdx.facades.html#module-hdx.facades">Module contents</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="hdx.utilities.html">hdx.utilities package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="hdx.utilities.html#submodules">Submodules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hdx.utilities.html#module-hdx.utilities.dictionary">hdx.utilities.dictionary module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hdx.utilities.html#module-hdx.utilities.json">hdx.utilities.json module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hdx.utilities.html#module-hdx.utilities.loader">hdx.utilities.loader module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hdx.utilities.html#module-hdx.utilities">Module contents</a></li>
 </ul>
@@ -95,9 +94,9 @@
 <li><strong>hdx_config_dict</strong> (<em>dict</em>) &#8211; HDX configuration dictionary OR</li>
 <li><strong>hdx_config_json</strong> (<em>str</em>) &#8211; Path to JSON HDX configuration OR</li>
 <li><strong>hdx_config_yaml</strong> (<em>str</em>) &#8211; Path to YAML HDX configuration. Defaults to library&#8217;s internal hdx_configuration.yml.</li>
-<li><strong>collector_config_dict</strong> (<em>dict</em>) &#8211; Collector configuration dictionary OR</li>
-<li><strong>collector_config_json</strong> (<em>str</em>) &#8211; Path to JSON Collector configuration OR</li>
-<li><strong>collector_config_yaml</strong> (<em>str</em>) &#8211; Path to YAML Collector configuration. Defaults to config/collector_configuration.yml.</li>
+<li><strong>project_config_dict</strong> (<em>dict</em>) &#8211; Project configuration dictionary OR</li>
+<li><strong>project_config_json</strong> (<em>str</em>) &#8211; Path to JSON Project configuration OR</li>
+<li><strong>project_config_yaml</strong> (<em>str</em>) &#8211; Path to YAML Project configuration. Defaults to config/project_configuration.yml.</li>
 </ul>
 </td>
 </tr>
@@ -207,7 +206,7 @@
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Table Of Contents</a></h3>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">hdx package</a><ul>
 <li><a class="reference internal" href="#subpackages">Subpackages</a></li>
@@ -221,22 +220,22 @@
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="index.html" title="previous chapter">HDX Python API Documentation</a></li>
-      <li>Next: <a href="hdx.collector.html" title="next chapter">hdx.collector package</a></li>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="../index.html" title="previous chapter">HDX Python API Documentation</a></li>
+      <li>Next: <a href="hdx.data.html" title="next chapter">hdx.data package</a></li>
   </ul></li>
 </ul>
 </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/hdx.txt"
+      <li><a href="../_sources/source/hdx.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
-    <form class="search" action="search.html" method="get">
+    <form class="search" action="../search.html" method="get">
       <div><input type="text" name="q" /></div>
       <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
@@ -256,7 +255,7 @@
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.8</a>
       
       |
-      <a href="_sources/hdx.txt"
+      <a href="../_sources/source/hdx.txt"
           rel="nofollow">Page source</a>
     </div>
 
