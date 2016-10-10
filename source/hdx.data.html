@@ -362,6 +362,38 @@
 </dd></dl>
 
 <dl class="method">
+<dt id="hdx.data.dataset.Dataset.update_from_json">
+<code class="descname">update_from_json</code><span class="sig-paren">(</span><em>path: typing.Union[str</em>, <em>NoneType] = 'config/hdx_dataset_static.json'</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.dataset.Dataset.update_from_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update dataset metadata with static metadata from JSON file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>Optional[str]</em>) &#8211; Path to JSON dataset metadata. Defaults to config/hdx_dataset_static.json.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.dataset.Dataset.update_from_yaml">
+<code class="descname">update_from_yaml</code><span class="sig-paren">(</span><em>path: typing.Union[str</em>, <em>NoneType] = 'config/hdx_dataset_static.yml'</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.dataset.Dataset.update_from_yaml" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update dataset metadata with static metadata from YAML file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>Optional[str]</em>) &#8211; Path to YAML dataset metadata. Defaults to config/hdx_dataset_static.yml.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="hdx.data.dataset.Dataset.update_in_hdx">
 <code class="descname">update_in_hdx</code><span class="sig-paren">(</span><em>update_resources: typing.Union[bool</em>, <em>NoneType] = True</em>, <em>update_gallery: typing.Union[bool</em>, <em>NoneType] = True</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.dataset.Dataset.update_in_hdx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check if dataset exists in HDX and if so, update it</p>
@@ -377,38 +409,6 @@
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
 </td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="hdx.data.dataset.Dataset.update_json">
-<code class="descname">update_json</code><span class="sig-paren">(</span><em>path: typing.Union[str</em>, <em>NoneType] = 'config/hdx_dataset_static.json'</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.dataset.Dataset.update_json" title="Permalink to this definition">¶</a></dt>
-<dd><p>Update dataset metadata with static metadata from JSON file</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>Optional[str]</em>) &#8211; Path to JSON dataset metadata. Defaults to config/hdx_dataset_static.json.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="hdx.data.dataset.Dataset.update_yaml">
-<code class="descname">update_yaml</code><span class="sig-paren">(</span><em>path: typing.Union[str</em>, <em>NoneType] = 'config/hdx_dataset_static.yml'</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.dataset.Dataset.update_yaml" title="Permalink to this definition">¶</a></dt>
-<dd><p>Update dataset metadata with static metadata from YAML file</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>Optional[str]</em>) &#8211; Path to YAML dataset metadata. Defaults to config/hdx_dataset_static.yml.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
 </tbody>
 </table>
@@ -522,22 +522,8 @@
 </dd></dl>
 
 <dl class="method">
-<dt id="hdx.data.galleryitem.GalleryItem.update_in_hdx">
-<code class="descname">update_in_hdx</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.galleryitem.GalleryItem.update_in_hdx" title="Permalink to this definition">¶</a></dt>
-<dd><p>Check if gallery item exists in HDX and if so, update it</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="hdx.data.galleryitem.GalleryItem.update_json">
-<code class="descname">update_json</code><span class="sig-paren">(</span><em>path: str = 'config/hdx_galleryitem_static.json'</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.galleryitem.GalleryItem.update_json" title="Permalink to this definition">¶</a></dt>
+<dt id="hdx.data.galleryitem.GalleryItem.update_from_json">
+<code class="descname">update_from_json</code><span class="sig-paren">(</span><em>path: str = 'config/hdx_galleryitem_static.json'</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.galleryitem.GalleryItem.update_from_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update gallery item metadata with static metadata from JSON file</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -552,8 +538,8 @@
 </dd></dl>
 
 <dl class="method">
-<dt id="hdx.data.galleryitem.GalleryItem.update_yaml">
-<code class="descname">update_yaml</code><span class="sig-paren">(</span><em>path: str = 'config/hdx_galleryitem_static.yml'</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.galleryitem.GalleryItem.update_yaml" title="Permalink to this definition">¶</a></dt>
+<dt id="hdx.data.galleryitem.GalleryItem.update_from_yaml">
+<code class="descname">update_from_yaml</code><span class="sig-paren">(</span><em>path: str = 'config/hdx_galleryitem_static.yml'</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.galleryitem.GalleryItem.update_from_yaml" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update gallery item metadata with static metadata from YAML file</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -562,6 +548,20 @@
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>Optional[str]</em>) &#8211; Path to YAML dataset metadata. Defaults to config/hdx_galleryitem_static.yml.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.galleryitem.GalleryItem.update_in_hdx">
+<code class="descname">update_in_hdx</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.galleryitem.GalleryItem.update_in_hdx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if gallery item exists in HDX and if so, update it</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
 </tbody>
 </table>
@@ -699,22 +699,8 @@ New HDX objects should extend this in similar fashion to Resource for example.</
 </dd></dl>
 
 <dl class="method">
-<dt id="hdx.data.hdxobject.HDXObject.update_in_hdx">
-<code class="descname">update_in_hdx</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.hdxobject.HDXObject.update_in_hdx" title="Permalink to this definition">¶</a></dt>
-<dd><p>Abstract method to check if HDX object exists in HDX and if so, update it</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="hdx.data.hdxobject.HDXObject.update_json">
-<code class="descname">update_json</code><span class="sig-paren">(</span><em>path: str</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.hdxobject.HDXObject.update_json" title="Permalink to this definition">¶</a></dt>
+<dt id="hdx.data.hdxobject.HDXObject.update_from_json">
+<code class="descname">update_from_json</code><span class="sig-paren">(</span><em>path: str</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.hdxobject.HDXObject.update_from_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update metadata with static metadata from JSON file</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -729,8 +715,8 @@ New HDX objects should extend this in similar fashion to Resource for example.</
 </dd></dl>
 
 <dl class="method">
-<dt id="hdx.data.hdxobject.HDXObject.update_yaml">
-<code class="descname">update_yaml</code><span class="sig-paren">(</span><em>path: str</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.hdxobject.HDXObject.update_yaml" title="Permalink to this definition">¶</a></dt>
+<dt id="hdx.data.hdxobject.HDXObject.update_from_yaml">
+<code class="descname">update_from_yaml</code><span class="sig-paren">(</span><em>path: str</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.hdxobject.HDXObject.update_from_yaml" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update metadata with static metadata from YAML file</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -739,6 +725,20 @@ New HDX objects should extend this in similar fashion to Resource for example.</
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>str</em>) &#8211; Path to YAML dataset metadata</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.hdxobject.HDXObject.update_in_hdx">
+<code class="descname">update_in_hdx</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.hdxobject.HDXObject.update_in_hdx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract method to check if HDX object exists in HDX and if so, update it</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
 </tbody>
 </table>
@@ -801,14 +801,108 @@ New HDX objects should extend this in similar fashion to Resource for example.</
 
 <dl class="method">
 <dt id="hdx.data.resource.Resource.create_datastore">
-<code class="descname">create_datastore</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.create_datastore" title="Permalink to this definition">¶</a></dt>
-<dd><p>TODO</p>
+<code class="descname">create_datastore</code><span class="sig-paren">(</span><em>schema: typing.List[dict], primary_key: typing.Union[str, NoneType] = None</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.create_datastore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a resource in the HDX datastore</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>schema</strong> (<em>List[dict]</em>) &#8211; List of fields and types of form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#8217;}</li>
+<li><strong>primary_key</strong> (<em>Optional[str]</em>) &#8211; Primary key of schema. Defaults to None.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.resource.Resource.create_datastore_for_topline">
+<code class="descname">create_datastore_for_topline</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.create_datastore_for_topline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a resource in the HDX datastore using the built in YAML definition for a topline</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.resource.Resource.create_datastore_from_dict_schema">
+<code class="descname">create_datastore_from_dict_schema</code><span class="sig-paren">(</span><em>data: dict</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.create_datastore_from_dict_schema" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a resource in the HDX datastore from a YAML file containing a list of fields and types of
+form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#8217;} and optionally a primary key</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>dict</em>) &#8211; Dictionary containing list of fields and types of form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#8217;}</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.resource.Resource.create_datastore_from_json_schema">
+<code class="descname">create_datastore_from_json_schema</code><span class="sig-paren">(</span><em>path: str</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.create_datastore_from_json_schema" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a resource in the HDX datastore from a JSON file containing a list of fields and types of
+form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#8217;} and optionally a primary key</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>str</em>) &#8211; Path to JSON file containing list of fields and types of form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#8217;}</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.resource.Resource.create_datastore_from_yaml_schema">
+<code class="descname">create_datastore_from_yaml_schema</code><span class="sig-paren">(</span><em>path: str</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.create_datastore_from_yaml_schema" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a resource in the HDX datastore from a YAML file containing a list of fields and types of
+form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#8217;} and optionally a primary key</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>str</em>) &#8211; Path to YAML file containing list of fields and types of form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#8217;}</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="hdx.data.resource.Resource.create_in_hdx">
 <code class="descname">create_in_hdx</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.create_in_hdx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check if resource exists in HDX and if so, update it, otherwise create it</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.resource.Resource.delete_datastore">
+<code class="descname">delete_datastore</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.delete_datastore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete a resource from the HDX datastore</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -882,9 +976,30 @@ New HDX objects should extend this in similar fashion to Resource for example.</
 </dd></dl>
 
 <dl class="method">
-<dt id="hdx.data.resource.Resource.update_in_hdx">
-<code class="descname">update_in_hdx</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.update_in_hdx" title="Permalink to this definition">¶</a></dt>
-<dd><p>Check if resource exists in HDX and if so, update it</p>
+<dt id="hdx.data.resource.Resource.update_datastore">
+<code class="descname">update_datastore</code><span class="sig-paren">(</span><em>schema: typing.List[dict], primary_key: typing.Union[str, NoneType] = None</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.update_datastore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update a resource in the HDX datastore</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>schema</strong> (<em>List[dict]</em>) &#8211; List of fields and types of form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#8217;}</li>
+<li><strong>primary_key</strong> (<em>Optional[str]</em>) &#8211; Primary key of schema. Defaults to None.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.resource.Resource.update_datastore_for_topline">
+<code class="descname">update_datastore_for_topline</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.update_datastore_for_topline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update a resource in the HDX datastore using the built in YAML definition for a topline</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -896,8 +1011,42 @@ New HDX objects should extend this in similar fashion to Resource for example.</
 </dd></dl>
 
 <dl class="method">
-<dt id="hdx.data.resource.Resource.update_json">
-<code class="descname">update_json</code><span class="sig-paren">(</span><em>path: str = 'config/hdx_resource_static.json'</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.update_json" title="Permalink to this definition">¶</a></dt>
+<dt id="hdx.data.resource.Resource.update_datastore_from_json_schema">
+<code class="descname">update_datastore_from_json_schema</code><span class="sig-paren">(</span><em>path: str</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.update_datastore_from_json_schema" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update a resource in the HDX datastore from a JSON file containing a list of fields and types of
+form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#8217;} and optionally a primary key</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>str</em>) &#8211; Path to JSON file containing list of fields and types of form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#8217;}</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.resource.Resource.update_datastore_from_yaml_schema">
+<code class="descname">update_datastore_from_yaml_schema</code><span class="sig-paren">(</span><em>path: str</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.update_datastore_from_yaml_schema" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update a resource in the HDX datastore from a YAML file containing a list of fields and types of
+form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#8217;} and optionally a primary key</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>str</em>) &#8211; Path to YAML file containing list of fields and types of form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#8217;}</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.resource.Resource.update_from_json">
+<code class="descname">update_from_json</code><span class="sig-paren">(</span><em>path: str = 'config/hdx_resource_static.json'</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.update_from_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update resource metadata with static metadata from JSON file</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -912,8 +1061,8 @@ New HDX objects should extend this in similar fashion to Resource for example.</
 </dd></dl>
 
 <dl class="method">
-<dt id="hdx.data.resource.Resource.update_yaml">
-<code class="descname">update_yaml</code><span class="sig-paren">(</span><em>path: str = 'config/hdx_resource_static.yml'</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.update_yaml" title="Permalink to this definition">¶</a></dt>
+<dt id="hdx.data.resource.Resource.update_from_yaml">
+<code class="descname">update_from_yaml</code><span class="sig-paren">(</span><em>path: str = 'config/hdx_resource_static.yml'</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.update_from_yaml" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update resource metadata with static metadata from YAML file</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -922,6 +1071,20 @@ New HDX objects should extend this in similar fashion to Resource for example.</
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>Optional[str]</em>) &#8211; Path to YAML dataset metadata. Defaults to config/hdx_resource_static.yml.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.resource.Resource.update_in_hdx">
+<code class="descname">update_in_hdx</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.update_in_hdx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if resource exists in HDX and if so, update it</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
 </tbody>
 </table>
