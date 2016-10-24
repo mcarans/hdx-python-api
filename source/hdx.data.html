@@ -311,7 +311,7 @@
 
 <dl class="staticmethod">
 <dt id="hdx.data.dataset.Dataset.search_in_hdx">
-<em class="property">static </em><code class="descname">search_in_hdx</code><span class="sig-paren">(</span><em>configuration: hdx.configuration.Configuration</em>, <em>query: str</em><span class="sig-paren">)</span> &rarr; typing.List[typing.Dataset]<a class="headerlink" href="#hdx.data.dataset.Dataset.search_in_hdx" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">search_in_hdx</code><span class="sig-paren">(</span><em>configuration: hdx.configuration.Configuration</em>, <em>query: str</em>, <em>**kwargs</em><span class="sig-paren">)</span> &rarr; typing.List[typing.Dataset]<a class="headerlink" href="#hdx.data.dataset.Dataset.search_in_hdx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Searches for datasets in HDX</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -319,7 +319,17 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>configuration</strong> (<a class="reference internal" href="hdx.html#hdx.configuration.Configuration" title="hdx.configuration.Configuration"><em>Configuration</em></a>) &#8211; HDX Configuration</li>
-<li><strong>query</strong> (<em>str</em>) &#8211; Query</li>
+<li><strong>query</strong> (<em>str</em>) &#8211; Query (in Solr format). Defaults to &#8216;<em>:</em>&#8216;.</li>
+<li><strong>**kwargs</strong> &#8211; See below</li>
+<li><strong>fq</strong> (<em>string</em>) &#8211; Any filter queries to apply</li>
+<li><strong>sort</strong> (<em>string</em>) &#8211; Sorting of the search results. Defaults to &#8216;relevance asc, metadata_modified desc&#8217;.</li>
+<li><strong>rows</strong> (<em>int</em>) &#8211; Number of matching rows to return</li>
+<li><strong>start</strong> (<em>int</em>) &#8211; Offset in the complete result for where the set of returned datasets should begin</li>
+<li><strong>facet</strong> (<em>string</em>) &#8211; Whether to enable faceted results. Default to True.</li>
+<li><strong>facet.mincount</strong> (<em>int</em>) &#8211; Minimum counts for facet fields should be included in the results</li>
+<li><strong>facet.limit</strong> (<em>int</em>) &#8211; Maximum number of values the facet fields return (- = unlimited). Defaults to 50.</li>
+<li><strong>facet.field</strong> (<em>List[str]</em>) &#8211; Fields to facet upon. Default is empty.</li>
+<li><strong>use_default_schema</strong> (<em>bool</em>) &#8211; Use default package schema instead of custom schema. Defaults to False.</li>
 </ul>
 </td>
 </tr>
@@ -953,7 +963,7 @@ form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#82
 
 <dl class="staticmethod">
 <dt id="hdx.data.resource.Resource.search_in_hdx">
-<em class="property">static </em><code class="descname">search_in_hdx</code><span class="sig-paren">(</span><em>configuration: hdx.configuration.Configuration</em>, <em>query: str</em><span class="sig-paren">)</span> &rarr; typing.List[typing.Resource]<a class="headerlink" href="#hdx.data.resource.Resource.search_in_hdx" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">search_in_hdx</code><span class="sig-paren">(</span><em>configuration: hdx.configuration.Configuration</em>, <em>query: str</em>, <em>**kwargs</em><span class="sig-paren">)</span> &rarr; typing.List[typing.Resource]<a class="headerlink" href="#hdx.data.resource.Resource.search_in_hdx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Searches for resources in HDX</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -962,6 +972,10 @@ form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#82
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>configuration</strong> (<a class="reference internal" href="hdx.html#hdx.configuration.Configuration" title="hdx.configuration.Configuration"><em>Configuration</em></a>) &#8211; HDX Configuration</li>
 <li><strong>query</strong> (<em>str</em>) &#8211; Query</li>
+<li><strong>**kwargs</strong> &#8211; See below</li>
+<li><strong>order_by</strong> (<em>str</em>) &#8211; A field on the Resource model that orders the results</li>
+<li><strong>offset</strong> (<em>int</em>) &#8211; Apply an offset to the query</li>
+<li><strong>limit</strong> (<em>int</em>) &#8211; Apply a limit to the query</li>
 </ul>
 </td>
 </tr>

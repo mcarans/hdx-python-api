@@ -94,7 +94,7 @@
 
 <dl class="function">
 <dt id="hdx.utilities.dictionary.merge_two_dictionaries">
-<code class="descclassname">hdx.utilities.dictionary.</code><code class="descname">merge_two_dictionaries</code><span class="sig-paren">(</span><em>a: dict</em>, <em>b: dict</em><span class="sig-paren">)</span> &rarr; dict<a class="headerlink" href="#hdx.utilities.dictionary.merge_two_dictionaries" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">hdx.utilities.dictionary.</code><code class="descname">merge_two_dictionaries</code><span class="sig-paren">(</span><em>a: T</em>, <em>b: T</em><span class="sig-paren">)</span> &rarr; T<a class="headerlink" href="#hdx.utilities.dictionary.merge_two_dictionaries" title="Permalink to this definition">¶</a></dt>
 <dd><p>Merges b into a and returns merged result</p>
 <p>NOTE: tuples and arbitrary objects are not handled as it is totally ambiguous what should happen</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -102,12 +102,94 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>a</strong> (<em>dict</em>) &#8211; dictionary to merge into</li>
-<li><strong>b</strong> &#8211; (dict): dictionary to merge from</li>
+<li><strong>a</strong> (<em>DictUpperBound</em>) &#8211; dictionary to merge into</li>
+<li><strong>b</strong> &#8211; (DictUpperBound): dictionary to merge from</li>
 </ul>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Merged dictionary</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">DictUpperBound</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-hdx.utilities.downloader">
+<span id="hdx-utilities-downloader-module"></span><h2>hdx.utilities.downloader module<a class="headerlink" href="#module-hdx.utilities.downloader" title="Permalink to this headline">¶</a></h2>
+<p>Downloading utilities for urls</p>
+<dl class="exception">
+<dt id="hdx.utilities.downloader.DownloadError">
+<em class="property">exception </em><code class="descclassname">hdx.utilities.downloader.</code><code class="descname">DownloadError</code><a class="headerlink" href="#hdx.utilities.downloader.DownloadError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">Exception</span></code></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="hdx.utilities.downloader.download">
+<code class="descclassname">hdx.utilities.downloader.</code><code class="descname">download</code><span class="sig-paren">(</span><em>url: str</em>, <em>timeout: typing.Union[float</em>, <em>NoneType] = None</em><span class="sig-paren">)</span> &rarr; dict<a class="headerlink" href="#hdx.utilities.downloader.download" title="Permalink to this definition">¶</a></dt>
+<dd><p>Download url</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>url</strong> (<em>str</em>) &#8211; URL to download</li>
+<li><strong>timeout</strong> (<em>Optional[float]</em>) &#8211; Timeout for connecting to URL. Defaults to None (no timeout).</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Response</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">str</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="hdx.utilities.downloader.download_file">
+<code class="descclassname">hdx.utilities.downloader.</code><code class="descname">download_file</code><span class="sig-paren">(</span><em>url: str</em>, <em>path: typing.Union[str</em>, <em>NoneType] = None</em><span class="sig-paren">)</span> &rarr; str<a class="headerlink" href="#hdx.utilities.downloader.download_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Download file from url and store in path</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>url</strong> (<em>str</em>) &#8211; URL to download</li>
+<li><strong>path</strong> (<em>Optional[str]</em>) &#8211; Path to download it to. Defaults to None.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Path of downloaded file</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">str</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="hdx.utilities.downloader.get_headers">
+<code class="descclassname">hdx.utilities.downloader.</code><code class="descname">get_headers</code><span class="sig-paren">(</span><em>url: str</em>, <em>timeout: typing.Union[float</em>, <em>NoneType] = None</em><span class="sig-paren">)</span> &rarr; dict<a class="headerlink" href="#hdx.utilities.downloader.get_headers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Download url headers</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>url</strong> (<em>str</em>) &#8211; URL to download</li>
+<li><strong>timeout</strong> (<em>Optional[float]</em>) &#8211; Timeout for connecting to URL. Defaults to None (no timeout).</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Headers of url</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">dict</p>
@@ -289,6 +371,7 @@
 <li><a class="reference internal" href="#">hdx.utilities package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
 <li><a class="reference internal" href="#module-hdx.utilities.dictionary">hdx.utilities.dictionary module</a></li>
+<li><a class="reference internal" href="#module-hdx.utilities.downloader">hdx.utilities.downloader module</a></li>
 <li><a class="reference internal" href="#module-hdx.utilities.loader">hdx.utilities.loader module</a></li>
 <li><a class="reference internal" href="#module-hdx.utilities">Module contents</a></li>
 </ul>
