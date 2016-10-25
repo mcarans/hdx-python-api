@@ -153,15 +153,15 @@
 
 <dl class="function">
 <dt id="hdx.utilities.downloader.download_file">
-<code class="descclassname">hdx.utilities.downloader.</code><code class="descname">download_file</code><span class="sig-paren">(</span><em>url: str</em>, <em>path: typing.Union[str</em>, <em>NoneType] = None</em><span class="sig-paren">)</span> &rarr; str<a class="headerlink" href="#hdx.utilities.downloader.download_file" title="Permalink to this definition">¶</a></dt>
-<dd><p>Download file from url and store in provided path or named temporary file if no path given</p>
+<code class="descclassname">hdx.utilities.downloader.</code><code class="descname">download_file</code><span class="sig-paren">(</span><em>url: str</em>, <em>folder: typing.Union[str</em>, <em>NoneType] = None</em><span class="sig-paren">)</span> &rarr; str<a class="headerlink" href="#hdx.utilities.downloader.download_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Download file from url and store in provided folder or temporary folder if no folder supplied</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>url</strong> (<em>str</em>) &#8211; URL to download</li>
-<li><strong>path</strong> (<em>Optional[str]</em>) &#8211; Path to download it to. Defaults to None.</li>
+<li><strong>folder</strong> (<em>Optional[str]</em>) &#8211; Folder to download it to. Defaults to None.</li>
 </ul>
 </td>
 </tr>
@@ -193,6 +193,30 @@
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">dict</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="hdx.utilities.downloader.get_path_for_url">
+<code class="descclassname">hdx.utilities.downloader.</code><code class="descname">get_path_for_url</code><span class="sig-paren">(</span><em>url: str</em>, <em>folder: typing.Union[str</em>, <em>NoneType] = None</em><span class="sig-paren">)</span> &rarr; str<a class="headerlink" href="#hdx.utilities.downloader.get_path_for_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get filename from url and join to provided folder or temporary folder if no folder supplied, ensuring uniqueness</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>url</strong> (<em>str</em>) &#8211; URL to download</li>
+<li><strong>folder</strong> (<em>Optional[str]</em>) &#8211; Folder to download it to. Defaults to None.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Path of downloaded file</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">str</p>
 </td>
 </tr>
 </tbody>
@@ -323,6 +347,30 @@
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">dict</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="hdx.utilities.loader.script_dir">
+<code class="descclassname">hdx.utilities.loader.</code><code class="descname">script_dir</code><span class="sig-paren">(</span><em>pyobject: typing.Any</em>, <em>follow_symlinks: typing.Union[bool</em>, <em>NoneType] = True</em><span class="sig-paren">)</span> &rarr; str<a class="headerlink" href="#hdx.utilities.loader.script_dir" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get current script&#8217;s directory</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pyobject</strong> (<em>Any</em>) &#8211; Any Python object in the script</li>
+<li><strong>follow_symlinks</strong> (<em>Optional[bool]</em>) &#8211; Follow symlinks or not. Defaults to True.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Current script&#8217;s directory</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">str</p>
 </td>
 </tr>
 </tbody>
