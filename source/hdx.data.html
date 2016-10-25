@@ -757,9 +757,9 @@ New HDX objects should extend this in similar fashion to Resource for example.</
 </dd></dl>
 
 </div>
-<div class="section" id="module-hdx.data.resource">
-<span id="hdx-data-resource-module"></span><h2>hdx.data.resource module<a class="headerlink" href="#module-hdx.data.resource" title="Permalink to this headline">¶</a></h2>
-<p>Resource class containing all logic for creating, checking, and updating resources.</p>
+<div class="section" id="hdx-data-resource-module">
+<h2>hdx.data.resource module<a class="headerlink" href="#hdx-data-resource-module" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-hdx.data.resource"></span><p>Resource class containing all logic for creating, checking, and updating resources.</p>
 <dl class="class">
 <dt id="hdx.data.resource.Resource">
 <em class="property">class </em><code class="descclassname">hdx.data.resource.</code><code class="descname">Resource</code><span class="sig-paren">(</span><em>configuration: hdx.configuration.Configuration</em>, <em>initial_data: typing.Union[dict</em>, <em>NoneType] = None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource" title="Permalink to this definition">¶</a></dt>
@@ -932,6 +932,24 @@ form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#82
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.resource.Resource.download">
+<code class="descname">download</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.download" title="Permalink to this definition">¶</a></dt>
+<dd><p>Download resource store in provided path or named temporary file if no path given</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>str</em>) &#8211; Path to download resource to. Defaults to None.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">(URL downloaded, Path of downloaded file)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">(str, str)</td>
 </tr>
 </tbody>
 </table>
@@ -1125,7 +1143,7 @@ form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#82
 <li><a class="reference internal" href="#module-hdx.data.dataset">hdx.data.dataset module</a></li>
 <li><a class="reference internal" href="#module-hdx.data.galleryitem">hdx.data.galleryitem module</a></li>
 <li><a class="reference internal" href="#module-hdx.data.hdxobject">hdx.data.hdxobject module</a></li>
-<li><a class="reference internal" href="#module-hdx.data.resource">hdx.data.resource module</a></li>
+<li><a class="reference internal" href="#hdx-data-resource-module">hdx.data.resource module</a></li>
 <li><a class="reference internal" href="#module-hdx.data">Module contents</a></li>
 </ul>
 </li>
