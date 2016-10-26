@@ -28,6 +28,14 @@ hdx.utilities.loader module
     :undoc-members:
     :show-inheritance:
 
+hdx.utilities.path module
+-------------------------
+
+.. automodule:: hdx.utilities.path
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 
 Module contents
 ---------------
