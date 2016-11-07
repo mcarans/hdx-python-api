@@ -225,6 +225,24 @@
 </table>
 </dd></dl>
 
+<dl class="staticmethod">
+<dt id="hdx.data.dataset.Dataset.get_all_resources">
+<em class="property">static </em><code class="descname">get_all_resources</code><span class="sig-paren">(</span><em>datasets: typing.List[typing.Dataset]</em><span class="sig-paren">)</span> &rarr; typing.List[typing.Resource]<a class="headerlink" href="#hdx.data.dataset.Dataset.get_all_resources" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all resources from a list of datasets (such as returned by search)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>datasets</strong> (<em>List[Dataset]</em>) &#8211; List of datasets</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">List of resources within those datasets</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">List[Resource]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.get_gallery">
 <code class="descname">get_gallery</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; typing.List[hdx.data.galleryitem.GalleryItem]<a class="headerlink" href="#hdx.data.dataset.Dataset.get_gallery" title="Permalink to this definition">¶</a></dt>
@@ -811,14 +829,14 @@ New HDX objects should extend this in similar fashion to Resource for example.</
 
 <dl class="method">
 <dt id="hdx.data.resource.Resource.create_datastore">
-<code class="descname">create_datastore</code><span class="sig-paren">(</span><em>schema: typing.List[dict], primary_key: typing.Union[str, NoneType] = None</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.create_datastore" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a resource in the HDX datastore</p>
+<code class="descname">create_datastore</code><span class="sig-paren">(</span><em>schema: typing.List[dict] = None</em>, <em>primary_key: typing.Union[str</em>, <em>NoneType] = None</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.create_datastore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a resource in the HDX datastore. If no schema is provided all fields are assumed to be text.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>schema</strong> (<em>List[dict]</em>) &#8211; List of fields and types of form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#8217;}</li>
+<li><strong>schema</strong> (<em>List[dict]</em>) &#8211; List of fields and types of form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#8217;}. Defaults to None.</li>
 <li><strong>primary_key</strong> (<em>Optional[str]</em>) &#8211; Primary key of schema. Defaults to None.</li>
 </ul>
 </td>
@@ -982,7 +1000,7 @@ form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#82
 <dl class="staticmethod">
 <dt id="hdx.data.resource.Resource.search_in_hdx">
 <em class="property">static </em><code class="descname">search_in_hdx</code><span class="sig-paren">(</span><em>configuration: hdx.configuration.Configuration</em>, <em>query: str</em>, <em>**kwargs</em><span class="sig-paren">)</span> &rarr; typing.List[typing.Resource]<a class="headerlink" href="#hdx.data.resource.Resource.search_in_hdx" title="Permalink to this definition">¶</a></dt>
-<dd><p>Searches for resources in HDX</p>
+<dd><p>Searches for resources in HDX. NOTE: Does not search dataset metadata!</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
