@@ -86,6 +86,86 @@
 </dd></dl>
 
 <dl class="method">
+<dt id="hdx.data.dataset.Dataset.add_continent_location">
+<code class="descname">add_continent_location</code><span class="sig-paren">(</span><em>continent: str</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.dataset.Dataset.add_continent_location" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a continent. If a 2 letter continent code is not provided, tries to parse value and convert to 2 letter code.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>continent</strong> (<em>str</em>) &#8211; Continent to add</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.dataset.Dataset.add_country_location">
+<code class="descname">add_country_location</code><span class="sig-paren">(</span><em>country: str</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.dataset.Dataset.add_country_location" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a country. If iso 3 code not provided, tries to parse value and convert to iso 3 code.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>country</strong> (<em>str</em>) &#8211; Country to add</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.dataset.Dataset.add_country_locations">
+<code class="descname">add_country_locations</code><span class="sig-paren">(</span><em>countries: typing.List[str]</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.dataset.Dataset.add_country_locations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a list of countries. If iso 3 codes are not provided, tries to parse values and convert to iso 3 code.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>countries</strong> (<em>List[str]</em>) &#8211; List of countries to add</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.dataset.Dataset.add_tag">
+<code class="descname">add_tag</code><span class="sig-paren">(</span><em>tag: str</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.dataset.Dataset.add_tag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a tag</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tag</strong> (<em>str</em>) &#8211; Tag to add</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.dataset.Dataset.add_tags">
+<code class="descname">add_tags</code><span class="sig-paren">(</span><em>tags: typing.List[str]</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.dataset.Dataset.add_tags" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a list of tag</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tags</strong> (<em>List[str]</em>) &#8211; List of tags to add</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="hdx.data.dataset.Dataset.add_update_gallery">
 <code class="descname">add_update_gallery</code><span class="sig-paren">(</span><em>gallery: typing.List[typing.Any]</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.add_update_gallery" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add new or update existing gallery items with new metadata to the dataset</p>
@@ -244,6 +324,22 @@
 </dd></dl>
 
 <dl class="method">
+<dt id="hdx.data.dataset.Dataset.get_expected_update_frequency">
+<code class="descname">get_expected_update_frequency</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; typing.Union[str, NoneType]<a class="headerlink" href="#hdx.data.dataset.Dataset.get_expected_update_frequency" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get expected update frequency (in textual rather than numeric form)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Update frequency in textual form or None if the update frequency doesn&#8217;t exist or is blank.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Optional[str]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="hdx.data.dataset.Dataset.get_gallery">
 <code class="descname">get_gallery</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; typing.List[hdx.data.galleryitem.GalleryItem]<a class="headerlink" href="#hdx.data.dataset.Dataset.get_gallery" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get dataset&#8217;s gallery</p>
@@ -260,6 +356,22 @@
 </dd></dl>
 
 <dl class="method">
+<dt id="hdx.data.dataset.Dataset.get_location">
+<code class="descname">get_location</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; typing.List[str]<a class="headerlink" href="#hdx.data.dataset.Dataset.get_location" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the dataset&#8217;s location</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">List of locations or [] if there are none</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">List[str]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="hdx.data.dataset.Dataset.get_resources">
 <code class="descname">get_resources</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; typing.List[hdx.data.resource.Resource]<a class="headerlink" href="#hdx.data.dataset.Dataset.get_resources" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get dataset&#8217;s resources</p>
@@ -270,6 +382,22 @@
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">List of Resource objects</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">List[Resource]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.dataset.Dataset.get_tags">
+<code class="descname">get_tags</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; typing.List[str]<a class="headerlink" href="#hdx.data.dataset.Dataset.get_tags" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the dataset&#8217;s list of tags</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">List of tags or [] if there are none</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">List[str]</td>
 </tr>
 </tbody>
 </table>
@@ -388,6 +516,46 @@
 </tbody>
 </table>
 </dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.dataset.Dataset.set_expected_update_frequency">
+<code class="descname">set_expected_update_frequency</code><span class="sig-paren">(</span><em>update_frequency: str</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.dataset.Dataset.set_expected_update_frequency" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set expected update frequency</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>update_frequency</strong> (<em>str</em>) &#8211; Update frequency</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="hdx.data.dataset.Dataset.transform_update_frequency">
+<em class="property">static </em><code class="descname">transform_update_frequency</code><span class="sig-paren">(</span><em>frequency: str</em><span class="sig-paren">)</span> &rarr; str<a class="headerlink" href="#hdx.data.dataset.Dataset.transform_update_frequency" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get numeric update frequency (as string since that is required field format) from textual representation or
+vice versa (eg. &#8216;Every month&#8217; = &#8216;30&#8217;, &#8216;30&#8217; = &#8216;Every month&#8217;)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>frequency</strong> (<em>str</em>) &#8211; Update frequency in one format</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Update frequency in alternative format</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hdx.data.dataset.Dataset.update_frequencies">
+<code class="descname">update_frequencies</code><em class="property"> = {'every six months': '180', '7': 'Every week', '30': 'Every month', '180': 'Every six months', 'every two weeks': '14', 'never': '0', '14': 'Every two weeks', 'every week': '7', '1': 'Every day', 'every day': '1', 'every year': '365', '90': 'Every three months', '365': 'Every year', 'every three months': '90', '0': 'Never', 'every month': '30'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.update_from_json">
