@@ -324,6 +324,40 @@
 </dd></dl>
 
 <dl class="method">
+<dt id="hdx.data.dataset.Dataset.get_dataset_date">
+<code class="descname">get_dataset_date</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; typing.Union[datetime.datetime, NoneType]<a class="headerlink" href="#hdx.data.dataset.Dataset.get_dataset_date" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get dataset date</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Dataset date in datetime object or None if no date is set</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Optional[datetime.datetime]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.dataset.Dataset.get_dataset_date_as_string">
+<code class="descname">get_dataset_date_as_string</code><span class="sig-paren">(</span><em>date_format: typing.Union[str</em>, <em>NoneType] = None</em><span class="sig-paren">)</span> &rarr; typing.Union[datetime.datetime, NoneType]<a class="headerlink" href="#hdx.data.dataset.Dataset.get_dataset_date_as_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get dataset date as string in specified format. If no format is supplied an ISO 8601 string is returned.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>date_format</strong> (<em>Optional[str]</em>) &#8211; Date format. None is taken to be ISO 8601. Defaults to None.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Dataset date string or None if no date is set</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Optional[str]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="hdx.data.dataset.Dataset.get_expected_update_frequency">
 <code class="descname">get_expected_update_frequency</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; typing.Union[str, NoneType]<a class="headerlink" href="#hdx.data.dataset.Dataset.get_expected_update_frequency" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get expected update frequency (in textual rather than numeric form)</p>
@@ -518,6 +552,43 @@
 </dd></dl>
 
 <dl class="method">
+<dt id="hdx.data.dataset.Dataset.set_dataset_date">
+<code class="descname">set_dataset_date</code><span class="sig-paren">(</span><em>dataset_date: datetime.datetime</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.dataset.Dataset.set_dataset_date" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set dataset date from datetime.datetime object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>dataset_date</strong> (<em>datetime.datetime</em>) &#8211; Dataset date string</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.dataset.Dataset.set_dataset_date_from_string">
+<code class="descname">set_dataset_date_from_string</code><span class="sig-paren">(</span><em>dataset_date: str</em>, <em>date_format: typing.Union[str</em>, <em>NoneType] = None</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.dataset.Dataset.set_dataset_date_from_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set dataset date from string.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>dataset_date</strong> (<em>str</em>) &#8211; Dataset date string</li>
+<li><strong>date_format</strong> (<em>Optional[str]</em>) &#8211; Date format. If None is given, will attempt to guess. Defaults to None.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="hdx.data.dataset.Dataset.set_expected_update_frequency">
 <code class="descname">set_expected_update_frequency</code><span class="sig-paren">(</span><em>update_frequency: str</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.dataset.Dataset.set_expected_update_frequency" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set expected update frequency</p>
@@ -554,7 +625,7 @@ vice versa (eg. &#8216;Every month&#8217; = &#8216;30&#8217;, &#8216;30&#8217; =
 
 <dl class="attribute">
 <dt id="hdx.data.dataset.Dataset.update_frequencies">
-<code class="descname">update_frequencies</code><em class="property"> = {'every six months': '180', '7': 'Every week', '30': 'Every month', '180': 'Every six months', 'every two weeks': '14', 'never': '0', '14': 'Every two weeks', 'every week': '7', '1': 'Every day', 'every day': '1', 'every year': '365', '90': 'Every three months', '365': 'Every year', 'every three months': '90', '0': 'Never', 'every month': '30'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
+<code class="descname">update_frequencies</code><em class="property"> = {'every month': '30', '14': 'Every two weeks', 'every three months': '90', 'every day': '1', '180': 'Every six months', '90': 'Every three months', '365': 'Every year', '7': 'Every week', '0': 'Never', 'every year': '365', 'never': '0', 'every six months': '180', '1': 'Every day', 'every week': '7', '30': 'Every month', 'every two weeks': '14'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
