@@ -88,7 +88,8 @@
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.add_continent_location">
 <code class="descname">add_continent_location</code><span class="sig-paren">(</span><em>continent: str</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.dataset.Dataset.add_continent_location" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add a continent. If a 2 letter continent code is not provided, tries to parse value and convert to 2 letter code.</p>
+<dd><p>Add all countries in a  continent. If a 2 letter continent code is not provided, value is parsed and if it
+is a valid continent name, converted to a 2 letter code. If any country is already added, it is ignored.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -104,7 +105,8 @@
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.add_country_location">
 <code class="descname">add_country_location</code><span class="sig-paren">(</span><em>country: str</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.dataset.Dataset.add_country_location" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add a country. If iso 3 code not provided, tries to parse value and convert to iso 3 code.</p>
+<dd><p>Add a country. If an iso 3 code is not provided, value is parsed and if it is a valid country name,
+converted to an iso 3 code. If the country is already added, it is ignored.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -120,7 +122,8 @@
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.add_country_locations">
 <code class="descname">add_country_locations</code><span class="sig-paren">(</span><em>countries: typing.List[str]</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.dataset.Dataset.add_country_locations" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add a list of countries. If iso 3 codes are not provided, tries to parse values and convert to iso 3 code.</p>
+<dd><p>Add a list of countries. If iso 3 codes are not provided, values are parsed and where they are valid country
+names, converted to iso 3 codes. If any country is already added, it is ignored.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -231,15 +234,13 @@
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.check_required_fields">
-<code class="descname">check_required_fields</code><span class="sig-paren">(</span><em>ignore_fields: typing.List[str] = []</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.dataset.Dataset.check_required_fields" title="Permalink to this definition">¶</a></dt>
-<dd><p>Check that metadata for dataset and its resources and gallery is complete</p>
+<code class="descname">check_required_fields</code><span class="sig-paren">(</span><em>ignore_dataset_id=False</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.dataset.Dataset.check_required_fields" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check that metadata for dataset and its resources and gallery is complete. (ignore_dataset_id is not used.)</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ignore_fields</strong> (<em>List[str]</em>) &#8211; Any fields to ignore in the check. Default is empty list.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
 </tbody>
 </table>
@@ -306,6 +307,33 @@
 </dd></dl>
 
 <dl class="staticmethod">
+<dt id="hdx.data.dataset.Dataset.get_all_datasets">
+<em class="property">static </em><code class="descname">get_all_datasets</code><span class="sig-paren">(</span><em>configuration: hdx.configuration.Configuration</em>, <em>include_gallery: typing.Union[bool</em>, <em>NoneType] = True</em>, <em>**kwargs</em><span class="sig-paren">)</span> &rarr; typing.List[typing.Dataset]<a class="headerlink" href="#hdx.data.dataset.Dataset.get_all_datasets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all datasets in HDX</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>configuration</strong> (<a class="reference internal" href="hdx.html#hdx.configuration.Configuration" title="hdx.configuration.Configuration"><em>Configuration</em></a>) &#8211; HDX Configuration</li>
+<li><strong>include_gallery</strong> (<em>Optional[bool]</em>) &#8211; Whether to include gallery items in dataset. Defaults to True.</li>
+<li><strong>**kwargs</strong> &#8211; See below</li>
+<li><strong>rows</strong> (<em>int</em>) &#8211; Number of rows to return. Defaults to all datasets (sys.maxsize).</li>
+<li><strong>start</strong> (<em>int</em>) &#8211; Offset in the complete result for where the set of returned datasets should begin</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">List of all datasets in HDX</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">List[Dataset]</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
 <dt id="hdx.data.dataset.Dataset.get_all_resources">
 <em class="property">static </em><code class="descname">get_all_resources</code><span class="sig-paren">(</span><em>datasets: typing.List[typing.Dataset]</em><span class="sig-paren">)</span> &rarr; typing.List[typing.Resource]<a class="headerlink" href="#hdx.data.dataset.Dataset.get_all_resources" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get all resources from a list of datasets (such as returned by search)</p>
@@ -325,7 +353,7 @@
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.get_dataset_date">
-<code class="descname">get_dataset_date</code><span class="sig-paren">(</span><em>date_format: typing.Union[str</em>, <em>NoneType] = None</em><span class="sig-paren">)</span> &rarr; typing.Union[datetime.datetime, NoneType]<a class="headerlink" href="#hdx.data.dataset.Dataset.get_dataset_date" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_dataset_date</code><span class="sig-paren">(</span><em>date_format: typing.Union[str</em>, <em>NoneType] = None</em><span class="sig-paren">)</span> &rarr; typing.Union[str, NoneType]<a class="headerlink" href="#hdx.data.dataset.Dataset.get_dataset_date" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get dataset date as string in specified format. If no format is supplied, an ISO 8601 string is returned.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -491,7 +519,7 @@
 
 <dl class="staticmethod">
 <dt id="hdx.data.dataset.Dataset.search_in_hdx">
-<em class="property">static </em><code class="descname">search_in_hdx</code><span class="sig-paren">(</span><em>configuration: hdx.configuration.Configuration</em>, <em>query: str</em>, <em>**kwargs</em><span class="sig-paren">)</span> &rarr; typing.List[typing.Dataset]<a class="headerlink" href="#hdx.data.dataset.Dataset.search_in_hdx" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">search_in_hdx</code><span class="sig-paren">(</span><em>configuration: hdx.configuration.Configuration</em>, <em>query: str</em>, <em>include_gallery: typing.Union[bool</em>, <em>NoneType] = True</em>, <em>**kwargs</em><span class="sig-paren">)</span> &rarr; typing.List[typing.Dataset]<a class="headerlink" href="#hdx.data.dataset.Dataset.search_in_hdx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Searches for datasets in HDX</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -500,10 +528,11 @@
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>configuration</strong> (<a class="reference internal" href="hdx.html#hdx.configuration.Configuration" title="hdx.configuration.Configuration"><em>Configuration</em></a>) &#8211; HDX Configuration</li>
 <li><strong>query</strong> (<em>str</em>) &#8211; Query (in Solr format). Defaults to &#8216;<em>:</em>&#8216;.</li>
+<li><strong>include_gallery</strong> (<em>Optional[bool]</em>) &#8211; Whether to include gallery items in dataset. Defaults to True.</li>
 <li><strong>**kwargs</strong> &#8211; See below</li>
 <li><strong>fq</strong> (<em>string</em>) &#8211; Any filter queries to apply</li>
 <li><strong>sort</strong> (<em>string</em>) &#8211; Sorting of the search results. Defaults to &#8216;relevance asc, metadata_modified desc&#8217;.</li>
-<li><strong>rows</strong> (<em>int</em>) &#8211; Number of matching rows to return</li>
+<li><strong>rows</strong> (<em>int</em>) &#8211; Number of matching rows to return. Defaults to all datasets (sys.maxsize).</li>
 <li><strong>start</strong> (<em>int</em>) &#8211; Offset in the complete result for where the set of returned datasets should begin</li>
 <li><strong>facet</strong> (<em>string</em>) &#8211; Whether to enable faceted results. Default to True.</li>
 <li><strong>facet.mincount</strong> (<em>int</em>) &#8211; Minimum counts for facet fields should be included in the results</li>
@@ -626,7 +655,7 @@ vice versa (eg. &#8216;Every month&#8217; = &#8216;30&#8217;, &#8216;30&#8217; =
 
 <dl class="attribute">
 <dt id="hdx.data.dataset.Dataset.update_frequencies">
-<code class="descname">update_frequencies</code><em class="property"> = {'90': 'Every three months', '14': 'Every two weeks', '7': 'Every week', 'every three months': '90', 'every day': '1', '1': 'Every day', '0': 'Never', '365': 'Every year', '180': 'Every six months', 'every other week': '14', 'every two weeks': '14', 'never': '0', 'every month': '30', 'every week': '7', 'daily': '1', 'yearly': '365', 'monthly': '30', 'semiyearly': '180', 'every six months': '180', 'weekly': '7', 'quarterly': '90', '30': 'Every month', 'every year': '365', 'semiannually': '180', 'annually': '365', 'fortnightly': '14'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
+<code class="descname">update_frequencies</code><em class="property"> = {'quarterly': '90', 'every year': '365', 'annually': '365', 'never': '0', 'every week': '7', 'weekly': '7', '365': 'Every year', 'every month': '30', 'fortnightly': '14', '1': 'Every day', '0': 'Never', 'every three months': '90', 'every day': '1', '30': 'Every month', '7': 'Every week', 'yearly': '365', 'every six months': '180', 'every other week': '14', '90': 'Every three months', 'semiyearly': '180', '180': 'Every six months', 'daily': '1', 'every two weeks': '14', 'monthly': '30', '14': 'Every two weeks', 'semiannually': '180'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -723,13 +752,15 @@ vice versa (eg. &#8216;Every month&#8217; = &#8216;30&#8217;, &#8216;30&#8217; =
 
 <dl class="method">
 <dt id="hdx.data.galleryitem.GalleryItem.check_required_fields">
-<code class="descname">check_required_fields</code><span class="sig-paren">(</span><em>ignore_fields: typing.List[str] = []</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.galleryitem.GalleryItem.check_required_fields" title="Permalink to this definition">¶</a></dt>
-<dd><p>Check that metadata for gallery item is complete</p>
+<code class="descname">check_required_fields</code><span class="sig-paren">(</span><em>ignore_dataset_id=False</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.galleryitem.GalleryItem.check_required_fields" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check that metadata for gallery item is complete. The parameter ignore_dataset_id should
+be set to True if you intend to add the object to a Dataset object (where it will be created during dataset
+creation).</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ignore_fields</strong> (<em>List[str]</em>) &#8211; Any fields to ignore in the check. Default is empty list.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ignore_dataset_id</strong> (<em>bool</em>) &#8211; Whether to ignore the dataset id. Default is False.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
@@ -884,13 +915,15 @@ New HDX objects should extend this in similar fashion to Resource for example.</
 
 <dl class="method">
 <dt id="hdx.data.hdxobject.HDXObject.check_required_fields">
-<code class="descname">check_required_fields</code><span class="sig-paren">(</span><em>ignore_fields: typing.List[str] = []</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.hdxobject.HDXObject.check_required_fields" title="Permalink to this definition">¶</a></dt>
-<dd><p>Abstract method to check that metadata for HDX object is complete</p>
+<code class="descname">check_required_fields</code><span class="sig-paren">(</span><em>ignore_dataset_id=False</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.hdxobject.HDXObject.check_required_fields" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract method to check that metadata for HDX object is complete. The parameter ignore_dataset_id should
+be set to True if you intend to add the object to a Dataset object (where it will be created during dataset
+creation).</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ignore_fields</strong> (<em>List[str]</em>) &#8211; Any fields to ignore in the check. Default is empty list.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ignore_dataset_id</strong> (<em>bool</em>) &#8211; Whether to ignore the dataset id. Default is False.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
@@ -1053,13 +1086,16 @@ New HDX objects should extend this in similar fashion to Resource for example.</
 
 <dl class="method">
 <dt id="hdx.data.resource.Resource.check_required_fields">
-<code class="descname">check_required_fields</code><span class="sig-paren">(</span><em>ignore_fields: typing.List[str] = []</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.check_required_fields" title="Permalink to this definition">¶</a></dt>
-<dd><p>Check that metadata for resource is complete</p>
+<code class="descname">check_required_fields</code><span class="sig-paren">(</span><em>ignore_dataset_id=False</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.check_required_fields" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check that metadata for resource is complete and add resource_type and url_type if not supplied.
+The parameter ignore_dataset_id should
+be set to True if you intend to add the object to a Dataset object (where it will be created during dataset
+creation).</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ignore_fields</strong> (<em>List[str]</em>) &#8211; Any fields to ignore in the check. Default is empty list.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ignore_dataset_id</strong> (<em>bool</em>) &#8211; Whether to ignore the dataset id. Default is False.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
@@ -1069,8 +1105,9 @@ New HDX objects should extend this in similar fashion to Resource for example.</
 
 <dl class="method">
 <dt id="hdx.data.resource.Resource.create_datastore">
-<code class="descname">create_datastore</code><span class="sig-paren">(</span><em>schema: typing.List[dict] = None</em>, <em>primary_key: typing.Union[str</em>, <em>NoneType] = None</em>, <em>delete_first: int = 0</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.create_datastore" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a resource in the HDX datastore. If no schema is provided all fields are assumed to be text.</p>
+<code class="descname">create_datastore</code><span class="sig-paren">(</span><em>schema: typing.List[dict] = None</em>, <em>primary_key: typing.Union[str</em>, <em>NoneType] = None</em>, <em>delete_first: int = 0</em>, <em>path: typing.Union[str</em>, <em>NoneType] = None</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.create_datastore" title="Permalink to this definition">¶</a></dt>
+<dd><p>For csvs, create a resource in the HDX datastore which enables data preview in HDX. If no schema is provided
+all fields are assumed to be text. If path is not supplied, the file is first downloaded from HDX.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1079,6 +1116,7 @@ New HDX objects should extend this in similar fashion to Resource for example.</
 <li><strong>schema</strong> (<em>List[dict]</em>) &#8211; List of fields and types of form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#8217;}. Defaults to None.</li>
 <li><strong>primary_key</strong> (<em>Optional[str]</em>) &#8211; Primary key of schema. Defaults to None.</li>
 <li><strong>delete_first</strong> (<em>int</em>) &#8211; Delete datastore before creation. 0 = No, 1 = Yes, 2 = If no primary key. Defaults to 0.</li>
+<li><strong>path</strong> (<em>Optional[str]</em>) &#8211; Local path to file that was uploaded. Defaults to None.</li>
 </ul>
 </td>
 </tr>
@@ -1091,15 +1129,21 @@ New HDX objects should extend this in similar fashion to Resource for example.</
 
 <dl class="method">
 <dt id="hdx.data.resource.Resource.create_datastore_for_topline">
-<code class="descname">create_datastore_for_topline</code><span class="sig-paren">(</span><em>delete_first: int = 0</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.create_datastore_for_topline" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates a resource in the HDX datastore using the built in YAML definition for a topline</p>
+<code class="descname">create_datastore_for_topline</code><span class="sig-paren">(</span><em>delete_first: int = 0</em>, <em>path: typing.Union[str</em>, <em>NoneType] = None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.create_datastore_for_topline" title="Permalink to this definition">¶</a></dt>
+<dd><p>For csvs, create a resource in the HDX datastore which enables data preview in HDX using the built in
+YAML definition for a topline. If path is not supplied, the file is first downloaded from HDX.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>delete_first</strong> (<em>int</em>) &#8211; Delete datastore before creation. 0 = No, 1 = Yes, 2 = If no primary key. Defaults to 0.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>delete_first</strong> (<em>int</em>) &#8211; Delete datastore before creation. 0 = No, 1 = Yes, 2 = If no primary key. Defaults to 0.</li>
+<li><strong>path</strong> (<em>Optional[str]</em>) &#8211; Local path to file that was uploaded. Defaults to None.</li>
+</ul>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -1107,9 +1151,10 @@ New HDX objects should extend this in similar fashion to Resource for example.</
 
 <dl class="method">
 <dt id="hdx.data.resource.Resource.create_datastore_from_dict_schema">
-<code class="descname">create_datastore_from_dict_schema</code><span class="sig-paren">(</span><em>data: dict</em>, <em>delete_first: int = 0</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.create_datastore_from_dict_schema" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates a resource in the HDX datastore from a YAML file containing a list of fields and types of
-form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#8217;} and optionally a primary key</p>
+<code class="descname">create_datastore_from_dict_schema</code><span class="sig-paren">(</span><em>data: dict</em>, <em>delete_first: int = 0</em>, <em>path: typing.Union[str</em>, <em>NoneType] = None</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.create_datastore_from_dict_schema" title="Permalink to this definition">¶</a></dt>
+<dd><p>For csvs, create a resource in the HDX datastore which enables data preview in HDX from a dictionary
+containing a list of fields and types of form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#8217;} and optionally a primary key.
+If path is not supplied, the file is first downloaded from HDX.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1117,6 +1162,7 @@ form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#82
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>data</strong> (<em>dict</em>) &#8211; Dictionary containing list of fields and types of form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#8217;}</li>
 <li><strong>delete_first</strong> (<em>int</em>) &#8211; Delete datastore before creation. 0 = No, 1 = Yes, 2 = If no primary key. Defaults to 0.</li>
+<li><strong>path</strong> (<em>Optional[str]</em>) &#8211; Local path to file that was uploaded. Defaults to None.</li>
 </ul>
 </td>
 </tr>
@@ -1129,16 +1175,18 @@ form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#82
 
 <dl class="method">
 <dt id="hdx.data.resource.Resource.create_datastore_from_json_schema">
-<code class="descname">create_datastore_from_json_schema</code><span class="sig-paren">(</span><em>path: str</em>, <em>delete_first: int = 0</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.create_datastore_from_json_schema" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates a resource in the HDX datastore from a JSON file containing a list of fields and types of
-form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#8217;} and optionally a primary key</p>
+<code class="descname">create_datastore_from_json_schema</code><span class="sig-paren">(</span><em>json_path: str</em>, <em>delete_first: int = 0</em>, <em>path: typing.Union[str</em>, <em>NoneType] = None</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.create_datastore_from_json_schema" title="Permalink to this definition">¶</a></dt>
+<dd><p>For csvs, create a resource in the HDX datastore which enables data preview in HDX from a JSON file
+containing a list of fields and types of form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#8217;} and optionally a primary key.
+If path is not supplied, the file is first downloaded from HDX.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>path</strong> (<em>str</em>) &#8211; Path to JSON file containing list of fields and types of form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#8217;}</li>
+<li><strong>json_path</strong> (<em>str</em>) &#8211; Path to JSON file containing list of fields and types of form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#8217;}</li>
 <li><strong>delete_first</strong> (<em>int</em>) &#8211; Delete datastore before creation. 0 = No, 1 = Yes, 2 = If no primary key. Defaults to 0.</li>
+<li><strong>path</strong> (<em>Optional[str]</em>) &#8211; Local path to file that was uploaded. Defaults to None.</li>
 </ul>
 </td>
 </tr>
@@ -1151,16 +1199,18 @@ form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#82
 
 <dl class="method">
 <dt id="hdx.data.resource.Resource.create_datastore_from_yaml_schema">
-<code class="descname">create_datastore_from_yaml_schema</code><span class="sig-paren">(</span><em>path: str</em>, <em>delete_first: int = 0</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.create_datastore_from_yaml_schema" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates a resource in the HDX datastore from a YAML file containing a list of fields and types of
-form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#8217;} and optionally a primary key</p>
+<code class="descname">create_datastore_from_yaml_schema</code><span class="sig-paren">(</span><em>yaml_path: str</em>, <em>delete_first: int = 0</em>, <em>path: typing.Union[str</em>, <em>NoneType] = None</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.create_datastore_from_yaml_schema" title="Permalink to this definition">¶</a></dt>
+<dd><p>For csvs, create a resource in the HDX datastore which enables data preview in HDX from a YAML file
+containing a list of fields and types of form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#8217;} and optionally a primary key.
+If path is not supplied, the file is first downloaded from HDX.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>path</strong> (<em>str</em>) &#8211; Path to YAML file containing list of fields and types of form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#8217;}</li>
+<li><strong>yaml_path</strong> (<em>str</em>) &#8211; Path to YAML file containing list of fields and types of form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#8217;}</li>
 <li><strong>delete_first</strong> (<em>int</em>) &#8211; Delete datastore before creation. 0 = No, 1 = Yes, 2 = If no primary key. Defaults to 0.</li>
+<li><strong>path</strong> (<em>Optional[str]</em>) &#8211; Local path to file that was uploaded. Defaults to None.</li>
 </ul>
 </td>
 </tr>
@@ -1173,13 +1223,19 @@ form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#82
 
 <dl class="method">
 <dt id="hdx.data.resource.Resource.create_in_hdx">
-<code class="descname">create_in_hdx</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.create_in_hdx" title="Permalink to this definition">¶</a></dt>
-<dd><p>Check if resource exists in HDX and if so, update it, otherwise create it</p>
+<code class="descname">create_in_hdx</code><span class="sig-paren">(</span><em>create_datastore: bool = False</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.create_in_hdx" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Check if resource exists in HDX and if so, update it, otherwise create it. create_datastore can be set True</dt>
+<dd>for csvs enabling data preview in HDX. All fields in the csv will be assumed to be text. For more datastore
+creation options, set to False and use the create_datastore method.</dd>
+</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>create_datastore</strong> (<em>bool</em>) &#8211; Whether to create a datastore (only for csv). Defaults to False.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
 </tbody>
 </table>
@@ -1221,11 +1277,27 @@ form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#82
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>folder</strong> (<em>str</em>) &#8211; Folder to download resource to. Defaults to None.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>folder</strong> (<em>Optional[str]</em>) &#8211; Folder to download resource to. Defaults to None.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">(URL downloaded, Path to downloaded file)</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Tuple[str, str]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.resource.Resource.get_file_to_upload">
+<code class="descname">get_file_to_upload</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; typing.Union[str, NoneType]<a class="headerlink" href="#hdx.data.resource.Resource.get_file_to_upload" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the file uploaded</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The file that will be or has been uploaded or None if there isn&#8217;t one</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Optional[str]</td>
 </tr>
 </tbody>
 </table>
@@ -1284,9 +1356,26 @@ form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#82
 </dd></dl>
 
 <dl class="method">
+<dt id="hdx.data.resource.Resource.set_file_to_upload">
+<code class="descname">set_file_to_upload</code><span class="sig-paren">(</span><em>file_to_upload: str</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.set_file_to_upload" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the file uploaded to the local path provided</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>file_to_upload</strong> (<em>str</em>) &#8211; Local path to file to upload</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="hdx.data.resource.Resource.update_datastore">
-<code class="descname">update_datastore</code><span class="sig-paren">(</span><em>schema: typing.List[dict] = None</em>, <em>primary_key: typing.Union[str</em>, <em>NoneType] = None</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.update_datastore" title="Permalink to this definition">¶</a></dt>
-<dd><p>Update a resource in the HDX datastore. If no schema is provided all fields are assumed to be text.</p>
+<code class="descname">update_datastore</code><span class="sig-paren">(</span><em>schema: typing.List[dict] = None</em>, <em>primary_key: typing.Union[str</em>, <em>NoneType] = None</em>, <em>path: typing.Union[str</em>, <em>NoneType] = None</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.update_datastore" title="Permalink to this definition">¶</a></dt>
+<dd><p>For csvs, update a resource in the HDX datastore which enables data preview in HDX. If no schema is provided
+all fields are assumed to be text. If path is not supplied, the file is first downloaded from HDX.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1294,6 +1383,7 @@ form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#82
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>schema</strong> (<em>List[dict]</em>) &#8211; List of fields and types of form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#8217;}. Defaults to None.</li>
 <li><strong>primary_key</strong> (<em>Optional[str]</em>) &#8211; Primary key of schema. Defaults to None.</li>
+<li><strong>path</strong> (<em>Optional[str]</em>) &#8211; Local path to file that was uploaded. Defaults to None.</li>
 </ul>
 </td>
 </tr>
@@ -1306,13 +1396,39 @@ form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#82
 
 <dl class="method">
 <dt id="hdx.data.resource.Resource.update_datastore_for_topline">
-<code class="descname">update_datastore_for_topline</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.update_datastore_for_topline" title="Permalink to this definition">¶</a></dt>
-<dd><p>Update a resource in the HDX datastore using the built in YAML definition for a topline</p>
+<code class="descname">update_datastore_for_topline</code><span class="sig-paren">(</span><em>path: typing.Union[str</em>, <em>NoneType] = None</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.update_datastore_for_topline" title="Permalink to this definition">¶</a></dt>
+<dd><p>For csvs, update a resource in the HDX datastore which enables data preview in HDX using the built in YAML
+definition for a topline. If path is not supplied, the file is first downloaded from HDX.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>Optional[str]</em>) &#8211; Local path to file that was uploaded. Defaults to None.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.resource.Resource.update_datastore_from_dict_schema">
+<code class="descname">update_datastore_from_dict_schema</code><span class="sig-paren">(</span><em>data: dict</em>, <em>path: typing.Union[str</em>, <em>NoneType] = None</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.update_datastore_from_dict_schema" title="Permalink to this definition">¶</a></dt>
+<dd><p>For csvs, update a resource in the HDX datastore which enables data preview in HDX from a dictionary
+containing a list of fields and types of form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#8217;} and optionally a primary key.
+If path is not supplied, the file is first downloaded from HDX.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>data</strong> (<em>dict</em>) &#8211; Dictionary containing list of fields and types of form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#8217;}</li>
+<li><strong>path</strong> (<em>Optional[str]</em>) &#8211; Local path to file that was uploaded. Defaults to None.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -1320,16 +1436,22 @@ form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#82
 
 <dl class="method">
 <dt id="hdx.data.resource.Resource.update_datastore_from_json_schema">
-<code class="descname">update_datastore_from_json_schema</code><span class="sig-paren">(</span><em>path: str</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.update_datastore_from_json_schema" title="Permalink to this definition">¶</a></dt>
-<dd><p>Update a resource in the HDX datastore from a JSON file containing a list of fields and types of
-form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#8217;} and optionally a primary key</p>
+<code class="descname">update_datastore_from_json_schema</code><span class="sig-paren">(</span><em>json_path: str</em>, <em>path: typing.Union[str</em>, <em>NoneType] = None</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.update_datastore_from_json_schema" title="Permalink to this definition">¶</a></dt>
+<dd><p>For csvs, update a resource in the HDX datastore which enables data preview in HDX from a JSON file
+containing a list of fields and types of form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#8217;} and optionally a primary key.
+If path is not supplied, the file is first downloaded from HDX.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>str</em>) &#8211; Path to JSON file containing list of fields and types of form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#8217;}</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>json_path</strong> (<em>str</em>) &#8211; Path to JSON file containing list of fields and types of form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#8217;}</li>
+<li><strong>path</strong> (<em>Optional[str]</em>) &#8211; Local path to file that was uploaded. Defaults to None.</li>
+</ul>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -1337,16 +1459,22 @@ form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#82
 
 <dl class="method">
 <dt id="hdx.data.resource.Resource.update_datastore_from_yaml_schema">
-<code class="descname">update_datastore_from_yaml_schema</code><span class="sig-paren">(</span><em>path: str</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.update_datastore_from_yaml_schema" title="Permalink to this definition">¶</a></dt>
-<dd><p>Update a resource in the HDX datastore from a YAML file containing a list of fields and types of
-form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#8217;} and optionally a primary key</p>
+<code class="descname">update_datastore_from_yaml_schema</code><span class="sig-paren">(</span><em>yaml_path: str</em>, <em>path: typing.Union[str</em>, <em>NoneType] = None</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.update_datastore_from_yaml_schema" title="Permalink to this definition">¶</a></dt>
+<dd><p>For csvs, update a resource in the HDX datastore which enables data preview in HDX from a YAML file
+containing a list of fields and types of form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#8217;} and optionally a primary key.
+If path is not supplied, the file is first downloaded from HDX.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>str</em>) &#8211; Path to YAML file containing list of fields and types of form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#8217;}</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>yaml_path</strong> (<em>str</em>) &#8211; Path to YAML file containing list of fields and types of form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#8217;}</li>
+<li><strong>path</strong> (<em>Optional[str]</em>) &#8211; Local path to file that was uploaded. Defaults to None.</li>
+</ul>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -1386,13 +1514,19 @@ form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#82
 
 <dl class="method">
 <dt id="hdx.data.resource.Resource.update_in_hdx">
-<code class="descname">update_in_hdx</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.update_in_hdx" title="Permalink to this definition">¶</a></dt>
-<dd><p>Check if resource exists in HDX and if so, update it</p>
+<code class="descname">update_in_hdx</code><span class="sig-paren">(</span><em>update_datastore: bool = False</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.update_in_hdx" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Check if resource exists in HDX and if so, update it. update_datastore can be set True</dt>
+<dd>for csvs enabling data preview in HDX. All fields in the csv will be assumed to be text. For more datastore
+update options, set to False and use the update_datastore method.</dd>
+</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>update_datastore</strong> (<em>bool</em>) &#8211; Whether to update a datastore (only for csv). Defaults to False.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
 </tbody>
 </table>
