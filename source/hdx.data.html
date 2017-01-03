@@ -655,7 +655,7 @@ vice versa (eg. &#8216;Every month&#8217; = &#8216;30&#8217;, &#8216;30&#8217; =
 
 <dl class="attribute">
 <dt id="hdx.data.dataset.Dataset.update_frequencies">
-<code class="descname">update_frequencies</code><em class="property"> = {'quarterly': '90', 'every year': '365', 'annually': '365', 'never': '0', 'every week': '7', 'weekly': '7', '365': 'Every year', 'every month': '30', 'fortnightly': '14', '1': 'Every day', '0': 'Never', 'every three months': '90', 'every day': '1', '30': 'Every month', '7': 'Every week', 'yearly': '365', 'every six months': '180', 'every other week': '14', '90': 'Every three months', 'semiyearly': '180', '180': 'Every six months', 'daily': '1', 'every two weeks': '14', 'monthly': '30', '14': 'Every two weeks', 'semiannually': '180'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
+<code class="descname">update_frequencies</code><em class="property"> = {'7': 'Every week', 'weekly': '7', 'yearly': '365', '30': 'Every month', 'every month': '30', 'every six months': '180', 'semiannually': '180', 'every two weeks': '14', '14': 'Every two weeks', 'every year': '365', 'annually': '365', 'daily': '1', '90': 'Every three months', '180': 'Every six months', 'every three months': '90', 'every other week': '14', '365': 'Every year', 'monthly': '30', 'every week': '7', 'every day': '1', 'fortnightly': '14', 'semiyearly': '180', '0': 'Never', '1': 'Every day', 'quarterly': '90', 'never': '0'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -1223,19 +1223,13 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 
 <dl class="method">
 <dt id="hdx.data.resource.Resource.create_in_hdx">
-<code class="descname">create_in_hdx</code><span class="sig-paren">(</span><em>create_datastore: bool = False</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.create_in_hdx" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Check if resource exists in HDX and if so, update it, otherwise create it. create_datastore can be set True</dt>
-<dd>for csvs enabling data preview in HDX. All fields in the csv will be assumed to be text. For more datastore
-creation options, set to False and use the create_datastore method.</dd>
-</dl>
+<code class="descname">create_in_hdx</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.create_in_hdx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if resource exists in HDX and if so, update it, otherwise create it</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>create_datastore</strong> (<em>bool</em>) &#8211; Whether to create a datastore (only for csv). Defaults to False.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
 </tbody>
 </table>
@@ -1515,18 +1509,12 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 <dl class="method">
 <dt id="hdx.data.resource.Resource.update_in_hdx">
 <code class="descname">update_in_hdx</code><span class="sig-paren">(</span><em>update_datastore: bool = False</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.update_in_hdx" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Check if resource exists in HDX and if so, update it. update_datastore can be set True</dt>
-<dd>for csvs enabling data preview in HDX. All fields in the csv will be assumed to be text. For more datastore
-update options, set to False and use the update_datastore method.</dd>
-</dl>
+<dd><p>Check if resource exists in HDX and if so, update it</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>update_datastore</strong> (<em>bool</em>) &#8211; Whether to update a datastore (only for csv). Defaults to False.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
 </tbody>
 </table>
