@@ -53,7 +53,7 @@
 <p>It also handles resource and gallery items.</p>
 <dl class="class">
 <dt id="hdx.data.dataset.Dataset">
-<em class="property">class </em><code class="descclassname">hdx.data.dataset.</code><code class="descname">Dataset</code><span class="sig-paren">(</span><em>configuration: hdx.configuration.Configuration</em>, <em>initial_data: typing.Union[dict</em>, <em>NoneType] = None</em>, <em>include_gallery: typing.Union[bool</em>, <em>NoneType] = True</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">hdx.data.dataset.</code><code class="descname">Dataset</code><span class="sig-paren">(</span><em>initial_data: typing.Union[dict</em>, <em>NoneType] = None</em>, <em>include_gallery: typing.Union[bool</em>, <em>NoneType] = True</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#hdx.data.hdxobject.HDXObject" title="hdx.data.hdxobject.HDXObject"><code class="xref py py-class docutils literal"><span class="pre">hdx.data.hdxobject.HDXObject</span></code></a></p>
 <p>Dataset class enabling operations on datasets and associated resources and gallery items.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -61,7 +61,6 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>configuration</strong> (<a class="reference internal" href="hdx.html#hdx.configuration.Configuration" title="hdx.configuration.Configuration"><em>Configuration</em></a>) &#8211; HDX Configuration</li>
 <li><strong>initial_data</strong> (<em>Optional[dict]</em>) &#8211; Initial dataset metadata dictionary. Defaults to None.</li>
 <li><strong>include_gallery</strong> (<em>Optional[bool]</em>) &#8211; Whether to include gallery items in dataset. Defaults to True.</li>
 </ul>
@@ -308,14 +307,13 @@ names, converted to iso 3 codes. If any country is already added, it is ignored.
 
 <dl class="staticmethod">
 <dt id="hdx.data.dataset.Dataset.get_all_datasets">
-<em class="property">static </em><code class="descname">get_all_datasets</code><span class="sig-paren">(</span><em>configuration: hdx.configuration.Configuration</em>, <em>include_gallery: typing.Union[bool</em>, <em>NoneType] = True</em>, <em>**kwargs</em><span class="sig-paren">)</span> &rarr; typing.List[typing.Dataset]<a class="headerlink" href="#hdx.data.dataset.Dataset.get_all_datasets" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">get_all_datasets</code><span class="sig-paren">(</span><em>include_gallery: typing.Union[bool</em>, <em>NoneType] = True</em>, <em>**kwargs</em><span class="sig-paren">)</span> &rarr; typing.List[typing.Dataset]<a class="headerlink" href="#hdx.data.dataset.Dataset.get_all_datasets" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get all datasets in HDX</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>configuration</strong> (<a class="reference internal" href="hdx.html#hdx.configuration.Configuration" title="hdx.configuration.Configuration"><em>Configuration</em></a>) &#8211; HDX Configuration</li>
 <li><strong>include_gallery</strong> (<em>Optional[bool]</em>) &#8211; Whether to include gallery items in dataset. Defaults to True.</li>
 <li><strong>**kwargs</strong> &#8211; See below</li>
 <li><strong>rows</strong> (<em>int</em>) &#8211; Number of rows to return. Defaults to all datasets (sys.maxsize).</li>
@@ -495,23 +493,17 @@ names, converted to iso 3 codes. If any country is already added, it is ignored.
 
 <dl class="staticmethod">
 <dt id="hdx.data.dataset.Dataset.read_from_hdx">
-<em class="property">static </em><code class="descname">read_from_hdx</code><span class="sig-paren">(</span><em>configuration: hdx.configuration.Configuration</em>, <em>identifier: str</em><span class="sig-paren">)</span> &rarr; typing.Union[typing.Dataset, NoneType]<a class="headerlink" href="#hdx.data.dataset.Dataset.read_from_hdx" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">read_from_hdx</code><span class="sig-paren">(</span><em>identifier: str</em><span class="sig-paren">)</span> &rarr; typing.Union[typing.Dataset, NoneType]<a class="headerlink" href="#hdx.data.dataset.Dataset.read_from_hdx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reads the dataset given by identifier from HDX and returns Dataset object</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>configuration</strong> (<a class="reference internal" href="hdx.html#hdx.configuration.Configuration" title="hdx.configuration.Configuration"><em>Configuration</em></a>) &#8211; HDX Configuration</li>
-<li><strong>identifier</strong> (<em>str</em>) &#8211; Identifier of dataset</li>
-</ul>
-</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>identifier</strong> (<em>str</em>) &#8211; Identifier of dataset</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Dataset object if successful read, None if not</p>
-</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Dataset object if successful read, None if not</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Optional[Dataset]</p>
-</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Optional[Dataset]</td>
 </tr>
 </tbody>
 </table>
@@ -519,14 +511,13 @@ names, converted to iso 3 codes. If any country is already added, it is ignored.
 
 <dl class="staticmethod">
 <dt id="hdx.data.dataset.Dataset.search_in_hdx">
-<em class="property">static </em><code class="descname">search_in_hdx</code><span class="sig-paren">(</span><em>configuration: hdx.configuration.Configuration</em>, <em>query: str</em>, <em>include_gallery: typing.Union[bool</em>, <em>NoneType] = True</em>, <em>**kwargs</em><span class="sig-paren">)</span> &rarr; typing.List[typing.Dataset]<a class="headerlink" href="#hdx.data.dataset.Dataset.search_in_hdx" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">search_in_hdx</code><span class="sig-paren">(</span><em>query: str</em>, <em>include_gallery: typing.Union[bool</em>, <em>NoneType] = True</em>, <em>**kwargs</em><span class="sig-paren">)</span> &rarr; typing.List[typing.Dataset]<a class="headerlink" href="#hdx.data.dataset.Dataset.search_in_hdx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Searches for datasets in HDX</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>configuration</strong> (<a class="reference internal" href="hdx.html#hdx.configuration.Configuration" title="hdx.configuration.Configuration"><em>Configuration</em></a>) &#8211; HDX Configuration</li>
 <li><strong>query</strong> (<em>str</em>) &#8211; Query (in Solr format). Defaults to &#8216;<em>:</em>&#8216;.</li>
 <li><strong>include_gallery</strong> (<em>Optional[bool]</em>) &#8211; Whether to include gallery items in dataset. Defaults to True.</li>
 <li><strong>**kwargs</strong> &#8211; See below</li>
@@ -655,7 +646,7 @@ vice versa (eg. &#8216;Every month&#8217; = &#8216;30&#8217;, &#8216;30&#8217; =
 
 <dl class="attribute">
 <dt id="hdx.data.dataset.Dataset.update_frequencies">
-<code class="descname">update_frequencies</code><em class="property"> = {'every week': '7', 'fortnightly': '14', 'every day': '1', '180': 'Every six months', 'semiannually': '180', 'every three months': '90', '1': 'Every day', 'daily': '1', '14': 'Every two weeks', '30': 'Every month', 'quarterly': '90', 'every six months': '180', 'every two weeks': '14', '0': 'Never', 'annually': '365', 'every month': '30', '365': 'Every year', 'never': '0', 'semiyearly': '180', '90': 'Every three months', 'every other week': '14', '7': 'Every week', 'weekly': '7', 'yearly': '365', 'monthly': '30', 'every year': '365'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
+<code class="descname">update_frequencies</code><em class="property"> = {'30': 'Every month', 'semiyearly': '180', 'every six months': '180', 'weekly': '7', 'annually': '365', '7': 'Every week', '90': 'Every three months', 'quarterly': '90', 'semiannually': '180', 'every day': '1', '14': 'Every two weeks', 'fortnightly': '14', 'never': '0', 'every two weeks': '14', 'daily': '1', 'every year': '365', 'monthly': '30', '365': 'Every year', 'every week': '7', 'yearly': '365', 'every other week': '14', 'every month': '30', '1': 'Every day', '0': 'Never', 'every three months': '90', '180': 'Every six months'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -719,18 +710,14 @@ vice versa (eg. &#8216;Every month&#8217; = &#8216;30&#8217;, &#8216;30&#8217; =
 <p>GalleryItem class containing all logic for creating, checking, and updating gallery items.</p>
 <dl class="class">
 <dt id="hdx.data.galleryitem.GalleryItem">
-<em class="property">class </em><code class="descclassname">hdx.data.galleryitem.</code><code class="descname">GalleryItem</code><span class="sig-paren">(</span><em>configuration: hdx.configuration.Configuration</em>, <em>initial_data: typing.Union[dict</em>, <em>NoneType] = None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.galleryitem.GalleryItem" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">hdx.data.galleryitem.</code><code class="descname">GalleryItem</code><span class="sig-paren">(</span><em>initial_data: typing.Union[dict</em>, <em>NoneType] = None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.galleryitem.GalleryItem" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#hdx.data.hdxobject.HDXObject" title="hdx.data.hdxobject.HDXObject"><code class="xref py py-class docutils literal"><span class="pre">hdx.data.hdxobject.HDXObject</span></code></a></p>
 <p>GalleryItem class containing all logic for creating, checking, and updating gallery items.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>configuration</strong> (<a class="reference internal" href="hdx.html#hdx.configuration.Configuration" title="hdx.configuration.Configuration"><em>Configuration</em></a>) &#8211; HDX Configuration</li>
-<li><strong>initial_data</strong> (<em>Optional[dict]</em>) &#8211; Initial gallery item metadata dictionary. Defaults to None.</li>
-</ul>
-</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>initial_data</strong> (<em>Optional[dict]</em>) &#8211; Initial gallery item metadata dictionary. Defaults to None.</td>
 </tr>
 </tbody>
 </table>
@@ -798,23 +785,17 @@ creation).</p>
 
 <dl class="staticmethod">
 <dt id="hdx.data.galleryitem.GalleryItem.read_from_hdx">
-<em class="property">static </em><code class="descname">read_from_hdx</code><span class="sig-paren">(</span><em>configuration: hdx.configuration.Configuration</em>, <em>identifier: str</em><span class="sig-paren">)</span> &rarr; typing.Union[typing.GalleryItem, NoneType]<a class="headerlink" href="#hdx.data.galleryitem.GalleryItem.read_from_hdx" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">read_from_hdx</code><span class="sig-paren">(</span><em>identifier: str</em><span class="sig-paren">)</span> &rarr; typing.Union[typing.GalleryItem, NoneType]<a class="headerlink" href="#hdx.data.galleryitem.GalleryItem.read_from_hdx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reads the gallery item given by identifier from HDX and returns GalleryItem object</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>configuration</strong> (<a class="reference internal" href="hdx.html#hdx.configuration.Configuration" title="hdx.configuration.Configuration"><em>Configuration</em></a>) &#8211; HDX Configuration</li>
-<li><strong>identifier</strong> (<em>str</em>) &#8211; Identifier of gallery item</li>
-</ul>
-</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>identifier</strong> (<em>str</em>) &#8211; Identifier of gallery item</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">GalleryItem object if successful read, None if not</p>
-</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">GalleryItem object if successful read, None if not</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Optional[GalleryItem]</p>
-</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Optional[GalleryItem]</td>
 </tr>
 </tbody>
 </table>
@@ -881,7 +862,7 @@ New HDX objects should extend this in similar fashion to Resource for example.</
 
 <dl class="class">
 <dt id="hdx.data.hdxobject.HDXObject">
-<em class="property">class </em><code class="descclassname">hdx.data.hdxobject.</code><code class="descname">HDXObject</code><span class="sig-paren">(</span><em>configuration: hdx.configuration.Configuration</em>, <em>initial_data: dict</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.hdxobject.HDXObject" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">hdx.data.hdxobject.</code><code class="descname">HDXObject</code><span class="sig-paren">(</span><em>initial_data: dict</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.hdxobject.HDXObject" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">collections.UserDict</span></code></p>
 <p>HDXObject abstract class containing helper functions for creating, checking, and updating HDX objects.
 New HDX objects should extend this in similar fashion to Resource for example.</p>
@@ -889,11 +870,7 @@ New HDX objects should extend this in similar fashion to Resource for example.</
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>configuration</strong> (<a class="reference internal" href="hdx.html#hdx.configuration.Configuration" title="hdx.configuration.Configuration"><em>Configuration</em></a>) &#8211; HDX Configuration</li>
-<li><strong>initial_data</strong> (<em>dict</em>) &#8211; Initial metadata dictionary</li>
-</ul>
-</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>initial_data</strong> (<em>dict</em>) &#8211; Initial metadata dictionary</td>
 </tr>
 </tbody>
 </table>
@@ -977,23 +954,17 @@ creation).</p>
 
 <dl class="staticmethod">
 <dt id="hdx.data.hdxobject.HDXObject.read_from_hdx">
-<em class="property">static </em><code class="descname">read_from_hdx</code><span class="sig-paren">(</span><em>configuration: hdx.configuration.Configuration</em>, <em>id_field: str</em><span class="sig-paren">)</span> &rarr; typing.Union[T, NoneType]<a class="headerlink" href="#hdx.data.hdxobject.HDXObject.read_from_hdx" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">read_from_hdx</code><span class="sig-paren">(</span><em>id_field: str</em><span class="sig-paren">)</span> &rarr; typing.Union[T, NoneType]<a class="headerlink" href="#hdx.data.hdxobject.HDXObject.read_from_hdx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Abstract method to read the HDX object given by identifier from HDX and return it</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>configuration</strong> (<a class="reference internal" href="hdx.html#hdx.configuration.Configuration" title="hdx.configuration.Configuration"><em>Configuration</em></a>) &#8211; HDX Configuration</li>
-<li><strong>id_field</strong> (<em>str</em>) &#8211; HDX object identifier</li>
-</ul>
-</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>id_field</strong> (<em>str</em>) &#8211; HDX object identifier</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">HDX object if successful read, None if not</p>
-</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">HDX object if successful read, None if not</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Optional[T &lt;= HDXObject]</p>
-</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Optional[T &lt;= HDXObject]</td>
 </tr>
 </tbody>
 </table>
@@ -1053,18 +1024,14 @@ creation).</p>
 <p>Resource class containing all logic for creating, checking, and updating resources.</p>
 <dl class="class">
 <dt id="hdx.data.resource.Resource">
-<em class="property">class </em><code class="descclassname">hdx.data.resource.</code><code class="descname">Resource</code><span class="sig-paren">(</span><em>configuration: hdx.configuration.Configuration</em>, <em>initial_data: typing.Union[dict</em>, <em>NoneType] = None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">hdx.data.resource.</code><code class="descname">Resource</code><span class="sig-paren">(</span><em>initial_data: typing.Union[dict</em>, <em>NoneType] = None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#hdx.data.hdxobject.HDXObject" title="hdx.data.hdxobject.HDXObject"><code class="xref py py-class docutils literal"><span class="pre">hdx.data.hdxobject.HDXObject</span></code></a></p>
 <p>Resource class containing all logic for creating, checking, and updating resources.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>configuration</strong> (<a class="reference internal" href="hdx.html#hdx.configuration.Configuration" title="hdx.configuration.Configuration"><em>Configuration</em></a>) &#8211; HDX Configuration</li>
-<li><strong>initial_data</strong> (<em>Optional[dict]</em>) &#8211; Initial resource metadata dictionary. Defaults to None.</li>
-</ul>
-</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>initial_data</strong> (<em>Optional[dict]</em>) &#8211; Initial resource metadata dictionary. Defaults to None.</td>
 </tr>
 </tbody>
 </table>
@@ -1299,23 +1266,17 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 
 <dl class="staticmethod">
 <dt id="hdx.data.resource.Resource.read_from_hdx">
-<em class="property">static </em><code class="descname">read_from_hdx</code><span class="sig-paren">(</span><em>configuration: hdx.configuration.Configuration</em>, <em>identifier: str</em><span class="sig-paren">)</span> &rarr; typing.Union[typing.Resource, NoneType]<a class="headerlink" href="#hdx.data.resource.Resource.read_from_hdx" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">read_from_hdx</code><span class="sig-paren">(</span><em>identifier: str</em><span class="sig-paren">)</span> &rarr; typing.Union[typing.Resource, NoneType]<a class="headerlink" href="#hdx.data.resource.Resource.read_from_hdx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reads the resource given by identifier from HDX and returns Resource object</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>configuration</strong> (<a class="reference internal" href="hdx.html#hdx.configuration.Configuration" title="hdx.configuration.Configuration"><em>Configuration</em></a>) &#8211; HDX Configuration</li>
-<li><strong>identifier</strong> (<em>str</em>) &#8211; Identifier of resource</li>
-</ul>
-</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>identifier</strong> (<em>str</em>) &#8211; Identifier of resource</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Resource object if successful read, None if not</p>
-</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Resource object if successful read, None if not</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Optional[Resource]</p>
-</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Optional[Resource]</td>
 </tr>
 </tbody>
 </table>
@@ -1323,14 +1284,13 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 
 <dl class="staticmethod">
 <dt id="hdx.data.resource.Resource.search_in_hdx">
-<em class="property">static </em><code class="descname">search_in_hdx</code><span class="sig-paren">(</span><em>configuration: hdx.configuration.Configuration</em>, <em>query: str</em>, <em>**kwargs</em><span class="sig-paren">)</span> &rarr; typing.List[typing.Resource]<a class="headerlink" href="#hdx.data.resource.Resource.search_in_hdx" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">search_in_hdx</code><span class="sig-paren">(</span><em>query: str</em>, <em>**kwargs</em><span class="sig-paren">)</span> &rarr; typing.List[typing.Resource]<a class="headerlink" href="#hdx.data.resource.Resource.search_in_hdx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Searches for resources in HDX. NOTE: Does not search dataset metadata!</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>configuration</strong> (<a class="reference internal" href="hdx.html#hdx.configuration.Configuration" title="hdx.configuration.Configuration"><em>Configuration</em></a>) &#8211; HDX Configuration</li>
 <li><strong>query</strong> (<em>str</em>) &#8211; Query</li>
 <li><strong>**kwargs</strong> &#8211; See below</li>
 <li><strong>order_by</strong> (<em>str</em>) &#8211; A field on the Resource model that orders the results</li>

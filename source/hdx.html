@@ -107,6 +107,24 @@
 </tr>
 </tbody>
 </table>
+<dl class="staticmethod">
+<dt id="hdx.configuration.Configuration.create">
+<em class="property">static </em><code class="descname">create</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span> &rarr; hdx.configuration.Configuration<a class="headerlink" href="#hdx.configuration.Configuration.create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>str</em>) &#8211; Path to HDX key</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">HDX api key</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 <dl class="method">
 <dt id="hdx.configuration.Configuration.get_api_key">
 <code class="descname">get_api_key</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; typing.Union[str, NoneType]<a class="headerlink" href="#hdx.configuration.Configuration.get_api_key" title="Permalink to this definition">¶</a></dt>
@@ -156,6 +174,38 @@
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">HDX api key</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="hdx.configuration.Configuration.read">
+<em class="property">static </em><code class="descname">read</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; hdx.configuration.Configuration<a class="headerlink" href="#hdx.configuration.Configuration.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read the HDX configuration</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The HDX configuration</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#hdx.configuration.Configuration" title="hdx.configuration.Configuration">Configuration</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="hdx.configuration.Configuration.remoteckan">
+<em class="property">static </em><code class="descname">remoteckan</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; ckanapi.remoteckan.RemoteCKAN<a class="headerlink" href="#hdx.configuration.Configuration.remoteckan" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the remote CKAN object (see ckanapi library)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The remote CKAN object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ckanapi.RemoteCKAN</td>
 </tr>
 </tbody>
 </table>
