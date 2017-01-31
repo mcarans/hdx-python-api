@@ -4,10 +4,10 @@ hdx.utilities package
 Submodules
 ----------
 
-hdx.utilities.dictionary module
--------------------------------
+hdx.utilities.dictandlist module
+--------------------------------
 
-.. automodule:: hdx.utilities.dictionary
+.. automodule:: hdx.utilities.dictandlist
     :members:
     :undoc-members:
     :show-inheritance:
