@@ -12,12 +12,12 @@ Contents
 --------
 
 .. toctree::
-:maxdepth: 1
+   :maxdepth: 1
 
-       source/hdx.rst
-       source/hdx.data.rst
-       source/hdx.facades.rst
-       source/hdx.utilities.rst
+   source/hdx.rst
+   source/hdx.data.rst
+   source/hdx.facades.rst
+   source/hdx.utilities.rst
 
 Indices and tables
 ------------------
