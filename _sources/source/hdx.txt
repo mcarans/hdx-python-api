@@ -21,10 +21,10 @@ hdx.configuration module
     :undoc-members:
     :show-inheritance:
 
-hdx.logging module
-------------------
+hdx.hdx_logging module
+----------------------
 
-.. automodule:: hdx.logging
+.. automodule:: hdx.hdx_logging
     :members:
     :undoc-members:
     :show-inheritance:

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>hdx package &mdash; HDX Python API 0.3 documentation</title>
+    <title>hdx package &mdash; HDX Python API 1.0 documentation</title>
     
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '0.3',
+        VERSION:     '1.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,9 +23,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="HDX Python API 0.3 documentation" href="../index.html" />
-    <link rel="next" title="hdx.data package" href="hdx.data.html" />
-    <link rel="prev" title="HDX Python API Documentation" href="../index.html" />
+    <link rel="top" title="HDX Python API 1.0 documentation" href="../index.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -58,7 +56,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="hdx.facades.html">hdx.facades package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="hdx.facades.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hdx.facades.html#module-hdx.facades.scraperwiki">hdx.facades.scraperwiki module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hdx.facades.html#module-hdx.facades.hdx_scraperwiki">hdx.facades.hdx_scraperwiki module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hdx.facades.html#module-hdx.facades.simple">hdx.facades.simple module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hdx.facades.html#module-hdx.facades">Module contents</a></li>
 </ul>
@@ -85,7 +83,7 @@
 <dl class="class">
 <dt id="hdx.configuration.Configuration">
 <em class="property">class </em><code class="descclassname">hdx.configuration.</code><code class="descname">Configuration</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.configuration.Configuration" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">collections.UserDict</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">collections.UserDict</span></code>, <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
 <p>Configuration for HDX</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -95,7 +93,8 @@
 <li><strong>**kwargs</strong> &#8211; See below</li>
 <li><strong>hdx_site</strong> (<em>Optional[str]</em>) &#8211; HDX site to use eg. prod, test. Defaults to test.</li>
 <li><strong>hdx_read_only</strong> (<em>bool</em>) &#8211; Whether to access HDX in read only mode. Defaults to False.</li>
-<li><strong>hdx_key_file</strong> (<em>Optional[str]</em>) &#8211; Path to HDX key file. Ignored if hdx_read_only = True. Defaults to ~/.hdxkey.</li>
+<li><strong>hdx_key</strong> (<em>Optional[str]</em>) &#8211; Your HDX key. Ignored if hdx_read_only = True.</li>
+<li><strong>hdx_key_file</strong> (<em>Optional[str]</em>) &#8211; Path to HDX key file. Ignored if hdx_read_only = True or hdx_key supplied. Defaults to ~/.hdxkey.</li>
 <li><strong>hdx_config_dict</strong> (<em>dict</em>) &#8211; HDX configuration dictionary OR</li>
 <li><strong>hdx_config_json</strong> (<em>str</em>) &#8211; Path to JSON HDX configuration OR</li>
 <li><strong>hdx_config_yaml</strong> (<em>str</em>) &#8211; Path to YAML HDX configuration. Defaults to library&#8217;s internal hdx_configuration.yml.</li>
@@ -109,7 +108,7 @@
 </table>
 <dl class="staticmethod">
 <dt id="hdx.configuration.Configuration.create">
-<em class="property">static </em><code class="descname">create</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span> &rarr; hdx.configuration.Configuration<a class="headerlink" href="#hdx.configuration.Configuration.create" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">create</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.configuration.Configuration.create" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -127,7 +126,7 @@
 
 <dl class="method">
 <dt id="hdx.configuration.Configuration.get_api_key">
-<code class="descname">get_api_key</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; typing.Union[str, NoneType]<a class="headerlink" href="#hdx.configuration.Configuration.get_api_key" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_api_key</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.configuration.Configuration.get_api_key" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -142,7 +141,7 @@
 
 <dl class="method">
 <dt id="hdx.configuration.Configuration.get_hdx_site_url">
-<code class="descname">get_hdx_site_url</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; str<a class="headerlink" href="#hdx.configuration.Configuration.get_hdx_site_url" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_hdx_site_url</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.configuration.Configuration.get_hdx_site_url" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -163,7 +162,7 @@
 
 <dl class="staticmethod">
 <dt id="hdx.configuration.Configuration.load_api_key">
-<em class="property">static </em><code class="descname">load_api_key</code><span class="sig-paren">(</span><em>path: str</em><span class="sig-paren">)</span> &rarr; str<a class="headerlink" href="#hdx.configuration.Configuration.load_api_key" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">load_api_key</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.configuration.Configuration.load_api_key" title="Permalink to this definition">¶</a></dt>
 <dd><p>Load HDX api key</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -181,7 +180,7 @@
 
 <dl class="staticmethod">
 <dt id="hdx.configuration.Configuration.read">
-<em class="property">static </em><code class="descname">read</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; hdx.configuration.Configuration<a class="headerlink" href="#hdx.configuration.Configuration.read" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">read</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.configuration.Configuration.read" title="Permalink to this definition">¶</a></dt>
 <dd><p>Read the HDX configuration</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -197,7 +196,7 @@
 
 <dl class="staticmethod">
 <dt id="hdx.configuration.Configuration.remoteckan">
-<em class="property">static </em><code class="descname">remoteckan</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; ckanapi.remoteckan.RemoteCKAN<a class="headerlink" href="#hdx.configuration.Configuration.remoteckan" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">remoteckan</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.configuration.Configuration.remoteckan" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the remote CKAN object (see ckanapi library)</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -220,18 +219,18 @@
 </dd></dl>
 
 </div>
-<div class="section" id="module-hdx.logging">
-<span id="hdx-logging-module"></span><h2>hdx.logging module<a class="headerlink" href="#module-hdx.logging" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-hdx.hdx_logging">
+<span id="hdx-hdx-logging-module"></span><h2>hdx.hdx_logging module<a class="headerlink" href="#module-hdx.hdx_logging" title="Permalink to this headline">¶</a></h2>
 <p>Configuration of logging</p>
 <dl class="exception">
-<dt id="hdx.logging.LoggingError">
-<em class="property">exception </em><code class="descclassname">hdx.logging.</code><code class="descname">LoggingError</code><a class="headerlink" href="#hdx.logging.LoggingError" title="Permalink to this definition">¶</a></dt>
+<dt id="hdx.hdx_logging.LoggingError">
+<em class="property">exception </em><code class="descclassname">hdx.hdx_logging.</code><code class="descname">LoggingError</code><a class="headerlink" href="#hdx.hdx_logging.LoggingError" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">Exception</span></code></p>
 </dd></dl>
 
 <dl class="function">
-<dt id="hdx.logging.setup_logging">
-<code class="descclassname">hdx.logging.</code><code class="descname">setup_logging</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.logging.setup_logging" title="Permalink to this definition">¶</a></dt>
+<dt id="hdx.hdx_logging.setup_logging">
+<code class="descclassname">hdx.hdx_logging.</code><code class="descname">setup_logging</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.hdx_logging.setup_logging" title="Permalink to this definition">¶</a></dt>
 <dd><p>Setup logging configuration</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -273,7 +272,7 @@
 <li><a class="reference internal" href="#subpackages">Subpackages</a></li>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
 <li><a class="reference internal" href="#module-hdx.configuration">hdx.configuration module</a></li>
-<li><a class="reference internal" href="#module-hdx.logging">hdx.logging module</a></li>
+<li><a class="reference internal" href="#module-hdx.hdx_logging">hdx.hdx_logging module</a></li>
 <li><a class="reference internal" href="#module-hdx">Module contents</a></li>
 </ul>
 </li>
@@ -282,8 +281,6 @@
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="../index.html" title="previous chapter">HDX Python API Documentation</a></li>
-      <li>Next: <a href="hdx.data.html" title="next chapter">hdx.data package</a></li>
   </ul></li>
 </ul>
 </div>
@@ -309,7 +306,7 @@
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2016, Michael Rans.
+      &copy;Michael Rans.
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.5</a>

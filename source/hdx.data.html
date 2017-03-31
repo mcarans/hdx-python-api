@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>hdx.data package &mdash; HDX Python API 0.3 documentation</title>
+    <title>hdx.data package &mdash; HDX Python API 1.0 documentation</title>
     
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '0.3',
+        VERSION:     '1.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,10 +23,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="HDX Python API 0.3 documentation" href="../index.html" />
-    <link rel="up" title="hdx package" href="hdx.html" />
-    <link rel="next" title="hdx.facades package" href="hdx.facades.html" />
-    <link rel="prev" title="hdx package" href="hdx.html" />
+    <link rel="top" title="HDX Python API 1.0 documentation" href="../index.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -53,7 +50,7 @@
 <p>It also handles resource and gallery items.</p>
 <dl class="class">
 <dt id="hdx.data.dataset.Dataset">
-<em class="property">class </em><code class="descclassname">hdx.data.dataset.</code><code class="descname">Dataset</code><span class="sig-paren">(</span><em>initial_data: typing.Union[dict</em>, <em>NoneType] = None</em>, <em>include_gallery: typing.Union[bool</em>, <em>NoneType] = True</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">hdx.data.dataset.</code><code class="descname">Dataset</code><span class="sig-paren">(</span><em>initial_data=None</em>, <em>include_gallery=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#hdx.data.hdxobject.HDXObject" title="hdx.data.hdxobject.HDXObject"><code class="xref py py-class docutils literal"><span class="pre">hdx.data.hdxobject.HDXObject</span></code></a></p>
 <p>Dataset class enabling operations on datasets and associated resources and gallery items.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -70,7 +67,7 @@
 </table>
 <dl class="staticmethod">
 <dt id="hdx.data.dataset.Dataset.actions">
-<em class="property">static </em><code class="descname">actions</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; dict<a class="headerlink" href="#hdx.data.dataset.Dataset.actions" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">actions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.actions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Dictionary of actions that can be performed on object</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -86,7 +83,7 @@
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.add_continent_location">
-<code class="descname">add_continent_location</code><span class="sig-paren">(</span><em>continent: str</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.dataset.Dataset.add_continent_location" title="Permalink to this definition">¶</a></dt>
+<code class="descname">add_continent_location</code><span class="sig-paren">(</span><em>continent</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.add_continent_location" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add all countries in a  continent. If a 2 letter continent code is not provided, value is parsed and if it
 is a valid continent name, converted to a 2 letter code. If any country is already added, it is ignored.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -103,7 +100,7 @@ is a valid continent name, converted to a 2 letter code. If any country is alrea
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.add_country_location">
-<code class="descname">add_country_location</code><span class="sig-paren">(</span><em>country: str</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.dataset.Dataset.add_country_location" title="Permalink to this definition">¶</a></dt>
+<code class="descname">add_country_location</code><span class="sig-paren">(</span><em>country</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.add_country_location" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a country. If an iso 3 code is not provided, value is parsed and if it is a valid country name,
 converted to an iso 3 code. If the country is already added, it is ignored.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -120,7 +117,7 @@ converted to an iso 3 code. If the country is already added, it is ignored.</p>
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.add_country_locations">
-<code class="descname">add_country_locations</code><span class="sig-paren">(</span><em>countries: typing.List[str]</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.dataset.Dataset.add_country_locations" title="Permalink to this definition">¶</a></dt>
+<code class="descname">add_country_locations</code><span class="sig-paren">(</span><em>countries</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.add_country_locations" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a list of countries. If iso 3 codes are not provided, values are parsed and where they are valid country
 names, converted to iso 3 codes. If any country is already added, it is ignored.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -137,7 +134,7 @@ names, converted to iso 3 codes. If any country is already added, it is ignored.
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.add_tag">
-<code class="descname">add_tag</code><span class="sig-paren">(</span><em>tag: str</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.dataset.Dataset.add_tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">add_tag</code><span class="sig-paren">(</span><em>tag</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.add_tag" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a tag</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -153,7 +150,7 @@ names, converted to iso 3 codes. If any country is already added, it is ignored.
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.add_tags">
-<code class="descname">add_tags</code><span class="sig-paren">(</span><em>tags: typing.List[str]</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.dataset.Dataset.add_tags" title="Permalink to this definition">¶</a></dt>
+<code class="descname">add_tags</code><span class="sig-paren">(</span><em>tags</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.add_tags" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a list of tag</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -169,7 +166,7 @@ names, converted to iso 3 codes. If any country is already added, it is ignored.
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.add_update_gallery">
-<code class="descname">add_update_gallery</code><span class="sig-paren">(</span><em>gallery: typing.List[typing.Any]</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.add_update_gallery" title="Permalink to this definition">¶</a></dt>
+<code class="descname">add_update_gallery</code><span class="sig-paren">(</span><em>gallery</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.add_update_gallery" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add new or update existing gallery items with new metadata to the dataset</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -185,7 +182,7 @@ names, converted to iso 3 codes. If any country is already added, it is ignored.
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.add_update_galleryitem">
-<code class="descname">add_update_galleryitem</code><span class="sig-paren">(</span><em>galleryitem</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.dataset.Dataset.add_update_galleryitem" title="Permalink to this definition">¶</a></dt>
+<code class="descname">add_update_galleryitem</code><span class="sig-paren">(</span><em>galleryitem</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.add_update_galleryitem" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add new or update existing gallery item in dataset with new metadata</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -201,7 +198,7 @@ names, converted to iso 3 codes. If any country is already added, it is ignored.
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.add_update_resource">
-<code class="descname">add_update_resource</code><span class="sig-paren">(</span><em>resource: typing.Any</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.dataset.Dataset.add_update_resource" title="Permalink to this definition">¶</a></dt>
+<code class="descname">add_update_resource</code><span class="sig-paren">(</span><em>resource</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.add_update_resource" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add new or update existing resource in dataset with new metadata</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -217,7 +214,7 @@ names, converted to iso 3 codes. If any country is already added, it is ignored.
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.add_update_resources">
-<code class="descname">add_update_resources</code><span class="sig-paren">(</span><em>resources: typing.List[typing.Any]</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.dataset.Dataset.add_update_resources" title="Permalink to this definition">¶</a></dt>
+<code class="descname">add_update_resources</code><span class="sig-paren">(</span><em>resources</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.add_update_resources" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add new or update existing resources with new metadata to the dataset</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -233,7 +230,7 @@ names, converted to iso 3 codes. If any country is already added, it is ignored.
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.check_required_fields">
-<code class="descname">check_required_fields</code><span class="sig-paren">(</span><em>ignore_dataset_id=False</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.dataset.Dataset.check_required_fields" title="Permalink to this definition">¶</a></dt>
+<code class="descname">check_required_fields</code><span class="sig-paren">(</span><em>ignore_dataset_id=False</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.check_required_fields" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check that metadata for dataset and its resources and gallery is complete. (ignore_dataset_id is not used.)</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -247,7 +244,7 @@ names, converted to iso 3 codes. If any country is already added, it is ignored.
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.create_in_hdx">
-<code class="descname">create_in_hdx</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.dataset.Dataset.create_in_hdx" title="Permalink to this definition">¶</a></dt>
+<code class="descname">create_in_hdx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.create_in_hdx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check if dataset exists in HDX and if so, update it, otherwise create it</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -261,7 +258,7 @@ names, converted to iso 3 codes. If any country is already added, it is ignored.
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.delete_from_hdx">
-<code class="descname">delete_from_hdx</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.dataset.Dataset.delete_from_hdx" title="Permalink to this definition">¶</a></dt>
+<code class="descname">delete_from_hdx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.delete_from_hdx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Deletes a dataset from HDX.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -275,7 +272,7 @@ names, converted to iso 3 codes. If any country is already added, it is ignored.
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.delete_galleryitem">
-<code class="descname">delete_galleryitem</code><span class="sig-paren">(</span><em>identifier: str</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.dataset.Dataset.delete_galleryitem" title="Permalink to this definition">¶</a></dt>
+<code class="descname">delete_galleryitem</code><span class="sig-paren">(</span><em>identifier</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.delete_galleryitem" title="Permalink to this definition">¶</a></dt>
 <dd><p>Delete a gallery item from the dataset</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -291,7 +288,7 @@ names, converted to iso 3 codes. If any country is already added, it is ignored.
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.delete_resource">
-<code class="descname">delete_resource</code><span class="sig-paren">(</span><em>identifier: str</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.dataset.Dataset.delete_resource" title="Permalink to this definition">¶</a></dt>
+<code class="descname">delete_resource</code><span class="sig-paren">(</span><em>identifier</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.delete_resource" title="Permalink to this definition">¶</a></dt>
 <dd><p>Delete a resource from the dataset</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -307,7 +304,7 @@ names, converted to iso 3 codes. If any country is already added, it is ignored.
 
 <dl class="staticmethod">
 <dt id="hdx.data.dataset.Dataset.get_all_datasets">
-<em class="property">static </em><code class="descname">get_all_datasets</code><span class="sig-paren">(</span><em>include_gallery: typing.Union[bool</em>, <em>NoneType] = True</em>, <em>**kwargs</em><span class="sig-paren">)</span> &rarr; typing.List[typing.Dataset]<a class="headerlink" href="#hdx.data.dataset.Dataset.get_all_datasets" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">get_all_datasets</code><span class="sig-paren">(</span><em>include_gallery=True</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.get_all_datasets" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get all datasets in HDX</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -333,7 +330,7 @@ names, converted to iso 3 codes. If any country is already added, it is ignored.
 
 <dl class="staticmethod">
 <dt id="hdx.data.dataset.Dataset.get_all_resources">
-<em class="property">static </em><code class="descname">get_all_resources</code><span class="sig-paren">(</span><em>datasets: typing.List[typing.Dataset]</em><span class="sig-paren">)</span> &rarr; typing.List[typing.Resource]<a class="headerlink" href="#hdx.data.dataset.Dataset.get_all_resources" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">get_all_resources</code><span class="sig-paren">(</span><em>datasets</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.get_all_resources" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get all resources from a list of datasets (such as returned by search)</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -351,7 +348,7 @@ names, converted to iso 3 codes. If any country is already added, it is ignored.
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.get_dataset_date">
-<code class="descname">get_dataset_date</code><span class="sig-paren">(</span><em>date_format: typing.Union[str</em>, <em>NoneType] = None</em><span class="sig-paren">)</span> &rarr; typing.Union[str, NoneType]<a class="headerlink" href="#hdx.data.dataset.Dataset.get_dataset_date" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_dataset_date</code><span class="sig-paren">(</span><em>date_format=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.get_dataset_date" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get dataset date as string in specified format. If no format is supplied, an ISO 8601 string is returned.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -369,7 +366,7 @@ names, converted to iso 3 codes. If any country is already added, it is ignored.
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.get_dataset_date_as_datetime">
-<code class="descname">get_dataset_date_as_datetime</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; typing.Union[datetime.datetime, NoneType]<a class="headerlink" href="#hdx.data.dataset.Dataset.get_dataset_date_as_datetime" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_dataset_date_as_datetime</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.get_dataset_date_as_datetime" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get dataset date as datetime.datetime object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -385,7 +382,7 @@ names, converted to iso 3 codes. If any country is already added, it is ignored.
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.get_expected_update_frequency">
-<code class="descname">get_expected_update_frequency</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; typing.Union[str, NoneType]<a class="headerlink" href="#hdx.data.dataset.Dataset.get_expected_update_frequency" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_expected_update_frequency</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.get_expected_update_frequency" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get expected update frequency (in textual rather than numeric form)</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -401,7 +398,7 @@ names, converted to iso 3 codes. If any country is already added, it is ignored.
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.get_gallery">
-<code class="descname">get_gallery</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; typing.List[hdx.data.galleryitem.GalleryItem]<a class="headerlink" href="#hdx.data.dataset.Dataset.get_gallery" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_gallery</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.get_gallery" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get dataset&#8217;s gallery</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -417,7 +414,7 @@ names, converted to iso 3 codes. If any country is already added, it is ignored.
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.get_location">
-<code class="descname">get_location</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; typing.List[str]<a class="headerlink" href="#hdx.data.dataset.Dataset.get_location" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_location</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.get_location" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the dataset&#8217;s location</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -433,7 +430,7 @@ names, converted to iso 3 codes. If any country is already added, it is ignored.
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.get_resources">
-<code class="descname">get_resources</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; typing.List[hdx.data.resource.Resource]<a class="headerlink" href="#hdx.data.dataset.Dataset.get_resources" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_resources</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.get_resources" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get dataset&#8217;s resources</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -449,7 +446,7 @@ names, converted to iso 3 codes. If any country is already added, it is ignored.
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.get_tags">
-<code class="descname">get_tags</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; typing.List[str]<a class="headerlink" href="#hdx.data.dataset.Dataset.get_tags" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_tags</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.get_tags" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the dataset&#8217;s list of tags</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -465,7 +462,7 @@ names, converted to iso 3 codes. If any country is already added, it is ignored.
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.init_gallery">
-<code class="descname">init_gallery</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.dataset.Dataset.init_gallery" title="Permalink to this definition">¶</a></dt>
+<code class="descname">init_gallery</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.init_gallery" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialise self.gallery list</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -479,7 +476,7 @@ names, converted to iso 3 codes. If any country is already added, it is ignored.
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.init_resources">
-<code class="descname">init_resources</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.dataset.Dataset.init_resources" title="Permalink to this definition">¶</a></dt>
+<code class="descname">init_resources</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.init_resources" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialise self.resources list</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -493,7 +490,7 @@ names, converted to iso 3 codes. If any country is already added, it is ignored.
 
 <dl class="staticmethod">
 <dt id="hdx.data.dataset.Dataset.read_from_hdx">
-<em class="property">static </em><code class="descname">read_from_hdx</code><span class="sig-paren">(</span><em>identifier: str</em><span class="sig-paren">)</span> &rarr; typing.Union[typing.Dataset, NoneType]<a class="headerlink" href="#hdx.data.dataset.Dataset.read_from_hdx" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">read_from_hdx</code><span class="sig-paren">(</span><em>identifier</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.read_from_hdx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reads the dataset given by identifier from HDX and returns Dataset object</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -511,7 +508,7 @@ names, converted to iso 3 codes. If any country is already added, it is ignored.
 
 <dl class="staticmethod">
 <dt id="hdx.data.dataset.Dataset.search_in_hdx">
-<em class="property">static </em><code class="descname">search_in_hdx</code><span class="sig-paren">(</span><em>query: str</em>, <em>include_gallery: typing.Union[bool</em>, <em>NoneType] = True</em>, <em>**kwargs</em><span class="sig-paren">)</span> &rarr; typing.List[typing.Dataset]<a class="headerlink" href="#hdx.data.dataset.Dataset.search_in_hdx" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">search_in_hdx</code><span class="sig-paren">(</span><em>query</em>, <em>include_gallery=True</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.search_in_hdx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Searches for datasets in HDX</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -559,7 +556,7 @@ names, converted to iso 3 codes. If any country is already added, it is ignored.
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.separate_resources">
-<code class="descname">separate_resources</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.dataset.Dataset.separate_resources" title="Permalink to this definition">¶</a></dt>
+<code class="descname">separate_resources</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.separate_resources" title="Permalink to this definition">¶</a></dt>
 <dd><p>Move contents of resources key in internal dictionary into self.resources</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -573,7 +570,7 @@ names, converted to iso 3 codes. If any country is already added, it is ignored.
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.set_dataset_date">
-<code class="descname">set_dataset_date</code><span class="sig-paren">(</span><em>dataset_date: str</em>, <em>date_format: typing.Union[str</em>, <em>NoneType] = None</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.dataset.Dataset.set_dataset_date" title="Permalink to this definition">¶</a></dt>
+<code class="descname">set_dataset_date</code><span class="sig-paren">(</span><em>dataset_date</em>, <em>date_format=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.set_dataset_date" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set dataset date from string using specified format. If no format is supplied, the function will guess.
 For unambiguous formats, this should be fine.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -595,7 +592,7 @@ For unambiguous formats, this should be fine.</p>
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.set_dataset_date_from_datetime">
-<code class="descname">set_dataset_date_from_datetime</code><span class="sig-paren">(</span><em>dataset_date: datetime.datetime</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.dataset.Dataset.set_dataset_date_from_datetime" title="Permalink to this definition">¶</a></dt>
+<code class="descname">set_dataset_date_from_datetime</code><span class="sig-paren">(</span><em>dataset_date</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.set_dataset_date_from_datetime" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set dataset date from datetime.datetime object</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -611,7 +608,7 @@ For unambiguous formats, this should be fine.</p>
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.set_expected_update_frequency">
-<code class="descname">set_expected_update_frequency</code><span class="sig-paren">(</span><em>update_frequency: str</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.dataset.Dataset.set_expected_update_frequency" title="Permalink to this definition">¶</a></dt>
+<code class="descname">set_expected_update_frequency</code><span class="sig-paren">(</span><em>update_frequency</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.set_expected_update_frequency" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set expected update frequency</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -627,7 +624,7 @@ For unambiguous formats, this should be fine.</p>
 
 <dl class="staticmethod">
 <dt id="hdx.data.dataset.Dataset.transform_update_frequency">
-<em class="property">static </em><code class="descname">transform_update_frequency</code><span class="sig-paren">(</span><em>frequency: str</em><span class="sig-paren">)</span> &rarr; str<a class="headerlink" href="#hdx.data.dataset.Dataset.transform_update_frequency" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">transform_update_frequency</code><span class="sig-paren">(</span><em>frequency</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.transform_update_frequency" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get numeric update frequency (as string since that is required field format) from textual representation or
 vice versa (eg. &#8216;Every month&#8217; = &#8216;30&#8217;, &#8216;30&#8217; = &#8216;Every month&#8217;)</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -646,12 +643,12 @@ vice versa (eg. &#8216;Every month&#8217; = &#8216;30&#8217;, &#8216;30&#8217; =
 
 <dl class="attribute">
 <dt id="hdx.data.dataset.Dataset.update_frequencies">
-<code class="descname">update_frequencies</code><em class="property"> = {'every month': '30', 'every year': '365', 'yearly': '365', 'monthly': '30', '365': 'Every year', 'every week': '7', '7': 'Every week', '180': 'Every six months', '90': 'Every three months', '14': 'Every two weeks', 'semiannually': '180', 'every six months': '180', 'semiyearly': '180', 'every three months': '90', 'every day': '1', 'weekly': '7', '0': 'Never', '30': 'Every month', 'daily': '1', 'quarterly': '90', '1': 'Every day', 'every other week': '14', 'every two weeks': '14', 'annually': '365', 'never': '0', 'fortnightly': '14'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
+<code class="descname">update_frequencies</code><em class="property"> = {'every two weeks': '14', '0': 'Never', 'semiannually': '180', 'every day': '1', 'monthly': '30', 'every three months': '90', 'quarterly': '90', 'never': '0', 'every six months': '180', 'daily': '1', 'every year': '365', 'every week': '7', 'annually': '365', '7': 'Every week', '365': 'Every year', '1': 'Every day', '14': 'Every two weeks', '30': 'Every month', 'fortnightly': '14', '90': 'Every three months', 'weekly': '7', 'every other week': '14', 'semiyearly': '180', 'every month': '30', 'yearly': '365', '180': 'Every six months'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.update_from_json">
-<code class="descname">update_from_json</code><span class="sig-paren">(</span><em>path: typing.Union[str</em>, <em>NoneType] = 'config/hdx_dataset_static.json'</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.dataset.Dataset.update_from_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">update_from_json</code><span class="sig-paren">(</span><em>path='config/hdx_dataset_static.json'</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.update_from_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update dataset metadata with static metadata from JSON file</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -667,7 +664,7 @@ vice versa (eg. &#8216;Every month&#8217; = &#8216;30&#8217;, &#8216;30&#8217; =
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.update_from_yaml">
-<code class="descname">update_from_yaml</code><span class="sig-paren">(</span><em>path: typing.Union[str</em>, <em>NoneType] = 'config/hdx_dataset_static.yml'</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.dataset.Dataset.update_from_yaml" title="Permalink to this definition">¶</a></dt>
+<code class="descname">update_from_yaml</code><span class="sig-paren">(</span><em>path='config/hdx_dataset_static.yml'</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.update_from_yaml" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update dataset metadata with static metadata from YAML file</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -683,7 +680,7 @@ vice versa (eg. &#8216;Every month&#8217; = &#8216;30&#8217;, &#8216;30&#8217; =
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.update_in_hdx">
-<code class="descname">update_in_hdx</code><span class="sig-paren">(</span><em>update_resources: typing.Union[bool</em>, <em>NoneType] = True</em>, <em>update_gallery: typing.Union[bool</em>, <em>NoneType] = True</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.dataset.Dataset.update_in_hdx" title="Permalink to this definition">¶</a></dt>
+<code class="descname">update_in_hdx</code><span class="sig-paren">(</span><em>update_resources=True</em>, <em>update_gallery=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.update_in_hdx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check if dataset exists in HDX and if so, update it</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -710,7 +707,7 @@ vice versa (eg. &#8216;Every month&#8217; = &#8216;30&#8217;, &#8216;30&#8217; =
 <p>GalleryItem class containing all logic for creating, checking, and updating gallery items.</p>
 <dl class="class">
 <dt id="hdx.data.galleryitem.GalleryItem">
-<em class="property">class </em><code class="descclassname">hdx.data.galleryitem.</code><code class="descname">GalleryItem</code><span class="sig-paren">(</span><em>initial_data: typing.Union[dict</em>, <em>NoneType] = None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.galleryitem.GalleryItem" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">hdx.data.galleryitem.</code><code class="descname">GalleryItem</code><span class="sig-paren">(</span><em>initial_data=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.galleryitem.GalleryItem" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#hdx.data.hdxobject.HDXObject" title="hdx.data.hdxobject.HDXObject"><code class="xref py py-class docutils literal"><span class="pre">hdx.data.hdxobject.HDXObject</span></code></a></p>
 <p>GalleryItem class containing all logic for creating, checking, and updating gallery items.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -723,7 +720,7 @@ vice versa (eg. &#8216;Every month&#8217; = &#8216;30&#8217;, &#8216;30&#8217; =
 </table>
 <dl class="staticmethod">
 <dt id="hdx.data.galleryitem.GalleryItem.actions">
-<em class="property">static </em><code class="descname">actions</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; dict<a class="headerlink" href="#hdx.data.galleryitem.GalleryItem.actions" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">actions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.galleryitem.GalleryItem.actions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Dictionary of actions that can be performed on object</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -739,7 +736,7 @@ vice versa (eg. &#8216;Every month&#8217; = &#8216;30&#8217;, &#8216;30&#8217; =
 
 <dl class="method">
 <dt id="hdx.data.galleryitem.GalleryItem.check_required_fields">
-<code class="descname">check_required_fields</code><span class="sig-paren">(</span><em>ignore_dataset_id=False</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.galleryitem.GalleryItem.check_required_fields" title="Permalink to this definition">¶</a></dt>
+<code class="descname">check_required_fields</code><span class="sig-paren">(</span><em>ignore_dataset_id=False</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.galleryitem.GalleryItem.check_required_fields" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check that metadata for gallery item is complete. The parameter ignore_dataset_id should
 be set to True if you intend to add the object to a Dataset object (where it will be created during dataset
 creation).</p>
@@ -757,7 +754,7 @@ creation).</p>
 
 <dl class="method">
 <dt id="hdx.data.galleryitem.GalleryItem.create_in_hdx">
-<code class="descname">create_in_hdx</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.galleryitem.GalleryItem.create_in_hdx" title="Permalink to this definition">¶</a></dt>
+<code class="descname">create_in_hdx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.galleryitem.GalleryItem.create_in_hdx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check if gallery item exists in HDX and if so, update it, otherwise create it</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -771,7 +768,7 @@ creation).</p>
 
 <dl class="method">
 <dt id="hdx.data.galleryitem.GalleryItem.delete_from_hdx">
-<code class="descname">delete_from_hdx</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.galleryitem.GalleryItem.delete_from_hdx" title="Permalink to this definition">¶</a></dt>
+<code class="descname">delete_from_hdx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.galleryitem.GalleryItem.delete_from_hdx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Deletes a gallery item from HDX.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -785,7 +782,7 @@ creation).</p>
 
 <dl class="staticmethod">
 <dt id="hdx.data.galleryitem.GalleryItem.read_from_hdx">
-<em class="property">static </em><code class="descname">read_from_hdx</code><span class="sig-paren">(</span><em>identifier: str</em><span class="sig-paren">)</span> &rarr; typing.Union[typing.GalleryItem, NoneType]<a class="headerlink" href="#hdx.data.galleryitem.GalleryItem.read_from_hdx" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">read_from_hdx</code><span class="sig-paren">(</span><em>identifier</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.galleryitem.GalleryItem.read_from_hdx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reads the gallery item given by identifier from HDX and returns GalleryItem object</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -803,7 +800,7 @@ creation).</p>
 
 <dl class="method">
 <dt id="hdx.data.galleryitem.GalleryItem.update_from_json">
-<code class="descname">update_from_json</code><span class="sig-paren">(</span><em>path: str = 'config/hdx_galleryitem_static.json'</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.galleryitem.GalleryItem.update_from_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">update_from_json</code><span class="sig-paren">(</span><em>path='config/hdx_galleryitem_static.json'</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.galleryitem.GalleryItem.update_from_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update gallery item metadata with static metadata from JSON file</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -819,7 +816,7 @@ creation).</p>
 
 <dl class="method">
 <dt id="hdx.data.galleryitem.GalleryItem.update_from_yaml">
-<code class="descname">update_from_yaml</code><span class="sig-paren">(</span><em>path: str = 'config/hdx_galleryitem_static.yml'</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.galleryitem.GalleryItem.update_from_yaml" title="Permalink to this definition">¶</a></dt>
+<code class="descname">update_from_yaml</code><span class="sig-paren">(</span><em>path='config/hdx_galleryitem_static.yml'</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.galleryitem.GalleryItem.update_from_yaml" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update gallery item metadata with static metadata from YAML file</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -835,7 +832,7 @@ creation).</p>
 
 <dl class="method">
 <dt id="hdx.data.galleryitem.GalleryItem.update_in_hdx">
-<code class="descname">update_in_hdx</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.galleryitem.GalleryItem.update_in_hdx" title="Permalink to this definition">¶</a></dt>
+<code class="descname">update_in_hdx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.galleryitem.GalleryItem.update_in_hdx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check if gallery item exists in HDX and if so, update it</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -862,8 +859,8 @@ New HDX objects should extend this in similar fashion to Resource for example.</
 
 <dl class="class">
 <dt id="hdx.data.hdxobject.HDXObject">
-<em class="property">class </em><code class="descclassname">hdx.data.hdxobject.</code><code class="descname">HDXObject</code><span class="sig-paren">(</span><em>initial_data: dict</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.hdxobject.HDXObject" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">collections.UserDict</span></code></p>
+<em class="property">class </em><code class="descclassname">hdx.data.hdxobject.</code><code class="descname">HDXObject</code><span class="sig-paren">(</span><em>initial_data</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.hdxobject.HDXObject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">collections.UserDict</span></code>, <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
 <p>HDXObject abstract class containing helper functions for creating, checking, and updating HDX objects.
 New HDX objects should extend this in similar fashion to Resource for example.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -876,7 +873,7 @@ New HDX objects should extend this in similar fashion to Resource for example.</
 </table>
 <dl class="staticmethod">
 <dt id="hdx.data.hdxobject.HDXObject.actions">
-<em class="property">static </em><code class="descname">actions</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; dict<a class="headerlink" href="#hdx.data.hdxobject.HDXObject.actions" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">actions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.hdxobject.HDXObject.actions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Dictionary of actions that can be performed on object</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -892,7 +889,7 @@ New HDX objects should extend this in similar fashion to Resource for example.</
 
 <dl class="method">
 <dt id="hdx.data.hdxobject.HDXObject.check_required_fields">
-<code class="descname">check_required_fields</code><span class="sig-paren">(</span><em>ignore_dataset_id=False</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.hdxobject.HDXObject.check_required_fields" title="Permalink to this definition">¶</a></dt>
+<code class="descname">check_required_fields</code><span class="sig-paren">(</span><em>ignore_dataset_id=False</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.hdxobject.HDXObject.check_required_fields" title="Permalink to this definition">¶</a></dt>
 <dd><p>Abstract method to check that metadata for HDX object is complete. The parameter ignore_dataset_id should
 be set to True if you intend to add the object to a Dataset object (where it will be created during dataset
 creation).</p>
@@ -910,7 +907,7 @@ creation).</p>
 
 <dl class="method">
 <dt id="hdx.data.hdxobject.HDXObject.create_in_hdx">
-<code class="descname">create_in_hdx</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.hdxobject.HDXObject.create_in_hdx" title="Permalink to this definition">¶</a></dt>
+<code class="descname">create_in_hdx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.hdxobject.HDXObject.create_in_hdx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Abstract method to check if resource exists in HDX and if so, update it, otherwise create it</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -924,7 +921,7 @@ creation).</p>
 
 <dl class="method">
 <dt id="hdx.data.hdxobject.HDXObject.delete_from_hdx">
-<code class="descname">delete_from_hdx</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.hdxobject.HDXObject.delete_from_hdx" title="Permalink to this definition">¶</a></dt>
+<code class="descname">delete_from_hdx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.hdxobject.HDXObject.delete_from_hdx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Abstract method to deletes a resource from HDX</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -938,7 +935,7 @@ creation).</p>
 
 <dl class="method">
 <dt id="hdx.data.hdxobject.HDXObject.get_old_data_dict">
-<code class="descname">get_old_data_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.hdxobject.HDXObject.get_old_data_dict" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_old_data_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.hdxobject.HDXObject.get_old_data_dict" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get previous internal dictionary</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -954,7 +951,7 @@ creation).</p>
 
 <dl class="staticmethod">
 <dt id="hdx.data.hdxobject.HDXObject.read_from_hdx">
-<em class="property">static </em><code class="descname">read_from_hdx</code><span class="sig-paren">(</span><em>id_field: str</em><span class="sig-paren">)</span> &rarr; typing.Union[T, NoneType]<a class="headerlink" href="#hdx.data.hdxobject.HDXObject.read_from_hdx" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">read_from_hdx</code><span class="sig-paren">(</span><em>id_field</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.hdxobject.HDXObject.read_from_hdx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Abstract method to read the HDX object given by identifier from HDX and return it</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -972,7 +969,7 @@ creation).</p>
 
 <dl class="method">
 <dt id="hdx.data.hdxobject.HDXObject.update_from_json">
-<code class="descname">update_from_json</code><span class="sig-paren">(</span><em>path: str</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.hdxobject.HDXObject.update_from_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">update_from_json</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.hdxobject.HDXObject.update_from_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update metadata with static metadata from JSON file</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -988,7 +985,7 @@ creation).</p>
 
 <dl class="method">
 <dt id="hdx.data.hdxobject.HDXObject.update_from_yaml">
-<code class="descname">update_from_yaml</code><span class="sig-paren">(</span><em>path: str</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.hdxobject.HDXObject.update_from_yaml" title="Permalink to this definition">¶</a></dt>
+<code class="descname">update_from_yaml</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.hdxobject.HDXObject.update_from_yaml" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update metadata with static metadata from YAML file</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1004,7 +1001,7 @@ creation).</p>
 
 <dl class="method">
 <dt id="hdx.data.hdxobject.HDXObject.update_in_hdx">
-<code class="descname">update_in_hdx</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.hdxobject.HDXObject.update_in_hdx" title="Permalink to this definition">¶</a></dt>
+<code class="descname">update_in_hdx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.hdxobject.HDXObject.update_in_hdx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Abstract method to check if HDX object exists in HDX and if so, update it</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1024,7 +1021,7 @@ creation).</p>
 <p>Resource class containing all logic for creating, checking, and updating resources.</p>
 <dl class="class">
 <dt id="hdx.data.resource.Resource">
-<em class="property">class </em><code class="descclassname">hdx.data.resource.</code><code class="descname">Resource</code><span class="sig-paren">(</span><em>initial_data: typing.Union[dict</em>, <em>NoneType] = None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">hdx.data.resource.</code><code class="descname">Resource</code><span class="sig-paren">(</span><em>initial_data=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#hdx.data.hdxobject.HDXObject" title="hdx.data.hdxobject.HDXObject"><code class="xref py py-class docutils literal"><span class="pre">hdx.data.hdxobject.HDXObject</span></code></a></p>
 <p>Resource class containing all logic for creating, checking, and updating resources.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -1037,7 +1034,7 @@ creation).</p>
 </table>
 <dl class="staticmethod">
 <dt id="hdx.data.resource.Resource.actions">
-<em class="property">static </em><code class="descname">actions</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; dict<a class="headerlink" href="#hdx.data.resource.Resource.actions" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">actions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.actions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Dictionary of actions that can be performed on object</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1053,7 +1050,7 @@ creation).</p>
 
 <dl class="method">
 <dt id="hdx.data.resource.Resource.check_required_fields">
-<code class="descname">check_required_fields</code><span class="sig-paren">(</span><em>ignore_dataset_id=False</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.check_required_fields" title="Permalink to this definition">¶</a></dt>
+<code class="descname">check_required_fields</code><span class="sig-paren">(</span><em>ignore_dataset_id=False</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.check_required_fields" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check that metadata for resource is complete and add resource_type and url_type if not supplied.
 The parameter ignore_dataset_id should
 be set to True if you intend to add the object to a Dataset object (where it will be created during dataset
@@ -1072,7 +1069,7 @@ creation).</p>
 
 <dl class="method">
 <dt id="hdx.data.resource.Resource.create_datastore">
-<code class="descname">create_datastore</code><span class="sig-paren">(</span><em>schema: typing.List[dict] = None</em>, <em>primary_key: typing.Union[str</em>, <em>NoneType] = None</em>, <em>delete_first: int = 0</em>, <em>path: typing.Union[str</em>, <em>NoneType] = None</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.create_datastore" title="Permalink to this definition">¶</a></dt>
+<code class="descname">create_datastore</code><span class="sig-paren">(</span><em>schema=None</em>, <em>primary_key=None</em>, <em>delete_first=0</em>, <em>path=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.create_datastore" title="Permalink to this definition">¶</a></dt>
 <dd><p>For csvs, create a resource in the HDX datastore which enables data preview in HDX. If no schema is provided
 all fields are assumed to be text. If path is not supplied, the file is first downloaded from HDX.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -1096,7 +1093,7 @@ all fields are assumed to be text. If path is not supplied, the file is first do
 
 <dl class="method">
 <dt id="hdx.data.resource.Resource.create_datastore_for_topline">
-<code class="descname">create_datastore_for_topline</code><span class="sig-paren">(</span><em>delete_first: int = 0</em>, <em>path: typing.Union[str</em>, <em>NoneType] = None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.create_datastore_for_topline" title="Permalink to this definition">¶</a></dt>
+<code class="descname">create_datastore_for_topline</code><span class="sig-paren">(</span><em>delete_first=0</em>, <em>path=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.create_datastore_for_topline" title="Permalink to this definition">¶</a></dt>
 <dd><p>For csvs, create a resource in the HDX datastore which enables data preview in HDX using the built in
 YAML definition for a topline. If path is not supplied, the file is first downloaded from HDX.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -1118,7 +1115,7 @@ YAML definition for a topline. If path is not supplied, the file is first downlo
 
 <dl class="method">
 <dt id="hdx.data.resource.Resource.create_datastore_from_dict_schema">
-<code class="descname">create_datastore_from_dict_schema</code><span class="sig-paren">(</span><em>data: dict</em>, <em>delete_first: int = 0</em>, <em>path: typing.Union[str</em>, <em>NoneType] = None</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.create_datastore_from_dict_schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">create_datastore_from_dict_schema</code><span class="sig-paren">(</span><em>data</em>, <em>delete_first=0</em>, <em>path=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.create_datastore_from_dict_schema" title="Permalink to this definition">¶</a></dt>
 <dd><p>For csvs, create a resource in the HDX datastore which enables data preview in HDX from a dictionary
 containing a list of fields and types of form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#8217;} and optionally a primary key.
 If path is not supplied, the file is first downloaded from HDX.</p>
@@ -1142,7 +1139,7 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 
 <dl class="method">
 <dt id="hdx.data.resource.Resource.create_datastore_from_json_schema">
-<code class="descname">create_datastore_from_json_schema</code><span class="sig-paren">(</span><em>json_path: str</em>, <em>delete_first: int = 0</em>, <em>path: typing.Union[str</em>, <em>NoneType] = None</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.create_datastore_from_json_schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">create_datastore_from_json_schema</code><span class="sig-paren">(</span><em>json_path</em>, <em>delete_first=0</em>, <em>path=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.create_datastore_from_json_schema" title="Permalink to this definition">¶</a></dt>
 <dd><p>For csvs, create a resource in the HDX datastore which enables data preview in HDX from a JSON file
 containing a list of fields and types of form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#8217;} and optionally a primary key.
 If path is not supplied, the file is first downloaded from HDX.</p>
@@ -1166,7 +1163,7 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 
 <dl class="method">
 <dt id="hdx.data.resource.Resource.create_datastore_from_yaml_schema">
-<code class="descname">create_datastore_from_yaml_schema</code><span class="sig-paren">(</span><em>yaml_path: str</em>, <em>delete_first: int = 0</em>, <em>path: typing.Union[str</em>, <em>NoneType] = None</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.create_datastore_from_yaml_schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">create_datastore_from_yaml_schema</code><span class="sig-paren">(</span><em>yaml_path</em>, <em>delete_first=0</em>, <em>path=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.create_datastore_from_yaml_schema" title="Permalink to this definition">¶</a></dt>
 <dd><p>For csvs, create a resource in the HDX datastore which enables data preview in HDX from a YAML file
 containing a list of fields and types of form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#8217;} and optionally a primary key.
 If path is not supplied, the file is first downloaded from HDX.</p>
@@ -1190,7 +1187,7 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 
 <dl class="method">
 <dt id="hdx.data.resource.Resource.create_in_hdx">
-<code class="descname">create_in_hdx</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.create_in_hdx" title="Permalink to this definition">¶</a></dt>
+<code class="descname">create_in_hdx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.create_in_hdx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check if resource exists in HDX and if so, update it, otherwise create it</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1204,7 +1201,7 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 
 <dl class="method">
 <dt id="hdx.data.resource.Resource.delete_datastore">
-<code class="descname">delete_datastore</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.delete_datastore" title="Permalink to this definition">¶</a></dt>
+<code class="descname">delete_datastore</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.delete_datastore" title="Permalink to this definition">¶</a></dt>
 <dd><p>Delete a resource from the HDX datastore</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1218,7 +1215,7 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 
 <dl class="method">
 <dt id="hdx.data.resource.Resource.delete_from_hdx">
-<code class="descname">delete_from_hdx</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.delete_from_hdx" title="Permalink to this definition">¶</a></dt>
+<code class="descname">delete_from_hdx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.delete_from_hdx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Deletes a resource from HDX</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1232,7 +1229,7 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 
 <dl class="method">
 <dt id="hdx.data.resource.Resource.download">
-<code class="descname">download</code><span class="sig-paren">(</span><em>folder: typing.Union[str</em>, <em>NoneType] = None</em><span class="sig-paren">)</span> &rarr; typing.Tuple[str, str]<a class="headerlink" href="#hdx.data.resource.Resource.download" title="Permalink to this definition">¶</a></dt>
+<code class="descname">download</code><span class="sig-paren">(</span><em>folder=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.download" title="Permalink to this definition">¶</a></dt>
 <dd><p>Download resource store to provided folder or temporary folder if no folder supplied</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1250,7 +1247,7 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 
 <dl class="method">
 <dt id="hdx.data.resource.Resource.get_file_to_upload">
-<code class="descname">get_file_to_upload</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; typing.Union[str, NoneType]<a class="headerlink" href="#hdx.data.resource.Resource.get_file_to_upload" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_file_to_upload</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.get_file_to_upload" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the file uploaded</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1266,7 +1263,7 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 
 <dl class="staticmethod">
 <dt id="hdx.data.resource.Resource.read_from_hdx">
-<em class="property">static </em><code class="descname">read_from_hdx</code><span class="sig-paren">(</span><em>identifier: str</em><span class="sig-paren">)</span> &rarr; typing.Union[typing.Resource, NoneType]<a class="headerlink" href="#hdx.data.resource.Resource.read_from_hdx" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">read_from_hdx</code><span class="sig-paren">(</span><em>identifier</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.read_from_hdx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reads the resource given by identifier from HDX and returns Resource object</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1284,7 +1281,7 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 
 <dl class="staticmethod">
 <dt id="hdx.data.resource.Resource.search_in_hdx">
-<em class="property">static </em><code class="descname">search_in_hdx</code><span class="sig-paren">(</span><em>query: str</em>, <em>**kwargs</em><span class="sig-paren">)</span> &rarr; typing.List[typing.Resource]<a class="headerlink" href="#hdx.data.resource.Resource.search_in_hdx" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">search_in_hdx</code><span class="sig-paren">(</span><em>query</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.search_in_hdx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Searches for resources in HDX. NOTE: Does not search dataset metadata!</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1311,7 +1308,7 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 
 <dl class="method">
 <dt id="hdx.data.resource.Resource.set_file_to_upload">
-<code class="descname">set_file_to_upload</code><span class="sig-paren">(</span><em>file_to_upload: str</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.set_file_to_upload" title="Permalink to this definition">¶</a></dt>
+<code class="descname">set_file_to_upload</code><span class="sig-paren">(</span><em>file_to_upload</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.set_file_to_upload" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the file uploaded to the local path provided</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1327,7 +1324,7 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 
 <dl class="method">
 <dt id="hdx.data.resource.Resource.update_datastore">
-<code class="descname">update_datastore</code><span class="sig-paren">(</span><em>schema: typing.List[dict] = None</em>, <em>primary_key: typing.Union[str</em>, <em>NoneType] = None</em>, <em>path: typing.Union[str</em>, <em>NoneType] = None</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.update_datastore" title="Permalink to this definition">¶</a></dt>
+<code class="descname">update_datastore</code><span class="sig-paren">(</span><em>schema=None</em>, <em>primary_key=None</em>, <em>path=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.update_datastore" title="Permalink to this definition">¶</a></dt>
 <dd><p>For csvs, update a resource in the HDX datastore which enables data preview in HDX. If no schema is provided
 all fields are assumed to be text. If path is not supplied, the file is first downloaded from HDX.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -1350,7 +1347,7 @@ all fields are assumed to be text. If path is not supplied, the file is first do
 
 <dl class="method">
 <dt id="hdx.data.resource.Resource.update_datastore_for_topline">
-<code class="descname">update_datastore_for_topline</code><span class="sig-paren">(</span><em>path: typing.Union[str</em>, <em>NoneType] = None</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.update_datastore_for_topline" title="Permalink to this definition">¶</a></dt>
+<code class="descname">update_datastore_for_topline</code><span class="sig-paren">(</span><em>path=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.update_datastore_for_topline" title="Permalink to this definition">¶</a></dt>
 <dd><p>For csvs, update a resource in the HDX datastore which enables data preview in HDX using the built in YAML
 definition for a topline. If path is not supplied, the file is first downloaded from HDX.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -1367,7 +1364,7 @@ definition for a topline. If path is not supplied, the file is first downloaded 
 
 <dl class="method">
 <dt id="hdx.data.resource.Resource.update_datastore_from_dict_schema">
-<code class="descname">update_datastore_from_dict_schema</code><span class="sig-paren">(</span><em>data: dict</em>, <em>path: typing.Union[str</em>, <em>NoneType] = None</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.update_datastore_from_dict_schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">update_datastore_from_dict_schema</code><span class="sig-paren">(</span><em>data</em>, <em>path=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.update_datastore_from_dict_schema" title="Permalink to this definition">¶</a></dt>
 <dd><p>For csvs, update a resource in the HDX datastore which enables data preview in HDX from a dictionary
 containing a list of fields and types of form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#8217;} and optionally a primary key.
 If path is not supplied, the file is first downloaded from HDX.</p>
@@ -1390,7 +1387,7 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 
 <dl class="method">
 <dt id="hdx.data.resource.Resource.update_datastore_from_json_schema">
-<code class="descname">update_datastore_from_json_schema</code><span class="sig-paren">(</span><em>json_path: str</em>, <em>path: typing.Union[str</em>, <em>NoneType] = None</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.update_datastore_from_json_schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">update_datastore_from_json_schema</code><span class="sig-paren">(</span><em>json_path</em>, <em>path=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.update_datastore_from_json_schema" title="Permalink to this definition">¶</a></dt>
 <dd><p>For csvs, update a resource in the HDX datastore which enables data preview in HDX from a JSON file
 containing a list of fields and types of form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#8217;} and optionally a primary key.
 If path is not supplied, the file is first downloaded from HDX.</p>
@@ -1413,7 +1410,7 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 
 <dl class="method">
 <dt id="hdx.data.resource.Resource.update_datastore_from_yaml_schema">
-<code class="descname">update_datastore_from_yaml_schema</code><span class="sig-paren">(</span><em>yaml_path: str</em>, <em>path: typing.Union[str</em>, <em>NoneType] = None</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.update_datastore_from_yaml_schema" title="Permalink to this definition">¶</a></dt>
+<code class="descname">update_datastore_from_yaml_schema</code><span class="sig-paren">(</span><em>yaml_path</em>, <em>path=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.update_datastore_from_yaml_schema" title="Permalink to this definition">¶</a></dt>
 <dd><p>For csvs, update a resource in the HDX datastore which enables data preview in HDX from a YAML file
 containing a list of fields and types of form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#8217;} and optionally a primary key.
 If path is not supplied, the file is first downloaded from HDX.</p>
@@ -1436,7 +1433,7 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 
 <dl class="method">
 <dt id="hdx.data.resource.Resource.update_from_json">
-<code class="descname">update_from_json</code><span class="sig-paren">(</span><em>path: str = 'config/hdx_resource_static.json'</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.update_from_json" title="Permalink to this definition">¶</a></dt>
+<code class="descname">update_from_json</code><span class="sig-paren">(</span><em>path='config/hdx_resource_static.json'</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.update_from_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update resource metadata with static metadata from JSON file</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1452,7 +1449,7 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 
 <dl class="method">
 <dt id="hdx.data.resource.Resource.update_from_yaml">
-<code class="descname">update_from_yaml</code><span class="sig-paren">(</span><em>path: str = 'config/hdx_resource_static.yml'</em><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.update_from_yaml" title="Permalink to this definition">¶</a></dt>
+<code class="descname">update_from_yaml</code><span class="sig-paren">(</span><em>path='config/hdx_resource_static.yml'</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.update_from_yaml" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update resource metadata with static metadata from YAML file</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1468,7 +1465,7 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 
 <dl class="method">
 <dt id="hdx.data.resource.Resource.update_in_hdx">
-<code class="descname">update_in_hdx</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; None<a class="headerlink" href="#hdx.data.resource.Resource.update_in_hdx" title="Permalink to this definition">¶</a></dt>
+<code class="descname">update_in_hdx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.update_in_hdx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check if resource exists in HDX and if so, update it</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1510,10 +1507,6 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
-  <li><a href="hdx.html">hdx package</a><ul>
-      <li>Previous: <a href="hdx.html" title="previous chapter">hdx package</a></li>
-      <li>Next: <a href="hdx.facades.html" title="next chapter">hdx.facades package</a></li>
-  </ul></li>
   </ul></li>
 </ul>
 </div>
@@ -1539,7 +1532,7 @@ If path is not supplied, the file is first downloaded from HDX.</p>
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2016, Michael Rans.
+      &copy;Michael Rans.
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.5</a>
