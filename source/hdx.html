@@ -111,16 +111,31 @@
 <dl class="staticmethod">
 <dt id="hdx.configuration.Configuration.create">
 <em class="property">static </em><code class="descname">create</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.configuration.Configuration.create" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create</p>
+<dd><p>Create HDX configuration</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>str</em>) &#8211; Path to HDX key</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>**kwargs</strong> &#8211; See below</li>
+<li><strong>hdx_site</strong> (<em>Optional[str]</em>) &#8211; HDX site to use eg. prod, test. Defaults to test.</li>
+<li><strong>hdx_read_only</strong> (<em>bool</em>) &#8211; Whether to access HDX in read only mode. Defaults to False.</li>
+<li><strong>hdx_key</strong> (<em>Optional[str]</em>) &#8211; Your HDX key. Ignored if hdx_read_only = True.</li>
+<li><strong>hdx_key_file</strong> (<em>Optional[str]</em>) &#8211; Path to HDX key file. Ignored if hdx_read_only = True or hdx_key supplied. Defaults to ~/.hdxkey.</li>
+<li><strong>hdx_config_dict</strong> (<em>dict</em>) &#8211; HDX configuration dictionary OR</li>
+<li><strong>hdx_config_json</strong> (<em>str</em>) &#8211; Path to JSON HDX configuration OR</li>
+<li><strong>hdx_config_yaml</strong> (<em>str</em>) &#8211; Path to YAML HDX configuration. Defaults to library&#8217;s internal hdx_configuration.yml.</li>
+<li><strong>project_config_dict</strong> (<em>dict</em>) &#8211; Project configuration dictionary OR</li>
+<li><strong>project_config_json</strong> (<em>str</em>) &#8211; Path to JSON Project configuration OR</li>
+<li><strong>project_config_yaml</strong> (<em>str</em>) &#8211; Path to YAML Project configuration</li>
+</ul>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">HDX api key</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">HDX site url</p>
+</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">str</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">str</p>
+</td>
 </tr>
 </tbody>
 </table>
