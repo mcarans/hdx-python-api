@@ -136,6 +136,23 @@ names, converted to iso 3 codes. If any country is already added, it is ignored.
 </dd></dl>
 
 <dl class="method">
+<dt id="hdx.data.dataset.Dataset.add_other_location">
+<code class="descname">add_other_location</code><span class="sig-paren">(</span><em>location</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.add_other_location" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a location which is not a country or continent. Value is parsed and compared to existing locations in
+HDX. If the location is already added, it is ignored.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>location</strong> (<em>str</em>) &#8211; Location to add</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="hdx.data.dataset.Dataset.add_tag">
 <code class="descname">add_tag</code><span class="sig-paren">(</span><em>tag</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.add_tag" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a tag</p>
@@ -352,7 +369,8 @@ names, converted to iso 3 codes. If any country is already added, it is ignored.
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.get_dataset_date">
 <code class="descname">get_dataset_date</code><span class="sig-paren">(</span><em>date_format=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.get_dataset_date" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get dataset date as string in specified format. If no format is supplied, an ISO 8601 string is returned.</p>
+<dd><p>Get dataset date as string in specified format. For range returns start date.
+If no format is supplied, an ISO 8601 string is returned.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -370,7 +388,58 @@ names, converted to iso 3 codes. If any country is already added, it is ignored.
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.get_dataset_date_as_datetime">
 <code class="descname">get_dataset_date_as_datetime</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.get_dataset_date_as_datetime" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get dataset date as datetime.datetime object.</p>
+<dd><p>Get dataset date as datetime.datetime object. For range returns start date.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Dataset date in datetime object or None if no date is set</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Optional[datetime.datetime]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.dataset.Dataset.get_dataset_date_type">
+<code class="descname">get_dataset_date_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.get_dataset_date_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get type of dataset date (range, date) or None if no date is set</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Type of dataset date (range, date) or None if no date is set</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Optional[str]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.dataset.Dataset.get_dataset_end_date">
+<code class="descname">get_dataset_end_date</code><span class="sig-paren">(</span><em>date_format=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.get_dataset_end_date" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get dataset date as string in specified format. For range returns start date.
+If no format is supplied, an ISO 8601 string is returned.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>date_format</strong> (<em>Optional[str]</em>) &#8211; Date format. None is taken to be ISO 8601. Defaults to None.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Dataset date string or None if no date is set</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Optional[str]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.dataset.Dataset.get_dataset_end_date_as_datetime">
+<code class="descname">get_dataset_end_date_as_datetime</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.get_dataset_end_date_as_datetime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get dataset end date as datetime.datetime object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -573,7 +642,7 @@ names, converted to iso 3 codes. If any country is already added, it is ignored.
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.set_dataset_date">
-<code class="descname">set_dataset_date</code><span class="sig-paren">(</span><em>dataset_date</em>, <em>date_format=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.set_dataset_date" title="Permalink to this definition">¶</a></dt>
+<code class="descname">set_dataset_date</code><span class="sig-paren">(</span><em>dataset_date</em>, <em>dataset_end_date=None</em>, <em>date_format=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.set_dataset_date" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set dataset date from string using specified format. If no format is supplied, the function will guess.
 For unambiguous formats, this should be fine.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -582,6 +651,7 @@ For unambiguous formats, this should be fine.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>dataset_date</strong> (<em>str</em>) &#8211; Dataset date string</li>
+<li><strong>dataset_end_date</strong> (<em>Optional[str]</em>) &#8211; Dataset end date string</li>
 <li><strong>date_format</strong> (<em>Optional[str]</em>) &#8211; Date format. If None is given, will attempt to guess. Defaults to None.</li>
 </ul>
 </td>
@@ -595,15 +665,20 @@ For unambiguous formats, this should be fine.</p>
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.set_dataset_date_from_datetime">
-<code class="descname">set_dataset_date_from_datetime</code><span class="sig-paren">(</span><em>dataset_date</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.set_dataset_date_from_datetime" title="Permalink to this definition">¶</a></dt>
+<code class="descname">set_dataset_date_from_datetime</code><span class="sig-paren">(</span><em>dataset_date</em>, <em>dataset_end_date=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.set_dataset_date_from_datetime" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set dataset date from datetime.datetime object</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>dataset_date</strong> (<em>datetime.datetime</em>) &#8211; Dataset date string</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>dataset_date</strong> (<em>datetime.datetime</em>) &#8211; Dataset date string</li>
+<li><strong>dataset_end_date</strong> (<em>Optional[datetime.datetime]</em>) &#8211; Dataset end date string</li>
+</ul>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -646,7 +721,7 @@ vice versa (eg. &#8216;Every month&#8217; = &#8216;30&#8217;, &#8216;30&#8217; =
 
 <dl class="attribute">
 <dt id="hdx.data.dataset.Dataset.update_frequencies">
-<code class="descname">update_frequencies</code><em class="property"> = {'every two weeks': '14', '30': 'Every month', 'semiyearly': '180', '365': 'Every year', 'fortnightly': '14', 'never': '0', '90': 'Every three months', 'quarterly': '90', 'every month': '30', '0': 'Never', 'annually': '365', 'daily': '1', 'semiannually': '180', 'yearly': '365', 'every three months': '90', 'weekly': '7', 'every day': '1', 'every week': '7', '1': 'Every day', 'every year': '365', '14': 'Every two weeks', '180': 'Every six months', 'every other week': '14', 'monthly': '30', '7': 'Every week', 'every six months': '180'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
+<code class="descname">update_frequencies</code><em class="property"> = {'weekly': '7', 'every month': '30', '90': 'Every three months', 'every other week': '14', 'every year': '365', '7': 'Every week', '30': 'Every month', '180': 'Every six months', 'fortnightly': '14', 'semiyearly': '180', 'every two weeks': '14', 'every week': '7', 'monthly': '30', 'semiannually': '180', 'every day': '1', '14': 'Every two weeks', 'yearly': '365', 'quarterly': '90', '0': 'Never', '365': 'Every year', '1': 'Every day', 'daily': '1', 'every six months': '180', 'never': '0', 'every three months': '90', 'annually': '365'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
