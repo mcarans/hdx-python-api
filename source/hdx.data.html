@@ -323,6 +323,31 @@ HDX. If the location is already added, it is ignored.</p>
 </dd></dl>
 
 <dl class="staticmethod">
+<dt id="hdx.data.dataset.Dataset.get_all_dataset_names">
+<em class="property">static </em><code class="descname">get_all_dataset_names</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.get_all_dataset_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all dataset names in HDX</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>**kwargs</strong> &#8211; See below</li>
+<li><strong>limit</strong> (<em>int</em>) &#8211; Number of rows to return. Defaults to all dataset names.</li>
+<li><strong>offset</strong> (<em>int</em>) &#8211; Offset in the complete result for where the set of returned dataset names should begin</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">List of all dataset names in HDX</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">List[str]</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
 <dt id="hdx.data.dataset.Dataset.get_all_datasets">
 <em class="property">static </em><code class="descname">get_all_datasets</code><span class="sig-paren">(</span><em>include_gallery=True</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.get_all_datasets" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get all datasets in HDX</p>
@@ -333,8 +358,8 @@ HDX. If the location is already added, it is ignored.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>include_gallery</strong> (<em>Optional[bool]</em>) &#8211; Whether to include gallery items in dataset. Defaults to True.</li>
 <li><strong>**kwargs</strong> &#8211; See below</li>
-<li><strong>rows</strong> (<em>int</em>) &#8211; Number of rows to return. Defaults to all datasets (sys.maxsize).</li>
-<li><strong>start</strong> (<em>int</em>) &#8211; Offset in the complete result for where the set of returned datasets should begin</li>
+<li><strong>limit</strong> (<em>int</em>) &#8211; Number of rows to return. Defaults to all datasets (sys.maxsize).</li>
+<li><strong>offset</strong> (<em>int</em>) &#8211; Offset in the complete result for where the set of returned datasets should begin</li>
 </ul>
 </td>
 </tr>
@@ -721,7 +746,7 @@ vice versa (eg. &#8216;Every month&#8217; = &#8216;30&#8217;, &#8216;30&#8217; =
 
 <dl class="attribute">
 <dt id="hdx.data.dataset.Dataset.update_frequencies">
-<code class="descname">update_frequencies</code><em class="property"> = {'weekly': '7', '14': 'Every two weeks', '30': 'Every month', 'quarterly': '90', '7': 'Every week', 'yearly': '365', 'semiannually': '180', '180': 'Every six months', '365': 'Every year', 'monthly': '30', 'every two weeks': '14', 'every other week': '14', 'semiyearly': '180', 'fortnightly': '14', 'every three months': '90', 'every day': '1', 'every week': '7', 'every month': '30', 'every six months': '180', '90': 'Every three months', '0': 'Never', 'every year': '365', 'daily': '1', 'never': '0', 'annually': '365', '1': 'Every day'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
+<code class="descname">update_frequencies</code><em class="property"> = {'180': 'Every six months', 'every three months': '90', 'every other week': '14', '0': 'Never', 'every two weeks': '14', '90': 'Every three months', 'annually': '365', 'fortnightly': '14', '7': 'Every week', 'quarterly': '90', 'every month': '30', 'never': '0', 'every six months': '180', '1': 'Every day', 'every week': '7', 'monthly': '30', 'daily': '1', '14': 'Every two weeks', '30': 'Every month', 'yearly': '365', 'weekly': '7', 'every year': '365', 'semiannually': '180', 'semiyearly': '180', '365': 'Every year', 'every day': '1'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">

@@ -108,15 +108,18 @@
 </tr>
 </tbody>
 </table>
-<dl class="staticmethod">
+<dl class="classmethod">
 <dt id="hdx.configuration.Configuration.create">
-<em class="property">static </em><code class="descname">create</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.configuration.Configuration.create" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create HDX configuration</p>
+<em class="property">classmethod </em><code class="descname">create</code><span class="sig-paren">(</span><em>configuration=None</em>, <em>remoteckan=None</em>, <em>validlocations=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.configuration.Configuration.create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create HDX configuration. Can only be called once (will raise an error if called more than once).</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>configuration</strong> (<a class="reference internal" href="#hdx.configuration.Configuration" title="hdx.configuration.Configuration"><em>Configuration</em></a>) &#8211; Configuration instance. Defaults to setting one up from passed arguments.</li>
+<li><strong>remoteckan</strong> (<em>ckanapi.RemoteCKAN</em>) &#8211; CKAN instance. Defaults to setting one up from configuration.</li>
+<li><strong>validlocations</strong> (<em>List[Dict]</em>) &#8211; A list of valid locations. Defaults to reading list from HDX.</li>
 <li><strong>**kwargs</strong> &#8211; See below</li>
 <li><strong>hdx_site</strong> (<em>Optional[str]</em>) &#8211; HDX site to use eg. prod, test. Defaults to test.</li>
 <li><strong>hdx_read_only</strong> (<em>bool</em>) &#8211; Whether to access HDX in read only mode. Defaults to False.</li>
@@ -136,6 +139,22 @@
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">str</p>
 </td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="hdx.configuration.Configuration.create_remoteckan">
+<em class="property">classmethod </em><code class="descname">create_remoteckan</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.configuration.Configuration.create_remoteckan" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create remote CKAN instance from configuration</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Remote CKAN instance</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ckanapi.RemoteCKAN</td>
 </tr>
 </tbody>
 </table>
@@ -195,9 +214,9 @@
 </table>
 </dd></dl>
 
-<dl class="staticmethod">
+<dl class="classmethod">
 <dt id="hdx.configuration.Configuration.read">
-<em class="property">static </em><code class="descname">read</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.configuration.Configuration.read" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="descname">read</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.configuration.Configuration.read" title="Permalink to this definition">¶</a></dt>
 <dd><p>Read the HDX configuration</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -211,9 +230,25 @@
 </table>
 </dd></dl>
 
-<dl class="staticmethod">
+<dl class="classmethod">
+<dt id="hdx.configuration.Configuration.read_validlocations">
+<em class="property">classmethod </em><code class="descname">read_validlocations</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.configuration.Configuration.read_validlocations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read valid locations from HDX (default)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A list of valid locations</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">List[Dict]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
 <dt id="hdx.configuration.Configuration.remoteckan">
-<em class="property">static </em><code class="descname">remoteckan</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.configuration.Configuration.remoteckan" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="descname">remoteckan</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.configuration.Configuration.remoteckan" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the remote CKAN object (see ckanapi library)</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -222,6 +257,85 @@
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The remote CKAN object</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ckanapi.RemoteCKAN</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="hdx.configuration.Configuration.setup">
+<em class="property">classmethod </em><code class="descname">setup</code><span class="sig-paren">(</span><em>configuration=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.configuration.Configuration.setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set up the HDX configuration</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>configuration</strong> (<a class="reference internal" href="#hdx.configuration.Configuration" title="hdx.configuration.Configuration"><em>Configuration</em></a>) &#8211; Configuration instance. Defaults to setting one up from passed arguments.</li>
+<li><strong>**kwargs</strong> &#8211; See below</li>
+<li><strong>hdx_site</strong> (<em>Optional[str]</em>) &#8211; HDX site to use eg. prod, test. Defaults to test.</li>
+<li><strong>hdx_read_only</strong> (<em>bool</em>) &#8211; Whether to access HDX in read only mode. Defaults to False.</li>
+<li><strong>hdx_key</strong> (<em>Optional[str]</em>) &#8211; Your HDX key. Ignored if hdx_read_only = True.</li>
+<li><strong>hdx_key_file</strong> (<em>Optional[str]</em>) &#8211; Path to HDX key file. Ignored if hdx_read_only = True or hdx_key supplied. Defaults to ~/.hdxkey.</li>
+<li><strong>hdx_config_dict</strong> (<em>dict</em>) &#8211; HDX configuration dictionary OR</li>
+<li><strong>hdx_config_json</strong> (<em>str</em>) &#8211; Path to JSON HDX configuration OR</li>
+<li><strong>hdx_config_yaml</strong> (<em>str</em>) &#8211; Path to YAML HDX configuration. Defaults to library&#8217;s internal hdx_configuration.yml.</li>
+<li><strong>project_config_dict</strong> (<em>dict</em>) &#8211; Project configuration dictionary OR</li>
+<li><strong>project_config_json</strong> (<em>str</em>) &#8211; Path to JSON Project configuration OR</li>
+<li><strong>project_config_yaml</strong> (<em>str</em>) &#8211; Path to YAML Project configuration</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="hdx.configuration.Configuration.setup_remoteckan">
+<em class="property">classmethod </em><code class="descname">setup_remoteckan</code><span class="sig-paren">(</span><em>remoteckan=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.configuration.Configuration.setup_remoteckan" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set up remote CKAN from provided CKAN or by creating from configuration</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>remoteckan</strong> (<em>ckanapi.RemoteCKAN</em>) &#8211; CKAN instance. Defaults to setting one up from configuration.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="hdx.configuration.Configuration.setup_validlocations">
+<em class="property">classmethod </em><code class="descname">setup_validlocations</code><span class="sig-paren">(</span><em>validlocations=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.configuration.Configuration.setup_validlocations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set up valid locations from provided list or by reading from HDX (default).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>validlocations</strong> (<em>List[Dict]</em>) &#8211; A list of valid locations. Defaults to reading list from HDX.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="hdx.configuration.Configuration.validlocations">
+<em class="property">classmethod </em><code class="descname">validlocations</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.configuration.Configuration.validlocations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return valid locations</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Valid locations</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">List[Dict]</td>
 </tr>
 </tbody>
 </table>
@@ -274,11 +388,6 @@
 </div>
 <div class="section" id="module-hdx">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-hdx" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="hdx.get_validlocations">
-<code class="descclassname">hdx.</code><code class="descname">get_validlocations</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.get_validlocations" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
 </div>
 </div>
 
