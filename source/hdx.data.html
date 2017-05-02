@@ -53,7 +53,7 @@
 <p>It also handles resource and gallery items.</p>
 <dl class="class">
 <dt id="hdx.data.dataset.Dataset">
-<em class="property">class </em><code class="descclassname">hdx.data.dataset.</code><code class="descname">Dataset</code><span class="sig-paren">(</span><em>initial_data=None</em>, <em>include_gallery=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">hdx.data.dataset.</code><code class="descname">Dataset</code><span class="sig-paren">(</span><em>initial_data=None</em>, <em>include_gallery=True</em>, <em>configuration=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#hdx.data.hdxobject.HDXObject" title="hdx.data.hdxobject.HDXObject"><code class="xref py py-class docutils literal"><span class="pre">hdx.data.hdxobject.HDXObject</span></code></a></p>
 <p>Dataset class enabling operations on datasets and associated resources and gallery items.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -63,6 +63,7 @@
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>initial_data</strong> (<em>Optional[dict]</em>) &#8211; Initial dataset metadata dictionary. Defaults to None.</li>
 <li><strong>include_gallery</strong> (<em>Optional[bool]</em>) &#8211; Whether to include gallery items in dataset. Defaults to True.</li>
+<li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to global configuration.</li>
 </ul>
 </td>
 </tr>
@@ -746,7 +747,7 @@ vice versa (eg. &#8216;Every month&#8217; = &#8216;30&#8217;, &#8216;30&#8217; =
 
 <dl class="attribute">
 <dt id="hdx.data.dataset.Dataset.update_frequencies">
-<code class="descname">update_frequencies</code><em class="property"> = {'180': 'Every six months', 'every six months': '180', 'weekly': '7', 'monthly': '30', '14': 'Every two weeks', '1': 'Every day', 'fortnightly': '14', 'every month': '30', 'yearly': '365', 'daily': '1', '7': 'Every week', 'every two weeks': '14', '90': 'Every three months', '30': 'Every month', '365': 'Every year', 'quarterly': '90', 'semiannually': '180', 'every other week': '14', 'never': '0', 'annually': '365', 'every three months': '90', 'semiyearly': '180', 'every day': '1', '0': 'Never', 'every week': '7', 'every year': '365'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
+<code class="descname">update_frequencies</code><em class="property"> = {'365': 'Every year', 'weekly': '7', '1': 'Every day', '90': 'Every three months', 'every other week': '14', 'annually': '365', 'every two weeks': '14', '0': 'Never', '7': 'Every week', 'every day': '1', '180': 'Every six months', 'monthly': '30', 'every three months': '90', 'yearly': '365', '30': 'Every month', 'fortnightly': '14', 'every week': '7', 'quarterly': '90', 'never': '0', 'every month': '30', '14': 'Every two weeks', 'daily': '1', 'semiyearly': '180', 'every six months': '180', 'semiannually': '180', 'every year': '365'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -810,14 +811,18 @@ vice versa (eg. &#8216;Every month&#8217; = &#8216;30&#8217;, &#8216;30&#8217; =
 <p>GalleryItem class containing all logic for creating, checking, and updating gallery items.</p>
 <dl class="class">
 <dt id="hdx.data.galleryitem.GalleryItem">
-<em class="property">class </em><code class="descclassname">hdx.data.galleryitem.</code><code class="descname">GalleryItem</code><span class="sig-paren">(</span><em>initial_data=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.galleryitem.GalleryItem" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">hdx.data.galleryitem.</code><code class="descname">GalleryItem</code><span class="sig-paren">(</span><em>initial_data=None</em>, <em>configuration=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.galleryitem.GalleryItem" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#hdx.data.hdxobject.HDXObject" title="hdx.data.hdxobject.HDXObject"><code class="xref py py-class docutils literal"><span class="pre">hdx.data.hdxobject.HDXObject</span></code></a></p>
 <p>GalleryItem class containing all logic for creating, checking, and updating gallery items.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>initial_data</strong> (<em>Optional[dict]</em>) &#8211; Initial gallery item metadata dictionary. Defaults to None.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>initial_data</strong> (<em>Optional[dict]</em>) &#8211; Initial gallery item metadata dictionary. Defaults to None.</li>
+<li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to global configuration.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -962,7 +967,7 @@ New HDX objects should extend this in similar fashion to Resource for example.</
 
 <dl class="class">
 <dt id="hdx.data.hdxobject.HDXObject">
-<em class="property">class </em><code class="descclassname">hdx.data.hdxobject.</code><code class="descname">HDXObject</code><span class="sig-paren">(</span><em>initial_data</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.hdxobject.HDXObject" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">hdx.data.hdxobject.</code><code class="descname">HDXObject</code><span class="sig-paren">(</span><em>initial_data</em>, <em>configuration=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.hdxobject.HDXObject" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">collections.UserDict</span></code>, <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
 <p>HDXObject abstract class containing helper functions for creating, checking, and updating HDX objects.
 New HDX objects should extend this in similar fashion to Resource for example.</p>
@@ -970,7 +975,11 @@ New HDX objects should extend this in similar fashion to Resource for example.</
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>initial_data</strong> (<em>dict</em>) &#8211; Initial metadata dictionary</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>initial_data</strong> (<em>dict</em>) &#8211; Initial metadata dictionary</li>
+<li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to global configuration.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -1124,14 +1133,18 @@ creation).</p>
 <p>Resource class containing all logic for creating, checking, and updating resources.</p>
 <dl class="class">
 <dt id="hdx.data.resource.Resource">
-<em class="property">class </em><code class="descclassname">hdx.data.resource.</code><code class="descname">Resource</code><span class="sig-paren">(</span><em>initial_data=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">hdx.data.resource.</code><code class="descname">Resource</code><span class="sig-paren">(</span><em>initial_data=None</em>, <em>configuration=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#hdx.data.hdxobject.HDXObject" title="hdx.data.hdxobject.HDXObject"><code class="xref py py-class docutils literal"><span class="pre">hdx.data.hdxobject.HDXObject</span></code></a></p>
 <p>Resource class containing all logic for creating, checking, and updating resources.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>initial_data</strong> (<em>Optional[dict]</em>) &#8211; Initial resource metadata dictionary. Defaults to None.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>initial_data</strong> (<em>Optional[dict]</em>) &#8211; Initial resource metadata dictionary. Defaults to None.</li>
+<li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to global configuration.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
