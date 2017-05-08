@@ -595,7 +595,7 @@ If no format is supplied, an ISO 8601 string is returned.</p>
 
 <dl class="staticmethod">
 <dt id="hdx.data.dataset.Dataset.read_from_hdx">
-<em class="property">static </em><code class="descname">read_from_hdx</code><span class="sig-paren">(</span><em>identifier</em>, <em>configuration=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.read_from_hdx" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">read_from_hdx</code><span class="sig-paren">(</span><em>identifier</em>, <em>include_gallery=True</em>, <em>configuration=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.read_from_hdx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reads the dataset given by identifier from HDX and returns Dataset object</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -603,6 +603,7 @@ If no format is supplied, an ISO 8601 string is returned.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>identifier</strong> (<em>str</em>) &#8211; Identifier of dataset</li>
+<li><strong>include_gallery</strong> (<em>Optional[bool]</em>) &#8211; Whether to include gallery items in dataset. Defaults to True.</li>
 <li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to global configuration.</li>
 </ul>
 </td>
@@ -761,7 +762,7 @@ vice versa (eg. &#8216;Every month&#8217; = &#8216;30&#8217;, &#8216;30&#8217; =
 
 <dl class="attribute">
 <dt id="hdx.data.dataset.Dataset.update_frequencies">
-<code class="descname">update_frequencies</code><em class="property"> = {'7': 'Every week', 'quarterly': '90', 'daily': '1', 'every two weeks': '14', 'every three months': '90', 'weekly': '7', '30': 'Every month', '180': 'Every six months', '90': 'Every three months', 'yearly': '365', 'every six months': '180', 'every year': '365', 'every month': '30', 'every week': '7', 'annually': '365', 'every day': '1', 'every other week': '14', '1': 'Every day', 'fortnightly': '14', '14': 'Every two weeks', '365': 'Every year', 'monthly': '30', 'never': '0', 'semiyearly': '180', '0': 'Never', 'semiannually': '180'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
+<code class="descname">update_frequencies</code><em class="property"> = {'0': 'Never', '30': 'Every month', '365': 'Every year', 'every month': '30', '180': 'Every six months', 'never': '0', '1': 'Every day', '90': 'Every three months', 'quarterly': '90', '14': 'Every two weeks', 'fortnightly': '14', '7': 'Every week', 'every two weeks': '14', 'semiannually': '180', 'every other week': '14', 'yearly': '365', 'semiyearly': '180', 'every year': '365', 'weekly': '7', 'every week': '7', 'every six months': '180', 'annually': '365', 'monthly': '30', 'daily': '1', 'every three months': '90', 'every day': '1'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -1083,17 +1084,23 @@ creation).</p>
 
 <dl class="staticmethod">
 <dt id="hdx.data.hdxobject.HDXObject.read_from_hdx">
-<em class="property">static </em><code class="descname">read_from_hdx</code><span class="sig-paren">(</span><em>id_field</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.hdxobject.HDXObject.read_from_hdx" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">read_from_hdx</code><span class="sig-paren">(</span><em>id_field</em>, <em>configuration=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.hdxobject.HDXObject.read_from_hdx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Abstract method to read the HDX object given by identifier from HDX and return it</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>id_field</strong> (<em>str</em>) &#8211; HDX object identifier</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>id_field</strong> (<em>str</em>) &#8211; HDX object identifier</li>
+<li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to global configuration.</li>
+</ul>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">HDX object if successful read, None if not</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">HDX object if successful read, None if not</p>
+</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Optional[T &lt;= HDXObject]</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Optional[T &lt;= HDXObject]</p>
+</td>
 </tr>
 </tbody>
 </table>
