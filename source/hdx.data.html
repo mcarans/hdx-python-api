@@ -219,20 +219,15 @@ HDX. If the location is already added, it is ignored.</p>
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.add_update_resource">
-<code class="descname">add_update_resource</code><span class="sig-paren">(</span><em>resource</em>, <em>configuration=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.add_update_resource" title="Permalink to this definition">¶</a></dt>
+<code class="descname">add_update_resource</code><span class="sig-paren">(</span><em>resource</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.add_update_resource" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add new or update existing resource in dataset with new metadata</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>resource</strong> (<em>Any</em>) &#8211; Resource metadata either from a Resource object or a dictionary</li>
-<li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to global configuration.</li>
-</ul>
-</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>resource</strong> (<em>Any</em>) &#8211; Resource metadata either from a Resource object or a dictionary</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
-</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
 </tbody>
 </table>
@@ -762,7 +757,7 @@ vice versa (eg. &#8216;Every month&#8217; = &#8216;30&#8217;, &#8216;30&#8217; =
 
 <dl class="attribute">
 <dt id="hdx.data.dataset.Dataset.update_frequencies">
-<code class="descname">update_frequencies</code><em class="property"> = {'0': 'Never', '30': 'Every month', '365': 'Every year', 'every month': '30', '180': 'Every six months', 'never': '0', '1': 'Every day', '90': 'Every three months', 'quarterly': '90', '14': 'Every two weeks', 'fortnightly': '14', '7': 'Every week', 'every two weeks': '14', 'semiannually': '180', 'every other week': '14', 'yearly': '365', 'semiyearly': '180', 'every year': '365', 'weekly': '7', 'every week': '7', 'every six months': '180', 'annually': '365', 'monthly': '30', 'daily': '1', 'every three months': '90', 'every day': '1'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
+<code class="descname">update_frequencies</code><em class="property"> = {'1': 'Every day', '90': 'Every three months', 'semiannually': '180', '30': 'Every month', '365': 'Every year', '14': 'Every two weeks', 'quarterly': '90', '180': 'Every six months', 'fortnightly': '14', 'every three months': '90', 'monthly': '30', 'every two weeks': '14', 'annually': '365', 'every other week': '14', 'weekly': '7', 'yearly': '365', 'daily': '1', 'semiyearly': '180', 'every month': '30', 'every day': '1', 'every week': '7', 'never': '0', '0': 'Never', '7': 'Every week', 'every six months': '180', 'every year': '365'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
