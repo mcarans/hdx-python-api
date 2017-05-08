@@ -219,15 +219,20 @@ HDX. If the location is already added, it is ignored.</p>
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.add_update_resource">
-<code class="descname">add_update_resource</code><span class="sig-paren">(</span><em>resource</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.add_update_resource" title="Permalink to this definition">¶</a></dt>
+<code class="descname">add_update_resource</code><span class="sig-paren">(</span><em>resource</em>, <em>configuration=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.add_update_resource" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add new or update existing resource in dataset with new metadata</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>resource</strong> (<em>Any</em>) &#8211; Resource metadata either from a Resource object or a dictionary</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>resource</strong> (<em>Any</em>) &#8211; Resource metadata either from a Resource object or a dictionary</li>
+<li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to global configuration.</li>
+</ul>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -325,13 +330,14 @@ HDX. If the location is already added, it is ignored.</p>
 
 <dl class="staticmethod">
 <dt id="hdx.data.dataset.Dataset.get_all_dataset_names">
-<em class="property">static </em><code class="descname">get_all_dataset_names</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.get_all_dataset_names" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">get_all_dataset_names</code><span class="sig-paren">(</span><em>configuration=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.get_all_dataset_names" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get all dataset names in HDX</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to global configuration.</li>
 <li><strong>**kwargs</strong> &#8211; See below</li>
 <li><strong>limit</strong> (<em>int</em>) &#8211; Number of rows to return. Defaults to all dataset names.</li>
 <li><strong>offset</strong> (<em>int</em>) &#8211; Offset in the complete result for where the set of returned dataset names should begin</li>
@@ -350,7 +356,7 @@ HDX. If the location is already added, it is ignored.</p>
 
 <dl class="staticmethod">
 <dt id="hdx.data.dataset.Dataset.get_all_datasets">
-<em class="property">static </em><code class="descname">get_all_datasets</code><span class="sig-paren">(</span><em>include_gallery=True</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.get_all_datasets" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">get_all_datasets</code><span class="sig-paren">(</span><em>include_gallery=True</em>, <em>configuration=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.get_all_datasets" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get all datasets in HDX</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -358,6 +364,7 @@ HDX. If the location is already added, it is ignored.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>include_gallery</strong> (<em>Optional[bool]</em>) &#8211; Whether to include gallery items in dataset. Defaults to True.</li>
+<li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to global configuration.</li>
 <li><strong>**kwargs</strong> &#8211; See below</li>
 <li><strong>limit</strong> (<em>int</em>) &#8211; Number of rows to return. Defaults to all datasets (sys.maxsize).</li>
 <li><strong>offset</strong> (<em>int</em>) &#8211; Offset in the complete result for where the set of returned datasets should begin</li>
@@ -588,17 +595,23 @@ If no format is supplied, an ISO 8601 string is returned.</p>
 
 <dl class="staticmethod">
 <dt id="hdx.data.dataset.Dataset.read_from_hdx">
-<em class="property">static </em><code class="descname">read_from_hdx</code><span class="sig-paren">(</span><em>identifier</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.read_from_hdx" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">read_from_hdx</code><span class="sig-paren">(</span><em>identifier</em>, <em>configuration=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.read_from_hdx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reads the dataset given by identifier from HDX and returns Dataset object</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>identifier</strong> (<em>str</em>) &#8211; Identifier of dataset</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>identifier</strong> (<em>str</em>) &#8211; Identifier of dataset</li>
+<li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to global configuration.</li>
+</ul>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Dataset object if successful read, None if not</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Dataset object if successful read, None if not</p>
+</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Optional[Dataset]</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Optional[Dataset]</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -606,7 +619,7 @@ If no format is supplied, an ISO 8601 string is returned.</p>
 
 <dl class="staticmethod">
 <dt id="hdx.data.dataset.Dataset.search_in_hdx">
-<em class="property">static </em><code class="descname">search_in_hdx</code><span class="sig-paren">(</span><em>query</em>, <em>include_gallery=True</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.search_in_hdx" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">search_in_hdx</code><span class="sig-paren">(</span><em>query</em>, <em>include_gallery=True</em>, <em>configuration=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.search_in_hdx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Searches for datasets in HDX</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -615,6 +628,7 @@ If no format is supplied, an ISO 8601 string is returned.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>query</strong> (<em>str</em>) &#8211; Query (in Solr format). Defaults to &#8216;<em>:</em>&#8216;.</li>
 <li><strong>include_gallery</strong> (<em>Optional[bool]</em>) &#8211; Whether to include gallery items in dataset. Defaults to True.</li>
+<li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to global configuration.</li>
 <li><strong>**kwargs</strong> &#8211; See below</li>
 <li><strong>fq</strong> (<em>string</em>) &#8211; Any filter queries to apply</li>
 <li><strong>sort</strong> (<em>string</em>) &#8211; Sorting of the search results. Defaults to &#8216;relevance asc, metadata_modified desc&#8217;.</li>
@@ -747,7 +761,7 @@ vice versa (eg. &#8216;Every month&#8217; = &#8216;30&#8217;, &#8216;30&#8217; =
 
 <dl class="attribute">
 <dt id="hdx.data.dataset.Dataset.update_frequencies">
-<code class="descname">update_frequencies</code><em class="property"> = {'365': 'Every year', 'weekly': '7', '1': 'Every day', '90': 'Every three months', 'every other week': '14', 'annually': '365', 'every two weeks': '14', '0': 'Never', '7': 'Every week', 'every day': '1', '180': 'Every six months', 'monthly': '30', 'every three months': '90', 'yearly': '365', '30': 'Every month', 'fortnightly': '14', 'every week': '7', 'quarterly': '90', 'never': '0', 'every month': '30', '14': 'Every two weeks', 'daily': '1', 'semiyearly': '180', 'every six months': '180', 'semiannually': '180', 'every year': '365'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
+<code class="descname">update_frequencies</code><em class="property"> = {'7': 'Every week', 'quarterly': '90', 'daily': '1', 'every two weeks': '14', 'every three months': '90', 'weekly': '7', '30': 'Every month', '180': 'Every six months', '90': 'Every three months', 'yearly': '365', 'every six months': '180', 'every year': '365', 'every month': '30', 'every week': '7', 'annually': '365', 'every day': '1', 'every other week': '14', '1': 'Every day', 'fortnightly': '14', '14': 'Every two weeks', '365': 'Every year', 'monthly': '30', 'never': '0', 'semiyearly': '180', '0': 'Never', 'semiannually': '180'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -890,17 +904,23 @@ creation).</p>
 
 <dl class="staticmethod">
 <dt id="hdx.data.galleryitem.GalleryItem.read_from_hdx">
-<em class="property">static </em><code class="descname">read_from_hdx</code><span class="sig-paren">(</span><em>identifier</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.galleryitem.GalleryItem.read_from_hdx" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">read_from_hdx</code><span class="sig-paren">(</span><em>identifier</em>, <em>configuration=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.galleryitem.GalleryItem.read_from_hdx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reads the gallery item given by identifier from HDX and returns GalleryItem object</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>identifier</strong> (<em>str</em>) &#8211; Identifier of gallery item</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>identifier</strong> (<em>str</em>) &#8211; Identifier of gallery item</li>
+<li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to global configuration.</li>
+</ul>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">GalleryItem object if successful read, None if not</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">GalleryItem object if successful read, None if not</p>
+</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Optional[GalleryItem]</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Optional[GalleryItem]</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -1379,17 +1399,23 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 
 <dl class="staticmethod">
 <dt id="hdx.data.resource.Resource.read_from_hdx">
-<em class="property">static </em><code class="descname">read_from_hdx</code><span class="sig-paren">(</span><em>identifier</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.read_from_hdx" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">read_from_hdx</code><span class="sig-paren">(</span><em>identifier</em>, <em>configuration=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.read_from_hdx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reads the resource given by identifier from HDX and returns Resource object</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>identifier</strong> (<em>str</em>) &#8211; Identifier of resource</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>identifier</strong> (<em>str</em>) &#8211; Identifier of resource</li>
+<li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to global configuration.</li>
+</ul>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Resource object if successful read, None if not</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Resource object if successful read, None if not</p>
+</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Optional[Resource]</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Optional[Resource]</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -1397,7 +1423,7 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 
 <dl class="staticmethod">
 <dt id="hdx.data.resource.Resource.search_in_hdx">
-<em class="property">static </em><code class="descname">search_in_hdx</code><span class="sig-paren">(</span><em>query</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.search_in_hdx" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">search_in_hdx</code><span class="sig-paren">(</span><em>query</em>, <em>configuration=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.search_in_hdx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Searches for resources in HDX. NOTE: Does not search dataset metadata!</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1405,6 +1431,7 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>query</strong> (<em>str</em>) &#8211; Query</li>
+<li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to global configuration.</li>
 <li><strong>**kwargs</strong> &#8211; See below</li>
 <li><strong>order_by</strong> (<em>str</em>) &#8211; A field on the Resource model that orders the results</li>
 <li><strong>offset</strong> (<em>int</em>) &#8211; Apply an offset to the query</li>
