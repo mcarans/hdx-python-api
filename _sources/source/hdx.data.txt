@@ -28,10 +28,26 @@ hdx.data.hdxobject module
     :undoc-members:
     :show-inheritance:
 
+hdx.data.organization module
+----------------------------
+
+.. automodule:: hdx.data.organization
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 hdx.data.resource module
 ------------------------
 
 .. automodule:: hdx.data.resource
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+hdx.data.user module
+--------------------
+
+.. automodule:: hdx.data.user
     :members:
     :undoc-members:
     :show-inheritance:

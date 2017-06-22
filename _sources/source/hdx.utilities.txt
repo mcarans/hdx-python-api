@@ -20,6 +20,14 @@ hdx.utilities.downloader module
     :undoc-members:
     :show-inheritance:
 
+hdx.utilities.email module
+--------------------------
+
+.. automodule:: hdx.utilities.email
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 hdx.utilities.loader module
 ---------------------------
 

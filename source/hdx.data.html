@@ -251,13 +251,16 @@ HDX. If the location is already added, it is ignored.</p>
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.check_required_fields">
-<code class="descname">check_required_fields</code><span class="sig-paren">(</span><em>ignore_dataset_id=False</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.check_required_fields" title="Permalink to this definition">¶</a></dt>
-<dd><p>Check that metadata for dataset and its resources and gallery is complete. (ignore_dataset_id is not used.)</p>
+<code class="descname">check_required_fields</code><span class="sig-paren">(</span><em>ignore_fields=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.check_required_fields" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check that metadata for dataset and its resources and gallery is complete. The parameter ignore_fields
+should be set if required to any fields that should be ignored for the particular operation.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ignore_fields</strong> (<em>List[str]</em>) &#8211; Fields to ignore. Default is [].</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
 </tbody>
 </table>
@@ -529,6 +532,38 @@ If no format is supplied, an ISO 8601 string is returned.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="hdx.data.dataset.Dataset.get_maintainer">
+<code class="descname">get_maintainer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.get_maintainer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the dataset&#8217;s maintainer.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Returns dataset&#8217;s maintainer</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#hdx.data.user.User" title="hdx.data.user.User">User</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.dataset.Dataset.get_organization">
+<code class="descname">get_organization</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.get_organization" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the dataset&#8217;s organization.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Returns dataset&#8217;s organization</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#hdx.data.organization.Organization" title="hdx.data.organization.Organization">Organization</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="hdx.data.dataset.Dataset.get_resources">
 <code class="descname">get_resources</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.get_resources" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get dataset&#8217;s resources</p>
@@ -615,14 +650,14 @@ If no format is supplied, an ISO 8601 string is returned.</p>
 
 <dl class="staticmethod">
 <dt id="hdx.data.dataset.Dataset.search_in_hdx">
-<em class="property">static </em><code class="descname">search_in_hdx</code><span class="sig-paren">(</span><em>query</em>, <em>include_gallery=True</em>, <em>configuration=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.search_in_hdx" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">search_in_hdx</code><span class="sig-paren">(</span><em>query='*:*'</em>, <em>include_gallery=True</em>, <em>configuration=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.search_in_hdx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Searches for datasets in HDX</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>query</strong> (<em>str</em>) &#8211; Query (in Solr format). Defaults to &#8216;<em>:</em>&#8216;.</li>
+<li><strong>query</strong> (<em>Optional[str]</em>) &#8211; Query (in Solr format). Defaults to &#8216;<em>:</em>&#8216;.</li>
 <li><strong>include_gallery</strong> (<em>Optional[bool]</em>) &#8211; Whether to include gallery items in dataset. Defaults to True.</li>
 <li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to global configuration.</li>
 <li><strong>**kwargs</strong> &#8211; See below</li>
@@ -736,6 +771,38 @@ For unambiguous formats, this should be fine.</p>
 </table>
 </dd></dl>
 
+<dl class="method">
+<dt id="hdx.data.dataset.Dataset.set_maintainer">
+<code class="descname">set_maintainer</code><span class="sig-paren">(</span><em>maintainer</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.set_maintainer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the dataset&#8217;s maintainer.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>maintainer</strong> (<em>Any</em>) &#8211; Set the dataset&#8217;s maintainer either from a User object or a str.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.dataset.Dataset.set_organization">
+<code class="descname">set_organization</code><span class="sig-paren">(</span><em>organization</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.set_organization" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the dataset&#8217;s organization.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>organization</strong> (<a class="reference internal" href="#hdx.data.organization.Organization" title="hdx.data.organization.Organization"><em>Organization</em></a>) &#8211; Set the dataset&#8217;s organization either from an Organization object or a str.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 <dl class="staticmethod">
 <dt id="hdx.data.dataset.Dataset.transform_update_frequency">
 <em class="property">static </em><code class="descname">transform_update_frequency</code><span class="sig-paren">(</span><em>frequency</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.transform_update_frequency" title="Permalink to this definition">¶</a></dt>
@@ -757,7 +824,7 @@ vice versa (eg. &#8216;Every month&#8217; = &#8216;30&#8217;, &#8216;30&#8217; =
 
 <dl class="attribute">
 <dt id="hdx.data.dataset.Dataset.update_frequencies">
-<code class="descname">update_frequencies</code><em class="property"> = {'1': 'Every day', '90': 'Every three months', 'semiannually': '180', '30': 'Every month', '365': 'Every year', '14': 'Every two weeks', 'quarterly': '90', '180': 'Every six months', 'fortnightly': '14', 'every three months': '90', 'monthly': '30', 'every two weeks': '14', 'annually': '365', 'every other week': '14', 'weekly': '7', 'yearly': '365', 'daily': '1', 'semiyearly': '180', 'every month': '30', 'every day': '1', 'every week': '7', 'never': '0', '0': 'Never', '7': 'Every week', 'every six months': '180', 'every year': '365'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
+<code class="descname">update_frequencies</code><em class="property"> = {'yearly': '365', '365': 'Every year', 'fortnightly': '14', 'every year': '365', 'weekly': '7', '14': 'Every two weeks', 'every six months': '180', 'every three months': '90', '1': 'Every day', 'every week': '7', 'every month': '30', '7': 'Every week', 'every day': '1', 'quarterly': '90', 'monthly': '30', '180': 'Every six months', 'every two weeks': '14', 'annually': '365', 'daily': '1', 'semiannually': '180', '30': 'Every month', 'never': '0', 'semiyearly': '180', '90': 'Every three months', 'every other week': '14', '0': 'Never'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -854,15 +921,14 @@ vice versa (eg. &#8216;Every month&#8217; = &#8216;30&#8217;, &#8216;30&#8217; =
 
 <dl class="method">
 <dt id="hdx.data.galleryitem.GalleryItem.check_required_fields">
-<code class="descname">check_required_fields</code><span class="sig-paren">(</span><em>ignore_dataset_id=False</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.galleryitem.GalleryItem.check_required_fields" title="Permalink to this definition">¶</a></dt>
-<dd><p>Check that metadata for gallery item is complete. The parameter ignore_dataset_id should
-be set to True if you intend to add the object to a Dataset object (where it will be created during dataset
-creation).</p>
+<code class="descname">check_required_fields</code><span class="sig-paren">(</span><em>ignore_fields=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.galleryitem.GalleryItem.check_required_fields" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check that metadata for gallery item is complete. The parameter ignore_fields should
+be set if required to any fields that should be ignored for the particular operation.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ignore_dataset_id</strong> (<em>bool</em>) &#8211; Whether to ignore the dataset id. Default is False.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ignore_fields</strong> (<em>List[str]</em>) &#8211; Fields to ignore. Default is [].</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
@@ -1017,15 +1083,14 @@ New HDX objects should extend this in similar fashion to Resource for example.</
 
 <dl class="method">
 <dt id="hdx.data.hdxobject.HDXObject.check_required_fields">
-<code class="descname">check_required_fields</code><span class="sig-paren">(</span><em>ignore_dataset_id=False</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.hdxobject.HDXObject.check_required_fields" title="Permalink to this definition">¶</a></dt>
-<dd><p>Abstract method to check that metadata for HDX object is complete. The parameter ignore_dataset_id should
-be set to True if you intend to add the object to a Dataset object (where it will be created during dataset
-creation).</p>
+<code class="descname">check_required_fields</code><span class="sig-paren">(</span><em>ignore_fields=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.hdxobject.HDXObject.check_required_fields" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract method to check that metadata for HDX object is complete. The parameter ignore_fields should
+be set if required to any fields that should be ignored for the particular operation.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ignore_dataset_id</strong> (<em>bool</em>) &#8211; Whether to ignore the dataset id. Default is False.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ignore_fields</strong> (<em>List[str]</em>) &#8211; Fields to ignore. Default is [].</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
@@ -1150,6 +1215,288 @@ creation).</p>
 </dd></dl>
 
 </div>
+<div class="section" id="module-hdx.data.organization">
+<span id="hdx-data-organization-module"></span><h2>hdx.data.organization module<a class="headerlink" href="#module-hdx.data.organization" title="Permalink to this headline">¶</a></h2>
+<p>Organization class containing all logic for creating, checking, and updating organizations.</p>
+<dl class="class">
+<dt id="hdx.data.organization.Organization">
+<em class="property">class </em><code class="descclassname">hdx.data.organization.</code><code class="descname">Organization</code><span class="sig-paren">(</span><em>initial_data=None</em>, <em>configuration=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.organization.Organization" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#hdx.data.hdxobject.HDXObject" title="hdx.data.hdxobject.HDXObject"><code class="xref py py-class docutils literal"><span class="pre">hdx.data.hdxobject.HDXObject</span></code></a></p>
+<p>Organization class containing all logic for creating, checking, and updating organizations.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>initial_data</strong> (<em>Optional[dict]</em>) &#8211; Initial organization metadata dictionary. Defaults to None.</li>
+<li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to global configuration.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="staticmethod">
+<dt id="hdx.data.organization.Organization.actions">
+<em class="property">static </em><code class="descname">actions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.organization.Organization.actions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dictionary of actions that can be performed on object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Dictionary of actions that can be performed on object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dict</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.organization.Organization.add_update_user">
+<code class="descname">add_update_user</code><span class="sig-paren">(</span><em>user</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.organization.Organization.add_update_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add new or update existing users item in organization with new metadata</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>user</strong> (<em>Any</em>) &#8211; User metadata either from a User object or a dictionary</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.organization.Organization.add_update_users">
+<code class="descname">add_update_users</code><span class="sig-paren">(</span><em>users</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.organization.Organization.add_update_users" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add new or update existing users items with new metadata to the organization</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>users</strong> (<em>List[Any]</em>) &#8211; Users metadata from a list of either User objects or dictionaries</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.organization.Organization.check_required_fields">
+<code class="descname">check_required_fields</code><span class="sig-paren">(</span><em>ignore_fields=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.organization.Organization.check_required_fields" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check that metadata for organization is complete. The parameter ignore_fields should
+be set if required to any fields that should be ignored for the particular operation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ignore_fields</strong> (<em>List[str]</em>) &#8211; Fields to ignore. Default is [].</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.organization.Organization.create_in_hdx">
+<code class="descname">create_in_hdx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.organization.Organization.create_in_hdx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if organization exists in HDX and if so, update it, otherwise create organization</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.organization.Organization.delete_from_hdx">
+<code class="descname">delete_from_hdx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.organization.Organization.delete_from_hdx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes a organization from HDX.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.organization.Organization.delete_user">
+<code class="descname">delete_user</code><span class="sig-paren">(</span><em>identifier</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.organization.Organization.delete_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete a user from the organization</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>identifier</strong> (<em>str</em>) &#8211; Id of user to delete</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="hdx.data.organization.Organization.get_all_organization_names">
+<em class="property">static </em><code class="descname">get_all_organization_names</code><span class="sig-paren">(</span><em>configuration=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.organization.Organization.get_all_organization_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all organization names in HDX</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to global configuration.</li>
+<li><strong>**kwargs</strong> &#8211; See below</li>
+<li><strong>sort</strong> (<em>str</em>) &#8211; Sort the search results according to field name and sort-order. Allowed fields are ‘name’, ‘package_count’ and ‘title’. Defaults to &#8216;name asc&#8217;.</li>
+<li><strong>organizations</strong> (<em>list[str]</em>) &#8211; List of names of the groups to return.</li>
+<li><strong>all_fields</strong> (<em>bool</em>) &#8211; Return group dictionaries instead of just names. Only core fields are returned - get some more using the include_* options. Defaults to False.</li>
+<li><strong>include_extras</strong> (<em>bool</em>) &#8211; If all_fields, include the group extra fields. Defaults to False.</li>
+<li><strong>include_tags</strong> (<em>bool</em>) &#8211; If all_fields, include the group tags. Defaults to False.</li>
+<li><strong>include_groups</strong> &#8211; If all_fields, include the groups the groups are in. Defaults to False.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">List of all organization names in HDX</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">List[str]</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.organization.Organization.get_datasets">
+<code class="descname">get_datasets</code><span class="sig-paren">(</span><em>include_gallery=True</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.organization.Organization.get_datasets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get list of datasets in organization</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>include_gallery</strong> (<em>Optional[bool]</em>) &#8211; Whether to include gallery items in dataset. Defaults to True.</li>
+<li><strong>**kwargs</strong> &#8211; See below</li>
+<li><strong>sort</strong> (<em>string</em>) &#8211; Sorting of the search results. Defaults to &#8216;relevance asc, metadata_modified desc&#8217;.</li>
+<li><strong>rows</strong> (<em>int</em>) &#8211; Number of matching rows to return. Defaults to all datasets (sys.maxsize).</li>
+<li><strong>start</strong> (<em>int</em>) &#8211; Offset in the complete result for where the set of returned datasets should begin</li>
+<li><strong>facet</strong> (<em>string</em>) &#8211; Whether to enable faceted results. Default to True.</li>
+<li><strong>facet.mincount</strong> (<em>int</em>) &#8211; Minimum counts for facet fields should be included in the results</li>
+<li><strong>facet.limit</strong> (<em>int</em>) &#8211; Maximum number of values the facet fields return (- = unlimited). Defaults to 50.</li>
+<li><strong>facet.field</strong> (<em>List[str]</em>) &#8211; Fields to facet upon. Default is empty.</li>
+<li><strong>use_default_schema</strong> (<em>bool</em>) &#8211; Use default package schema instead of custom schema. Defaults to False.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">List of datasets in organization</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">List[Dataset]</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.organization.Organization.get_users">
+<code class="descname">get_users</code><span class="sig-paren">(</span><em>capacity=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.organization.Organization.get_users" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the organization&#8217;s users.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>capacity</strong> (<em>Optional[str]</em>) &#8211; Filter by capacity eg. member, admin. Defaults to None.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Returns the organization&#8217;s users.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">List[User]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="hdx.data.organization.Organization.read_from_hdx">
+<em class="property">static </em><code class="descname">read_from_hdx</code><span class="sig-paren">(</span><em>identifier</em>, <em>configuration=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.organization.Organization.read_from_hdx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the organization given by identifier from HDX and returns Organization object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>identifier</strong> (<em>str</em>) &#8211; Identifier of organization</li>
+<li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to global configuration.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Organization object if successful read, None if not</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Optional[Organization]</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.organization.Organization.update_from_json">
+<code class="descname">update_from_json</code><span class="sig-paren">(</span><em>path='config/hdx_organization_static.json'</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.organization.Organization.update_from_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update organization metadata with static metadata from JSON file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>Optional[str]</em>) &#8211; Path to JSON dataset metadata. Defaults to config/hdx_organization_static.json.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.organization.Organization.update_from_yaml">
+<code class="descname">update_from_yaml</code><span class="sig-paren">(</span><em>path='config/hdx_organization_static.yml'</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.organization.Organization.update_from_yaml" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update organization metadata with static metadata from YAML file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>Optional[str]</em>) &#8211; Path to YAML dataset metadata. Defaults to config/hdx_organization_static.yml.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.organization.Organization.update_in_hdx">
+<code class="descname">update_in_hdx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.organization.Organization.update_in_hdx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if organization exists in HDX and if so, update organization</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
 <div class="section" id="module-hdx.data.resource">
 <span id="hdx-data-resource-module"></span><h2>hdx.data.resource module<a class="headerlink" href="#module-hdx.data.resource" title="Permalink to this headline">¶</a></h2>
 <p>Resource class containing all logic for creating, checking, and updating resources.</p>
@@ -1188,16 +1535,15 @@ creation).</p>
 
 <dl class="method">
 <dt id="hdx.data.resource.Resource.check_required_fields">
-<code class="descname">check_required_fields</code><span class="sig-paren">(</span><em>ignore_dataset_id=False</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.check_required_fields" title="Permalink to this definition">¶</a></dt>
+<code class="descname">check_required_fields</code><span class="sig-paren">(</span><em>ignore_fields=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.check_required_fields" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check that metadata for resource is complete and add resource_type and url_type if not supplied.
-The parameter ignore_dataset_id should
-be set to True if you intend to add the object to a Dataset object (where it will be created during dataset
-creation).</p>
+The parameter ignore_fields should be set if required to any fields that should be ignored for the particular
+operation.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ignore_dataset_id</strong> (<em>bool</em>) &#8211; Whether to ignore the dataset id. Default is False.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ignore_fields</strong> (<em>List[str]</em>) &#8211; Fields to ignore. Default is [].</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
@@ -1625,6 +1971,238 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 </dd></dl>
 
 </div>
+<div class="section" id="module-hdx.data.user">
+<span id="hdx-data-user-module"></span><h2>hdx.data.user module<a class="headerlink" href="#module-hdx.data.user" title="Permalink to this headline">¶</a></h2>
+<p>User class containing all logic for creating, checking, and updating users.</p>
+<dl class="class">
+<dt id="hdx.data.user.User">
+<em class="property">class </em><code class="descclassname">hdx.data.user.</code><code class="descname">User</code><span class="sig-paren">(</span><em>initial_data=None</em>, <em>configuration=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.user.User" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#hdx.data.hdxobject.HDXObject" title="hdx.data.hdxobject.HDXObject"><code class="xref py py-class docutils literal"><span class="pre">hdx.data.hdxobject.HDXObject</span></code></a></p>
+<p>User class containing all logic for creating, checking, and updating users.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>initial_data</strong> (<em>Optional[dict]</em>) &#8211; Initial user metadata dictionary. Defaults to None.</li>
+<li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to global configuration.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="staticmethod">
+<dt id="hdx.data.user.User.actions">
+<em class="property">static </em><code class="descname">actions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.user.User.actions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dictionary of actions that can be performed on object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Dictionary of actions that can be performed on object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dict</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.user.User.check_required_fields">
+<code class="descname">check_required_fields</code><span class="sig-paren">(</span><em>ignore_fields=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.user.User.check_required_fields" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check that metadata for user is complete. The parameter ignore_fields should
+be set if required to any fields that should be ignored for the particular operation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ignore_fields</strong> (<em>List[str]</em>) &#8211; Fields to ignore. Default is [].</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.user.User.create_in_hdx">
+<code class="descname">create_in_hdx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.user.User.create_in_hdx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if user exists in HDX and if so, update it, otherwise create user</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.user.User.delete_from_hdx">
+<code class="descname">delete_from_hdx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.user.User.delete_from_hdx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes a user from HDX.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.user.User.email">
+<code class="descname">email</code><span class="sig-paren">(</span><em>subject</em>, <em>body</em>, <em>sender=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.user.User.email" title="Permalink to this definition">¶</a></dt>
+<dd><p>Emails a user.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>subject</strong> (<em>str</em>) &#8211; Email subject</li>
+<li><strong>body</strong> (<em>str</em>) &#8211; Email body</li>
+<li><strong>sender</strong> (<em>Optional[str]</em>) &#8211; Email sender. Defaults to SMTP username.</li>
+<li><strong>**kwargs</strong> &#8211; See below</li>
+<li><strong>mail_options</strong> (<em>list</em>) &#8211; Mail options (see smtplib documentation)</li>
+<li><strong>rcpt_options</strong> (<em>list</em>) &#8211; Recipient options (see smtplib documentation)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="hdx.data.user.User.email_users">
+<em class="property">static </em><code class="descname">email_users</code><span class="sig-paren">(</span><em>users</em>, <em>subject</em>, <em>body</em>, <em>sender=None</em>, <em>configuration=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.user.User.email_users" title="Permalink to this definition">¶</a></dt>
+<dd><p>Email a list of users</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>users</strong> (<em>List[User]</em>) &#8211; List of users</li>
+<li><strong>subject</strong> (<em>str</em>) &#8211; Email subject</li>
+<li><strong>body</strong> (<em>str</em>) &#8211; Email body</li>
+<li><strong>sender</strong> (<em>Optional[str]</em>) &#8211; Email sender. Defaults to SMTP username.</li>
+<li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to configuration of first user in list.</li>
+<li><strong>**kwargs</strong> &#8211; See below</li>
+<li><strong>mail_options</strong> (<em>list</em>) &#8211; Mail options (see smtplib documentation)</li>
+<li><strong>rcpt_options</strong> (<em>list</em>) &#8211; Recipient options (see smtplib documentation)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="hdx.data.user.User.get_all_users">
+<em class="property">static </em><code class="descname">get_all_users</code><span class="sig-paren">(</span><em>configuration=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.user.User.get_all_users" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all users in HDX</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to global configuration.</li>
+<li><strong>**kwargs</strong> &#8211; See below</li>
+<li><strong>q</strong> (<em>str</em>) &#8211; Restrict to names containing a string. Defaults to all users.</li>
+<li><strong>order_by</strong> (<em>str</em>) &#8211; Field by which to sort - any user field or edits (number_of_edits). Defaults to &#8216;name&#8217;.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">List of all users in HDX</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">List[User]</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="hdx.data.user.User.read_from_hdx">
+<em class="property">static </em><code class="descname">read_from_hdx</code><span class="sig-paren">(</span><em>identifier</em>, <em>configuration=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.user.User.read_from_hdx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the user given by identifier from HDX and returns User object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>identifier</strong> (<em>str</em>) &#8211; Identifier of user</li>
+<li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to global configuration.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">User object if successful read, None if not</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Optional[User]</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.user.User.update_from_json">
+<code class="descname">update_from_json</code><span class="sig-paren">(</span><em>path='config/hdx_user_static.json'</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.user.User.update_from_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update user metadata with static metadata from JSON file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>Optional[str]</em>) &#8211; Path to JSON dataset metadata. Defaults to config/hdx_user_static.json.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.user.User.update_from_yaml">
+<code class="descname">update_from_yaml</code><span class="sig-paren">(</span><em>path='config/hdx_user_static.yml'</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.user.User.update_from_yaml" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update user metadata with static metadata from YAML file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>Optional[str]</em>) &#8211; Path to YAML dataset metadata. Defaults to config/hdx_user_static.yml.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.user.User.update_in_hdx">
+<code class="descname">update_in_hdx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.user.User.update_in_hdx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if user exists in HDX and if so, update user</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
 <div class="section" id="module-hdx.data">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-hdx.data" title="Permalink to this headline">¶</a></h2>
 </div>
@@ -1643,7 +2221,9 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 <li><a class="reference internal" href="#module-hdx.data.dataset">hdx.data.dataset module</a></li>
 <li><a class="reference internal" href="#module-hdx.data.galleryitem">hdx.data.galleryitem module</a></li>
 <li><a class="reference internal" href="#module-hdx.data.hdxobject">hdx.data.hdxobject module</a></li>
+<li><a class="reference internal" href="#module-hdx.data.organization">hdx.data.organization module</a></li>
 <li><a class="reference internal" href="#module-hdx.data.resource">hdx.data.resource module</a></li>
+<li><a class="reference internal" href="#module-hdx.data.user">hdx.data.user module</a></li>
 <li><a class="reference internal" href="#module-hdx.data">Module contents</a></li>
 </ul>
 </li>
