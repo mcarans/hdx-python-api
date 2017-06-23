@@ -824,7 +824,7 @@ vice versa (eg. &#8216;Every month&#8217; = &#8216;30&#8217;, &#8216;30&#8217; =
 
 <dl class="attribute">
 <dt id="hdx.data.dataset.Dataset.update_frequencies">
-<code class="descname">update_frequencies</code><em class="property"> = {'yearly': '365', '365': 'Every year', 'fortnightly': '14', 'every year': '365', 'weekly': '7', '14': 'Every two weeks', 'every six months': '180', 'every three months': '90', '1': 'Every day', 'every week': '7', 'every month': '30', '7': 'Every week', 'every day': '1', 'quarterly': '90', 'monthly': '30', '180': 'Every six months', 'every two weeks': '14', 'annually': '365', 'daily': '1', 'semiannually': '180', '30': 'Every month', 'never': '0', 'semiyearly': '180', '90': 'Every three months', 'every other week': '14', '0': 'Never'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
+<code class="descname">update_frequencies</code><em class="property"> = {'every two weeks': '14', 'annually': '365', 'every day': '1', 'every other week': '14', 'every three months': '90', 'quarterly': '90', 'yearly': '365', 'daily': '1', '0': 'Never', 'every year': '365', 'monthly': '30', 'every six months': '180', '1': 'Every day', 'every week': '7', 'never': '0', '365': 'Every year', 'every month': '30', '180': 'Every six months', 'semiyearly': '180', '14': 'Every two weeks', '30': 'Every month', 'semiannually': '180', '7': 'Every week', 'weekly': '7', 'fortnightly': '14', '90': 'Every three months'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -1376,7 +1376,7 @@ be set if required to any fields that should be ignored for the particular opera
 
 <dl class="method">
 <dt id="hdx.data.organization.Organization.get_datasets">
-<code class="descname">get_datasets</code><span class="sig-paren">(</span><em>include_gallery=True</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.organization.Organization.get_datasets" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_datasets</code><span class="sig-paren">(</span><em>include_gallery=True</em>, <em>query='*:*'</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.organization.Organization.get_datasets" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get list of datasets in organization</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1384,6 +1384,7 @@ be set if required to any fields that should be ignored for the particular opera
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>include_gallery</strong> (<em>Optional[bool]</em>) &#8211; Whether to include gallery items in dataset. Defaults to True.</li>
+<li><strong>query</strong> (<em>Optional[str]</em>) &#8211; Restrict search to this query (in Solr format). Defaults to &#8216;<em>:</em>&#8216;.</li>
 <li><strong>**kwargs</strong> &#8211; See below</li>
 <li><strong>sort</strong> (<em>string</em>) &#8211; Sorting of the search results. Defaults to &#8216;relevance asc, metadata_modified desc&#8217;.</li>
 <li><strong>rows</strong> (<em>int</em>) &#8211; Number of matching rows to return. Defaults to all datasets (sys.maxsize).</li>
