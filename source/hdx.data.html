@@ -361,7 +361,7 @@ should be set if required to any fields that should be ignored for the particula
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>include_gallery</strong> (<em>Optional[bool]</em>) &#8211; Whether to include gallery items in dataset. Defaults to True.</li>
+<li><strong>include_gallery</strong> (<em>Optional[bool]</em>) &#8211; Whether to include gallery items in datasets. Defaults to True.</li>
 <li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to global configuration.</li>
 <li><strong>**kwargs</strong> &#8211; See below</li>
 <li><strong>limit</strong> (<em>int</em>) &#8211; Number of rows to return. Defaults to all datasets (sys.maxsize).</li>
@@ -658,7 +658,7 @@ If no format is supplied, an ISO 8601 string is returned.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>query</strong> (<em>Optional[str]</em>) &#8211; Query (in Solr format). Defaults to &#8216;<em>:</em>&#8216;.</li>
-<li><strong>include_gallery</strong> (<em>Optional[bool]</em>) &#8211; Whether to include gallery items in dataset. Defaults to True.</li>
+<li><strong>include_gallery</strong> (<em>Optional[bool]</em>) &#8211; Whether to include gallery items in datasets. Defaults to True.</li>
 <li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to global configuration.</li>
 <li><strong>**kwargs</strong> &#8211; See below</li>
 <li><strong>fq</strong> (<em>string</em>) &#8211; Any filter queries to apply</li>
@@ -824,7 +824,7 @@ vice versa (eg. &#8216;Every month&#8217; = &#8216;30&#8217;, &#8216;30&#8217; =
 
 <dl class="attribute">
 <dt id="hdx.data.dataset.Dataset.update_frequencies">
-<code class="descname">update_frequencies</code><em class="property"> = {'every two weeks': '14', 'annually': '365', 'every day': '1', 'every other week': '14', 'every three months': '90', 'quarterly': '90', 'yearly': '365', 'daily': '1', '0': 'Never', 'every year': '365', 'monthly': '30', 'every six months': '180', '1': 'Every day', 'every week': '7', 'never': '0', '365': 'Every year', 'every month': '30', '180': 'Every six months', 'semiyearly': '180', '14': 'Every two weeks', '30': 'Every month', 'semiannually': '180', '7': 'Every week', 'weekly': '7', 'fortnightly': '14', '90': 'Every three months'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
+<code class="descname">update_frequencies</code><em class="property"> = {'every two weeks': '14', '180': 'Every six months', '7': 'Every week', 'annually': '365', 'semiannually': '180', '1': 'Every day', 'semiyearly': '180', 'every other week': '14', '30': 'Every month', 'yearly': '365', 'never': '0', 'every three months': '90', 'every week': '7', 'every day': '1', '90': 'Every three months', 'daily': '1', 'every six months': '180', 'weekly': '7', 'monthly': '30', '14': 'Every two weeks', 'quarterly': '90', 'every month': '30', 'every year': '365', 'fortnightly': '14', '365': 'Every year', '0': 'Never'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -1383,8 +1383,8 @@ be set if required to any fields that should be ignored for the particular opera
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>include_gallery</strong> (<em>Optional[bool]</em>) &#8211; Whether to include gallery items in dataset. Defaults to True.</li>
-<li><strong>query</strong> (<em>Optional[str]</em>) &#8211; Restrict search to this query (in Solr format). Defaults to &#8216;<em>:</em>&#8216;.</li>
+<li><strong>include_gallery</strong> (<em>Optional[bool]</em>) &#8211; Whether to include gallery items in datasets. Defaults to True.</li>
+<li><strong>query</strong> (<em>Optional[str]</em>) &#8211; Restrict datasets returned to this query (in Solr format). Defaults to &#8216;<em>:</em>&#8216;.</li>
 <li><strong>**kwargs</strong> &#8211; See below</li>
 <li><strong>sort</strong> (<em>string</em>) &#8211; Sorting of the search results. Defaults to &#8216;relevance asc, metadata_modified desc&#8217;.</li>
 <li><strong>rows</strong> (<em>int</em>) &#8211; Number of matching rows to return. Defaults to all datasets (sys.maxsize).</li>
