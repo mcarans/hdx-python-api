@@ -49,20 +49,18 @@
 </div>
 <div class="section" id="module-hdx.data.dataset">
 <span id="hdx-data-dataset-module"></span><h2>hdx.data.dataset module<a class="headerlink" href="#module-hdx.data.dataset" title="Permalink to this headline">¶</a></h2>
-<p>Dataset class containing all logic for creating, checking, and updating datasets.</p>
-<p>It also handles resource and gallery items.</p>
+<p>Dataset class containing all logic for creating, checking, and updating datasets and associated resources.</p>
 <dl class="class">
 <dt id="hdx.data.dataset.Dataset">
-<em class="property">class </em><code class="descclassname">hdx.data.dataset.</code><code class="descname">Dataset</code><span class="sig-paren">(</span><em>initial_data=None</em>, <em>include_gallery=True</em>, <em>configuration=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">hdx.data.dataset.</code><code class="descname">Dataset</code><span class="sig-paren">(</span><em>initial_data=None</em>, <em>configuration=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#hdx.data.hdxobject.HDXObject" title="hdx.data.hdxobject.HDXObject"><code class="xref py py-class docutils literal"><span class="pre">hdx.data.hdxobject.HDXObject</span></code></a></p>
-<p>Dataset class enabling operations on datasets and associated resources and gallery items.</p>
+<p>Dataset class enabling operations on datasets and associated resources.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>initial_data</strong> (<em>Optional[dict]</em>) &#8211; Initial dataset metadata dictionary. Defaults to None.</li>
-<li><strong>include_gallery</strong> (<em>Optional[bool]</em>) &#8211; Whether to include gallery items in dataset. Defaults to True.</li>
 <li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to global configuration.</li>
 </ul>
 </td>
@@ -96,7 +94,9 @@ is a valid continent name, converted to a 2 letter code. If any country is alrea
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>continent</strong> (<em>str</em>) &#8211; Continent to add</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Returns True if all countries in continent added or False if any already present.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
 </tr>
 </tbody>
 </table>
@@ -104,16 +104,24 @@ is a valid continent name, converted to a 2 letter code. If any country is alrea
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.add_country_location">
-<code class="descname">add_country_location</code><span class="sig-paren">(</span><em>country</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.add_country_location" title="Permalink to this definition">¶</a></dt>
+<code class="descname">add_country_location</code><span class="sig-paren">(</span><em>country</em>, <em>exact=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.add_country_location" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a country. If an iso 3 code is not provided, value is parsed and if it is a valid country name,
 converted to an iso 3 code. If the country is already added, it is ignored.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>country</strong> (<em>str</em>) &#8211; Country to add</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>country</strong> (<em>str</em>) &#8211; Country to add</li>
+<li><strong>exact</strong> (<em>Optional[bool]</em>) &#8211; True for exact matching or False to allow fuzzy matching. Defaults to True.</li>
+</ul>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">True if country added or False if country already present</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">bool</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -130,7 +138,9 @@ names, converted to iso 3 codes. If any country is already added, it is ignored.
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>countries</strong> (<em>List[str]</em>) &#8211; List of countries to add</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Returns True if all countries added or False if any already present.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
 </tr>
 </tbody>
 </table>
@@ -138,14 +148,55 @@ names, converted to iso 3 codes. If any country is already added, it is ignored.
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.add_other_location">
-<code class="descname">add_other_location</code><span class="sig-paren">(</span><em>location</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.add_other_location" title="Permalink to this definition">¶</a></dt>
+<code class="descname">add_other_location</code><span class="sig-paren">(</span><em>location</em>, <em>exact=True</em>, <em>alterror=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.add_other_location" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a location which is not a country or continent. Value is parsed and compared to existing locations in
 HDX. If the location is already added, it is ignored.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>location</strong> (<em>str</em>) &#8211; Location to add</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>location</strong> (<em>str</em>) &#8211; Location to add</li>
+<li><strong>exact</strong> (<em>Optional[bool]</em>) &#8211; True for exact matching or False to allow fuzzy matching. Defaults to True.</li>
+<li><strong>alterror</strong> (<em>Optional[str]</em>) &#8211; Alternative error message to builtin if location not found. Defaults to None.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">True if location added or False if location already present</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">bool</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.dataset.Dataset.add_showcase">
+<code class="descname">add_showcase</code><span class="sig-paren">(</span><em>showcase</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.add_showcase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add dataset to showcase</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>showcase</strong> (<em>Union[Showcase,dict,str]</em>) &#8211; Either a showcase id or showcase metadata from a Showcase object or dictionary</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.dataset.Dataset.add_showcases">
+<code class="descname">add_showcases</code><span class="sig-paren">(</span><em>showcases</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.add_showcases" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add dataset to multiple showcases</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>showcases</strong> (<em>List[Union[Showcase,dict,str]]</em>) &#8211; A list of either showcase ids or showcase metadata from Showcase objects or dictionaries</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
@@ -163,7 +214,9 @@ HDX. If the location is already added, it is ignored.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tag</strong> (<em>str</em>) &#8211; Tag to add</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if tag added or False if tag already present</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
 </tr>
 </tbody>
 </table>
@@ -179,39 +232,9 @@ HDX. If the location is already added, it is ignored.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tags</strong> (<em>List[str]</em>) &#8211; List of tags to add</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Returns True if all tags added or False if any already present.</td>
 </tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="hdx.data.dataset.Dataset.add_update_gallery">
-<code class="descname">add_update_gallery</code><span class="sig-paren">(</span><em>gallery</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.add_update_gallery" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add new or update existing gallery items with new metadata to the dataset</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>gallery</strong> (<em>List[Any]</em>) &#8211; Gallery metadata from a list of either GalleryItem objects or dictionaries</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="hdx.data.dataset.Dataset.add_update_galleryitem">
-<code class="descname">add_update_galleryitem</code><span class="sig-paren">(</span><em>galleryitem</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.add_update_galleryitem" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add new or update existing gallery item in dataset with new metadata</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>galleryitem</strong> (<em>Any</em>) &#8211; Gallery item metadata either from a GalleryItem object or a dictionary</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
 </tr>
 </tbody>
 </table>
@@ -225,7 +248,7 @@ HDX. If the location is already added, it is ignored.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>resource</strong> (<em>Any</em>) &#8211; Resource metadata either from a Resource object or a dictionary</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>resource</strong> (<em>Union[Resource,dict,str]</em>) &#8211; Either resource id or resource metadata from a Resource object or a dictionary</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
@@ -241,7 +264,7 @@ HDX. If the location is already added, it is ignored.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>resources</strong> (<em>List[Any]</em>) &#8211; Resources metadata from a list of either Resource objects or dictionaries</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>resources</strong> (<em>List[Union[Resource,dict,str]]</em>) &#8211; A list of either resource ids or resources metadata from either Resource objects or dictionaries</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
@@ -252,7 +275,7 @@ HDX. If the location is already added, it is ignored.</p>
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.check_required_fields">
 <code class="descname">check_required_fields</code><span class="sig-paren">(</span><em>ignore_fields=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.check_required_fields" title="Permalink to this definition">¶</a></dt>
-<dd><p>Check that metadata for dataset and its resources and gallery is complete. The parameter ignore_fields
+<dd><p>Check that metadata for dataset and its resources is complete. The parameter ignore_fields
 should be set if required to any fields that should be ignored for the particular operation.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -295,32 +318,18 @@ should be set if required to any fields that should be ignored for the particula
 </dd></dl>
 
 <dl class="method">
-<dt id="hdx.data.dataset.Dataset.delete_galleryitem">
-<code class="descname">delete_galleryitem</code><span class="sig-paren">(</span><em>identifier</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.delete_galleryitem" title="Permalink to this definition">¶</a></dt>
-<dd><p>Delete a gallery item from the dataset</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>identifier</strong> (<em>str</em>) &#8211; Id of gallery item to delete</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
 <dt id="hdx.data.dataset.Dataset.delete_resource">
-<code class="descname">delete_resource</code><span class="sig-paren">(</span><em>identifier</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.delete_resource" title="Permalink to this definition">¶</a></dt>
+<code class="descname">delete_resource</code><span class="sig-paren">(</span><em>resource</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.delete_resource" title="Permalink to this definition">¶</a></dt>
 <dd><p>Delete a resource from the dataset</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>identifier</strong> (<em>str</em>) &#8211; Id of resource to delete</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>resource</strong> (<em>Union[Resource,dict,str]</em>) &#8211; Either resource id or resource metadata from a Resource object or a dictionary</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if resource removed or False if not</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
 </tr>
 </tbody>
 </table>
@@ -354,14 +363,13 @@ should be set if required to any fields that should be ignored for the particula
 
 <dl class="staticmethod">
 <dt id="hdx.data.dataset.Dataset.get_all_datasets">
-<em class="property">static </em><code class="descname">get_all_datasets</code><span class="sig-paren">(</span><em>include_gallery=True</em>, <em>configuration=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.get_all_datasets" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">get_all_datasets</code><span class="sig-paren">(</span><em>configuration=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.get_all_datasets" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get all datasets in HDX</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>include_gallery</strong> (<em>Optional[bool]</em>) &#8211; Whether to include gallery items in datasets. Defaults to True.</li>
 <li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to global configuration.</li>
 <li><strong>**kwargs</strong> &#8211; See below</li>
 <li><strong>limit</strong> (<em>int</em>) &#8211; Number of rows to return. Defaults to all datasets (sys.maxsize).</li>
@@ -500,22 +508,6 @@ If no format is supplied, an ISO 8601 string is returned.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="hdx.data.dataset.Dataset.get_gallery">
-<code class="descname">get_gallery</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.get_gallery" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get dataset&#8217;s gallery</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">List of GalleryItem objects</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">List[GalleryItem]</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
 <dt id="hdx.data.dataset.Dataset.get_location">
 <code class="descname">get_location</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.get_location" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the dataset&#8217;s location</p>
@@ -580,6 +572,22 @@ If no format is supplied, an ISO 8601 string is returned.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="hdx.data.dataset.Dataset.get_showcases">
+<code class="descname">get_showcases</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.get_showcases" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get any showcases the dataset is in</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">List of showcases</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">List[Showcase]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="hdx.data.dataset.Dataset.get_tags">
 <code class="descname">get_tags</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.get_tags" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the dataset&#8217;s list of tags</p>
@@ -590,20 +598,6 @@ If no format is supplied, an ISO 8601 string is returned.</p>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">List of tags or [] if there are none</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">List[str]</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="hdx.data.dataset.Dataset.init_gallery">
-<code class="descname">init_gallery</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.init_gallery" title="Permalink to this definition">¶</a></dt>
-<dd><p>Initialise self.gallery list</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
 </tbody>
 </table>
@@ -625,7 +619,7 @@ If no format is supplied, an ISO 8601 string is returned.</p>
 
 <dl class="staticmethod">
 <dt id="hdx.data.dataset.Dataset.read_from_hdx">
-<em class="property">static </em><code class="descname">read_from_hdx</code><span class="sig-paren">(</span><em>identifier</em>, <em>include_gallery=True</em>, <em>configuration=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.read_from_hdx" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">read_from_hdx</code><span class="sig-paren">(</span><em>identifier</em>, <em>configuration=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.read_from_hdx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reads the dataset given by identifier from HDX and returns Dataset object</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -633,7 +627,6 @@ If no format is supplied, an ISO 8601 string is returned.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>identifier</strong> (<em>str</em>) &#8211; Identifier of dataset</li>
-<li><strong>include_gallery</strong> (<em>Optional[bool]</em>) &#8211; Whether to include gallery items in dataset. Defaults to True.</li>
 <li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to global configuration.</li>
 </ul>
 </td>
@@ -648,9 +641,61 @@ If no format is supplied, an ISO 8601 string is returned.</p>
 </table>
 </dd></dl>
 
+<dl class="method">
+<dt id="hdx.data.dataset.Dataset.remove_location">
+<code class="descname">remove_location</code><span class="sig-paren">(</span><em>location</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.remove_location" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove a location. If the location is already added, it is ignored.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>location</strong> (<em>str</em>) &#8211; Location to remove</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if location removed or False if not</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.dataset.Dataset.remove_showcase">
+<code class="descname">remove_showcase</code><span class="sig-paren">(</span><em>showcase</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.remove_showcase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove dataset from showcase</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>showcase</strong> (<em>Union[Showcase,dict,str]</em>) &#8211; Either a showcase id string or showcase metadata from a Showcase object or dictionary</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.dataset.Dataset.remove_tag">
+<code class="descname">remove_tag</code><span class="sig-paren">(</span><em>tag</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.remove_tag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove a tag</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tag</strong> (<em>str</em>) &#8211; Tag to remove</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if tag removed or False if not</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 <dl class="staticmethod">
 <dt id="hdx.data.dataset.Dataset.search_in_hdx">
-<em class="property">static </em><code class="descname">search_in_hdx</code><span class="sig-paren">(</span><em>query='*:*'</em>, <em>include_gallery=True</em>, <em>configuration=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.search_in_hdx" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">search_in_hdx</code><span class="sig-paren">(</span><em>query='*:*'</em>, <em>configuration=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.search_in_hdx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Searches for datasets in HDX</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -658,7 +703,6 @@ If no format is supplied, an ISO 8601 string is returned.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>query</strong> (<em>Optional[str]</em>) &#8211; Query (in Solr format). Defaults to &#8216;<em>:</em>&#8216;.</li>
-<li><strong>include_gallery</strong> (<em>Optional[bool]</em>) &#8211; Whether to include gallery items in datasets. Defaults to True.</li>
 <li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to global configuration.</li>
 <li><strong>**kwargs</strong> &#8211; See below</li>
 <li><strong>fq</strong> (<em>string</em>) &#8211; Any filter queries to apply</li>
@@ -678,20 +722,6 @@ If no format is supplied, an ISO 8601 string is returned.</p>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">List[Dataset]</p>
 </td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="hdx.data.dataset.Dataset.separate_gallery">
-<code class="descname">separate_gallery</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.separate_gallery" title="Permalink to this definition">¶</a></dt>
-<dd><p>Move contents of gallery key in internal dictionary into self.gallery</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
 </tbody>
 </table>
@@ -795,7 +825,7 @@ For unambiguous formats, this should be fine.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>organization</strong> (<a class="reference internal" href="#hdx.data.organization.Organization" title="hdx.data.organization.Organization"><em>Organization</em></a>) &#8211; Set the dataset&#8217;s organization either from an Organization object or a str.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>organization</strong> (<em>Union[Organization,str]</em>) &#8211; Set the dataset&#8217;s organization either from an Organization object or a str.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
@@ -824,7 +854,7 @@ vice versa (eg. &#8216;Every month&#8217; = &#8216;30&#8217;, &#8216;30&#8217; =
 
 <dl class="attribute">
 <dt id="hdx.data.dataset.Dataset.update_frequencies">
-<code class="descname">update_frequencies</code><em class="property"> = {'every week': '7', 'every three months': '90', '90': 'Every three months', 'daily': '1', 'every day': '1', '7': 'Every week', 'never': '0', '1': 'Every day', 'every other week': '14', 'quarterly': '90', 'yearly': '365', '180': 'Every six months', 'every month': '30', '0': 'Never', 'semiannually': '180', 'every six months': '180', 'weekly': '7', 'every year': '365', 'fortnightly': '14', '365': 'Every year', '14': 'Every two weeks', 'every two weeks': '14', 'monthly': '30', '30': 'Every month', 'annually': '365', 'semiyearly': '180'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
+<code class="descname">update_frequencies</code><em class="property"> = {'daily': '1', 'every month': '30', '0': 'Never', 'every week': '7', '365': 'Every year', '90': 'Every three months', 'semiyearly': '180', '30': 'Every month', 'quarterly': '90', 'every year': '365', 'every three months': '90', 'every six months': '180', '14': 'Every two weeks', '7': 'Every week', 'monthly': '30', 'every other week': '14', 'every day': '1', '1': 'Every day', '180': 'Every six months', 'never': '0', 'yearly': '365', 'fortnightly': '14', 'every two weeks': '14', 'weekly': '7', 'annually': '365', 'semiannually': '180'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -861,174 +891,15 @@ vice versa (eg. &#8216;Every month&#8217; = &#8216;30&#8217;, &#8216;30&#8217; =
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.update_in_hdx">
-<code class="descname">update_in_hdx</code><span class="sig-paren">(</span><em>update_resources=True</em>, <em>update_gallery=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.update_in_hdx" title="Permalink to this definition">¶</a></dt>
+<code class="descname">update_in_hdx</code><span class="sig-paren">(</span><em>update_resources=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.update_in_hdx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check if dataset exists in HDX and if so, update it</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>update_resources</strong> (<em>Optional[bool]</em>) &#8211; Whether to update resources. Defaults to True.</li>
-<li><strong>update_gallery</strong> (<em>Optional[bool]</em>) &#8211; Whether to update resources. Defaults to True.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-<div class="section" id="module-hdx.data.galleryitem">
-<span id="hdx-data-galleryitem-module"></span><h2>hdx.data.galleryitem module<a class="headerlink" href="#module-hdx.data.galleryitem" title="Permalink to this headline">¶</a></h2>
-<p>GalleryItem class containing all logic for creating, checking, and updating gallery items.</p>
-<dl class="class">
-<dt id="hdx.data.galleryitem.GalleryItem">
-<em class="property">class </em><code class="descclassname">hdx.data.galleryitem.</code><code class="descname">GalleryItem</code><span class="sig-paren">(</span><em>initial_data=None</em>, <em>configuration=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.galleryitem.GalleryItem" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#hdx.data.hdxobject.HDXObject" title="hdx.data.hdxobject.HDXObject"><code class="xref py py-class docutils literal"><span class="pre">hdx.data.hdxobject.HDXObject</span></code></a></p>
-<p>GalleryItem class containing all logic for creating, checking, and updating gallery items.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>initial_data</strong> (<em>Optional[dict]</em>) &#8211; Initial gallery item metadata dictionary. Defaults to None.</li>
-<li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to global configuration.</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="staticmethod">
-<dt id="hdx.data.galleryitem.GalleryItem.actions">
-<em class="property">static </em><code class="descname">actions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.galleryitem.GalleryItem.actions" title="Permalink to this definition">¶</a></dt>
-<dd><p>Dictionary of actions that can be performed on object</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Dictionary of actions that can be performed on object</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dict</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="hdx.data.galleryitem.GalleryItem.check_required_fields">
-<code class="descname">check_required_fields</code><span class="sig-paren">(</span><em>ignore_fields=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.galleryitem.GalleryItem.check_required_fields" title="Permalink to this definition">¶</a></dt>
-<dd><p>Check that metadata for gallery item is complete. The parameter ignore_fields should
-be set if required to any fields that should be ignored for the particular operation.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ignore_fields</strong> (<em>List[str]</em>) &#8211; Fields to ignore. Default is [].</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>update_resources</strong> (<em>Optional[bool]</em>) &#8211; Whether to update resources. Defaults to True.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="hdx.data.galleryitem.GalleryItem.create_in_hdx">
-<code class="descname">create_in_hdx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.galleryitem.GalleryItem.create_in_hdx" title="Permalink to this definition">¶</a></dt>
-<dd><p>Check if gallery item exists in HDX and if so, update it, otherwise create it</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="hdx.data.galleryitem.GalleryItem.delete_from_hdx">
-<code class="descname">delete_from_hdx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.galleryitem.GalleryItem.delete_from_hdx" title="Permalink to this definition">¶</a></dt>
-<dd><p>Deletes a gallery item from HDX.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="staticmethod">
-<dt id="hdx.data.galleryitem.GalleryItem.read_from_hdx">
-<em class="property">static </em><code class="descname">read_from_hdx</code><span class="sig-paren">(</span><em>identifier</em>, <em>configuration=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.galleryitem.GalleryItem.read_from_hdx" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads the gallery item given by identifier from HDX and returns GalleryItem object</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>identifier</strong> (<em>str</em>) &#8211; Identifier of gallery item</li>
-<li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to global configuration.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">GalleryItem object if successful read, None if not</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Optional[GalleryItem]</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="hdx.data.galleryitem.GalleryItem.update_from_json">
-<code class="descname">update_from_json</code><span class="sig-paren">(</span><em>path='config/hdx_galleryitem_static.json'</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.galleryitem.GalleryItem.update_from_json" title="Permalink to this definition">¶</a></dt>
-<dd><p>Update gallery item metadata with static metadata from JSON file</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>Optional[str]</em>) &#8211; Path to JSON dataset metadata. Defaults to config/hdx_galleryitem_static.json.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="hdx.data.galleryitem.GalleryItem.update_from_yaml">
-<code class="descname">update_from_yaml</code><span class="sig-paren">(</span><em>path='config/hdx_galleryitem_static.yml'</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.galleryitem.GalleryItem.update_from_yaml" title="Permalink to this definition">¶</a></dt>
-<dd><p>Update gallery item metadata with static metadata from YAML file</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>Optional[str]</em>) &#8211; Path to YAML dataset metadata. Defaults to config/hdx_galleryitem_static.yml.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="hdx.data.galleryitem.GalleryItem.update_in_hdx">
-<code class="descname">update_in_hdx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.galleryitem.GalleryItem.update_in_hdx" title="Permalink to this definition">¶</a></dt>
-<dd><p>Check if gallery item exists in HDX and if so, update it</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
 </tbody>
 </table>
@@ -1253,15 +1124,22 @@ be set if required to any fields that should be ignored for the particular opera
 
 <dl class="method">
 <dt id="hdx.data.organization.Organization.add_update_user">
-<code class="descname">add_update_user</code><span class="sig-paren">(</span><em>user</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.organization.Organization.add_update_user" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add new or update existing users item in organization with new metadata</p>
+<code class="descname">add_update_user</code><span class="sig-paren">(</span><em>user</em>, <em>capacity=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.organization.Organization.add_update_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add new or update existing users item in organization with new metadata. Capacity eg. member, admin
+must be supplied either within the User object or dictionary or using the capacity argument (which takes
+precedence)</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>user</strong> (<em>Any</em>) &#8211; User metadata either from a User object or a dictionary</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>user</strong> (<em>Union[User,dict,str]</em>) &#8211; Either a user id or user metadata either from a User object or a dictionary</li>
+<li><strong>capacity</strong> (<em>Optional[str]</em>) &#8211; Capacity of user eg. member, admin. Defaults to None.</li>
+</ul>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -1269,15 +1147,20 @@ be set if required to any fields that should be ignored for the particular opera
 
 <dl class="method">
 <dt id="hdx.data.organization.Organization.add_update_users">
-<code class="descname">add_update_users</code><span class="sig-paren">(</span><em>users</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.organization.Organization.add_update_users" title="Permalink to this definition">¶</a></dt>
+<code class="descname">add_update_users</code><span class="sig-paren">(</span><em>users</em>, <em>capacity=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.organization.Organization.add_update_users" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add new or update existing users items with new metadata to the organization</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>users</strong> (<em>List[Any]</em>) &#8211; Users metadata from a list of either User objects or dictionaries</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>users</strong> (<em>List[Union[User,dict,str]]</em>) &#8211; A list of either user ids or users metadata from User objects or dictionaries</li>
+<li><strong>capacity</strong> (<em>Optional[str]</em>) &#8211; Capacity of users eg. member, admin. Defaults to None.</li>
+</ul>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -1323,22 +1206,6 @@ be set if required to any fields that should be ignored for the particular opera
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="hdx.data.organization.Organization.delete_user">
-<code class="descname">delete_user</code><span class="sig-paren">(</span><em>identifier</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.organization.Organization.delete_user" title="Permalink to this definition">¶</a></dt>
-<dd><p>Delete a user from the organization</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>identifier</strong> (<em>str</em>) &#8211; Id of user to delete</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
 </tbody>
 </table>
@@ -1444,6 +1311,24 @@ be set if required to any fields that should be ignored for the particular opera
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Optional[Organization]</p>
 </td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.organization.Organization.remove_user">
+<code class="descname">remove_user</code><span class="sig-paren">(</span><em>user</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.organization.Organization.remove_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove a user from the organization</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>user</strong> (<em>Union[User,dict,str]</em>) &#8211; Either a user id or user metadata either from a User object or a dictionary</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if user removed or False if not</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
 </tr>
 </tbody>
 </table>
@@ -1972,6 +1857,299 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 </dd></dl>
 
 </div>
+<div class="section" id="module-hdx.data.showcase">
+<span id="hdx-data-showcase-module"></span><h2>hdx.data.showcase module<a class="headerlink" href="#module-hdx.data.showcase" title="Permalink to this headline">¶</a></h2>
+<p>Showcase class containing all logic for creating, checking, and updating showcases.</p>
+<dl class="class">
+<dt id="hdx.data.showcase.Showcase">
+<em class="property">class </em><code class="descclassname">hdx.data.showcase.</code><code class="descname">Showcase</code><span class="sig-paren">(</span><em>initial_data=None</em>, <em>configuration=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.showcase.Showcase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#hdx.data.hdxobject.HDXObject" title="hdx.data.hdxobject.HDXObject"><code class="xref py py-class docutils literal"><span class="pre">hdx.data.hdxobject.HDXObject</span></code></a></p>
+<p>Showcase class containing all logic for creating, checking, and updating showcases.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>initial_data</strong> (<em>Optional[dict]</em>) &#8211; Initial showcase metadata dictionary. Defaults to None.</li>
+<li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to global configuration.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="staticmethod">
+<dt id="hdx.data.showcase.Showcase.actions">
+<em class="property">static </em><code class="descname">actions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.showcase.Showcase.actions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dictionary of actions that can be performed on object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Dictionary of actions that can be performed on object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dict</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.showcase.Showcase.add_dataset">
+<code class="descname">add_dataset</code><span class="sig-paren">(</span><em>dataset</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.showcase.Showcase.add_dataset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a dataset</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>dataset</strong> (<em>Union[Dataset,dict,str]</em>) &#8211; Either a dataset id or dataset metadata either from a Dataset object or a dictionary</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.showcase.Showcase.add_datasets">
+<code class="descname">add_datasets</code><span class="sig-paren">(</span><em>datasets</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.showcase.Showcase.add_datasets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add multiple datasets</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>datasets</strong> (<em>List[Union[Dataset,dict,str]]</em>) &#8211; A list of either dataset ids or dataset metadata from Dataset objects or dictionaries</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.showcase.Showcase.add_tag">
+<code class="descname">add_tag</code><span class="sig-paren">(</span><em>tag</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.showcase.Showcase.add_tag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a tag</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tag</strong> (<em>str</em>) &#8211; Tag to add</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if tag added or False if tag already present</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.showcase.Showcase.add_tags">
+<code class="descname">add_tags</code><span class="sig-paren">(</span><em>tags</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.showcase.Showcase.add_tags" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a list of tag</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tags</strong> (<em>List[str]</em>) &#8211; List of tags to add</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Returns True if all tags added or False if any already present.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.showcase.Showcase.check_required_fields">
+<code class="descname">check_required_fields</code><span class="sig-paren">(</span><em>ignore_fields=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.showcase.Showcase.check_required_fields" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check that metadata for showcase is complete. The parameter ignore_fields should
+be set if required to any fields that should be ignored for the particular operation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ignore_fields</strong> (<em>List[str]</em>) &#8211; Fields to ignore. Default is [].</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.showcase.Showcase.create_in_hdx">
+<code class="descname">create_in_hdx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.showcase.Showcase.create_in_hdx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if showcase exists in HDX and if so, update it, otherwise create it</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hdx.data.showcase.Showcase.dataset_ids_field">
+<code class="descname">dataset_ids_field</code><em class="property"> = 'dataset_ids'</em><a class="headerlink" href="#hdx.data.showcase.Showcase.dataset_ids_field" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.showcase.Showcase.delete_from_hdx">
+<code class="descname">delete_from_hdx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.showcase.Showcase.delete_from_hdx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes a showcase from HDX.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.showcase.Showcase.get_datasets">
+<code class="descname">get_datasets</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.showcase.Showcase.get_datasets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get any datasets in the showcase</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">List of datasets</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">List[Dataset]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.showcase.Showcase.get_tags">
+<code class="descname">get_tags</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.showcase.Showcase.get_tags" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the dataset&#8217;s list of tags</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">List of tags or [] if there are none</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">List[str]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="hdx.data.showcase.Showcase.read_from_hdx">
+<em class="property">static </em><code class="descname">read_from_hdx</code><span class="sig-paren">(</span><em>identifier</em>, <em>configuration=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.showcase.Showcase.read_from_hdx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the showcase given by identifier from HDX and returns Showcase object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>identifier</strong> (<em>str</em>) &#8211; Identifier of showcase</li>
+<li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to global configuration.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Showcase object if successful read, None if not</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Optional[Showcase]</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.showcase.Showcase.remove_dataset">
+<code class="descname">remove_dataset</code><span class="sig-paren">(</span><em>dataset</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.showcase.Showcase.remove_dataset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove a dataset</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>dataset</strong> (<em>Union[Dataset,dict,str]</em>) &#8211; Either a dataset id or dataset metadata either from a Dataset object or a dictionary</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.showcase.Showcase.remove_tag">
+<code class="descname">remove_tag</code><span class="sig-paren">(</span><em>tag</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.showcase.Showcase.remove_tag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove a tag</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tag</strong> (<em>str</em>) &#8211; Tag to remove</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if tag removed or False if not</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.showcase.Showcase.update_from_json">
+<code class="descname">update_from_json</code><span class="sig-paren">(</span><em>path='config/hdx_showcase_static.json'</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.showcase.Showcase.update_from_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update showcase metadata with static metadata from JSON file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>Optional[str]</em>) &#8211; Path to JSON dataset metadata. Defaults to config/hdx_showcase_static.json.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.showcase.Showcase.update_from_yaml">
+<code class="descname">update_from_yaml</code><span class="sig-paren">(</span><em>path='config/hdx_showcase_static.yml'</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.showcase.Showcase.update_from_yaml" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update showcase metadata with static metadata from YAML file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>Optional[str]</em>) &#8211; Path to YAML dataset metadata. Defaults to config/hdx_showcase_static.yml.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.showcase.Showcase.update_in_hdx">
+<code class="descname">update_in_hdx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.showcase.Showcase.update_in_hdx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if showcase exists in HDX and if so, update it</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
 <div class="section" id="module-hdx.data.user">
 <span id="hdx-data-user-module"></span><h2>hdx.data.user module<a class="headerlink" href="#module-hdx.data.user" title="Permalink to this headline">¶</a></h2>
 <p>User class containing all logic for creating, checking, and updating users.</p>
@@ -2220,10 +2398,10 @@ be set if required to any fields that should be ignored for the particular opera
 <li><a class="reference internal" href="#">hdx.data package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
 <li><a class="reference internal" href="#module-hdx.data.dataset">hdx.data.dataset module</a></li>
-<li><a class="reference internal" href="#module-hdx.data.galleryitem">hdx.data.galleryitem module</a></li>
 <li><a class="reference internal" href="#module-hdx.data.hdxobject">hdx.data.hdxobject module</a></li>
 <li><a class="reference internal" href="#module-hdx.data.organization">hdx.data.organization module</a></li>
 <li><a class="reference internal" href="#module-hdx.data.resource">hdx.data.resource module</a></li>
+<li><a class="reference internal" href="#module-hdx.data.showcase">hdx.data.showcase module</a></li>
 <li><a class="reference internal" href="#module-hdx.data.user">hdx.data.user module</a></li>
 <li><a class="reference internal" href="#module-hdx.data">Module contents</a></li>
 </ul>

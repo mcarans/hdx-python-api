@@ -12,14 +12,6 @@ hdx.data.dataset module
     :undoc-members:
     :show-inheritance:
 
-hdx.data.galleryitem module
----------------------------
-
-.. automodule:: hdx.data.galleryitem
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
 hdx.data.hdxobject module
 -------------------------
 
@@ -40,6 +32,14 @@ hdx.data.resource module
 ------------------------
 
 .. automodule:: hdx.data.resource
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+hdx.data.showcase module
+------------------------
+
+.. automodule:: hdx.data.showcase
     :members:
     :undoc-members:
     :show-inheritance:
