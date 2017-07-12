@@ -85,18 +85,24 @@
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.add_continent_location">
-<code class="descname">add_continent_location</code><span class="sig-paren">(</span><em>continent</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.add_continent_location" title="Permalink to this definition">¶</a></dt>
+<code class="descname">add_continent_location</code><span class="sig-paren">(</span><em>continent</em>, <em>locations=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.add_continent_location" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add all countries in a  continent. If a 2 letter continent code is not provided, value is parsed and if it
 is a valid continent name, converted to a 2 letter code. If any country is already added, it is ignored.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>continent</strong> (<em>str</em>) &#8211; Continent to add</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>continent</strong> (<em>str</em>) &#8211; Continent to add</li>
+<li><strong>locations</strong> (<em>Optional[List[str]]</em>) &#8211; Valid locations list. Defaults to list downloaded from HDX.</li>
+</ul>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Returns True if all countries in continent added or False if any already present.</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Returns True if all countries in continent added or False if any already present.</p>
+</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">bool</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -104,7 +110,7 @@ is a valid continent name, converted to a 2 letter code. If any country is alrea
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.add_country_location">
-<code class="descname">add_country_location</code><span class="sig-paren">(</span><em>country</em>, <em>exact=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.add_country_location" title="Permalink to this definition">¶</a></dt>
+<code class="descname">add_country_location</code><span class="sig-paren">(</span><em>country</em>, <em>exact=True</em>, <em>locations=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.add_country_location" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a country. If an iso 3 code is not provided, value is parsed and if it is a valid country name,
 converted to an iso 3 code. If the country is already added, it is ignored.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -114,6 +120,7 @@ converted to an iso 3 code. If the country is already added, it is ignored.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>country</strong> (<em>str</em>) &#8211; Country to add</li>
 <li><strong>exact</strong> (<em>Optional[bool]</em>) &#8211; True for exact matching or False to allow fuzzy matching. Defaults to True.</li>
+<li><strong>locations</strong> (<em>Optional[List[str]]</em>) &#8211; Valid locations list. Defaults to list downloaded from HDX.</li>
 </ul>
 </td>
 </tr>
@@ -129,16 +136,94 @@ converted to an iso 3 code. If the country is already added, it is ignored.</p>
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.add_country_locations">
-<code class="descname">add_country_locations</code><span class="sig-paren">(</span><em>countries</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.add_country_locations" title="Permalink to this definition">¶</a></dt>
+<code class="descname">add_country_locations</code><span class="sig-paren">(</span><em>countries</em>, <em>locations=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.add_country_locations" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a list of countries. If iso 3 codes are not provided, values are parsed and where they are valid country
 names, converted to iso 3 codes. If any country is already added, it is ignored.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>countries</strong> (<em>List[str]</em>) &#8211; List of countries to add</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>countries</strong> (<em>List[str]</em>) &#8211; List of countries to add</li>
+<li><strong>locations</strong> (<em>Optional[List[str]]</em>) &#8211; Valid locations list. Defaults to list downloaded from HDX.</li>
+</ul>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Returns True if all countries added or False if any already present.</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Returns True if all countries added or False if any already present.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">bool</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.dataset.Dataset.add_fieldname">
+<code class="descname">add_fieldname</code><span class="sig-paren">(</span><em>fieldname</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.add_fieldname" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a fieldname to list of fieldnames in your data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>fieldname</strong> (<em>str</em>) &#8211; fieldname to add</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if fieldname added or False if tag already present</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.dataset.Dataset.add_fieldnames">
+<code class="descname">add_fieldnames</code><span class="sig-paren">(</span><em>fieldnames</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.add_fieldnames" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a list of fieldnames to list of fieldnames in your data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>fieldnames</strong> (<em>List[str]</em>) &#8211; List of fieldnames to add</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Returns True if all fieldnames added or False if any already present</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.dataset.Dataset.add_filetype">
+<code class="descname">add_filetype</code><span class="sig-paren">(</span><em>filetype</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.add_filetype" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a filetype to list of filetypes in your data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>filetype</strong> (<em>str</em>) &#8211; filetype to add</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if filetype added or False if tag already present</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.dataset.Dataset.add_filetypes">
+<code class="descname">add_filetypes</code><span class="sig-paren">(</span><em>filetypes</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.add_filetypes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a list of filetypes to list of filetypes in your data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>filetypes</strong> (<em>List[str]</em>) &#8211; List of filetypes to add</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Returns True if all filetypes added or False if any already present</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
 </tr>
@@ -148,7 +233,7 @@ names, converted to iso 3 codes. If any country is already added, it is ignored.
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.add_other_location">
-<code class="descname">add_other_location</code><span class="sig-paren">(</span><em>location</em>, <em>exact=True</em>, <em>alterror=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.add_other_location" title="Permalink to this definition">¶</a></dt>
+<code class="descname">add_other_location</code><span class="sig-paren">(</span><em>location</em>, <em>exact=True</em>, <em>alterror=None</em>, <em>locations=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.add_other_location" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a location which is not a country or continent. Value is parsed and compared to existing locations in
 HDX. If the location is already added, it is ignored.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -159,6 +244,7 @@ HDX. If the location is already added, it is ignored.</p>
 <li><strong>location</strong> (<em>str</em>) &#8211; Location to add</li>
 <li><strong>exact</strong> (<em>Optional[bool]</em>) &#8211; True for exact matching or False to allow fuzzy matching. Defaults to True.</li>
 <li><strong>alterror</strong> (<em>Optional[str]</em>) &#8211; Alternative error message to builtin if location not found. Defaults to None.</li>
+<li><strong>locations</strong> (<em>Optional[List[str]]</em>) &#8211; Valid locations list. Defaults to list downloaded from HDX.</li>
 </ul>
 </td>
 </tr>
@@ -508,16 +594,50 @@ If no format is supplied, an ISO 8601 string is returned.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="hdx.data.dataset.Dataset.get_fieldnames">
+<code class="descname">get_fieldnames</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.get_fieldnames" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return list of fieldnames in your data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>List</strong> &#8211; Returns list of field names</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.dataset.Dataset.get_filetypes">
+<code class="descname">get_filetypes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.get_filetypes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return list of filetypes in your data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>List</strong> &#8211; Returns list of field names</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="hdx.data.dataset.Dataset.get_location">
-<code class="descname">get_location</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.get_location" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_location</code><span class="sig-paren">(</span><em>locations=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.get_location" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the dataset&#8217;s location</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">List of locations or [] if there are none</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>locations</strong> (<em>Optional[List[str]]</em>) &#8211; Valid locations list. Defaults to list downloaded from HDX.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">List[str]</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">List of locations or [] if there are none</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">List[str]</td>
 </tr>
 </tbody>
 </table>
@@ -550,6 +670,20 @@ If no format is supplied, an ISO 8601 string is returned.</p>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Returns dataset&#8217;s organization</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#hdx.data.organization.Organization" title="hdx.data.organization.Organization">Organization</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.dataset.Dataset.get_requestable">
+<code class="descname">get_requestable</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.get_requestable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get whether the dataset is requestable or not</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">bool</td>
 </tr>
 </tbody>
 </table>
@@ -636,6 +770,42 @@ If no format is supplied, an ISO 8601 string is returned.</p>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Optional[Dataset]</p>
 </td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.dataset.Dataset.remove_fieldname">
+<code class="descname">remove_fieldname</code><span class="sig-paren">(</span><em>fieldname</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.remove_fieldname" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove a fieldname</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>fieldname</strong> (<em>str</em>) &#8211; Fieldname to remove</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if fieldname removed or False if not</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.dataset.Dataset.remove_filetype">
+<code class="descname">remove_filetype</code><span class="sig-paren">(</span><em>filetype</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.remove_filetype" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove a filetype</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>filetype</strong> (<em>str</em>) &#8211; Fieldname to remove</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if filetype removed or False if not</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
 </tr>
 </tbody>
 </table>
@@ -833,6 +1003,22 @@ For unambiguous formats, this should be fine.</p>
 </table>
 </dd></dl>
 
+<dl class="method">
+<dt id="hdx.data.dataset.Dataset.set_requestable">
+<code class="descname">set_requestable</code><span class="sig-paren">(</span><em>requestable=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.set_requestable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the dataset to be of type requestable or not</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>requestable</strong> (<em>Optional[bool]</em>) &#8211; Set whether dataset is requestable. Defaults to True.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 <dl class="staticmethod">
 <dt id="hdx.data.dataset.Dataset.transform_update_frequency">
 <em class="property">static </em><code class="descname">transform_update_frequency</code><span class="sig-paren">(</span><em>frequency</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.transform_update_frequency" title="Permalink to this definition">¶</a></dt>
@@ -854,7 +1040,7 @@ vice versa (eg. &#8216;Every month&#8217; = &#8216;30&#8217;, &#8216;30&#8217; =
 
 <dl class="attribute">
 <dt id="hdx.data.dataset.Dataset.update_frequencies">
-<code class="descname">update_frequencies</code><em class="property"> = {'daily': '1', 'every month': '30', '0': 'Never', 'every week': '7', '365': 'Every year', '90': 'Every three months', 'semiyearly': '180', '30': 'Every month', 'quarterly': '90', 'every year': '365', 'every three months': '90', 'every six months': '180', '14': 'Every two weeks', '7': 'Every week', 'monthly': '30', 'every other week': '14', 'every day': '1', '1': 'Every day', '180': 'Every six months', 'never': '0', 'yearly': '365', 'fortnightly': '14', 'every two weeks': '14', 'weekly': '7', 'annually': '365', 'semiannually': '180'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
+<code class="descname">update_frequencies</code><em class="property"> = {'90': 'Every three months', 'every three months': '90', 'quarterly': '90', '1': 'Every day', '30': 'Every month', 'semiannually': '180', 'annually': '365', 'fortnightly': '14', 'daily': '1', 'monthly': '30', 'semiyearly': '180', 'every six months': '180', 'weekly': '7', 'every other week': '14', '0': 'Never', 'every year': '365', 'every two weeks': '14', '7': 'Every week', 'every month': '30', '180': 'Every six months', 'every day': '1', 'every week': '7', '14': 'Every two weeks', 'yearly': '365', '365': 'Every year', 'never': '0'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
