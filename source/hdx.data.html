@@ -328,15 +328,20 @@ HDX. If the location is already added, it is ignored.</p>
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.add_update_resource">
-<code class="descname">add_update_resource</code><span class="sig-paren">(</span><em>resource</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.add_update_resource" title="Permalink to this definition">¶</a></dt>
+<code class="descname">add_update_resource</code><span class="sig-paren">(</span><em>resource</em>, <em>ignore_datasetid=False</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.add_update_resource" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add new or update existing resource in dataset with new metadata</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>resource</strong> (<em>Union[Resource,dict,str]</em>) &#8211; Either resource id or resource metadata from a Resource object or a dictionary</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>resource</strong> (<em>Union[Resource,dict,str]</em>) &#8211; Either resource id or resource metadata from a Resource object or a dictionary</li>
+<li><strong>ignore_datasetid</strong> (<em>Optional[bool]</em>) &#8211; Whether to ignore dataset id in the resource</li>
+</ul>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -344,15 +349,20 @@ HDX. If the location is already added, it is ignored.</p>
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.add_update_resources">
-<code class="descname">add_update_resources</code><span class="sig-paren">(</span><em>resources</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.add_update_resources" title="Permalink to this definition">¶</a></dt>
+<code class="descname">add_update_resources</code><span class="sig-paren">(</span><em>resources</em>, <em>ignore_datasetid=False</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.add_update_resources" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add new or update existing resources with new metadata to the dataset</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>resources</strong> (<em>List[Union[Resource,dict,str]]</em>) &#8211; A list of either resource ids or resources metadata from either Resource objects or dictionaries</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>resources</strong> (<em>List[Union[Resource,dict,str]]</em>) &#8211; A list of either resource ids or resources metadata from either Resource objects or dictionaries</li>
+<li><strong>ignore_datasetid</strong> (<em>Optional[bool]</em>) &#8211; Whether to ignore dataset id in the resource</li>
+</ul>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -360,16 +370,21 @@ HDX. If the location is already added, it is ignored.</p>
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.check_required_fields">
-<code class="descname">check_required_fields</code><span class="sig-paren">(</span><em>ignore_fields=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.check_required_fields" title="Permalink to this definition">¶</a></dt>
+<code class="descname">check_required_fields</code><span class="sig-paren">(</span><em>ignore_fields=[]</em>, <em>allow_no_resources=False</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.check_required_fields" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check that metadata for dataset and its resources is complete. The parameter ignore_fields
 should be set if required to any fields that should be ignored for the particular operation.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ignore_fields</strong> (<em>List[str]</em>) &#8211; Fields to ignore. Default is [].</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>ignore_fields</strong> (<em>List[str]</em>) &#8211; Fields to ignore. Default is [].</li>
+<li><strong>allow_no_resources</strong> (<em>Optional[bool]</em>) &#8211; Whether to allow no resources. Defaults to False.</li>
+</ul>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -377,13 +392,15 @@ should be set if required to any fields that should be ignored for the particula
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.create_in_hdx">
-<code class="descname">create_in_hdx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.create_in_hdx" title="Permalink to this definition">¶</a></dt>
+<code class="descname">create_in_hdx</code><span class="sig-paren">(</span><em>allow_no_resources=False</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.create_in_hdx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check if dataset exists in HDX and if so, update it, otherwise create it</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>allow_no_resources</strong> (<em>Optional[bool]</em>) &#8211; Whether to allow no resources. Defaults to False.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
 </tbody>
 </table>
@@ -1040,7 +1057,7 @@ vice versa (eg. &#8216;Every month&#8217; = &#8216;30&#8217;, &#8216;30&#8217; =
 
 <dl class="attribute">
 <dt id="hdx.data.dataset.Dataset.update_frequencies">
-<code class="descname">update_frequencies</code><em class="property"> = {'90': 'Every three months', 'every three months': '90', 'quarterly': '90', '1': 'Every day', '30': 'Every month', 'semiannually': '180', 'annually': '365', 'fortnightly': '14', 'daily': '1', 'monthly': '30', 'semiyearly': '180', 'every six months': '180', 'weekly': '7', 'every other week': '14', '0': 'Never', 'every year': '365', 'every two weeks': '14', '7': 'Every week', 'every month': '30', '180': 'Every six months', 'every day': '1', 'every week': '7', '14': 'Every two weeks', 'yearly': '365', '365': 'Every year', 'never': '0'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
+<code class="descname">update_frequencies</code><em class="property"> = {'every other week': '14', 'quarterly': '90', '365': 'Every year', 'semiyearly': '180', '90': 'Every three months', 'daily': '1', 'weekly': '7', 'fortnightly': '14', 'every week': '7', 'every month': '30', '0': 'Never', '30': 'Every month', 'every year': '365', 'every three months': '90', 'never': '0', '14': 'Every two weeks', 'semiannually': '180', 'every two weeks': '14', '180': 'Every six months', '1': 'Every day', '7': 'Every week', 'every six months': '180', 'annually': '365', 'every day': '1', 'yearly': '365', 'monthly': '30'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
