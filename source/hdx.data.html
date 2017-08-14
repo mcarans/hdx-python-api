@@ -60,7 +60,7 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>initial_data</strong> (<em>Optional[dict]</em>) &#8211; Initial dataset metadata dictionary. Defaults to None.</li>
+<li><strong>initial_data</strong> (<em>Optional[Dict]</em>) &#8211; Initial dataset metadata dictionary. Defaults to None.</li>
 <li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to global configuration.</li>
 </ul>
 </td>
@@ -77,7 +77,7 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Dictionary of actions that can be performed on object</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dict</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Dict[str, str]</td>
 </tr>
 </tbody>
 </table>
@@ -144,7 +144,7 @@ names, converted to iso 3 codes. If any country is already added, it is ignored.
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>countries</strong> (<em>List[str]</em>) &#8211; List of countries to add</li>
+<li><strong>countries</strong> (<em>List[str]</em>) &#8211; list of countries to add</li>
 <li><strong>locations</strong> (<em>Optional[List[str]]</em>) &#8211; Valid locations list. Defaults to list downloaded from HDX.</li>
 </ul>
 </td>
@@ -185,7 +185,7 @@ names, converted to iso 3 codes. If any country is already added, it is ignored.
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>fieldnames</strong> (<em>List[str]</em>) &#8211; List of fieldnames to add</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>fieldnames</strong> (<em>List[str]</em>) &#8211; list of fieldnames to add</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Returns True if all fieldnames added or False if any already present</td>
 </tr>
@@ -221,7 +221,7 @@ names, converted to iso 3 codes. If any country is already added, it is ignored.
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>filetypes</strong> (<em>List[str]</em>) &#8211; List of filetypes to add</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>filetypes</strong> (<em>List[str]</em>) &#8211; list of filetypes to add</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Returns True if all filetypes added or False if any already present</td>
 </tr>
@@ -267,8 +267,8 @@ HDX. If the location is already added, it is ignored.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>showcase</strong> (<em>Union[Showcase,dict,str]</em>) &#8211; Either a showcase id or showcase metadata from a Showcase object or dictionary</li>
-<li><strong>showcases_to_check</strong> (<em>List[Showcase]</em>) &#8211; List of showcases against which to check existence of showcase. Defaults to showcases containing dataset.</li>
+<li><strong>showcase</strong> (<em>Union[Showcase,Dict,str]</em>) &#8211; Either a showcase id or showcase metadata from a Showcase object or dictionary</li>
+<li><strong>showcases_to_check</strong> (<em>List[Showcase]</em>) &#8211; list of showcases against which to check existence of showcase. Defaults to showcases containing dataset.</li>
 </ul>
 </td>
 </tr>
@@ -291,8 +291,8 @@ HDX. If the location is already added, it is ignored.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>showcases</strong> (<em>List[Union[Showcase,dict,str]]</em>) &#8211; A list of either showcase ids or showcase metadata from Showcase objects or dictionaries</li>
-<li><strong>showcases_to_check</strong> (<em>List[Showcase]</em>) &#8211; List of showcases against which to check existence of showcase. Defaults to showcases containing dataset.</li>
+<li><strong>showcases</strong> (<em>List[Union[Showcase,Dict,str]]</em>) &#8211; A list of either showcase ids or showcase metadata from Showcase objects or dictionaries</li>
+<li><strong>showcases_to_check</strong> (<em>List[Showcase]</em>) &#8211; list of showcases against which to check existence of showcase. Defaults to showcases containing dataset.</li>
 </ul>
 </td>
 </tr>
@@ -332,7 +332,7 @@ HDX. If the location is already added, it is ignored.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tags</strong> (<em>List[str]</em>) &#8211; List of tags to add</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tags</strong> (<em>List[str]</em>) &#8211; list of tags to add</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Returns True if all tags added or False if any already present.</td>
 </tr>
@@ -351,7 +351,7 @@ HDX. If the location is already added, it is ignored.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>resource</strong> (<em>Union[Resource,dict,str]</em>) &#8211; Either resource id or resource metadata from a Resource object or a dictionary</li>
+<li><strong>resource</strong> (<em>Union[Resource,Dict,str]</em>) &#8211; Either resource id or resource metadata from a Resource object or a dictionary</li>
 <li><strong>ignore_datasetid</strong> (<em>Optional[bool]</em>) &#8211; Whether to ignore dataset id in the resource</li>
 </ul>
 </td>
@@ -372,7 +372,7 @@ HDX. If the location is already added, it is ignored.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>resources</strong> (<em>List[Union[Resource,dict,str]]</em>) &#8211; A list of either resource ids or resources metadata from either Resource objects or dictionaries</li>
+<li><strong>resources</strong> (<em>List[Union[Resource,Dict,str]]</em>) &#8211; A list of either resource ids or resources metadata from either Resource objects or dictionaries</li>
 <li><strong>ignore_datasetid</strong> (<em>Optional[bool]</em>) &#8211; Whether to ignore dataset id in the resource</li>
 </ul>
 </td>
@@ -444,7 +444,7 @@ should be set if required to any fields that should be ignored for the particula
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>resource</strong> (<em>Union[Resource,dict,str]</em>) &#8211; Either resource id or resource metadata from a Resource object or a dictionary</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>resource</strong> (<em>Union[Resource,Dict,str]</em>) &#8211; Either resource id or resource metadata from a Resource object or a dictionary</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if resource removed or False if not</td>
 </tr>
@@ -470,7 +470,7 @@ should be set if required to any fields that should be ignored for the particula
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">List of all dataset names in HDX</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">list of all dataset names in HDX</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">List[str]</p>
@@ -496,7 +496,7 @@ should be set if required to any fields that should be ignored for the particula
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">List of all datasets in HDX</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">list of all datasets in HDX</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">List[Dataset]</p>
@@ -514,9 +514,9 @@ should be set if required to any fields that should be ignored for the particula
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>datasets</strong> (<em>List[Dataset]</em>) &#8211; List of datasets</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>datasets</strong> (<em>List[Dataset]</em>) &#8211; list of datasets</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">List of resources within those datasets</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">list of resources within those datasets</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">List[Resource]</td>
 </tr>
@@ -634,9 +634,9 @@ If no format is supplied, an ISO 8601 string is returned.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>List</strong> &#8211; Returns list of field names</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Returns list of field names</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">str</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">List[str]</td>
 </tr>
 </tbody>
 </table>
@@ -650,9 +650,9 @@ If no format is supplied, an ISO 8601 string is returned.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>List</strong> &#8211; Returns list of field names</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Returns list of field names</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">str</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">List[str]</td>
 </tr>
 </tbody>
 </table>
@@ -668,7 +668,7 @@ If no format is supplied, an ISO 8601 string is returned.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>locations</strong> (<em>Optional[List[str]]</em>) &#8211; Valid locations list. Defaults to list downloaded from HDX.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">List of locations or [] if there are none</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">list of locations or [] if there are none</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">List[str]</td>
 </tr>
@@ -730,7 +730,7 @@ If no format is supplied, an ISO 8601 string is returned.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">List of Resource objects</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">list of Resource objects</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">List[Resource]</td>
 </tr>
@@ -746,7 +746,7 @@ If no format is supplied, an ISO 8601 string is returned.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">List of showcases</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">list of showcases</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">List[Showcase]</td>
 </tr>
@@ -762,7 +762,7 @@ If no format is supplied, an ISO 8601 string is returned.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">List of tags or [] if there are none</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">list of tags or [] if there are none</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">List[str]</td>
 </tr>
@@ -870,7 +870,7 @@ If no format is supplied, an ISO 8601 string is returned.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>showcase</strong> (<em>Union[Showcase,dict,str]</em>) &#8211; Either a showcase id string or showcase metadata from a Showcase object or dictionary</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>showcase</strong> (<em>Union[Showcase,Dict,str]</em>) &#8211; Either a showcase id string or showcase metadata from a Showcase object or dictionary</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
@@ -920,7 +920,7 @@ If no format is supplied, an ISO 8601 string is returned.</p>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">List of datasets resulting from query</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">list of datasets resulting from query</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">List[Dataset]</p>
@@ -1033,7 +1033,7 @@ For unambiguous formats, this should be fine.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>maintainer</strong> (<em>Any</em>) &#8211; Set the dataset&#8217;s maintainer either from a User object or a str.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>maintainer</strong> (<em>Union[User,str]</em>) &#8211; Set the dataset&#8217;s maintainer either from a User object or an id in a str.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
@@ -1094,7 +1094,7 @@ vice versa (eg. &#8216;Every month&#8217; = &#8216;30&#8217;, &#8216;30&#8217; =
 
 <dl class="attribute">
 <dt id="hdx.data.dataset.Dataset.update_frequencies">
-<code class="descname">update_frequencies</code><em class="property"> = {'every other week': '14', 'daily': '1', '14': 'Every two weeks', '1': 'Every day', 'every three months': '90', 'every year': '365', 'never': '0', '0': 'Never', 'every month': '30', 'semiannually': '180', '365': 'Every year', '7': 'Every week', 'fortnightly': '14', 'quarterly': '90', '30': 'Every month', 'weekly': '7', 'every week': '7', 'annually': '365', 'yearly': '365', 'semiyearly': '180', '90': 'Every three months', '180': 'Every six months', 'every day': '1', 'every six months': '180', 'monthly': '30', 'every two weeks': '14'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
+<code class="descname">update_frequencies</code><em class="property"> = {'every week': '7', 'daily': '1', 'every month': '30', '30': 'Every month', 'every day': '1', '7': 'Every week', 'every two weeks': '14', 'every year': '365', 'monthly': '30', '365': 'Every year', 'semiannually': '180', 'weekly': '7', 'annually': '365', 'semiyearly': '180', 'quarterly': '90', 'every six months': '180', '14': 'Every two weeks', 'every other week': '14', '0': 'Never', 'yearly': '365', '90': 'Every three months', 'never': '0', 'every three months': '90', '180': 'Every six months', '1': 'Every day', 'fortnightly': '14'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -1169,7 +1169,7 @@ New HDX objects should extend this in similar fashion to Resource for example.</
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>initial_data</strong> (<em>dict</em>) &#8211; Initial metadata dictionary</li>
+<li><strong>initial_data</strong> (<em>Dict</em>) &#8211; Initial metadata dictionary</li>
 <li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to global configuration.</li>
 </ul>
 </td>
@@ -1186,7 +1186,7 @@ New HDX objects should extend this in similar fashion to Resource for example.</
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Dictionary of actions that can be performed on object</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dict</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Dict[str, str]</td>
 </tr>
 </tbody>
 </table>
@@ -1339,7 +1339,7 @@ be set if required to any fields that should be ignored for the particular opera
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>initial_data</strong> (<em>Optional[dict]</em>) &#8211; Initial organization metadata dictionary. Defaults to None.</li>
+<li><strong>initial_data</strong> (<em>Optional[Dict]</em>) &#8211; Initial organization metadata dictionary. Defaults to None.</li>
 <li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to global configuration.</li>
 </ul>
 </td>
@@ -1356,7 +1356,7 @@ be set if required to any fields that should be ignored for the particular opera
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Dictionary of actions that can be performed on object</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dict</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Dict[str, str]</td>
 </tr>
 </tbody>
 </table>
@@ -1373,7 +1373,7 @@ precedence)</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>user</strong> (<em>Union[User,dict,str]</em>) &#8211; Either a user id or user metadata either from a User object or a dictionary</li>
+<li><strong>user</strong> (<em>Union[User,Dict,str]</em>) &#8211; Either a user id or user metadata either from a User object or a dictionary</li>
 <li><strong>capacity</strong> (<em>Optional[str]</em>) &#8211; Capacity of user eg. member, admin. Defaults to None.</li>
 </ul>
 </td>
@@ -1394,7 +1394,7 @@ precedence)</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>users</strong> (<em>List[Union[User,dict,str]]</em>) &#8211; A list of either user ids or users metadata from User objects or dictionaries</li>
+<li><strong>users</strong> (<em>List[Union[User,Dict,str]]</em>) &#8211; A list of either user ids or users metadata from User objects or dictionaries</li>
 <li><strong>capacity</strong> (<em>Optional[str]</em>) &#8211; Capacity of users eg. member, admin. Defaults to None.</li>
 </ul>
 </td>
@@ -1463,7 +1463,7 @@ be set if required to any fields that should be ignored for the particular opera
 <li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to global configuration.</li>
 <li><strong>**kwargs</strong> &#8211; See below</li>
 <li><strong>sort</strong> (<em>str</em>) &#8211; Sort the search results according to field name and sort-order. Allowed fields are ‘name’, ‘package_count’ and ‘title’. Defaults to &#8216;name asc&#8217;.</li>
-<li><strong>organizations</strong> (<em>list[str]</em>) &#8211; List of names of the groups to return.</li>
+<li><strong>organizations</strong> (<em>List[str]</em>) &#8211; List of names of the groups to return.</li>
 <li><strong>all_fields</strong> (<em>bool</em>) &#8211; Return group dictionaries instead of just names. Only core fields are returned - get some more using the include_* options. Defaults to False.</li>
 <li><strong>include_extras</strong> (<em>bool</em>) &#8211; If all_fields, include the group extra fields. Defaults to False.</li>
 <li><strong>include_tags</strong> (<em>bool</em>) &#8211; If all_fields, include the group tags. Defaults to False.</li>
@@ -1483,14 +1483,13 @@ be set if required to any fields that should be ignored for the particular opera
 
 <dl class="method">
 <dt id="hdx.data.organization.Organization.get_datasets">
-<code class="descname">get_datasets</code><span class="sig-paren">(</span><em>include_gallery=True</em>, <em>query='*:*'</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.organization.Organization.get_datasets" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_datasets</code><span class="sig-paren">(</span><em>query='*:*'</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.organization.Organization.get_datasets" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get list of datasets in organization</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>include_gallery</strong> (<em>Optional[bool]</em>) &#8211; Whether to include gallery items in datasets. Defaults to True.</li>
 <li><strong>query</strong> (<em>Optional[str]</em>) &#8211; Restrict datasets returned to this query (in Solr format). Defaults to &#8216;<em>:</em>&#8216;.</li>
 <li><strong>**kwargs</strong> &#8211; See below</li>
 <li><strong>sort</strong> (<em>string</em>) &#8211; Sorting of the search results. Defaults to &#8216;relevance asc, metadata_modified desc&#8217;.</li>
@@ -1564,7 +1563,7 @@ be set if required to any fields that should be ignored for the particular opera
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>user</strong> (<em>Union[User,dict,str]</em>) &#8211; Either a user id or user metadata either from a User object or a dictionary</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>user</strong> (<em>Union[User,Dict,str]</em>) &#8211; Either a user id or user metadata either from a User object or a dictionary</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if user removed or False if not</td>
 </tr>
@@ -1636,7 +1635,7 @@ be set if required to any fields that should be ignored for the particular opera
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>initial_data</strong> (<em>Optional[dict]</em>) &#8211; Initial resource metadata dictionary. Defaults to None.</li>
+<li><strong>initial_data</strong> (<em>Optional[Dict]</em>) &#8211; Initial resource metadata dictionary. Defaults to None.</li>
 <li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to global configuration.</li>
 </ul>
 </td>
@@ -1653,7 +1652,7 @@ be set if required to any fields that should be ignored for the particular opera
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Dictionary of actions that can be performed on object</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dict</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Dict[str, str]</td>
 </tr>
 </tbody>
 </table>
@@ -1687,7 +1686,7 @@ all fields are assumed to be text. If path is not supplied, the file is first do
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>schema</strong> (<em>List[dict]</em>) &#8211; List of fields and types of form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#8217;}. Defaults to None.</li>
+<li><strong>schema</strong> (<em>List[Dict]</em>) &#8211; List of fields and types of form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#8217;}. Defaults to None.</li>
 <li><strong>primary_key</strong> (<em>Optional[str]</em>) &#8211; Primary key of schema. Defaults to None.</li>
 <li><strong>delete_first</strong> (<em>int</em>) &#8211; Delete datastore before creation. 0 = No, 1 = Yes, 2 = If no primary key. Defaults to 0.</li>
 <li><strong>path</strong> (<em>Optional[str]</em>) &#8211; Local path to file that was uploaded. Defaults to None.</li>
@@ -1949,7 +1948,7 @@ all fields are assumed to be text. If path is not supplied, the file is first do
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>schema</strong> (<em>List[dict]</em>) &#8211; List of fields and types of form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#8217;}. Defaults to None.</li>
+<li><strong>schema</strong> (<em>List[Dict]</em>) &#8211; List of fields and types of form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#8217;}. Defaults to None.</li>
 <li><strong>primary_key</strong> (<em>Optional[str]</em>) &#8211; Primary key of schema. Defaults to None.</li>
 <li><strong>path</strong> (<em>Optional[str]</em>) &#8211; Local path to file that was uploaded. Defaults to None.</li>
 </ul>
@@ -2110,7 +2109,7 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>initial_data</strong> (<em>Optional[dict]</em>) &#8211; Initial showcase metadata dictionary. Defaults to None.</li>
+<li><strong>initial_data</strong> (<em>Optional[Dict]</em>) &#8211; Initial showcase metadata dictionary. Defaults to None.</li>
 <li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to global configuration.</li>
 </ul>
 </td>
@@ -2127,7 +2126,7 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Dictionary of actions that can be performed on object</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dict</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Dict[str, str]</td>
 </tr>
 </tbody>
 </table>
@@ -2142,7 +2141,7 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>dataset</strong> (<em>Union[Dataset,dict,str]</em>) &#8211; Either a dataset id or dataset metadata either from a Dataset object or a dictionary</li>
+<li><strong>dataset</strong> (<em>Union[Dataset,Dict,str]</em>) &#8211; Either a dataset id or dataset metadata either from a Dataset object or a dictionary</li>
 <li><strong>datasets_to_check</strong> (<em>List[Dataset]</em>) &#8211; List of datasets against which to check existence of dataset. Defaults to datasets in showcase.</li>
 </ul>
 </td>
@@ -2166,7 +2165,7 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>datasets</strong> (<em>List[Union[Dataset,dict,str]]</em>) &#8211; A list of either dataset ids or dataset metadata from Dataset objects or dictionaries</li>
+<li><strong>datasets</strong> (<em>List[Union[Dataset,Dict,str]]</em>) &#8211; A list of either dataset ids or dataset metadata from Dataset objects or dictionaries</li>
 <li><strong>datasets_to_check</strong> (<em>List[Dataset]</em>) &#8211; List of datasets against which to check existence of dataset. Defaults to datasets in showcase.</li>
 </ul>
 </td>
@@ -2331,7 +2330,7 @@ be set if required to any fields that should be ignored for the particular opera
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>dataset</strong> (<em>Union[Dataset,dict,str]</em>) &#8211; Either a dataset id or dataset metadata either from a Dataset object or a dictionary</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>dataset</strong> (<em>Union[Dataset,Dict,str]</em>) &#8211; Either a dataset id or dataset metadata either from a Dataset object or a dictionary</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
@@ -2419,7 +2418,7 @@ be set if required to any fields that should be ignored for the particular opera
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>initial_data</strong> (<em>Optional[dict]</em>) &#8211; Initial user metadata dictionary. Defaults to None.</li>
+<li><strong>initial_data</strong> (<em>Optional[Dict]</em>) &#8211; Initial user metadata dictionary. Defaults to None.</li>
 <li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to global configuration.</li>
 </ul>
 </td>
@@ -2436,7 +2435,7 @@ be set if required to any fields that should be ignored for the particular opera
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Dictionary of actions that can be performed on object</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dict</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Dict[str, str]</td>
 </tr>
 </tbody>
 </table>
@@ -2500,8 +2499,8 @@ be set if required to any fields that should be ignored for the particular opera
 <li><strong>body</strong> (<em>str</em>) &#8211; Email body</li>
 <li><strong>sender</strong> (<em>Optional[str]</em>) &#8211; Email sender. Defaults to SMTP username.</li>
 <li><strong>**kwargs</strong> &#8211; See below</li>
-<li><strong>mail_options</strong> (<em>list</em>) &#8211; Mail options (see smtplib documentation)</li>
-<li><strong>rcpt_options</strong> (<em>list</em>) &#8211; Recipient options (see smtplib documentation)</li>
+<li><strong>mail_options</strong> (<em>List</em>) &#8211; Mail options (see smtplib documentation)</li>
+<li><strong>rcpt_options</strong> (<em>List</em>) &#8211; Recipient options (see smtplib documentation)</li>
 </ul>
 </td>
 </tr>
@@ -2527,8 +2526,8 @@ be set if required to any fields that should be ignored for the particular opera
 <li><strong>sender</strong> (<em>Optional[str]</em>) &#8211; Email sender. Defaults to SMTP username.</li>
 <li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to configuration of first user in list.</li>
 <li><strong>**kwargs</strong> &#8211; See below</li>
-<li><strong>mail_options</strong> (<em>list</em>) &#8211; Mail options (see smtplib documentation)</li>
-<li><strong>rcpt_options</strong> (<em>list</em>) &#8211; Recipient options (see smtplib documentation)</li>
+<li><strong>mail_options</strong> (<em>List</em>) &#8211; Mail options (see smtplib documentation)</li>
+<li><strong>rcpt_options</strong> (<em>List</em>) &#8211; Recipient options (see smtplib documentation)</li>
 </ul>
 </td>
 </tr>
