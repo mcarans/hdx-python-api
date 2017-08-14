@@ -1033,7 +1033,7 @@ For unambiguous formats, this should be fine.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>maintainer</strong> (<em>Union[User,str]</em>) &#8211; Set the dataset&#8217;s maintainer either from a User object or an id in a str.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>maintainer</strong> (<em>Union[User,Dict,str]</em>) &#8211; Either a user id or User metadata from a User object or dictionary.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
@@ -1049,7 +1049,7 @@ For unambiguous formats, this should be fine.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>organization</strong> (<em>Union[Organization,str]</em>) &#8211; Set the dataset&#8217;s organization either from an Organization object or a str.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>organization</strong> (<em>Union[Organization,Dict,str]</em>) &#8211; Either an Organization id or Organization metadata from an Organization object or dictionary.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
@@ -1094,7 +1094,7 @@ vice versa (eg. &#8216;Every month&#8217; = &#8216;30&#8217;, &#8216;30&#8217; =
 
 <dl class="attribute">
 <dt id="hdx.data.dataset.Dataset.update_frequencies">
-<code class="descname">update_frequencies</code><em class="property"> = {'daily': '1', 'semiannually': '180', '90': 'Every three months', 'every year': '365', 'every two weeks': '14', 'fortnightly': '14', '7': 'Every week', 'semiyearly': '180', 'monthly': '30', 'annually': '365', 'every other week': '14', 'every three months': '90', 'quarterly': '90', '14': 'Every two weeks', 'every six months': '180', '0': 'Never', 'every day': '1', 'every week': '7', '180': 'Every six months', 'yearly': '365', '1': 'Every day', '30': 'Every month', 'every month': '30', '365': 'Every year', 'never': '0', 'weekly': '7'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
+<code class="descname">update_frequencies</code><em class="property"> = {'30': 'Every month', 'weekly': '7', 'semiannually': '180', 'annually': '365', '7': 'Every week', '1': 'Every day', 'semiyearly': '180', '14': 'Every two weeks', 'every six months': '180', '365': 'Every year', 'every month': '30', 'daily': '1', 'quarterly': '90', 'fortnightly': '14', '180': 'Every six months', 'yearly': '365', 'every three months': '90', '0': 'Never', 'every year': '365', 'every week': '7', 'monthly': '30', 'every day': '1', 'every two weeks': '14', '90': 'Every three months', 'every other week': '14', 'never': '0'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
