@@ -771,6 +771,20 @@ If no format is supplied, an ISO 8601 string is returned.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="hdx.data.dataset.Dataset.hxl_update">
+<code class="descname">hxl_update</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.hxl_update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks dataset for HXL in resources and updates tags and other metadata to trigger HXL preview.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="hdx.data.dataset.Dataset.init_resources">
 <code class="descname">init_resources</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.init_resources" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialise self.resources list</p>
@@ -1094,7 +1108,7 @@ vice versa (eg. &#8216;Every month&#8217; = &#8216;30&#8217;, &#8216;30&#8217; =
 
 <dl class="attribute">
 <dt id="hdx.data.dataset.Dataset.update_frequencies">
-<code class="descname">update_frequencies</code><em class="property"> = {'30': 'Every month', 'weekly': '7', 'semiannually': '180', 'annually': '365', '7': 'Every week', '1': 'Every day', 'semiyearly': '180', '14': 'Every two weeks', 'every six months': '180', '365': 'Every year', 'every month': '30', 'daily': '1', 'quarterly': '90', 'fortnightly': '14', '180': 'Every six months', 'yearly': '365', 'every three months': '90', '0': 'Never', 'every year': '365', 'every week': '7', 'monthly': '30', 'every day': '1', 'every two weeks': '14', '90': 'Every three months', 'every other week': '14', 'never': '0'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
+<code class="descname">update_frequencies</code><em class="property"> = {'annually': '365', '180': 'Every six months', 'every two weeks': '14', 'semiannually': '180', 'every week': '7', 'weekly': '7', '30': 'Every month', '90': 'Every three months', '0': 'Never', 'every month': '30', 'semiyearly': '180', '14': 'Every two weeks', 'every three months': '90', 'every six months': '180', '1': 'Every day', 'every year': '365', 'every other week': '14', 'never': '0', 'monthly': '30', 'every day': '1', 'yearly': '365', 'fortnightly': '14', 'daily': '1', '365': 'Every year', 'quarterly': '90', '7': 'Every week'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
