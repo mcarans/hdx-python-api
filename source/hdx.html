@@ -401,7 +401,7 @@
 <p>Methods to help with countries and continents</p>
 <dl class="staticmethod">
 <dt id="hdx.hdx_locations.Locations.get_HDX_code_from_location">
-<em class="property">static </em><code class="descname">get_HDX_code_from_location</code><span class="sig-paren">(</span><em>location</em>, <em>exact=True</em>, <em>locations=None</em>, <em>configuration=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.hdx_locations.Locations.get_HDX_code_from_location" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">get_HDX_code_from_location</code><span class="sig-paren">(</span><em>location</em>, <em>locations=None</em>, <em>configuration=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.hdx_locations.Locations.get_HDX_code_from_location" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get HDX code for location</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -409,13 +409,37 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>location</strong> (<em>str</em>) &#8211; Location for which to get HDX code</li>
-<li><strong>exact</strong> (<em>bool</em>) &#8211; True for exact matching or False to allow fuzzy matching. Defaults to True.</li>
 <li><strong>locations</strong> (<em>Optional[List[Dict]]</em>) &#8211; Valid locations list. Defaults to list downloaded from HDX.</li>
 <li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to global configuration.</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">HDX code and if the match is strong or (None, False) for no match</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">HDX code or None</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Optional[str]</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="hdx.hdx_locations.Locations.get_HDX_code_from_location_partial">
+<em class="property">static </em><code class="descname">get_HDX_code_from_location_partial</code><span class="sig-paren">(</span><em>location</em>, <em>locations=None</em>, <em>configuration=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.hdx_locations.Locations.get_HDX_code_from_location_partial" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get HDX code for location</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>location</strong> (<em>str</em>) &#8211; Location for which to get HDX code</li>
+<li><strong>locations</strong> (<em>Optional[List[Dict]]</em>) &#8211; Valid locations list. Defaults to list downloaded from HDX.</li>
+<li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to global configuration.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">HDX code and if the match is exact or (None, False) for no match</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Tuple[Optional[str], bool]</p>
