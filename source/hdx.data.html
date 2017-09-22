@@ -1108,7 +1108,7 @@ vice versa (eg. &#8216;Every month&#8217; = &#8216;30&#8217;, &#8216;30&#8217; =
 
 <dl class="attribute">
 <dt id="hdx.data.dataset.Dataset.update_frequencies">
-<code class="descname">update_frequencies</code><em class="property"> = {'1': 'Every day', '365': 'Every year', 'every week': '7', 'monthly': '30', 'adhoc': '-2', '0': 'Live', 'fortnightly': '14', 'semiannually': '180', 'every two weeks': '14', '90': 'Every three months', '-1': 'Never', '14': 'Every two weeks', '30': 'Every month', 'every month': '30', '7': 'Every week', 'semiyearly': '180', 'annually': '365', 'never': '-1', 'weekly': '7', 'yearly': '365', 'quarterly': '90', 'daily': '1', '-2': 'Adhoc', 'live': '0', 'every six months': '180', 'every year': '365', 'every day': '1', 'every three months': '90', 'every other week': '14', '180': 'Every six months'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
+<code class="descname">update_frequencies</code><em class="property"> = {'adhoc': '-2', 'every three months': '90', '7': 'Every week', 'weekly': '7', '90': 'Every three months', 'every year': '365', 'daily': '1', 'live': '0', 'every day': '1', 'fortnightly': '14', '30': 'Every month', '365': 'Every year', 'every two weeks': '14', 'never': '-1', 'quarterly': '90', '0': 'Live', 'semiyearly': '180', 'every other week': '14', 'yearly': '365', '-1': 'Never', '-2': 'Adhoc', 'monthly': '30', '1': 'Every day', 'semiannually': '180', 'every week': '7', 'every month': '30', '180': 'Every six months', 'annually': '365', '14': 'Every two weeks', 'every six months': '180'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -1947,6 +1947,20 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>file_to_upload</strong> (<em>str</em>) &#8211; Local path to file to upload</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.resource.Resource.touch">
+<code class="descname">touch</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.touch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Touch resource</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
 </tbody>
 </table>

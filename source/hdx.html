@@ -76,6 +76,7 @@
 <li class="toctree-l2"><a class="reference internal" href="hdx.utilities.html#module-hdx.utilities.loader">hdx.utilities.loader module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hdx.utilities.html#module-hdx.utilities.location">hdx.utilities.location module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hdx.utilities.html#module-hdx.utilities.path">hdx.utilities.path module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hdx.utilities.html#module-hdx.utilities.session">hdx.utilities.session module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hdx.utilities.html#module-hdx.utilities.text">hdx.utilities.text module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hdx.utilities.html#module-hdx.utilities">Module contents</a></li>
 </ul>
@@ -176,15 +177,17 @@
 
 <dl class="method">
 <dt id="hdx.hdx_configuration.Configuration.create_remoteckan">
-<code class="descname">create_remoteckan</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.hdx_configuration.Configuration.create_remoteckan" title="Permalink to this definition">¶</a></dt>
+<code class="descname">create_remoteckan</code><span class="sig-paren">(</span><em>session=&lt;requests.sessions.Session object&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.hdx_configuration.Configuration.create_remoteckan" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create remote CKAN instance from configuration</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Remote CKAN instance</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> &#8211; requests Session object to use. Defaults to calling hdx.utilities.session.get_session()</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ckanapi.RemoteCKAN</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Remote CKAN instance</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">ckanapi.RemoteCKAN</td>
 </tr>
 </tbody>
 </table>
@@ -228,7 +231,8 @@
 <dl class="method">
 <dt id="hdx.hdx_configuration.Configuration.get_api_key">
 <code class="descname">get_api_key</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.hdx_configuration.Configuration.get_api_key" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Return HDX api key or None if read only</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -243,7 +247,8 @@
 <dl class="method">
 <dt id="hdx.hdx_configuration.Configuration.get_hdx_site_url">
 <code class="descname">get_hdx_site_url</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.hdx_configuration.Configuration.get_hdx_site_url" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Return HDX web site url</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -300,6 +305,38 @@
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The remote CKAN object</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ckanapi.RemoteCKAN</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.hdx_configuration.Configuration.set_api_key">
+<code class="descname">set_api_key</code><span class="sig-paren">(</span><em>apikey</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.hdx_configuration.Configuration.set_api_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set HDX api key</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>apikey</strong> (<em>str</em>) &#8211; Value to set api key.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.hdx_configuration.Configuration.set_read_only">
+<code class="descname">set_read_only</code><span class="sig-paren">(</span><em>read_only=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.hdx_configuration.Configuration.set_read_only" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set HDX read only flag</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>read_only</strong> (<em>bool</em>) &#8211; Value to set HDX read only flag. Defaults to True.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
 </tbody>
 </table>

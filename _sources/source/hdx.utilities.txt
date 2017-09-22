@@ -52,6 +52,14 @@ hdx.utilities.path module
     :undoc-members:
     :show-inheritance:
 
+hdx.utilities.session module
+----------------------------
+
+.. automodule:: hdx.utilities.session
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 hdx.utilities.text module
 -------------------------
 
