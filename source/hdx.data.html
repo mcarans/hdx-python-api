@@ -1108,7 +1108,7 @@ vice versa (eg. &#8216;Every month&#8217; = &#8216;30&#8217;, &#8216;30&#8217; =
 
 <dl class="attribute">
 <dt id="hdx.data.dataset.Dataset.update_frequencies">
-<code class="descname">update_frequencies</code><em class="property"> = {'90': 'Every three months', 'never': '-1', '-1': 'Never', '7': 'Every week', '180': 'Every six months', '1': 'Every day', 'every two weeks': '14', '-2': 'Adhoc', 'semiyearly': '180', 'adhoc': '-2', 'every day': '1', 'weekly': '7', 'daily': '1', 'every month': '30', '0': 'Live', '14': 'Every two weeks', 'every six months': '180', '30': 'Every month', 'annually': '365', 'yearly': '365', 'monthly': '30', 'every other week': '14', 'every week': '7', 'every year': '365', '365': 'Every year', 'every three months': '90', 'live': '0', 'semiannually': '180', 'fortnightly': '14', 'quarterly': '90'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
+<code class="descname">update_frequencies</code><em class="property"> = {'365': 'Every year', 'every two weeks': '14', 'fortnightly': '14', '30': 'Every month', 'yearly': '365', '-2': 'Adhoc', 'semiannually': '180', 'live': '0', 'every three months': '90', '7': 'Every week', 'daily': '1', 'weekly': '7', '1': 'Every day', 'every month': '30', 'monthly': '30', '14': 'Every two weeks', 'annually': '365', '90': 'Every three months', 'every day': '1', 'every week': '7', 'adhoc': '-2', 'every six months': '180', 'never': '-1', '0': 'Live', 'every year': '365', '180': 'Every six months', 'every other week': '14', 'quarterly': '90', 'semiyearly': '180', '-1': 'Never'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -2516,7 +2516,7 @@ be set if required to any fields that should be ignored for the particular opera
 
 <dl class="method">
 <dt id="hdx.data.user.User.email">
-<code class="descname">email</code><span class="sig-paren">(</span><em>subject</em>, <em>body</em>, <em>sender=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.user.User.email" title="Permalink to this definition">¶</a></dt>
+<code class="descname">email</code><span class="sig-paren">(</span><em>subject</em>, <em>text_body</em>, <em>html_body=None</em>, <em>sender=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.user.User.email" title="Permalink to this definition">¶</a></dt>
 <dd><p>Emails a user.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -2524,7 +2524,8 @@ be set if required to any fields that should be ignored for the particular opera
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>subject</strong> (<em>str</em>) &#8211; Email subject</li>
-<li><strong>body</strong> (<em>str</em>) &#8211; Email body</li>
+<li><strong>text_body</strong> (<em>str</em>) &#8211; Plain text email body</li>
+<li><strong>html_body</strong> (<em>str</em>) &#8211; HTML email body</li>
 <li><strong>sender</strong> (<em>Optional[str]</em>) &#8211; Email sender. Defaults to SMTP username.</li>
 <li><strong>**kwargs</strong> &#8211; See below</li>
 <li><strong>mail_options</strong> (<em>List</em>) &#8211; Mail options (see smtplib documentation)</li>
@@ -2541,7 +2542,7 @@ be set if required to any fields that should be ignored for the particular opera
 
 <dl class="staticmethod">
 <dt id="hdx.data.user.User.email_users">
-<em class="property">static </em><code class="descname">email_users</code><span class="sig-paren">(</span><em>users</em>, <em>subject</em>, <em>body</em>, <em>sender=None</em>, <em>configuration=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.user.User.email_users" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">email_users</code><span class="sig-paren">(</span><em>users</em>, <em>subject</em>, <em>text_body</em>, <em>html_body=None</em>, <em>sender=None</em>, <em>configuration=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.user.User.email_users" title="Permalink to this definition">¶</a></dt>
 <dd><p>Email a list of users</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -2550,7 +2551,8 @@ be set if required to any fields that should be ignored for the particular opera
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>users</strong> (<em>List[User]</em>) &#8211; List of users</li>
 <li><strong>subject</strong> (<em>str</em>) &#8211; Email subject</li>
-<li><strong>body</strong> (<em>str</em>) &#8211; Email body</li>
+<li><strong>text_body</strong> (<em>str</em>) &#8211; Plain text email body</li>
+<li><strong>html_body</strong> (<em>str</em>) &#8211; HTML email body</li>
 <li><strong>sender</strong> (<em>Optional[str]</em>) &#8211; Email sender. Defaults to SMTP username.</li>
 <li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to configuration of first user in list.</li>
 <li><strong>**kwargs</strong> &#8211; See below</li>
