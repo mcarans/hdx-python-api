@@ -1,30 +1,28 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>hdx.data package &mdash; HDX Python API 1.0 documentation</title>
-    
+    <title>hdx.data package &#8212; HDX Python API 1.0 documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '1.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="HDX Python API 1.0 documentation" href="../index.html" />
-    <link rel="up" title="hdx package" href="hdx.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="hdx.facades package" href="hdx.facades.html" />
     <link rel="prev" title="hdx package" href="hdx.html" />
    
@@ -34,7 +32,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body role="document">
+  <body>
   
 
     <div class="document">
@@ -60,8 +58,8 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>initial_data</strong> (<em>Optional[Dict]</em>) &#8211; Initial dataset metadata dictionary. Defaults to None.</li>
-<li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to global configuration.</li>
+<li><strong>initial_data</strong> (<em>Optional</em><em>[</em><em>Dict</em><em>]</em>) – Initial dataset metadata dictionary. Defaults to None.</li>
+<li><strong>configuration</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="hdx.html#hdx.hdx_configuration.Configuration" title="hdx.hdx_configuration.Configuration"><em>Configuration</em></a><em>]</em>) – HDX configuration. Defaults to global configuration.</li>
 </ul>
 </td>
 </tr>
@@ -93,8 +91,8 @@ is a valid continent name, converted to a 2 letter code. If any country is alrea
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>continent</strong> (<em>str</em>) &#8211; Continent to add</li>
-<li><strong>locations</strong> (<em>Optional[List[str]]</em>) &#8211; Valid locations list. Defaults to list downloaded from HDX.</li>
+<li><strong>continent</strong> (<em>str</em>) – Continent to add</li>
+<li><strong>locations</strong> (<em>Optional</em><em>[</em><em>List</em><em>[</em><em>str</em><em>]</em><em>]</em>) – Valid locations list. Defaults to list downloaded from HDX.</li>
 </ul>
 </td>
 </tr>
@@ -118,9 +116,9 @@ converted to an iso 3 code. If the country is already added, it is ignored.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>country</strong> (<em>str</em>) &#8211; Country to add</li>
-<li><strong>exact</strong> (<em>Optional[bool]</em>) &#8211; True for exact matching or False to allow fuzzy matching. Defaults to True.</li>
-<li><strong>locations</strong> (<em>Optional[List[str]]</em>) &#8211; Valid locations list. Defaults to list downloaded from HDX.</li>
+<li><strong>country</strong> (<em>str</em>) – Country to add</li>
+<li><strong>exact</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – True for exact matching or False to allow fuzzy matching. Defaults to True.</li>
+<li><strong>locations</strong> (<em>Optional</em><em>[</em><em>List</em><em>[</em><em>str</em><em>]</em><em>]</em>) – Valid locations list. Defaults to list downloaded from HDX.</li>
 </ul>
 </td>
 </tr>
@@ -144,8 +142,8 @@ names, converted to iso 3 codes. If any country is already added, it is ignored.
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>countries</strong> (<em>List[str]</em>) &#8211; list of countries to add</li>
-<li><strong>locations</strong> (<em>Optional[List[str]]</em>) &#8211; Valid locations list. Defaults to list downloaded from HDX.</li>
+<li><strong>countries</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – list of countries to add</li>
+<li><strong>locations</strong> (<em>Optional</em><em>[</em><em>List</em><em>[</em><em>str</em><em>]</em><em>]</em>) – Valid locations list. Defaults to list downloaded from HDX.</li>
 </ul>
 </td>
 </tr>
@@ -167,7 +165,7 @@ names, converted to iso 3 codes. If any country is already added, it is ignored.
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>fieldname</strong> (<em>str</em>) &#8211; fieldname to add</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>fieldname</strong> (<em>str</em>) – fieldname to add</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if fieldname added or False if tag already present</td>
 </tr>
@@ -185,7 +183,7 @@ names, converted to iso 3 codes. If any country is already added, it is ignored.
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>fieldnames</strong> (<em>List[str]</em>) &#8211; list of fieldnames to add</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>fieldnames</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – list of fieldnames to add</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Returns True if all fieldnames added or False if any already present</td>
 </tr>
@@ -203,7 +201,7 @@ names, converted to iso 3 codes. If any country is already added, it is ignored.
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>filetype</strong> (<em>str</em>) &#8211; filetype to add</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>filetype</strong> (<em>str</em>) – filetype to add</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if filetype added or False if tag already present</td>
 </tr>
@@ -221,7 +219,7 @@ names, converted to iso 3 codes. If any country is already added, it is ignored.
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>filetypes</strong> (<em>List[str]</em>) &#8211; list of filetypes to add</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>filetypes</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – list of filetypes to add</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Returns True if all filetypes added or False if any already present</td>
 </tr>
@@ -241,10 +239,10 @@ HDX. If the location is already added, it is ignored.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>location</strong> (<em>str</em>) &#8211; Location to add</li>
-<li><strong>exact</strong> (<em>Optional[bool]</em>) &#8211; True for exact matching or False to allow fuzzy matching. Defaults to True.</li>
-<li><strong>alterror</strong> (<em>Optional[str]</em>) &#8211; Alternative error message to builtin if location not found. Defaults to None.</li>
-<li><strong>locations</strong> (<em>Optional[List[str]]</em>) &#8211; Valid locations list. Defaults to list downloaded from HDX.</li>
+<li><strong>location</strong> (<em>str</em>) – Location to add</li>
+<li><strong>exact</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – True for exact matching or False to allow fuzzy matching. Defaults to True.</li>
+<li><strong>alterror</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Alternative error message to builtin if location not found. Defaults to None.</li>
+<li><strong>locations</strong> (<em>Optional</em><em>[</em><em>List</em><em>[</em><em>str</em><em>]</em><em>]</em>) – Valid locations list. Defaults to list downloaded from HDX.</li>
 </ul>
 </td>
 </tr>
@@ -267,8 +265,8 @@ HDX. If the location is already added, it is ignored.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>showcase</strong> (<em>Union[Showcase,Dict,str]</em>) &#8211; Either a showcase id or showcase metadata from a Showcase object or dictionary</li>
-<li><strong>showcases_to_check</strong> (<em>List[Showcase]</em>) &#8211; list of showcases against which to check existence of showcase. Defaults to showcases containing dataset.</li>
+<li><strong>showcase</strong> (<em>Union</em><em>[</em><a class="reference internal" href="#hdx.data.showcase.Showcase" title="hdx.data.showcase.Showcase"><em>Showcase</em></a><em>,</em><em>Dict</em><em>,</em><em>str</em><em>]</em>) – Either a showcase id or showcase metadata from a Showcase object or dictionary</li>
+<li><strong>showcases_to_check</strong> (<em>List</em><em>[</em><a class="reference internal" href="#hdx.data.showcase.Showcase" title="hdx.data.showcase.Showcase"><em>Showcase</em></a><em>]</em>) – list of showcases against which to check existence of showcase. Defaults to showcases containing dataset.</li>
 </ul>
 </td>
 </tr>
@@ -291,8 +289,8 @@ HDX. If the location is already added, it is ignored.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>showcases</strong> (<em>List[Union[Showcase,Dict,str]]</em>) &#8211; A list of either showcase ids or showcase metadata from Showcase objects or dictionaries</li>
-<li><strong>showcases_to_check</strong> (<em>List[Showcase]</em>) &#8211; list of showcases against which to check existence of showcase. Defaults to showcases containing dataset.</li>
+<li><strong>showcases</strong> (<em>List</em><em>[</em><em>Union</em><em>[</em><a class="reference internal" href="#hdx.data.showcase.Showcase" title="hdx.data.showcase.Showcase"><em>Showcase</em></a><em>,</em><em>Dict</em><em>,</em><em>str</em><em>]</em><em>]</em>) – A list of either showcase ids or showcase metadata from Showcase objects or dictionaries</li>
+<li><strong>showcases_to_check</strong> (<em>List</em><em>[</em><a class="reference internal" href="#hdx.data.showcase.Showcase" title="hdx.data.showcase.Showcase"><em>Showcase</em></a><em>]</em>) – list of showcases against which to check existence of showcase. Defaults to showcases containing dataset.</li>
 </ul>
 </td>
 </tr>
@@ -314,7 +312,7 @@ HDX. If the location is already added, it is ignored.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tag</strong> (<em>str</em>) &#8211; Tag to add</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tag</strong> (<em>str</em>) – Tag to add</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if tag added or False if tag already present</td>
 </tr>
@@ -332,7 +330,7 @@ HDX. If the location is already added, it is ignored.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tags</strong> (<em>List[str]</em>) &#8211; list of tags to add</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tags</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – list of tags to add</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Returns True if all tags added or False if any already present.</td>
 </tr>
@@ -351,8 +349,8 @@ HDX. If the location is already added, it is ignored.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>resource</strong> (<em>Union[hdx.data.resource.Resource,Dict,str]</em>) &#8211; Either resource id or resource metadata from a Resource object or a dictionary</li>
-<li><strong>ignore_datasetid</strong> (<em>bool</em>) &#8211; Whether to ignore dataset id in the resource</li>
+<li><strong>resource</strong> (<em>Union</em><em>[</em><a class="reference internal" href="#hdx.data.resource.Resource" title="hdx.data.resource.Resource"><em>hdx.data.resource.Resource</em></a><em>,</em><em>Dict</em><em>,</em><em>str</em><em>]</em>) – Either resource id or resource metadata from a Resource object or a dictionary</li>
+<li><strong>ignore_datasetid</strong> (<em>bool</em>) – Whether to ignore dataset id in the resource</li>
 </ul>
 </td>
 </tr>
@@ -372,8 +370,8 @@ HDX. If the location is already added, it is ignored.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>resources</strong> (<em>List[Union[hdx.data.resource.Resource,Dict,str]]</em>) &#8211; A list of either resource ids or resources metadata from either Resource objects or dictionaries</li>
-<li><strong>ignore_datasetid</strong> (<em>Optional[bool]</em>) &#8211; Whether to ignore dataset id in the resource</li>
+<li><strong>resources</strong> (<em>List</em><em>[</em><em>Union</em><em>[</em><a class="reference internal" href="#hdx.data.resource.Resource" title="hdx.data.resource.Resource"><em>hdx.data.resource.Resource</em></a><em>,</em><em>Dict</em><em>,</em><em>str</em><em>]</em><em>]</em>) – A list of either resource ids or resources metadata from either Resource objects or dictionaries</li>
+<li><strong>ignore_datasetid</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – Whether to ignore dataset id in the resource</li>
 </ul>
 </td>
 </tr>
@@ -394,8 +392,8 @@ should be set if required to any fields that should be ignored for the particula
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>ignore_fields</strong> (<em>List[str]</em>) &#8211; Fields to ignore. Default is [].</li>
-<li><strong>allow_no_resources</strong> (<em>Optional[bool]</em>) &#8211; Whether to allow no resources. Defaults to False.</li>
+<li><strong>ignore_fields</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – Fields to ignore. Default is [].</li>
+<li><strong>allow_no_resources</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – Whether to allow no resources. Defaults to False.</li>
 </ul>
 </td>
 </tr>
@@ -414,7 +412,7 @@ should be set if required to any fields that should be ignored for the particula
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>allow_no_resources</strong> (<em>Optional[bool]</em>) &#8211; Whether to allow no resources. Defaults to False.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>allow_no_resources</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – Whether to allow no resources. Defaults to False.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
@@ -444,7 +442,7 @@ should be set if required to any fields that should be ignored for the particula
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>resource</strong> (<em>Union[hdx.data.resource.Resource,Dict,str]</em>) &#8211; Either resource id or resource metadata from a Resource object or a dictionary</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>resource</strong> (<em>Union</em><em>[</em><a class="reference internal" href="#hdx.data.resource.Resource" title="hdx.data.resource.Resource"><em>hdx.data.resource.Resource</em></a><em>,</em><em>Dict</em><em>,</em><em>str</em><em>]</em>) – Either resource id or resource metadata from a Resource object or a dictionary</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if resource removed or False if not</td>
 </tr>
@@ -463,10 +461,10 @@ should be set if required to any fields that should be ignored for the particula
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to global configuration.</li>
-<li><strong>**kwargs</strong> &#8211; See below</li>
-<li><strong>limit</strong> (<em>int</em>) &#8211; Number of rows to return. Defaults to all dataset names.</li>
-<li><strong>offset</strong> (<em>int</em>) &#8211; Offset in the complete result for where the set of returned dataset names should begin</li>
+<li><strong>configuration</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="hdx.html#hdx.hdx_configuration.Configuration" title="hdx.hdx_configuration.Configuration"><em>Configuration</em></a><em>]</em>) – HDX configuration. Defaults to global configuration.</li>
+<li><strong>**kwargs</strong> – See below</li>
+<li><strong>limit</strong> (<em>int</em>) – Number of rows to return. Defaults to all dataset names.</li>
+<li><strong>offset</strong> (<em>int</em>) – Offset in the complete result for where the set of returned dataset names should begin</li>
 </ul>
 </td>
 </tr>
@@ -489,17 +487,17 @@ should be set if required to any fields that should be ignored for the particula
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to global configuration.</li>
-<li><strong>**kwargs</strong> &#8211; See below</li>
-<li><strong>limit</strong> (<em>int</em>) &#8211; Number of rows to return. Defaults to all datasets (sys.maxsize).</li>
-<li><strong>offset</strong> (<em>int</em>) &#8211; Offset in the complete result for where the set of returned datasets should begin</li>
+<li><strong>configuration</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="hdx.html#hdx.hdx_configuration.Configuration" title="hdx.hdx_configuration.Configuration"><em>Configuration</em></a><em>]</em>) – HDX configuration. Defaults to global configuration.</li>
+<li><strong>**kwargs</strong> – See below</li>
+<li><strong>limit</strong> (<em>int</em>) – Number of rows to return. Defaults to all datasets (sys.maxsize).</li>
+<li><strong>offset</strong> (<em>int</em>) – Offset in the complete result for where the set of returned datasets should begin</li>
 </ul>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">list of all datasets in HDX</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">List[Dataset]</p>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">List[<a class="reference internal" href="#hdx.data.dataset.Dataset" title="hdx.data.dataset.Dataset">Dataset</a>]</p>
 </td>
 </tr>
 </tbody>
@@ -514,11 +512,11 @@ should be set if required to any fields that should be ignored for the particula
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>datasets</strong> (<em>List[Dataset]</em>) &#8211; list of datasets</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>datasets</strong> (<em>List</em><em>[</em><a class="reference internal" href="#hdx.data.dataset.Dataset" title="hdx.data.dataset.Dataset"><em>Dataset</em></a><em>]</em>) – list of datasets</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">list of resources within those datasets</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">List[hdx.data.resource.Resource]</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">List[<a class="reference internal" href="#hdx.data.resource.Resource" title="hdx.data.resource.Resource">hdx.data.resource.Resource</a>]</td>
 </tr>
 </tbody>
 </table>
@@ -533,7 +531,7 @@ If no format is supplied, an ISO 8601 string is returned.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>date_format</strong> (<em>Optional[str]</em>) &#8211; Date format. None is taken to be ISO 8601. Defaults to None.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>date_format</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Date format. None is taken to be ISO 8601. Defaults to None.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Dataset date string or None if no date is set</td>
 </tr>
@@ -584,7 +582,7 @@ If no format is supplied, an ISO 8601 string is returned.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>date_format</strong> (<em>Optional[str]</em>) &#8211; Date format. None is taken to be ISO 8601. Defaults to None.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>date_format</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Date format. None is taken to be ISO 8601. Defaults to None.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Dataset date string or None if no date is set</td>
 </tr>
@@ -618,7 +616,7 @@ If no format is supplied, an ISO 8601 string is returned.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Update frequency in textual form or None if the update frequency doesn&#8217;t exist or is blank.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Update frequency in textual form or None if the update frequency doesn’t exist or is blank.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Optional[str]</td>
 </tr>
@@ -661,12 +659,12 @@ If no format is supplied, an ISO 8601 string is returned.</p>
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.get_location">
 <code class="descname">get_location</code><span class="sig-paren">(</span><em>locations=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.get_location" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the dataset&#8217;s location</p>
+<dd><p>Return the dataset’s location</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>locations</strong> (<em>Optional[List[str]]</em>) &#8211; Valid locations list. Defaults to list downloaded from HDX.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>locations</strong> (<em>Optional</em><em>[</em><em>List</em><em>[</em><em>str</em><em>]</em><em>]</em>) – Valid locations list. Defaults to list downloaded from HDX.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">list of locations or [] if there are none</td>
 </tr>
@@ -679,12 +677,12 @@ If no format is supplied, an ISO 8601 string is returned.</p>
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.get_maintainer">
 <code class="descname">get_maintainer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.get_maintainer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the dataset&#8217;s maintainer.</p>
+<dd><p>Get the dataset’s maintainer.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Returns dataset&#8217;s maintainer</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Returns dataset’s maintainer</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#hdx.data.user.User" title="hdx.data.user.User">User</a></td>
 </tr>
@@ -695,12 +693,12 @@ If no format is supplied, an ISO 8601 string is returned.</p>
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.get_organization">
 <code class="descname">get_organization</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.get_organization" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the dataset&#8217;s organization.</p>
+<dd><p>Get the dataset’s organization.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Returns dataset&#8217;s organization</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Returns dataset’s organization</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#hdx.data.organization.Organization" title="hdx.data.organization.Organization">Organization</a></td>
 </tr>
@@ -725,14 +723,14 @@ If no format is supplied, an ISO 8601 string is returned.</p>
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.get_resources">
 <code class="descname">get_resources</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.get_resources" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get dataset&#8217;s resources</p>
+<dd><p>Get dataset’s resources</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">list of Resource objects</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">List[hdx.data.resource.Resource]</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">List[<a class="reference internal" href="#hdx.data.resource.Resource" title="hdx.data.resource.Resource">hdx.data.resource.Resource</a>]</td>
 </tr>
 </tbody>
 </table>
@@ -748,7 +746,7 @@ If no format is supplied, an ISO 8601 string is returned.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">list of showcases</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">List[Showcase]</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">List[<a class="reference internal" href="#hdx.data.showcase.Showcase" title="hdx.data.showcase.Showcase">Showcase</a>]</td>
 </tr>
 </tbody>
 </table>
@@ -757,7 +755,7 @@ If no format is supplied, an ISO 8601 string is returned.</p>
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.get_tags">
 <code class="descname">get_tags</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.get_tags" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the dataset&#8217;s list of tags</p>
+<dd><p>Return the dataset’s list of tags</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -807,15 +805,15 @@ If no format is supplied, an ISO 8601 string is returned.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>identifier</strong> (<em>str</em>) &#8211; Identifier of dataset</li>
-<li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to global configuration.</li>
+<li><strong>identifier</strong> (<em>str</em>) – Identifier of dataset</li>
+<li><strong>configuration</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="hdx.html#hdx.hdx_configuration.Configuration" title="hdx.hdx_configuration.Configuration"><em>Configuration</em></a><em>]</em>) – HDX configuration. Defaults to global configuration.</li>
 </ul>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Dataset object if successful read, None if not</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Optional[Dataset]</p>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Optional[<a class="reference internal" href="#hdx.data.dataset.Dataset" title="hdx.data.dataset.Dataset">Dataset</a>]</p>
 </td>
 </tr>
 </tbody>
@@ -830,7 +828,7 @@ If no format is supplied, an ISO 8601 string is returned.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>fieldname</strong> (<em>str</em>) &#8211; Fieldname to remove</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>fieldname</strong> (<em>str</em>) – Fieldname to remove</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if fieldname removed or False if not</td>
 </tr>
@@ -848,7 +846,7 @@ If no format is supplied, an ISO 8601 string is returned.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>filetype</strong> (<em>str</em>) &#8211; Fieldname to remove</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>filetype</strong> (<em>str</em>) – Fieldname to remove</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if filetype removed or False if not</td>
 </tr>
@@ -866,7 +864,7 @@ If no format is supplied, an ISO 8601 string is returned.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>location</strong> (<em>str</em>) &#8211; Location to remove</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>location</strong> (<em>str</em>) – Location to remove</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if location removed or False if not</td>
 </tr>
@@ -884,7 +882,7 @@ If no format is supplied, an ISO 8601 string is returned.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>showcase</strong> (<em>Union[Showcase,Dict,str]</em>) &#8211; Either a showcase id string or showcase metadata from a Showcase object or dictionary</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>showcase</strong> (<em>Union</em><em>[</em><a class="reference internal" href="#hdx.data.showcase.Showcase" title="hdx.data.showcase.Showcase"><em>Showcase</em></a><em>,</em><em>Dict</em><em>,</em><em>str</em><em>]</em>) – Either a showcase id string or showcase metadata from a Showcase object or dictionary</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
@@ -900,7 +898,7 @@ If no format is supplied, an ISO 8601 string is returned.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tag</strong> (<em>str</em>) &#8211; Tag to remove</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tag</strong> (<em>str</em>) – Tag to remove</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if tag removed or False if not</td>
 </tr>
@@ -919,25 +917,25 @@ If no format is supplied, an ISO 8601 string is returned.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>query</strong> (<em>Optional[str]</em>) &#8211; Query (in Solr format). Defaults to &#8216;<em>:</em>&#8216;.</li>
-<li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to global configuration.</li>
-<li><strong>**kwargs</strong> &#8211; See below</li>
-<li><strong>fq</strong> (<em>string</em>) &#8211; Any filter queries to apply</li>
-<li><strong>sort</strong> (<em>string</em>) &#8211; Sorting of the search results. Defaults to &#8216;relevance asc, metadata_modified desc&#8217;.</li>
-<li><strong>rows</strong> (<em>int</em>) &#8211; Number of matching rows to return. Defaults to all datasets (sys.maxsize).</li>
-<li><strong>start</strong> (<em>int</em>) &#8211; Offset in the complete result for where the set of returned datasets should begin</li>
-<li><strong>facet</strong> (<em>string</em>) &#8211; Whether to enable faceted results. Default to True.</li>
-<li><strong>facet.mincount</strong> (<em>int</em>) &#8211; Minimum counts for facet fields should be included in the results</li>
-<li><strong>facet.limit</strong> (<em>int</em>) &#8211; Maximum number of values the facet fields return (- = unlimited). Defaults to 50.</li>
-<li><strong>facet.field</strong> (<em>List[str]</em>) &#8211; Fields to facet upon. Default is empty.</li>
-<li><strong>use_default_schema</strong> (<em>bool</em>) &#8211; Use default package schema instead of custom schema. Defaults to False.</li>
+<li><strong>query</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Query (in Solr format). Defaults to ‘<em>:</em>’.</li>
+<li><strong>configuration</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="hdx.html#hdx.hdx_configuration.Configuration" title="hdx.hdx_configuration.Configuration"><em>Configuration</em></a><em>]</em>) – HDX configuration. Defaults to global configuration.</li>
+<li><strong>**kwargs</strong> – See below</li>
+<li><strong>fq</strong> (<em>string</em>) – Any filter queries to apply</li>
+<li><strong>sort</strong> (<em>string</em>) – Sorting of the search results. Defaults to ‘relevance asc, metadata_modified desc’.</li>
+<li><strong>rows</strong> (<em>int</em>) – Number of matching rows to return. Defaults to all datasets (sys.maxsize).</li>
+<li><strong>start</strong> (<em>int</em>) – Offset in the complete result for where the set of returned datasets should begin</li>
+<li><strong>facet</strong> (<em>string</em>) – Whether to enable faceted results. Default to True.</li>
+<li><strong>facet.mincount</strong> (<em>int</em>) – Minimum counts for facet fields should be included in the results</li>
+<li><strong>facet.limit</strong> (<em>int</em>) – Maximum number of values the facet fields return (- = unlimited). Defaults to 50.</li>
+<li><strong>facet.field</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – Fields to facet upon. Default is empty.</li>
+<li><strong>use_default_schema</strong> (<em>bool</em>) – Use default package schema instead of custom schema. Defaults to False.</li>
 </ul>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">list of datasets resulting from query</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">List[Dataset]</p>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">List[<a class="reference internal" href="#hdx.data.dataset.Dataset" title="hdx.data.dataset.Dataset">Dataset</a>]</p>
 </td>
 </tr>
 </tbody>
@@ -968,9 +966,9 @@ For unambiguous formats, this should be fine.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>dataset_date</strong> (<em>str</em>) &#8211; Dataset date string</li>
-<li><strong>dataset_end_date</strong> (<em>Optional[str]</em>) &#8211; Dataset end date string</li>
-<li><strong>date_format</strong> (<em>Optional[str]</em>) &#8211; Date format. If None is given, will attempt to guess. Defaults to None.</li>
+<li><strong>dataset_date</strong> (<em>str</em>) – Dataset date string</li>
+<li><strong>dataset_end_date</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Dataset end date string</li>
+<li><strong>date_format</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Date format. If None is given, will attempt to guess. Defaults to None.</li>
 </ul>
 </td>
 </tr>
@@ -990,8 +988,8 @@ For unambiguous formats, this should be fine.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>dataset_date</strong> (<em>datetime.datetime</em>) &#8211; Dataset date</li>
-<li><strong>dataset_end_date</strong> (<em>Optional[datetime.datetime]</em>) &#8211; Dataset end date</li>
+<li><strong>dataset_date</strong> (<em>datetime.datetime</em>) – Dataset date</li>
+<li><strong>dataset_end_date</strong> (<em>Optional</em><em>[</em><em>datetime.datetime</em><em>]</em>) – Dataset end date</li>
 </ul>
 </td>
 </tr>
@@ -1011,8 +1009,8 @@ For unambiguous formats, this should be fine.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>dataset_year</strong> (<em>Union[str, int]</em>) &#8211; Dataset year given as string or int</li>
-<li><strong>dataset_end_year</strong> (<em>Optional[Union[str, int]]</em>) &#8211; Dataset end year given as string or int</li>
+<li><strong>dataset_year</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>int</em><em>]</em>) – Dataset year given as string or int</li>
+<li><strong>dataset_end_year</strong> (<em>Optional</em><em>[</em><em>Union</em><em>[</em><em>str</em><em>, </em><em>int</em><em>]</em><em>]</em>) – Dataset end year given as string or int</li>
 </ul>
 </td>
 </tr>
@@ -1031,7 +1029,7 @@ For unambiguous formats, this should be fine.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>update_frequency</strong> (<em>str</em>) &#8211; Update frequency</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>update_frequency</strong> (<em>str</em>) – Update frequency</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
@@ -1042,12 +1040,12 @@ For unambiguous formats, this should be fine.</p>
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.set_maintainer">
 <code class="descname">set_maintainer</code><span class="sig-paren">(</span><em>maintainer</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.set_maintainer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the dataset&#8217;s maintainer.</p>
+<dd><p>Set the dataset’s maintainer.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>maintainer</strong> (<em>Union[User,Dict,str]</em>) &#8211; Either a user id or User metadata from a User object or dictionary.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>maintainer</strong> (<em>Union</em><em>[</em><a class="reference internal" href="#hdx.data.user.User" title="hdx.data.user.User"><em>User</em></a><em>,</em><em>Dict</em><em>,</em><em>str</em><em>]</em>) – Either a user id or User metadata from a User object or dictionary.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
@@ -1058,12 +1056,12 @@ For unambiguous formats, this should be fine.</p>
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.set_organization">
 <code class="descname">set_organization</code><span class="sig-paren">(</span><em>organization</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.set_organization" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the dataset&#8217;s organization.</p>
+<dd><p>Set the dataset’s organization.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>organization</strong> (<em>Union[Organization,Dict,str]</em>) &#8211; Either an Organization id or Organization metadata from an Organization object or dictionary.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>organization</strong> (<em>Union</em><em>[</em><a class="reference internal" href="#hdx.data.organization.Organization" title="hdx.data.organization.Organization"><em>Organization</em></a><em>,</em><em>Dict</em><em>,</em><em>str</em><em>]</em>) – Either an Organization id or Organization metadata from an Organization object or dictionary.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
@@ -1079,7 +1077,7 @@ For unambiguous formats, this should be fine.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>requestable</strong> (<em>Optional[bool]</em>) &#8211; Set whether dataset is requestable. Defaults to True.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>requestable</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – Set whether dataset is requestable. Defaults to True.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
@@ -1091,12 +1089,12 @@ For unambiguous formats, this should be fine.</p>
 <dt id="hdx.data.dataset.Dataset.transform_update_frequency">
 <em class="property">static </em><code class="descname">transform_update_frequency</code><span class="sig-paren">(</span><em>frequency</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.transform_update_frequency" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get numeric update frequency (as string since that is required field format) from textual representation or
-vice versa (eg. &#8216;Every month&#8217; = &#8216;30&#8217;, &#8216;30&#8217; = &#8216;Every month&#8217;)</p>
+vice versa (eg. ‘Every month’ = ‘30’, ‘30’ = ‘Every month’)</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>frequency</strong> (<em>str</em>) &#8211; Update frequency in one format</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>frequency</strong> (<em>str</em>) – Update frequency in one format</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Update frequency in alternative format</td>
 </tr>
@@ -1108,7 +1106,7 @@ vice versa (eg. &#8216;Every month&#8217; = &#8216;30&#8217;, &#8216;30&#8217; =
 
 <dl class="attribute">
 <dt id="hdx.data.dataset.Dataset.update_frequencies">
-<code class="descname">update_frequencies</code><em class="property"> = {'every year': '365', '0': 'Live', 'annually': '365', 'every month': '30', 'every other week': '14', 'every three months': '90', '90': 'Every three months', '7': 'Every week', 'never': '-1', '14': 'Every two weeks', 'every day': '1', 'quarterly': '90', 'live': '0', 'every six months': '180', 'yearly': '365', 'weekly': '7', 'fortnightly': '14', '-1': 'Never', 'daily': '1', '1': 'Every day', 'every week': '7', 'every two weeks': '14', '180': 'Every six months', 'semiyearly': '180', '365': 'Every year', 'semiannually': '180', 'monthly': '30', 'adhoc': '-2', '-2': 'Adhoc', '30': 'Every month'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
+<code class="descname">update_frequencies</code><em class="property"> = {'annually': '365', 'every week': '7', 'quarterly': '90', 'every month': '30', 'every day': '1', 'monthly': '30', 'every other week': '14', '180': 'Every six months', '1': 'Every day', 'semiyearly': '180', 'live': '0', 'fortnightly': '14', 'adhoc': '-2', 'every year': '365', 'yearly': '365', 'daily': '1', '14': 'Every two weeks', 'every six months': '180', '90': 'Every three months', 'weekly': '7', '7': 'Every week', '-1': 'Never', '0': 'Live', 'every two weeks': '14', 'semiannually': '180', '-2': 'Adhoc', '365': 'Every year', '30': 'Every month', 'every three months': '90', 'never': '-1'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -1119,7 +1117,7 @@ vice versa (eg. &#8216;Every month&#8217; = &#8216;30&#8217;, &#8216;30&#8217; =
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>str</em>) &#8211; Path to JSON dataset metadata. Defaults to config/hdx_dataset_static.json.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>str</em>) – Path to JSON dataset metadata. Defaults to config/hdx_dataset_static.json.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
@@ -1135,7 +1133,7 @@ vice versa (eg. &#8216;Every month&#8217; = &#8216;30&#8217;, &#8216;30&#8217; =
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>str</em>) &#8211; Path to YAML dataset metadata. Defaults to config/hdx_dataset_static.yml.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>str</em>) – Path to YAML dataset metadata. Defaults to config/hdx_dataset_static.yml.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
@@ -1151,7 +1149,7 @@ vice versa (eg. &#8216;Every month&#8217; = &#8216;30&#8217;, &#8216;30&#8217; =
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>update_resources</strong> (<em>Optional[bool]</em>) &#8211; Whether to update resources. Defaults to True.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>update_resources</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – Whether to update resources. Defaults to True.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
@@ -1183,8 +1181,8 @@ New HDX objects should extend this in similar fashion to Resource for example.</
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>initial_data</strong> (<em>Dict</em>) &#8211; Initial metadata dictionary</li>
-<li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to global configuration.</li>
+<li><strong>initial_data</strong> (<em>Dict</em>) – Initial metadata dictionary</li>
+<li><strong>configuration</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="hdx.html#hdx.hdx_configuration.Configuration" title="hdx.hdx_configuration.Configuration"><em>Configuration</em></a><em>]</em>) – HDX configuration. Defaults to global configuration.</li>
 </ul>
 </td>
 </tr>
@@ -1215,7 +1213,7 @@ be set if required to any fields that should be ignored for the particular opera
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ignore_fields</strong> (<em>List[str]</em>) &#8211; Fields to ignore. Default is [].</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ignore_fields</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – Fields to ignore. Default is [].</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
@@ -1276,8 +1274,8 @@ be set if required to any fields that should be ignored for the particular opera
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>id_field</strong> (<em>str</em>) &#8211; HDX object identifier</li>
-<li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to global configuration.</li>
+<li><strong>id_field</strong> (<em>str</em>) – HDX object identifier</li>
+<li><strong>configuration</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="hdx.html#hdx.hdx_configuration.Configuration" title="hdx.hdx_configuration.Configuration"><em>Configuration</em></a><em>]</em>) – HDX configuration. Defaults to global configuration.</li>
 </ul>
 </td>
 </tr>
@@ -1299,7 +1297,7 @@ be set if required to any fields that should be ignored for the particular opera
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>str</em>) &#8211; Path to JSON dataset metadata</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>str</em>) – Path to JSON dataset metadata</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
@@ -1315,7 +1313,7 @@ be set if required to any fields that should be ignored for the particular opera
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>str</em>) &#8211; Path to YAML dataset metadata</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>str</em>) – Path to YAML dataset metadata</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
@@ -1353,8 +1351,8 @@ be set if required to any fields that should be ignored for the particular opera
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>initial_data</strong> (<em>Optional[Dict]</em>) &#8211; Initial organization metadata dictionary. Defaults to None.</li>
-<li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to global configuration.</li>
+<li><strong>initial_data</strong> (<em>Optional</em><em>[</em><em>Dict</em><em>]</em>) – Initial organization metadata dictionary. Defaults to None.</li>
+<li><strong>configuration</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="hdx.html#hdx.hdx_configuration.Configuration" title="hdx.hdx_configuration.Configuration"><em>Configuration</em></a><em>]</em>) – HDX configuration. Defaults to global configuration.</li>
 </ul>
 </td>
 </tr>
@@ -1387,8 +1385,8 @@ precedence)</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>user</strong> (<em>Union[User,Dict,str]</em>) &#8211; Either a user id or user metadata either from a User object or a dictionary</li>
-<li><strong>capacity</strong> (<em>Optional[str]</em>) &#8211; Capacity of user eg. member, admin. Defaults to None.</li>
+<li><strong>user</strong> (<em>Union</em><em>[</em><a class="reference internal" href="#hdx.data.user.User" title="hdx.data.user.User"><em>User</em></a><em>,</em><em>Dict</em><em>,</em><em>str</em><em>]</em>) – Either a user id or user metadata either from a User object or a dictionary</li>
+<li><strong>capacity</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Capacity of user eg. member, admin. Defaults to None.</li>
 </ul>
 </td>
 </tr>
@@ -1408,8 +1406,8 @@ precedence)</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>users</strong> (<em>List[Union[User,Dict,str]]</em>) &#8211; A list of either user ids or users metadata from User objects or dictionaries</li>
-<li><strong>capacity</strong> (<em>Optional[str]</em>) &#8211; Capacity of users eg. member, admin. Defaults to None.</li>
+<li><strong>users</strong> (<em>List</em><em>[</em><em>Union</em><em>[</em><a class="reference internal" href="#hdx.data.user.User" title="hdx.data.user.User"><em>User</em></a><em>,</em><em>Dict</em><em>,</em><em>str</em><em>]</em><em>]</em>) – A list of either user ids or users metadata from User objects or dictionaries</li>
+<li><strong>capacity</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Capacity of users eg. member, admin. Defaults to None.</li>
 </ul>
 </td>
 </tr>
@@ -1429,7 +1427,7 @@ be set if required to any fields that should be ignored for the particular opera
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ignore_fields</strong> (<em>List[str]</em>) &#8211; Fields to ignore. Default is [].</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ignore_fields</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – Fields to ignore. Default is [].</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
@@ -1474,14 +1472,14 @@ be set if required to any fields that should be ignored for the particular opera
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to global configuration.</li>
-<li><strong>**kwargs</strong> &#8211; See below</li>
-<li><strong>sort</strong> (<em>str</em>) &#8211; Sort the search results according to field name and sort-order. Allowed fields are ‘name’, ‘package_count’ and ‘title’. Defaults to &#8216;name asc&#8217;.</li>
-<li><strong>organizations</strong> (<em>List[str]</em>) &#8211; List of names of the groups to return.</li>
-<li><strong>all_fields</strong> (<em>bool</em>) &#8211; Return group dictionaries instead of just names. Only core fields are returned - get some more using the include_* options. Defaults to False.</li>
-<li><strong>include_extras</strong> (<em>bool</em>) &#8211; If all_fields, include the group extra fields. Defaults to False.</li>
-<li><strong>include_tags</strong> (<em>bool</em>) &#8211; If all_fields, include the group tags. Defaults to False.</li>
-<li><strong>include_groups</strong> &#8211; If all_fields, include the groups the groups are in. Defaults to False.</li>
+<li><strong>configuration</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="hdx.html#hdx.hdx_configuration.Configuration" title="hdx.hdx_configuration.Configuration"><em>Configuration</em></a><em>]</em>) – HDX configuration. Defaults to global configuration.</li>
+<li><strong>**kwargs</strong> – See below</li>
+<li><strong>sort</strong> (<em>str</em>) – Sort the search results according to field name and sort-order. Allowed fields are ‘name’, ‘package_count’ and ‘title’. Defaults to ‘name asc’.</li>
+<li><strong>organizations</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – List of names of the groups to return.</li>
+<li><strong>all_fields</strong> (<em>bool</em>) – Return group dictionaries instead of just names. Only core fields are returned - get some more using the include_* options. Defaults to False.</li>
+<li><strong>include_extras</strong> (<em>bool</em>) – If all_fields, include the group extra fields. Defaults to False.</li>
+<li><strong>include_tags</strong> (<em>bool</em>) – If all_fields, include the group tags. Defaults to False.</li>
+<li><strong>include_groups</strong> – If all_fields, include the groups the groups are in. Defaults to False.</li>
 </ul>
 </td>
 </tr>
@@ -1504,23 +1502,23 @@ be set if required to any fields that should be ignored for the particular opera
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>query</strong> (<em>str</em>) &#8211; Restrict datasets returned to this query (in Solr format). Defaults to &#8216;<em>:</em>&#8216;.</li>
-<li><strong>**kwargs</strong> &#8211; See below</li>
-<li><strong>sort</strong> (<em>string</em>) &#8211; Sorting of the search results. Defaults to &#8216;relevance asc, metadata_modified desc&#8217;.</li>
-<li><strong>rows</strong> (<em>int</em>) &#8211; Number of matching rows to return. Defaults to all datasets (sys.maxsize).</li>
-<li><strong>start</strong> (<em>int</em>) &#8211; Offset in the complete result for where the set of returned datasets should begin</li>
-<li><strong>facet</strong> (<em>string</em>) &#8211; Whether to enable faceted results. Default to True.</li>
-<li><strong>facet.mincount</strong> (<em>int</em>) &#8211; Minimum counts for facet fields should be included in the results</li>
-<li><strong>facet.limit</strong> (<em>int</em>) &#8211; Maximum number of values the facet fields return (- = unlimited). Defaults to 50.</li>
-<li><strong>facet.field</strong> (<em>List[str]</em>) &#8211; Fields to facet upon. Default is empty.</li>
-<li><strong>use_default_schema</strong> (<em>bool</em>) &#8211; Use default package schema instead of custom schema. Defaults to False.</li>
+<li><strong>query</strong> (<em>str</em>) – Restrict datasets returned to this query (in Solr format). Defaults to ‘<em>:</em>’.</li>
+<li><strong>**kwargs</strong> – See below</li>
+<li><strong>sort</strong> (<em>string</em>) – Sorting of the search results. Defaults to ‘relevance asc, metadata_modified desc’.</li>
+<li><strong>rows</strong> (<em>int</em>) – Number of matching rows to return. Defaults to all datasets (sys.maxsize).</li>
+<li><strong>start</strong> (<em>int</em>) – Offset in the complete result for where the set of returned datasets should begin</li>
+<li><strong>facet</strong> (<em>string</em>) – Whether to enable faceted results. Default to True.</li>
+<li><strong>facet.mincount</strong> (<em>int</em>) – Minimum counts for facet fields should be included in the results</li>
+<li><strong>facet.limit</strong> (<em>int</em>) – Maximum number of values the facet fields return (- = unlimited). Defaults to 50.</li>
+<li><strong>facet.field</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – Fields to facet upon. Default is empty.</li>
+<li><strong>use_default_schema</strong> (<em>bool</em>) – Use default package schema instead of custom schema. Defaults to False.</li>
 </ul>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">List of datasets in organization</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">List[Dataset]</p>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">List[<a class="reference internal" href="#hdx.data.dataset.Dataset" title="hdx.data.dataset.Dataset">Dataset</a>]</p>
 </td>
 </tr>
 </tbody>
@@ -1530,16 +1528,16 @@ be set if required to any fields that should be ignored for the particular opera
 <dl class="method">
 <dt id="hdx.data.organization.Organization.get_users">
 <code class="descname">get_users</code><span class="sig-paren">(</span><em>capacity=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.organization.Organization.get_users" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the organization&#8217;s users.</p>
+<dd><p>Returns the organization’s users.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>capacity</strong> (<em>Optional[str]</em>) &#8211; Filter by capacity eg. member, admin. Defaults to None.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>capacity</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Filter by capacity eg. member, admin. Defaults to None.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Returns the organization&#8217;s users.</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Returns the organization’s users.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">List[User]</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">List[<a class="reference internal" href="#hdx.data.user.User" title="hdx.data.user.User">User</a>]</td>
 </tr>
 </tbody>
 </table>
@@ -1554,15 +1552,15 @@ be set if required to any fields that should be ignored for the particular opera
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>identifier</strong> (<em>str</em>) &#8211; Identifier of organization</li>
-<li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to global configuration.</li>
+<li><strong>identifier</strong> (<em>str</em>) – Identifier of organization</li>
+<li><strong>configuration</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="hdx.html#hdx.hdx_configuration.Configuration" title="hdx.hdx_configuration.Configuration"><em>Configuration</em></a><em>]</em>) – HDX configuration. Defaults to global configuration.</li>
 </ul>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Organization object if successful read, None if not</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Optional[Organization]</p>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Optional[<a class="reference internal" href="#hdx.data.organization.Organization" title="hdx.data.organization.Organization">Organization</a>]</p>
 </td>
 </tr>
 </tbody>
@@ -1577,7 +1575,7 @@ be set if required to any fields that should be ignored for the particular opera
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>user</strong> (<em>Union[User,Dict,str]</em>) &#8211; Either a user id or user metadata either from a User object or a dictionary</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>user</strong> (<em>Union</em><em>[</em><a class="reference internal" href="#hdx.data.user.User" title="hdx.data.user.User"><em>User</em></a><em>,</em><em>Dict</em><em>,</em><em>str</em><em>]</em>) – Either a user id or user metadata either from a User object or a dictionary</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if user removed or False if not</td>
 </tr>
@@ -1595,7 +1593,7 @@ be set if required to any fields that should be ignored for the particular opera
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>str</em>) &#8211; Path to JSON dataset metadata. Defaults to config/hdx_organization_static.json.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>str</em>) – Path to JSON dataset metadata. Defaults to config/hdx_organization_static.json.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
@@ -1611,7 +1609,7 @@ be set if required to any fields that should be ignored for the particular opera
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>str</em>) &#8211; Path to YAML dataset metadata. Defaults to config/hdx_organization_static.yml.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>str</em>) – Path to YAML dataset metadata. Defaults to config/hdx_organization_static.yml.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
@@ -1649,8 +1647,8 @@ be set if required to any fields that should be ignored for the particular opera
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>initial_data</strong> (<em>Optional[Dict]</em>) &#8211; Initial resource metadata dictionary. Defaults to None.</li>
-<li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to global configuration.</li>
+<li><strong>initial_data</strong> (<em>Optional</em><em>[</em><em>Dict</em><em>]</em>) – Initial resource metadata dictionary. Defaults to None.</li>
+<li><strong>configuration</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="hdx.html#hdx.hdx_configuration.Configuration" title="hdx.hdx_configuration.Configuration"><em>Configuration</em></a><em>]</em>) – HDX configuration. Defaults to global configuration.</li>
 </ul>
 </td>
 </tr>
@@ -1682,7 +1680,7 @@ operation.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ignore_fields</strong> (<em>List[str]</em>) &#8211; Fields to ignore. Default is [].</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ignore_fields</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – Fields to ignore. Default is [].</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
@@ -1700,10 +1698,10 @@ all fields are assumed to be text. If path is not supplied, the file is first do
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>schema</strong> (<em>List[Dict]</em>) &#8211; List of fields and types of form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#8217;}. Defaults to None.</li>
-<li><strong>primary_key</strong> (<em>Optional[str]</em>) &#8211; Primary key of schema. Defaults to None.</li>
-<li><strong>delete_first</strong> (<em>int</em>) &#8211; Delete datastore before creation. 0 = No, 1 = Yes, 2 = If no primary key. Defaults to 0.</li>
-<li><strong>path</strong> (<em>Optional[str]</em>) &#8211; Local path to file that was uploaded. Defaults to None.</li>
+<li><strong>schema</strong> (<em>List</em><em>[</em><em>Dict</em><em>]</em>) – List of fields and types of form {‘id’: ‘FIELD’, ‘type’: ‘TYPE’}. Defaults to None.</li>
+<li><strong>primary_key</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Primary key of schema. Defaults to None.</li>
+<li><strong>delete_first</strong> (<em>int</em>) – Delete datastore before creation. 0 = No, 1 = Yes, 2 = If no primary key. Defaults to 0.</li>
+<li><strong>path</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Local path to file that was uploaded. Defaults to None.</li>
 </ul>
 </td>
 </tr>
@@ -1724,8 +1722,8 @@ YAML definition for a topline. If path is not supplied, the file is first downlo
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>delete_first</strong> (<em>int</em>) &#8211; Delete datastore before creation. 0 = No, 1 = Yes, 2 = If no primary key. Defaults to 0.</li>
-<li><strong>path</strong> (<em>Optional[str]</em>) &#8211; Local path to file that was uploaded. Defaults to None.</li>
+<li><strong>delete_first</strong> (<em>int</em>) – Delete datastore before creation. 0 = No, 1 = Yes, 2 = If no primary key. Defaults to 0.</li>
+<li><strong>path</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Local path to file that was uploaded. Defaults to None.</li>
 </ul>
 </td>
 </tr>
@@ -1740,16 +1738,16 @@ YAML definition for a topline. If path is not supplied, the file is first downlo
 <dt id="hdx.data.resource.Resource.create_datastore_from_dict_schema">
 <code class="descname">create_datastore_from_dict_schema</code><span class="sig-paren">(</span><em>data</em>, <em>delete_first=0</em>, <em>path=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.create_datastore_from_dict_schema" title="Permalink to this definition">¶</a></dt>
 <dd><p>For csvs, create a resource in the HDX datastore which enables data preview in HDX from a dictionary
-containing a list of fields and types of form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#8217;} and optionally a primary key.
+containing a list of fields and types of form {‘id’: ‘FIELD’, ‘type’: ‘TYPE’} and optionally a primary key.
 If path is not supplied, the file is first downloaded from HDX.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>data</strong> (<em>dict</em>) &#8211; Dictionary containing list of fields and types of form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#8217;}</li>
-<li><strong>delete_first</strong> (<em>int</em>) &#8211; Delete datastore before creation. 0 = No, 1 = Yes, 2 = If no primary key. Defaults to 0.</li>
-<li><strong>path</strong> (<em>Optional[str]</em>) &#8211; Local path to file that was uploaded. Defaults to None.</li>
+<li><strong>data</strong> (<em>dict</em>) – Dictionary containing list of fields and types of form {‘id’: ‘FIELD’, ‘type’: ‘TYPE’}</li>
+<li><strong>delete_first</strong> (<em>int</em>) – Delete datastore before creation. 0 = No, 1 = Yes, 2 = If no primary key. Defaults to 0.</li>
+<li><strong>path</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Local path to file that was uploaded. Defaults to None.</li>
 </ul>
 </td>
 </tr>
@@ -1764,16 +1762,16 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 <dt id="hdx.data.resource.Resource.create_datastore_from_json_schema">
 <code class="descname">create_datastore_from_json_schema</code><span class="sig-paren">(</span><em>json_path</em>, <em>delete_first=0</em>, <em>path=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.create_datastore_from_json_schema" title="Permalink to this definition">¶</a></dt>
 <dd><p>For csvs, create a resource in the HDX datastore which enables data preview in HDX from a JSON file
-containing a list of fields and types of form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#8217;} and optionally a primary key.
+containing a list of fields and types of form {‘id’: ‘FIELD’, ‘type’: ‘TYPE’} and optionally a primary key.
 If path is not supplied, the file is first downloaded from HDX.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>json_path</strong> (<em>str</em>) &#8211; Path to JSON file containing list of fields and types of form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#8217;}</li>
-<li><strong>delete_first</strong> (<em>int</em>) &#8211; Delete datastore before creation. 0 = No, 1 = Yes, 2 = If no primary key. Defaults to 0.</li>
-<li><strong>path</strong> (<em>Optional[str]</em>) &#8211; Local path to file that was uploaded. Defaults to None.</li>
+<li><strong>json_path</strong> (<em>str</em>) – Path to JSON file containing list of fields and types of form {‘id’: ‘FIELD’, ‘type’: ‘TYPE’}</li>
+<li><strong>delete_first</strong> (<em>int</em>) – Delete datastore before creation. 0 = No, 1 = Yes, 2 = If no primary key. Defaults to 0.</li>
+<li><strong>path</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Local path to file that was uploaded. Defaults to None.</li>
 </ul>
 </td>
 </tr>
@@ -1788,16 +1786,16 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 <dt id="hdx.data.resource.Resource.create_datastore_from_yaml_schema">
 <code class="descname">create_datastore_from_yaml_schema</code><span class="sig-paren">(</span><em>yaml_path</em>, <em>delete_first=0</em>, <em>path=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.create_datastore_from_yaml_schema" title="Permalink to this definition">¶</a></dt>
 <dd><p>For csvs, create a resource in the HDX datastore which enables data preview in HDX from a YAML file
-containing a list of fields and types of form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#8217;} and optionally a primary key.
+containing a list of fields and types of form {‘id’: ‘FIELD’, ‘type’: ‘TYPE’} and optionally a primary key.
 If path is not supplied, the file is first downloaded from HDX.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>yaml_path</strong> (<em>str</em>) &#8211; Path to YAML file containing list of fields and types of form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#8217;}</li>
-<li><strong>delete_first</strong> (<em>int</em>) &#8211; Delete datastore before creation. 0 = No, 1 = Yes, 2 = If no primary key. Defaults to 0.</li>
-<li><strong>path</strong> (<em>Optional[str]</em>) &#8211; Local path to file that was uploaded. Defaults to None.</li>
+<li><strong>yaml_path</strong> (<em>str</em>) – Path to YAML file containing list of fields and types of form {‘id’: ‘FIELD’, ‘type’: ‘TYPE’}</li>
+<li><strong>delete_first</strong> (<em>int</em>) – Delete datastore before creation. 0 = No, 1 = Yes, 2 = If no primary key. Defaults to 0.</li>
+<li><strong>path</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Local path to file that was uploaded. Defaults to None.</li>
 </ul>
 </td>
 </tr>
@@ -1858,7 +1856,7 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>folder</strong> (<em>Optional[str]</em>) &#8211; Folder to download resource to. Defaults to None.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>folder</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Folder to download resource to. Defaults to None.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">(URL downloaded, Path to downloaded file)</td>
 </tr>
@@ -1892,7 +1890,7 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The file that will be or has been uploaded or None if there isn&#8217;t one</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The file that will be or has been uploaded or None if there isn’t one</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Optional[str]</td>
 </tr>
@@ -1909,15 +1907,15 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>identifier</strong> (<em>str</em>) &#8211; Identifier of resource</li>
-<li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to global configuration.</li>
+<li><strong>identifier</strong> (<em>str</em>) – Identifier of resource</li>
+<li><strong>configuration</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="hdx.html#hdx.hdx_configuration.Configuration" title="hdx.hdx_configuration.Configuration"><em>Configuration</em></a><em>]</em>) – HDX configuration. Defaults to global configuration.</li>
 </ul>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Resource object if successful read, None if not</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Optional[Resource]</p>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Optional[<a class="reference internal" href="#hdx.data.resource.Resource" title="hdx.data.resource.Resource">Resource</a>]</p>
 </td>
 </tr>
 </tbody>
@@ -1933,19 +1931,19 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>query</strong> (<em>str</em>) &#8211; Query</li>
-<li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to global configuration.</li>
-<li><strong>**kwargs</strong> &#8211; See below</li>
-<li><strong>order_by</strong> (<em>str</em>) &#8211; A field on the Resource model that orders the results</li>
-<li><strong>offset</strong> (<em>int</em>) &#8211; Apply an offset to the query</li>
-<li><strong>limit</strong> (<em>int</em>) &#8211; Apply a limit to the query</li>
+<li><strong>query</strong> (<em>str</em>) – Query</li>
+<li><strong>configuration</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="hdx.html#hdx.hdx_configuration.Configuration" title="hdx.hdx_configuration.Configuration"><em>Configuration</em></a><em>]</em>) – HDX configuration. Defaults to global configuration.</li>
+<li><strong>**kwargs</strong> – See below</li>
+<li><strong>order_by</strong> (<em>str</em>) – A field on the Resource model that orders the results</li>
+<li><strong>offset</strong> (<em>int</em>) – Apply an offset to the query</li>
+<li><strong>limit</strong> (<em>int</em>) – Apply a limit to the query</li>
 </ul>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">List of resources resulting from query</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">List[Resource]</p>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">List[<a class="reference internal" href="#hdx.data.resource.Resource" title="hdx.data.resource.Resource">Resource</a>]</p>
 </td>
 </tr>
 </tbody>
@@ -1960,7 +1958,7 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>file_to_upload</strong> (<em>str</em>) &#8211; Local path to file to upload</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>file_to_upload</strong> (<em>str</em>) – Local path to file to upload</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
@@ -1992,9 +1990,9 @@ all fields are assumed to be text. If path is not supplied, the file is first do
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>schema</strong> (<em>List[Dict]</em>) &#8211; List of fields and types of form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#8217;}. Defaults to None.</li>
-<li><strong>primary_key</strong> (<em>Optional[str]</em>) &#8211; Primary key of schema. Defaults to None.</li>
-<li><strong>path</strong> (<em>Optional[str]</em>) &#8211; Local path to file that was uploaded. Defaults to None.</li>
+<li><strong>schema</strong> (<em>List</em><em>[</em><em>Dict</em><em>]</em>) – List of fields and types of form {‘id’: ‘FIELD’, ‘type’: ‘TYPE’}. Defaults to None.</li>
+<li><strong>primary_key</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Primary key of schema. Defaults to None.</li>
+<li><strong>path</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Local path to file that was uploaded. Defaults to None.</li>
 </ul>
 </td>
 </tr>
@@ -2014,7 +2012,7 @@ definition for a topline. If path is not supplied, the file is first downloaded 
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>Optional[str]</em>) &#8211; Local path to file that was uploaded. Defaults to None.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Local path to file that was uploaded. Defaults to None.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
@@ -2026,15 +2024,15 @@ definition for a topline. If path is not supplied, the file is first downloaded 
 <dt id="hdx.data.resource.Resource.update_datastore_from_dict_schema">
 <code class="descname">update_datastore_from_dict_schema</code><span class="sig-paren">(</span><em>data</em>, <em>path=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.update_datastore_from_dict_schema" title="Permalink to this definition">¶</a></dt>
 <dd><p>For csvs, update a resource in the HDX datastore which enables data preview in HDX from a dictionary
-containing a list of fields and types of form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#8217;} and optionally a primary key.
+containing a list of fields and types of form {‘id’: ‘FIELD’, ‘type’: ‘TYPE’} and optionally a primary key.
 If path is not supplied, the file is first downloaded from HDX.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>data</strong> (<em>dict</em>) &#8211; Dictionary containing list of fields and types of form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#8217;}</li>
-<li><strong>path</strong> (<em>Optional[str]</em>) &#8211; Local path to file that was uploaded. Defaults to None.</li>
+<li><strong>data</strong> (<em>dict</em>) – Dictionary containing list of fields and types of form {‘id’: ‘FIELD’, ‘type’: ‘TYPE’}</li>
+<li><strong>path</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Local path to file that was uploaded. Defaults to None.</li>
 </ul>
 </td>
 </tr>
@@ -2049,15 +2047,15 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 <dt id="hdx.data.resource.Resource.update_datastore_from_json_schema">
 <code class="descname">update_datastore_from_json_schema</code><span class="sig-paren">(</span><em>json_path</em>, <em>path=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.update_datastore_from_json_schema" title="Permalink to this definition">¶</a></dt>
 <dd><p>For csvs, update a resource in the HDX datastore which enables data preview in HDX from a JSON file
-containing a list of fields and types of form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#8217;} and optionally a primary key.
+containing a list of fields and types of form {‘id’: ‘FIELD’, ‘type’: ‘TYPE’} and optionally a primary key.
 If path is not supplied, the file is first downloaded from HDX.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>json_path</strong> (<em>str</em>) &#8211; Path to JSON file containing list of fields and types of form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#8217;}</li>
-<li><strong>path</strong> (<em>Optional[str]</em>) &#8211; Local path to file that was uploaded. Defaults to None.</li>
+<li><strong>json_path</strong> (<em>str</em>) – Path to JSON file containing list of fields and types of form {‘id’: ‘FIELD’, ‘type’: ‘TYPE’}</li>
+<li><strong>path</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Local path to file that was uploaded. Defaults to None.</li>
 </ul>
 </td>
 </tr>
@@ -2072,15 +2070,15 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 <dt id="hdx.data.resource.Resource.update_datastore_from_yaml_schema">
 <code class="descname">update_datastore_from_yaml_schema</code><span class="sig-paren">(</span><em>yaml_path</em>, <em>path=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.update_datastore_from_yaml_schema" title="Permalink to this definition">¶</a></dt>
 <dd><p>For csvs, update a resource in the HDX datastore which enables data preview in HDX from a YAML file
-containing a list of fields and types of form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#8217;} and optionally a primary key.
+containing a list of fields and types of form {‘id’: ‘FIELD’, ‘type’: ‘TYPE’} and optionally a primary key.
 If path is not supplied, the file is first downloaded from HDX.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>yaml_path</strong> (<em>str</em>) &#8211; Path to YAML file containing list of fields and types of form {&#8216;id&#8217;: &#8216;FIELD&#8217;, &#8216;type&#8217;: &#8216;TYPE&#8217;}</li>
-<li><strong>path</strong> (<em>Optional[str]</em>) &#8211; Local path to file that was uploaded. Defaults to None.</li>
+<li><strong>yaml_path</strong> (<em>str</em>) – Path to YAML file containing list of fields and types of form {‘id’: ‘FIELD’, ‘type’: ‘TYPE’}</li>
+<li><strong>path</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Local path to file that was uploaded. Defaults to None.</li>
 </ul>
 </td>
 </tr>
@@ -2099,7 +2097,7 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>Optional[str]</em>) &#8211; Path to JSON dataset metadata. Defaults to config/hdx_resource_static.json.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Path to JSON dataset metadata. Defaults to config/hdx_resource_static.json.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
@@ -2115,7 +2113,7 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>Optional[str]</em>) &#8211; Path to YAML dataset metadata. Defaults to config/hdx_resource_static.yml.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Path to YAML dataset metadata. Defaults to config/hdx_resource_static.yml.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
@@ -2153,8 +2151,8 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>initial_data</strong> (<em>Optional[Dict]</em>) &#8211; Initial showcase metadata dictionary. Defaults to None.</li>
-<li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to global configuration.</li>
+<li><strong>initial_data</strong> (<em>Optional</em><em>[</em><em>Dict</em><em>]</em>) – Initial showcase metadata dictionary. Defaults to None.</li>
+<li><strong>configuration</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="hdx.html#hdx.hdx_configuration.Configuration" title="hdx.hdx_configuration.Configuration"><em>Configuration</em></a><em>]</em>) – HDX configuration. Defaults to global configuration.</li>
 </ul>
 </td>
 </tr>
@@ -2185,8 +2183,8 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>dataset</strong> (<em>Union[Dataset,Dict,str]</em>) &#8211; Either a dataset id or dataset metadata either from a Dataset object or a dictionary</li>
-<li><strong>datasets_to_check</strong> (<em>List[Dataset]</em>) &#8211; List of datasets against which to check existence of dataset. Defaults to datasets in showcase.</li>
+<li><strong>dataset</strong> (<em>Union</em><em>[</em><a class="reference internal" href="#hdx.data.dataset.Dataset" title="hdx.data.dataset.Dataset"><em>Dataset</em></a><em>,</em><em>Dict</em><em>,</em><em>str</em><em>]</em>) – Either a dataset id or dataset metadata either from a Dataset object or a dictionary</li>
+<li><strong>datasets_to_check</strong> (<em>List</em><em>[</em><a class="reference internal" href="#hdx.data.dataset.Dataset" title="hdx.data.dataset.Dataset"><em>Dataset</em></a><em>]</em>) – List of datasets against which to check existence of dataset. Defaults to datasets in showcase.</li>
 </ul>
 </td>
 </tr>
@@ -2209,8 +2207,8 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>datasets</strong> (<em>List[Union[Dataset,Dict,str]]</em>) &#8211; A list of either dataset ids or dataset metadata from Dataset objects or dictionaries</li>
-<li><strong>datasets_to_check</strong> (<em>List[Dataset]</em>) &#8211; List of datasets against which to check existence of dataset. Defaults to datasets in showcase.</li>
+<li><strong>datasets</strong> (<em>List</em><em>[</em><em>Union</em><em>[</em><a class="reference internal" href="#hdx.data.dataset.Dataset" title="hdx.data.dataset.Dataset"><em>Dataset</em></a><em>,</em><em>Dict</em><em>,</em><em>str</em><em>]</em><em>]</em>) – A list of either dataset ids or dataset metadata from Dataset objects or dictionaries</li>
+<li><strong>datasets_to_check</strong> (<em>List</em><em>[</em><a class="reference internal" href="#hdx.data.dataset.Dataset" title="hdx.data.dataset.Dataset"><em>Dataset</em></a><em>]</em>) – List of datasets against which to check existence of dataset. Defaults to datasets in showcase.</li>
 </ul>
 </td>
 </tr>
@@ -2232,7 +2230,7 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tag</strong> (<em>str</em>) &#8211; Tag to add</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tag</strong> (<em>str</em>) – Tag to add</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if tag added or False if tag already present</td>
 </tr>
@@ -2250,7 +2248,7 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tags</strong> (<em>List[str]</em>) &#8211; List of tags to add</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tags</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – List of tags to add</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Returns True if all tags added or False if any already present.</td>
 </tr>
@@ -2269,7 +2267,7 @@ be set if required to any fields that should be ignored for the particular opera
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ignore_fields</strong> (<em>List[str]</em>) &#8211; Fields to ignore. Default is [].</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ignore_fields</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – Fields to ignore. Default is [].</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
@@ -2320,7 +2318,7 @@ be set if required to any fields that should be ignored for the particular opera
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">List of datasets</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">List[Dataset]</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">List[<a class="reference internal" href="#hdx.data.dataset.Dataset" title="hdx.data.dataset.Dataset">Dataset</a>]</td>
 </tr>
 </tbody>
 </table>
@@ -2329,7 +2327,7 @@ be set if required to any fields that should be ignored for the particular opera
 <dl class="method">
 <dt id="hdx.data.showcase.Showcase.get_tags">
 <code class="descname">get_tags</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.showcase.Showcase.get_tags" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the dataset&#8217;s list of tags</p>
+<dd><p>Return the dataset’s list of tags</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -2351,15 +2349,15 @@ be set if required to any fields that should be ignored for the particular opera
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>identifier</strong> (<em>str</em>) &#8211; Identifier of showcase</li>
-<li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to global configuration.</li>
+<li><strong>identifier</strong> (<em>str</em>) – Identifier of showcase</li>
+<li><strong>configuration</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="hdx.html#hdx.hdx_configuration.Configuration" title="hdx.hdx_configuration.Configuration"><em>Configuration</em></a><em>]</em>) – HDX configuration. Defaults to global configuration.</li>
 </ul>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Showcase object if successful read, None if not</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Optional[Showcase]</p>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Optional[<a class="reference internal" href="#hdx.data.showcase.Showcase" title="hdx.data.showcase.Showcase">Showcase</a>]</p>
 </td>
 </tr>
 </tbody>
@@ -2374,7 +2372,7 @@ be set if required to any fields that should be ignored for the particular opera
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>dataset</strong> (<em>Union[Dataset,Dict,str]</em>) &#8211; Either a dataset id or dataset metadata either from a Dataset object or a dictionary</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>dataset</strong> (<em>Union</em><em>[</em><a class="reference internal" href="#hdx.data.dataset.Dataset" title="hdx.data.dataset.Dataset"><em>Dataset</em></a><em>,</em><em>Dict</em><em>,</em><em>str</em><em>]</em>) – Either a dataset id or dataset metadata either from a Dataset object or a dictionary</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
@@ -2390,7 +2388,7 @@ be set if required to any fields that should be ignored for the particular opera
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tag</strong> (<em>str</em>) &#8211; Tag to remove</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tag</strong> (<em>str</em>) – Tag to remove</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if tag removed or False if not</td>
 </tr>
@@ -2408,7 +2406,7 @@ be set if required to any fields that should be ignored for the particular opera
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>Optional[str]</em>) &#8211; Path to JSON dataset metadata. Defaults to config/hdx_showcase_static.json.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Path to JSON dataset metadata. Defaults to config/hdx_showcase_static.json.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
@@ -2424,7 +2422,7 @@ be set if required to any fields that should be ignored for the particular opera
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>Optional[str]</em>) &#8211; Path to YAML dataset metadata. Defaults to config/hdx_showcase_static.yml.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Path to YAML dataset metadata. Defaults to config/hdx_showcase_static.yml.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
@@ -2462,8 +2460,8 @@ be set if required to any fields that should be ignored for the particular opera
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>initial_data</strong> (<em>Optional[Dict]</em>) &#8211; Initial user metadata dictionary. Defaults to None.</li>
-<li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to global configuration.</li>
+<li><strong>initial_data</strong> (<em>Optional</em><em>[</em><em>Dict</em><em>]</em>) – Initial user metadata dictionary. Defaults to None.</li>
+<li><strong>configuration</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="hdx.html#hdx.hdx_configuration.Configuration" title="hdx.hdx_configuration.Configuration"><em>Configuration</em></a><em>]</em>) – HDX configuration. Defaults to global configuration.</li>
 </ul>
 </td>
 </tr>
@@ -2494,7 +2492,7 @@ be set if required to any fields that should be ignored for the particular opera
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ignore_fields</strong> (<em>List[str]</em>) &#8211; Fields to ignore. Default is [].</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ignore_fields</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – Fields to ignore. Default is [].</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
@@ -2539,13 +2537,13 @@ be set if required to any fields that should be ignored for the particular opera
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>subject</strong> (<em>str</em>) &#8211; Email subject</li>
-<li><strong>text_body</strong> (<em>str</em>) &#8211; Plain text email body</li>
-<li><strong>html_body</strong> (<em>str</em>) &#8211; HTML email body</li>
-<li><strong>sender</strong> (<em>Optional[str]</em>) &#8211; Email sender. Defaults to SMTP username.</li>
-<li><strong>**kwargs</strong> &#8211; See below</li>
-<li><strong>mail_options</strong> (<em>List</em>) &#8211; Mail options (see smtplib documentation)</li>
-<li><strong>rcpt_options</strong> (<em>List</em>) &#8211; Recipient options (see smtplib documentation)</li>
+<li><strong>subject</strong> (<em>str</em>) – Email subject</li>
+<li><strong>text_body</strong> (<em>str</em>) – Plain text email body</li>
+<li><strong>html_body</strong> (<em>str</em>) – HTML email body</li>
+<li><strong>sender</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Email sender. Defaults to SMTP username.</li>
+<li><strong>**kwargs</strong> – See below</li>
+<li><strong>mail_options</strong> (<em>List</em>) – Mail options (see smtplib documentation)</li>
+<li><strong>rcpt_options</strong> (<em>List</em>) – Recipient options (see smtplib documentation)</li>
 </ul>
 </td>
 </tr>
@@ -2565,15 +2563,15 @@ be set if required to any fields that should be ignored for the particular opera
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>users</strong> (<em>List[User]</em>) &#8211; List of users</li>
-<li><strong>subject</strong> (<em>str</em>) &#8211; Email subject</li>
-<li><strong>text_body</strong> (<em>str</em>) &#8211; Plain text email body</li>
-<li><strong>html_body</strong> (<em>str</em>) &#8211; HTML email body</li>
-<li><strong>sender</strong> (<em>Optional[str]</em>) &#8211; Email sender. Defaults to SMTP username.</li>
-<li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to configuration of first user in list.</li>
-<li><strong>**kwargs</strong> &#8211; See below</li>
-<li><strong>mail_options</strong> (<em>List</em>) &#8211; Mail options (see smtplib documentation)</li>
-<li><strong>rcpt_options</strong> (<em>List</em>) &#8211; Recipient options (see smtplib documentation)</li>
+<li><strong>users</strong> (<em>List</em><em>[</em><a class="reference internal" href="#hdx.data.user.User" title="hdx.data.user.User"><em>User</em></a><em>]</em>) – List of users</li>
+<li><strong>subject</strong> (<em>str</em>) – Email subject</li>
+<li><strong>text_body</strong> (<em>str</em>) – Plain text email body</li>
+<li><strong>html_body</strong> (<em>str</em>) – HTML email body</li>
+<li><strong>sender</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Email sender. Defaults to SMTP username.</li>
+<li><strong>configuration</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="hdx.html#hdx.hdx_configuration.Configuration" title="hdx.hdx_configuration.Configuration"><em>Configuration</em></a><em>]</em>) – HDX configuration. Defaults to configuration of first user in list.</li>
+<li><strong>**kwargs</strong> – See below</li>
+<li><strong>mail_options</strong> (<em>List</em>) – Mail options (see smtplib documentation)</li>
+<li><strong>rcpt_options</strong> (<em>List</em>) – Recipient options (see smtplib documentation)</li>
 </ul>
 </td>
 </tr>
@@ -2593,17 +2591,17 @@ be set if required to any fields that should be ignored for the particular opera
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to global configuration.</li>
-<li><strong>**kwargs</strong> &#8211; See below</li>
-<li><strong>q</strong> (<em>str</em>) &#8211; Restrict to names containing a string. Defaults to all users.</li>
-<li><strong>order_by</strong> (<em>str</em>) &#8211; Field by which to sort - any user field or edits (number_of_edits). Defaults to &#8216;name&#8217;.</li>
+<li><strong>configuration</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="hdx.html#hdx.hdx_configuration.Configuration" title="hdx.hdx_configuration.Configuration"><em>Configuration</em></a><em>]</em>) – HDX configuration. Defaults to global configuration.</li>
+<li><strong>**kwargs</strong> – See below</li>
+<li><strong>q</strong> (<em>str</em>) – Restrict to names containing a string. Defaults to all users.</li>
+<li><strong>order_by</strong> (<em>str</em>) – Field by which to sort - any user field or edits (number_of_edits). Defaults to ‘name’.</li>
 </ul>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">List of all users in HDX</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">List[User]</p>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">List[<a class="reference internal" href="#hdx.data.user.User" title="hdx.data.user.User">User</a>]</p>
 </td>
 </tr>
 </tbody>
@@ -2619,15 +2617,15 @@ be set if required to any fields that should be ignored for the particular opera
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>identifier</strong> (<em>str</em>) &#8211; Identifier of user</li>
-<li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to global configuration.</li>
+<li><strong>identifier</strong> (<em>str</em>) – Identifier of user</li>
+<li><strong>configuration</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="hdx.html#hdx.hdx_configuration.Configuration" title="hdx.hdx_configuration.Configuration"><em>Configuration</em></a><em>]</em>) – HDX configuration. Defaults to global configuration.</li>
 </ul>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">User object if successful read, None if not</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Optional[User]</p>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Optional[<a class="reference internal" href="#hdx.data.user.User" title="hdx.data.user.User">User</a>]</p>
 </td>
 </tr>
 </tbody>
@@ -2642,7 +2640,7 @@ be set if required to any fields that should be ignored for the particular opera
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>Optional[str]</em>) &#8211; Path to JSON dataset metadata. Defaults to config/hdx_user_static.json.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Path to JSON dataset metadata. Defaults to config/hdx_user_static.json.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
@@ -2658,7 +2656,7 @@ be set if required to any fields that should be ignored for the particular opera
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>Optional[str]</em>) &#8211; Path to YAML dataset metadata. Defaults to config/hdx_user_static.yml.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Path to YAML dataset metadata. Defaults to config/hdx_user_static.yml.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
@@ -2722,7 +2720,7 @@ be set if required to any fields that should be ignored for the particular opera
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/source/hdx.data.txt"
+      <li><a href="../_sources/source/hdx.data.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -2744,11 +2742,11 @@ be set if required to any fields that should be ignored for the particular opera
       &copy;Michael Rans.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.5</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |
-      <a href="../_sources/source/hdx.data.txt"
+      <a href="../_sources/source/hdx.data.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

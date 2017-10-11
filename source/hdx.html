@@ -1,29 +1,28 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>hdx package &mdash; HDX Python API 1.0 documentation</title>
-    
+    <title>hdx package &#8212; HDX Python API 1.0 documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '1.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="HDX Python API 1.0 documentation" href="../index.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="hdx.data package" href="hdx.data.html" />
     <link rel="prev" title="HDX Python API Documentation" href="../index.html" />
    
@@ -33,7 +32,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body role="document">
+  <body>
   
 
     <div class="document">
@@ -65,22 +64,6 @@
 <li class="toctree-l2"><a class="reference internal" href="hdx.facades.html#module-hdx.facades">Module contents</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="hdx.utilities.html">hdx.utilities package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="hdx.utilities.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hdx.utilities.html#module-hdx.utilities.dictandlist">hdx.utilities.dictandlist module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hdx.utilities.html#module-hdx.utilities.downloader">hdx.utilities.downloader module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hdx.utilities.html#module-hdx.utilities.email">hdx.utilities.email module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="hdx.utilities.html#emailer">Emailer:</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="hdx.utilities.html#module-hdx.utilities.loader">hdx.utilities.loader module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hdx.utilities.html#module-hdx.utilities.location">hdx.utilities.location module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hdx.utilities.html#module-hdx.utilities.path">hdx.utilities.path module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hdx.utilities.html#module-hdx.utilities.session">hdx.utilities.session module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hdx.utilities.html#module-hdx.utilities.text">hdx.utilities.text module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hdx.utilities.html#module-hdx.utilities">Module contents</a></li>
-</ul>
-</li>
 </ul>
 </div>
 </div>
@@ -100,17 +83,17 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>**kwargs</strong> &#8211; See below</li>
-<li><strong>hdx_site</strong> (<em>Optional[str]</em>) &#8211; HDX site to use eg. prod, test. Defaults to test.</li>
-<li><strong>hdx_read_only</strong> (<em>bool</em>) &#8211; Whether to access HDX in read only mode. Defaults to False.</li>
-<li><strong>hdx_key</strong> (<em>Optional[str]</em>) &#8211; Your HDX key. Ignored if hdx_read_only = True.</li>
-<li><strong>hdx_key_file</strong> (<em>Optional[str]</em>) &#8211; Path to HDX key file. Ignored if hdx_read_only = True or hdx_key supplied. Defaults to ~/.hdxkey.</li>
-<li><strong>hdx_config_dict</strong> (<em>dict</em>) &#8211; HDX configuration dictionary OR</li>
-<li><strong>hdx_config_json</strong> (<em>str</em>) &#8211; Path to JSON HDX configuration OR</li>
-<li><strong>hdx_config_yaml</strong> (<em>str</em>) &#8211; Path to YAML HDX configuration. Defaults to library&#8217;s internal hdx_configuration.yml.</li>
-<li><strong>project_config_dict</strong> (<em>dict</em>) &#8211; Project configuration dictionary OR</li>
-<li><strong>project_config_json</strong> (<em>str</em>) &#8211; Path to JSON Project configuration OR</li>
-<li><strong>project_config_yaml</strong> (<em>str</em>) &#8211; Path to YAML Project configuration</li>
+<li><strong>**kwargs</strong> – See below</li>
+<li><strong>hdx_site</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – HDX site to use eg. prod, test. Defaults to test.</li>
+<li><strong>hdx_read_only</strong> (<em>bool</em>) – Whether to access HDX in read only mode. Defaults to False.</li>
+<li><strong>hdx_key</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Your HDX key. Ignored if hdx_read_only = True.</li>
+<li><strong>hdx_key_file</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Path to HDX key file. Ignored if hdx_read_only = True or hdx_key supplied. Defaults to ~/.hdxkey.</li>
+<li><strong>hdx_config_dict</strong> (<em>dict</em>) – HDX configuration dictionary OR</li>
+<li><strong>hdx_config_json</strong> (<em>str</em>) – Path to JSON HDX configuration OR</li>
+<li><strong>hdx_config_yaml</strong> (<em>str</em>) – Path to YAML HDX configuration. Defaults to library’s internal hdx_configuration.yml.</li>
+<li><strong>project_config_dict</strong> (<em>dict</em>) – Project configuration dictionary OR</li>
+<li><strong>project_config_json</strong> (<em>str</em>) – Path to JSON Project configuration OR</li>
+<li><strong>project_config_yaml</strong> (<em>str</em>) – Path to YAML Project configuration</li>
 </ul>
 </td>
 </tr>
@@ -125,8 +108,8 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>*args</strong> &#8211; Arguments to pass to remote CKAN call_action method</li>
-<li><strong>**kwargs</strong> &#8211; Keyword arguments to pass to remote CKAN call_action method</li>
+<li><strong>*args</strong> – Arguments to pass to remote CKAN call_action method</li>
+<li><strong>**kwargs</strong> – Keyword arguments to pass to remote CKAN call_action method</li>
 </ul>
 </td>
 </tr>
@@ -149,19 +132,19 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; Configuration instance. Defaults to setting one up from passed arguments.</li>
-<li><strong>remoteckan</strong> (<em>Optional[ckanapi.RemoteCKAN]</em>) &#8211; CKAN instance. Defaults to setting one up from configuration.</li>
-<li><strong>**kwargs</strong> &#8211; See below</li>
-<li><strong>hdx_site</strong> (<em>Optional[str]</em>) &#8211; HDX site to use eg. prod, test. Defaults to test.</li>
-<li><strong>hdx_read_only</strong> (<em>bool</em>) &#8211; Whether to access HDX in read only mode. Defaults to False.</li>
-<li><strong>hdx_key</strong> (<em>Optional[str]</em>) &#8211; Your HDX key. Ignored if hdx_read_only = True.</li>
-<li><strong>hdx_key_file</strong> (<em>Optional[str]</em>) &#8211; Path to HDX key file. Ignored if hdx_read_only = True or hdx_key supplied. Defaults to ~/.hdxkey.</li>
-<li><strong>hdx_config_dict</strong> (<em>dict</em>) &#8211; HDX configuration dictionary OR</li>
-<li><strong>hdx_config_json</strong> (<em>str</em>) &#8211; Path to JSON HDX configuration OR</li>
-<li><strong>hdx_config_yaml</strong> (<em>str</em>) &#8211; Path to YAML HDX configuration. Defaults to library&#8217;s internal hdx_configuration.yml.</li>
-<li><strong>project_config_dict</strong> (<em>dict</em>) &#8211; Project configuration dictionary OR</li>
-<li><strong>project_config_json</strong> (<em>str</em>) &#8211; Path to JSON Project configuration OR</li>
-<li><strong>project_config_yaml</strong> (<em>str</em>) &#8211; Path to YAML Project configuration</li>
+<li><strong>configuration</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="#hdx.hdx_configuration.Configuration" title="hdx.hdx_configuration.Configuration"><em>Configuration</em></a><em>]</em>) – Configuration instance. Defaults to setting one up from passed arguments.</li>
+<li><strong>remoteckan</strong> (<em>Optional</em><em>[</em><em>ckanapi.RemoteCKAN</em><em>]</em>) – CKAN instance. Defaults to setting one up from configuration.</li>
+<li><strong>**kwargs</strong> – See below</li>
+<li><strong>hdx_site</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – HDX site to use eg. prod, test. Defaults to test.</li>
+<li><strong>hdx_read_only</strong> (<em>bool</em>) – Whether to access HDX in read only mode. Defaults to False.</li>
+<li><strong>hdx_key</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Your HDX key. Ignored if hdx_read_only = True.</li>
+<li><strong>hdx_key_file</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Path to HDX key file. Ignored if hdx_read_only = True or hdx_key supplied. Defaults to ~/.hdxkey.</li>
+<li><strong>hdx_config_dict</strong> (<em>dict</em>) – HDX configuration dictionary OR</li>
+<li><strong>hdx_config_json</strong> (<em>str</em>) – Path to JSON HDX configuration OR</li>
+<li><strong>hdx_config_yaml</strong> (<em>str</em>) – Path to YAML HDX configuration. Defaults to library’s internal hdx_configuration.yml.</li>
+<li><strong>project_config_dict</strong> (<em>dict</em>) – Project configuration dictionary OR</li>
+<li><strong>project_config_json</strong> (<em>str</em>) – Path to JSON Project configuration OR</li>
+<li><strong>project_config_yaml</strong> (<em>str</em>) – Path to YAML Project configuration</li>
 </ul>
 </td>
 </tr>
@@ -183,7 +166,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> &#8211; requests Session object to use. Defaults to calling hdx.utilities.session.get_session()</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – requests Session object to use. Defaults to calling hdx.utilities.session.get_session()</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Remote CKAN instance</td>
 </tr>
@@ -215,14 +198,14 @@
 <dl class="method">
 <dt id="hdx.hdx_configuration.Configuration.emailer">
 <code class="descname">emailer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.hdx_configuration.Configuration.emailer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the Email object (see <a class="reference internal" href="hdx.utilities.html#hdx.utilities.email.Email" title="hdx.utilities.email.Email"><code class="xref any py py-class docutils literal"><span class="pre">Email</span></code></a>)</p>
+<dd><p>Return the Email object (see <code class="xref any docutils literal"><span class="pre">Email</span></code>)</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The email object</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="hdx.utilities.html#hdx.utilities.email.Email" title="hdx.utilities.email.Email">Email</a></td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Email</td>
 </tr>
 </tbody>
 </table>
@@ -268,7 +251,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>str</em>) &#8211; Path to HDX key</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>str</em>) – Path to HDX key</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">HDX api key</td>
 </tr>
@@ -318,7 +301,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>apikey</strong> (<em>str</em>) &#8211; Value to set api key.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>apikey</strong> (<em>str</em>) – Value to set api key.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
@@ -334,7 +317,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>read_only</strong> (<em>bool</em>) &#8211; Value to set HDX read only flag. Defaults to True.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>read_only</strong> (<em>bool</em>) – Value to set HDX read only flag. Defaults to True.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
@@ -351,18 +334,18 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; Configuration instance. Defaults to setting one up from passed arguments.</li>
-<li><strong>**kwargs</strong> &#8211; See below</li>
-<li><strong>hdx_site</strong> (<em>Optional[str]</em>) &#8211; HDX site to use eg. prod, test. Defaults to test.</li>
-<li><strong>hdx_read_only</strong> (<em>bool</em>) &#8211; Whether to access HDX in read only mode. Defaults to False.</li>
-<li><strong>hdx_key</strong> (<em>Optional[str]</em>) &#8211; Your HDX key. Ignored if hdx_read_only = True.</li>
-<li><strong>hdx_key_file</strong> (<em>Optional[str]</em>) &#8211; Path to HDX key file. Ignored if hdx_read_only = True or hdx_key supplied. Defaults to ~/.hdxkey.</li>
-<li><strong>hdx_config_dict</strong> (<em>dict</em>) &#8211; HDX configuration dictionary OR</li>
-<li><strong>hdx_config_json</strong> (<em>str</em>) &#8211; Path to JSON HDX configuration OR</li>
-<li><strong>hdx_config_yaml</strong> (<em>str</em>) &#8211; Path to YAML HDX configuration. Defaults to library&#8217;s internal hdx_configuration.yml.</li>
-<li><strong>project_config_dict</strong> (<em>dict</em>) &#8211; Project configuration dictionary OR</li>
-<li><strong>project_config_json</strong> (<em>str</em>) &#8211; Path to JSON Project configuration OR</li>
-<li><strong>project_config_yaml</strong> (<em>str</em>) &#8211; Path to YAML Project configuration</li>
+<li><strong>configuration</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="#hdx.hdx_configuration.Configuration" title="hdx.hdx_configuration.Configuration"><em>Configuration</em></a><em>]</em>) – Configuration instance. Defaults to setting one up from passed arguments.</li>
+<li><strong>**kwargs</strong> – See below</li>
+<li><strong>hdx_site</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – HDX site to use eg. prod, test. Defaults to test.</li>
+<li><strong>hdx_read_only</strong> (<em>bool</em>) – Whether to access HDX in read only mode. Defaults to False.</li>
+<li><strong>hdx_key</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Your HDX key. Ignored if hdx_read_only = True.</li>
+<li><strong>hdx_key_file</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Path to HDX key file. Ignored if hdx_read_only = True or hdx_key supplied. Defaults to ~/.hdxkey.</li>
+<li><strong>hdx_config_dict</strong> (<em>dict</em>) – HDX configuration dictionary OR</li>
+<li><strong>hdx_config_json</strong> (<em>str</em>) – Path to JSON HDX configuration OR</li>
+<li><strong>hdx_config_yaml</strong> (<em>str</em>) – Path to YAML HDX configuration. Defaults to library’s internal hdx_configuration.yml.</li>
+<li><strong>project_config_dict</strong> (<em>dict</em>) – Project configuration dictionary OR</li>
+<li><strong>project_config_json</strong> (<em>str</em>) – Path to JSON Project configuration OR</li>
+<li><strong>project_config_yaml</strong> (<em>str</em>) – Path to YAML Project configuration</li>
 </ul>
 </td>
 </tr>
@@ -377,22 +360,22 @@
 <dt id="hdx.hdx_configuration.Configuration.setup_emailer">
 <code class="descname">setup_emailer</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.hdx_configuration.Configuration.setup_emailer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set up emailer. Parameters in dictionary or file (eg. yaml below):
-| connection_type: &#8220;ssl&#8221;   (&#8220;ssl&#8221; for smtp ssl or &#8220;lmtp&#8221;, otherwise basic smtp is assumed)
-| host: &#8220;localhost&#8221;
+| connection_type: “ssl”   (“ssl” for smtp ssl or “lmtp”, otherwise basic smtp is assumed)
+| host: “localhost”
 | port: 123
-| local_hostname: &#8220;mycomputer.fqdn.com&#8221;
+| local_hostname: “mycomputer.fqdn.com”
 | timeout: 3
-| username: &#8220;user&#8221;
-| password: &#8220;pass&#8221;</p>
+| username: “user”
+| password: “pass”</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>**kwargs</strong> &#8211; See below</li>
-<li><strong>email_config_dict</strong> (<em>dict</em>) &#8211; HDX configuration dictionary OR</li>
-<li><strong>email_config_json</strong> (<em>str</em>) &#8211; Path to JSON HDX configuration OR</li>
-<li><strong>email_config_yaml</strong> (<em>str</em>) &#8211; Path to YAML HDX configuration. Defaults to ~/hdx_email_configuration.yml.</li>
+<li><strong>**kwargs</strong> – See below</li>
+<li><strong>email_config_dict</strong> (<em>dict</em>) – HDX configuration dictionary OR</li>
+<li><strong>email_config_json</strong> (<em>str</em>) – Path to JSON HDX configuration OR</li>
+<li><strong>email_config_yaml</strong> (<em>str</em>) – Path to YAML HDX configuration. Defaults to ~/hdx_email_configuration.yml.</li>
 </ul>
 </td>
 </tr>
@@ -411,7 +394,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>remoteckan</strong> (<em>Optional[ckanapi.RemoteCKAN]</em>) &#8211; CKAN instance. Defaults to setting one up from configuration.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>remoteckan</strong> (<em>Optional</em><em>[</em><em>ckanapi.RemoteCKAN</em><em>]</em>) – CKAN instance. Defaults to setting one up from configuration.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
@@ -445,9 +428,9 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>location</strong> (<em>str</em>) &#8211; Location for which to get HDX code</li>
-<li><strong>locations</strong> (<em>Optional[List[Dict]]</em>) &#8211; Valid locations list. Defaults to list downloaded from HDX.</li>
-<li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to global configuration.</li>
+<li><strong>location</strong> (<em>str</em>) – Location for which to get HDX code</li>
+<li><strong>locations</strong> (<em>Optional</em><em>[</em><em>List</em><em>[</em><em>Dict</em><em>]</em><em>]</em>) – Valid locations list. Defaults to list downloaded from HDX.</li>
+<li><strong>configuration</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="#hdx.hdx_configuration.Configuration" title="hdx.hdx_configuration.Configuration"><em>Configuration</em></a><em>]</em>) – HDX configuration. Defaults to global configuration.</li>
 </ul>
 </td>
 </tr>
@@ -470,9 +453,9 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>location</strong> (<em>str</em>) &#8211; Location for which to get HDX code</li>
-<li><strong>locations</strong> (<em>Optional[List[Dict]]</em>) &#8211; Valid locations list. Defaults to list downloaded from HDX.</li>
-<li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to global configuration.</li>
+<li><strong>location</strong> (<em>str</em>) – Location for which to get HDX code</li>
+<li><strong>locations</strong> (<em>Optional</em><em>[</em><em>List</em><em>[</em><em>Dict</em><em>]</em><em>]</em>) – Valid locations list. Defaults to list downloaded from HDX.</li>
+<li><strong>configuration</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="#hdx.hdx_configuration.Configuration" title="hdx.hdx_configuration.Configuration"><em>Configuration</em></a><em>]</em>) – HDX configuration. Defaults to global configuration.</li>
 </ul>
 </td>
 </tr>
@@ -495,9 +478,9 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>code</strong> (<em>str</em>) &#8211; code for which to get location name</li>
-<li><strong>locations</strong> (<em>Optional[List[Dict]]</em>) &#8211; Valid locations list. Defaults to list downloaded from HDX.</li>
-<li><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to global configuration.</li>
+<li><strong>code</strong> (<em>str</em>) – code for which to get location name</li>
+<li><strong>locations</strong> (<em>Optional</em><em>[</em><em>List</em><em>[</em><em>Dict</em><em>]</em><em>]</em>) – Valid locations list. Defaults to list downloaded from HDX.</li>
+<li><strong>configuration</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="#hdx.hdx_configuration.Configuration" title="hdx.hdx_configuration.Configuration"><em>Configuration</em></a><em>]</em>) – HDX configuration. Defaults to global configuration.</li>
 </ul>
 </td>
 </tr>
@@ -514,12 +497,12 @@
 <dl class="staticmethod">
 <dt id="hdx.hdx_locations.Locations.set_validlocations">
 <em class="property">static </em><code class="descname">set_validlocations</code><span class="sig-paren">(</span><em>locations</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.hdx_locations.Locations.set_validlocations" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set valid locations using list of dictionaries of form {&#8216;name&#8217;: &#8216;zmb&#8217;, &#8216;title&#8217;, &#8216;Zambia&#8217;}</p>
+<dd><p>Set valid locations using list of dictionaries of form {‘name’: ‘zmb’, ‘title’, ‘Zambia’}</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>locations</strong> (<em>List[Dict]</em>) &#8211; List of dictionaries of form {&#8216;name&#8217;: &#8216;zmb&#8217;, &#8216;title&#8217;, &#8216;Zambia&#8217;}</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>locations</strong> (<em>List</em><em>[</em><em>Dict</em><em>]</em>) – List of dictionaries of form {‘name’: ‘zmb’, ‘title’, ‘Zambia’}</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
@@ -535,7 +518,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>configuration</strong> (<em>Optional[Configuration]</em>) &#8211; HDX configuration. Defaults to global configuration.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>configuration</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="#hdx.hdx_configuration.Configuration" title="hdx.hdx_configuration.Configuration"><em>Configuration</em></a><em>]</em>) – HDX configuration. Defaults to global configuration.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A list of valid locations</td>
 </tr>
@@ -545,42 +528,6 @@
 </table>
 </dd></dl>
 
-</dd></dl>
-
-</div>
-<div class="section" id="module-hdx.hdx_logging">
-<span id="hdx-hdx-logging-module"></span><h2>hdx.hdx_logging module<a class="headerlink" href="#module-hdx.hdx_logging" title="Permalink to this headline">¶</a></h2>
-<p>Configuration of logging</p>
-<dl class="exception">
-<dt id="hdx.hdx_logging.LoggingError">
-<em class="property">exception </em><code class="descclassname">hdx.hdx_logging.</code><code class="descname">LoggingError</code><a class="headerlink" href="#hdx.hdx_logging.LoggingError" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">Exception</span></code></p>
-</dd></dl>
-
-<dl class="function">
-<dt id="hdx.hdx_logging.setup_logging">
-<code class="descclassname">hdx.hdx_logging.</code><code class="descname">setup_logging</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.hdx_logging.setup_logging" title="Permalink to this definition">¶</a></dt>
-<dd><p>Setup logging configuration</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>**kwargs</strong> &#8211; See below</li>
-<li><strong>logging_config_dict</strong> (<em>dict</em>) &#8211; Logging configuration dictionary OR</li>
-<li><strong>logging_config_json</strong> (<em>str</em>) &#8211; Path to JSON Logging configuration OR</li>
-<li><strong>logging_config_yaml</strong> (<em>str</em>) &#8211; Path to YAML Logging configuration. Defaults to internal logging_configuration.yml.</li>
-<li><strong>smtp_config_dict</strong> (<em>dict</em>) &#8211; Email Logging configuration dictionary if using default logging configuration OR</li>
-<li><strong>smtp_config_json</strong> (<em>str</em>) &#8211; Path to JSON Email Logging configuration if using default logging configuration OR</li>
-<li><strong>smtp_config_yaml</strong> (<em>str</em>) &#8211; Path to YAML Email Logging configuration if using default logging configuration</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
-</td>
-</tr>
-</tbody>
-</table>
 </dd></dl>
 
 </div>
@@ -602,7 +549,6 @@
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
 <li><a class="reference internal" href="#module-hdx.hdx_configuration">hdx.hdx_configuration module</a></li>
 <li><a class="reference internal" href="#module-hdx.hdx_locations">hdx.hdx_locations module</a></li>
-<li><a class="reference internal" href="#module-hdx.hdx_logging">hdx.hdx_logging module</a></li>
 <li><a class="reference internal" href="#module-hdx">Module contents</a></li>
 </ul>
 </li>
@@ -619,7 +565,7 @@
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/source/hdx.txt"
+      <li><a href="../_sources/source/hdx.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -641,11 +587,11 @@
       &copy;Michael Rans.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.5</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |
-      <a href="../_sources/source/hdx.txt"
+      <a href="../_sources/source/hdx.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 
