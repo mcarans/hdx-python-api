@@ -82,31 +82,6 @@
 </dd></dl>
 
 <dl class="method">
-<dt id="hdx.data.dataset.Dataset.add_continent_location">
-<code class="descname">add_continent_location</code><span class="sig-paren">(</span><em>continent</em>, <em>locations=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.add_continent_location" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add all countries in a  continent. If a 2 letter continent code is not provided, value is parsed and if it
-is a valid continent name, converted to a 2 letter code. If any country is already added, it is ignored.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>continent</strong> (<em>str</em>) – Continent to add</li>
-<li><strong>locations</strong> (<em>Optional</em><em>[</em><em>List</em><em>[</em><em>str</em><em>]</em><em>]</em>) – Valid locations list. Defaults to list downloaded from HDX.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Returns True if all countries in continent added or False if any already present.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">bool</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
 <dt id="hdx.data.dataset.Dataset.add_country_location">
 <code class="descname">add_country_location</code><span class="sig-paren">(</span><em>country</em>, <em>exact=True</em>, <em>locations=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.add_country_location" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a country. If an iso 3 code is not provided, value is parsed and if it is a valid country name,
@@ -232,7 +207,7 @@ names, converted to iso 3 codes. If any country is already added, it is ignored.
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.add_other_location">
 <code class="descname">add_other_location</code><span class="sig-paren">(</span><em>location</em>, <em>exact=True</em>, <em>alterror=None</em>, <em>locations=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.add_other_location" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add a location which is not a country or continent. Value is parsed and compared to existing locations in
+<dd><p>Add a location which is not a country or region. Value is parsed and compared to existing locations in
 HDX. If the location is already added, it is ignored.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -247,6 +222,31 @@ HDX. If the location is already added, it is ignored.</p>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">True if location added or False if location already present</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">bool</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.dataset.Dataset.add_region_location">
+<code class="descname">add_region_location</code><span class="sig-paren">(</span><em>region</em>, <em>locations=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.add_region_location" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add all countries in a region. If a 3 letter region code is not provided, value is parsed and if it
+is a valid region name, converted to a 3 letter code. If any country is already added, it is ignored.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>region</strong> (<em>str</em>) – Continent to add</li>
+<li><strong>locations</strong> (<em>Optional</em><em>[</em><em>List</em><em>[</em><em>str</em><em>]</em><em>]</em>) – Valid locations list. Defaults to list downloaded from HDX.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Returns True if all countries in region added or False if any already present.</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">bool</p>
@@ -1106,7 +1106,7 @@ vice versa (eg. ‘Every month’ = ‘30’, ‘30’ = ‘Every month’)</p>
 
 <dl class="attribute">
 <dt id="hdx.data.dataset.Dataset.update_frequencies">
-<code class="descname">update_frequencies</code><em class="property"> = {'annually': '365', 'every week': '7', 'quarterly': '90', 'every month': '30', 'every day': '1', 'monthly': '30', 'every other week': '14', '180': 'Every six months', '1': 'Every day', 'semiyearly': '180', 'live': '0', 'fortnightly': '14', 'adhoc': '-2', 'every year': '365', 'yearly': '365', 'daily': '1', '14': 'Every two weeks', 'every six months': '180', '90': 'Every three months', 'weekly': '7', '7': 'Every week', '-1': 'Never', '0': 'Live', 'every two weeks': '14', 'semiannually': '180', '-2': 'Adhoc', '365': 'Every year', '30': 'Every month', 'every three months': '90', 'never': '-1'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
+<code class="descname">update_frequencies</code><em class="property"> = {'every other week': '14', 'live': '0', '14': 'Every two weeks', 'every month': '30', '-2': 'Adhoc', 'weekly': '7', '30': 'Every month', 'every six months': '180', '90': 'Every three months', 'every two weeks': '14', '1': 'Every day', 'never': '-1', '-1': 'Never', 'quarterly': '90', '0': 'Live', 'every three months': '90', 'adhoc': '-2', 'yearly': '365', 'semiannually': '180', 'every day': '1', '7': 'Every week', 'every year': '365', 'every week': '7', '180': 'Every six months', '365': 'Every year', 'daily': '1', 'fortnightly': '14', 'semiyearly': '180', 'monthly': '30', 'annually': '365'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
