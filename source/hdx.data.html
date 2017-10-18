@@ -234,14 +234,14 @@ HDX. If the location is already added, it is ignored.</p>
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.add_region_location">
 <code class="descname">add_region_location</code><span class="sig-paren">(</span><em>region</em>, <em>locations=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.add_region_location" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add all countries in a region. If a 3 letter region code is not provided, value is parsed and if it
-is a valid region name, converted to a 3 letter code. If any country is already added, it is ignored.</p>
+<dd><p>Add all countries in a region. If a 3 digit UNStats M49 region code is not provided, value is parsed as a
+region name. If any country is already added, it is ignored.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>region</strong> (<em>str</em>) – Continent to add</li>
+<li><strong>region</strong> (<em>str</em>) – M49 region, intermediate region or subregion to add</li>
 <li><strong>locations</strong> (<em>Optional</em><em>[</em><em>List</em><em>[</em><em>str</em><em>]</em><em>]</em>) – Valid locations list. Defaults to list downloaded from HDX.</li>
 </ul>
 </td>
@@ -1106,7 +1106,7 @@ vice versa (eg. ‘Every month’ = ‘30’, ‘30’ = ‘Every month’)</p>
 
 <dl class="attribute">
 <dt id="hdx.data.dataset.Dataset.update_frequencies">
-<code class="descname">update_frequencies</code><em class="property"> = {'every other week': '14', 'live': '0', '14': 'Every two weeks', 'every month': '30', '-2': 'Adhoc', 'weekly': '7', '30': 'Every month', 'every six months': '180', '90': 'Every three months', 'every two weeks': '14', '1': 'Every day', 'never': '-1', '-1': 'Never', 'quarterly': '90', '0': 'Live', 'every three months': '90', 'adhoc': '-2', 'yearly': '365', 'semiannually': '180', 'every day': '1', '7': 'Every week', 'every year': '365', 'every week': '7', '180': 'Every six months', '365': 'Every year', 'daily': '1', 'fortnightly': '14', 'semiyearly': '180', 'monthly': '30', 'annually': '365'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
+<code class="descname">update_frequencies</code><em class="property"> = {'monthly': '30', 'fortnightly': '14', '7': 'Every week', 'adhoc': '-2', 'semiyearly': '180', 'semiannually': '180', 'annually': '365', 'every three months': '90', '1': 'Every day', 'never': '-1', '-1': 'Never', '180': 'Every six months', 'every two weeks': '14', 'every six months': '180', 'every year': '365', 'every other week': '14', '90': 'Every three months', '0': 'Live', '-2': 'Adhoc', 'every day': '1', 'every month': '30', 'live': '0', 'weekly': '7', '365': 'Every year', 'yearly': '365', 'quarterly': '90', 'daily': '1', '14': 'Every two weeks', 'every week': '7', '30': 'Every month'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
