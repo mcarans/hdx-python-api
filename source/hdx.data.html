@@ -135,7 +135,7 @@ names, converted to iso 3 codes. If any country is already added, it is ignored.
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.add_fieldname">
 <code class="descname">add_fieldname</code><span class="sig-paren">(</span><em>fieldname</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.add_fieldname" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add a fieldname to list of fieldnames in your data</p>
+<dd><p>Add a fieldname to list of fieldnames in your data. Only applicable to requestable datasets.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -153,7 +153,7 @@ names, converted to iso 3 codes. If any country is already added, it is ignored.
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.add_fieldnames">
 <code class="descname">add_fieldnames</code><span class="sig-paren">(</span><em>fieldnames</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.add_fieldnames" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add a list of fieldnames to list of fieldnames in your data</p>
+<dd><p>Add a list of fieldnames to list of fieldnames in your data. Only applicable to requestable datasets.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -171,7 +171,7 @@ names, converted to iso 3 codes. If any country is already added, it is ignored.
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.add_filetype">
 <code class="descname">add_filetype</code><span class="sig-paren">(</span><em>filetype</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.add_filetype" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add a filetype to list of filetypes in your data</p>
+<dd><p>Add a filetype to list of filetypes in your data. Only applicable to requestable datasets.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -189,7 +189,7 @@ names, converted to iso 3 codes. If any country is already added, it is ignored.
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.add_filetypes">
 <code class="descname">add_filetypes</code><span class="sig-paren">(</span><em>filetypes</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.add_filetypes" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add a list of filetypes to list of filetypes in your data</p>
+<dd><p>Add a list of filetypes to list of filetypes in your data. Only applicable to requestable datasets.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -627,7 +627,7 @@ If no format is supplied, an ISO 8601 string is returned.</p>
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.get_fieldnames">
 <code class="descname">get_fieldnames</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.get_fieldnames" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return list of fieldnames in your data</p>
+<dd><p>Return list of fieldnames in your data. Only applicable to requestable datasets.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -648,7 +648,7 @@ If no format is supplied, an ISO 8601 string is returned.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Returns list of field names</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Returns list of filetypes</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">List[str]</td>
 </tr>
@@ -701,20 +701,6 @@ If no format is supplied, an ISO 8601 string is returned.</p>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Returns dataset’s organization</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#hdx.data.organization.Organization" title="hdx.data.organization.Organization">Organization</a></td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="hdx.data.dataset.Dataset.get_requestable">
-<code class="descname">get_requestable</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.get_requestable" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get whether the dataset is requestable or not</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">bool</td>
 </tr>
 </tbody>
 </table>
@@ -796,6 +782,22 @@ If no format is supplied, an ISO 8601 string is returned.</p>
 </table>
 </dd></dl>
 
+<dl class="method">
+<dt id="hdx.data.dataset.Dataset.is_requestable">
+<code class="descname">is_requestable</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.is_requestable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether the dataset is requestable or not</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Returns whether the dataset is requestable or not</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 <dl class="staticmethod">
 <dt id="hdx.data.dataset.Dataset.read_from_hdx">
 <em class="property">static </em><code class="descname">read_from_hdx</code><span class="sig-paren">(</span><em>identifier</em>, <em>configuration=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.read_from_hdx" title="Permalink to this definition">¶</a></dt>
@@ -823,7 +825,7 @@ If no format is supplied, an ISO 8601 string is returned.</p>
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.remove_fieldname">
 <code class="descname">remove_fieldname</code><span class="sig-paren">(</span><em>fieldname</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.remove_fieldname" title="Permalink to this definition">¶</a></dt>
-<dd><p>Remove a fieldname</p>
+<dd><p>Remove a fieldname. Only applicable to requestable datasets.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -846,7 +848,7 @@ If no format is supplied, an ISO 8601 string is returned.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>filetype</strong> (<em>str</em>) – Fieldname to remove</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>filetype</strong> (<em>str</em>) – Filetype to remove</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if filetype removed or False if not</td>
 </tr>
@@ -1106,7 +1108,7 @@ vice versa (eg. ‘Every month’ = ‘30’, ‘30’ = ‘Every month’)</p>
 
 <dl class="attribute">
 <dt id="hdx.data.dataset.Dataset.update_frequencies">
-<code class="descname">update_frequencies</code><em class="property"> = {'monthly': '30', 'fortnightly': '14', '7': 'Every week', 'adhoc': '-2', 'semiyearly': '180', 'semiannually': '180', 'annually': '365', 'every three months': '90', '1': 'Every day', 'never': '-1', '-1': 'Never', '180': 'Every six months', 'every two weeks': '14', 'every six months': '180', 'every year': '365', 'every other week': '14', '90': 'Every three months', '0': 'Live', '-2': 'Adhoc', 'every day': '1', 'every month': '30', 'live': '0', 'weekly': '7', '365': 'Every year', 'yearly': '365', 'quarterly': '90', 'daily': '1', '14': 'Every two weeks', 'every week': '7', '30': 'Every month'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
+<code class="descname">update_frequencies</code><em class="property"> = {'annually': '365', 'yearly': '365', '180': 'Every six months', 'daily': '1', '30': 'Every month', 'every year': '365', '-1': 'Never', '365': 'Every year', 'adhoc': '-2', 'every month': '30', 'semiyearly': '180', 'every two weeks': '14', 'every day': '1', '1': 'Every day', 'weekly': '7', '-2': 'Adhoc', 'semiannually': '180', 'monthly': '30', 'every other week': '14', 'fortnightly': '14', '0': 'Live', '90': 'Every three months', 'quarterly': '90', '7': 'Every week', 'every six months': '180', 'every three months': '90', '14': 'Every two weeks', 'never': '-1', 'every week': '7', 'live': '0'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -1157,6 +1159,12 @@ vice versa (eg. ‘Every month’ = ‘30’, ‘30’ = ‘Every month’)</p>
 </table>
 </dd></dl>
 
+</dd></dl>
+
+<dl class="exception">
+<dt id="hdx.data.dataset.NotRequestableError">
+<em class="property">exception </em><code class="descclassname">hdx.data.dataset.</code><code class="descname">NotRequestableError</code><a class="headerlink" href="#hdx.data.dataset.NotRequestableError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#hdx.data.hdxobject.HDXError" title="hdx.data.hdxobject.HDXError"><code class="xref py py-class docutils literal"><span class="pre">hdx.data.hdxobject.HDXError</span></code></a></p>
 </dd></dl>
 
 </div>
@@ -1898,6 +1906,22 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 </table>
 </dd></dl>
 
+<dl class="method">
+<dt id="hdx.data.resource.Resource.get_file_type">
+<code class="descname">get_file_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.get_file_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the resource’s file type</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Returns the resource’s file type or None if it has not been set</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Optional[str]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 <dl class="staticmethod">
 <dt id="hdx.data.resource.Resource.read_from_hdx">
 <em class="property">static </em><code class="descname">read_from_hdx</code><span class="sig-paren">(</span><em>identifier</em>, <em>configuration=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.read_from_hdx" title="Permalink to this definition">¶</a></dt>
@@ -1959,6 +1983,22 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>file_to_upload</strong> (<em>str</em>) – Local path to file to upload</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.resource.Resource.set_file_type">
+<code class="descname">set_file_type</code><span class="sig-paren">(</span><em>file_type</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.set_file_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the resource’s file type</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>file_type</strong> (<em>str</em>) – resource’s file type</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
