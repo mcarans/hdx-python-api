@@ -83,7 +83,7 @@
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.add_country_location">
-<code class="descname">add_country_location</code><span class="sig-paren">(</span><em>country</em>, <em>exact=True</em>, <em>locations=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.add_country_location" title="Permalink to this definition">¶</a></dt>
+<code class="descname">add_country_location</code><span class="sig-paren">(</span><em>country</em>, <em>exact=True</em>, <em>locations=None</em>, <em>use_live=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.add_country_location" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a country. If an iso 3 code is not provided, value is parsed and if it is a valid country name,
 converted to an iso 3 code. If the country is already added, it is ignored.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -94,6 +94,7 @@ converted to an iso 3 code. If the country is already added, it is ignored.</p>
 <li><strong>country</strong> (<em>str</em>) – Country to add</li>
 <li><strong>exact</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – True for exact matching or False to allow fuzzy matching. Defaults to True.</li>
 <li><strong>locations</strong> (<em>Optional</em><em>[</em><em>List</em><em>[</em><em>str</em><em>]</em><em>]</em>) – Valid locations list. Defaults to list downloaded from HDX.</li>
+<li><strong>use_live</strong> (<em>bool</em>) – Try to get use latest country data from web rather than file in package. Defaults to True.</li>
 </ul>
 </td>
 </tr>
@@ -109,7 +110,7 @@ converted to an iso 3 code. If the country is already added, it is ignored.</p>
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.add_country_locations">
-<code class="descname">add_country_locations</code><span class="sig-paren">(</span><em>countries</em>, <em>locations=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.add_country_locations" title="Permalink to this definition">¶</a></dt>
+<code class="descname">add_country_locations</code><span class="sig-paren">(</span><em>countries</em>, <em>locations=None</em>, <em>use_live=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.add_country_locations" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a list of countries. If iso 3 codes are not provided, values are parsed and where they are valid country
 names, converted to iso 3 codes. If any country is already added, it is ignored.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -119,10 +120,11 @@ names, converted to iso 3 codes. If any country is already added, it is ignored.
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>countries</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – list of countries to add</li>
 <li><strong>locations</strong> (<em>Optional</em><em>[</em><em>List</em><em>[</em><em>str</em><em>]</em><em>]</em>) – Valid locations list. Defaults to list downloaded from HDX.</li>
+<li><strong>use_live</strong> (<em>bool</em>) – Try to get use latest country data from web rather than file in package. Defaults to True.</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Returns True if all countries added or False if any already present.</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">True if all countries added or False if any already present.</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">bool</p>
@@ -160,7 +162,7 @@ names, converted to iso 3 codes. If any country is already added, it is ignored.
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>fieldnames</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – list of fieldnames to add</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Returns True if all fieldnames added or False if any already present</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if all fieldnames added or False if any already present</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
 </tr>
@@ -196,7 +198,7 @@ names, converted to iso 3 codes. If any country is already added, it is ignored.
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>filetypes</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – list of filetypes to add</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Returns True if all filetypes added or False if any already present</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if all filetypes added or False if any already present</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
 </tr>
@@ -233,7 +235,7 @@ HDX. If the location is already added, it is ignored.</p>
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.add_region_location">
-<code class="descname">add_region_location</code><span class="sig-paren">(</span><em>region</em>, <em>locations=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.add_region_location" title="Permalink to this definition">¶</a></dt>
+<code class="descname">add_region_location</code><span class="sig-paren">(</span><em>region</em>, <em>locations=None</em>, <em>use_live=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.add_region_location" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add all countries in a region. If a 3 digit UNStats M49 region code is not provided, value is parsed as a
 region name. If any country is already added, it is ignored.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -243,10 +245,11 @@ region name. If any country is already added, it is ignored.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>region</strong> (<em>str</em>) – M49 region, intermediate region or subregion to add</li>
 <li><strong>locations</strong> (<em>Optional</em><em>[</em><em>List</em><em>[</em><em>str</em><em>]</em><em>]</em>) – Valid locations list. Defaults to list downloaded from HDX.</li>
+<li><strong>use_live</strong> (<em>bool</em>) – Try to get use latest country data from web rather than file in package. Defaults to True.</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Returns True if all countries in region added or False if any already present.</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">True if all countries in region added or False if any already present.</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">bool</p>
@@ -294,7 +297,7 @@ region name. If any country is already added, it is ignored.</p>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Returns True if all showcases added or False if any already present</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">True if all showcases added or False if any already present</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">bool</p>
@@ -332,7 +335,7 @@ region name. If any country is already added, it is ignored.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tags</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – list of tags to add</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Returns True if all tags added or False if any already present.</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if all tags added or False if any already present.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
 </tr>
@@ -478,9 +481,9 @@ should be set if required to any fields that should be ignored for the particula
 </table>
 </dd></dl>
 
-<dl class="staticmethod">
+<dl class="classmethod">
 <dt id="hdx.data.dataset.Dataset.get_all_datasets">
-<em class="property">static </em><code class="descname">get_all_datasets</code><span class="sig-paren">(</span><em>configuration=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.get_all_datasets" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="descname">get_all_datasets</code><span class="sig-paren">(</span><em>configuration=None</em>, <em>page_size=1000</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.get_all_datasets" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get all datasets in HDX</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -488,8 +491,9 @@ should be set if required to any fields that should be ignored for the particula
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>configuration</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="hdx.html#hdx.hdx_configuration.Configuration" title="hdx.hdx_configuration.Configuration"><em>Configuration</em></a><em>]</em>) – HDX configuration. Defaults to global configuration.</li>
+<li><strong>page_size</strong> (<em>int</em>) – Size of page to return. Defaults to 1000.</li>
 <li><strong>**kwargs</strong> – See below</li>
-<li><strong>limit</strong> (<em>int</em>) – Number of rows to return. Defaults to all datasets (sys.maxsize).</li>
+<li><strong>limit</strong> (<em>int</em>) – Number of rows to return. Defaults to all datasets (sys.maxsize)</li>
 <li><strong>offset</strong> (<em>int</em>) – Offset in the complete result for where the set of returned datasets should begin</li>
 </ul>
 </td>
@@ -632,7 +636,7 @@ If no format is supplied, an ISO 8601 string is returned.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Returns list of field names</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">List of field names</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">List[str]</td>
 </tr>
@@ -648,7 +652,7 @@ If no format is supplied, an ISO 8601 string is returned.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Returns list of filetypes</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">List of filetypes</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">List[str]</td>
 </tr>
@@ -682,7 +686,7 @@ If no format is supplied, an ISO 8601 string is returned.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Returns dataset’s maintainer</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Dataset’s maintainer</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#hdx.data.user.User" title="hdx.data.user.User">User</a></td>
 </tr>
@@ -698,7 +702,7 @@ If no format is supplied, an ISO 8601 string is returned.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Returns dataset’s organization</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Dataset’s organization</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#hdx.data.organization.Organization" title="hdx.data.organization.Organization">Organization</a></td>
 </tr>
@@ -790,13 +794,23 @@ If no format is supplied, an ISO 8601 string is returned.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Returns whether the dataset is requestable or not</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Whether the dataset is requestable or not</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
+
+<dl class="attribute">
+<dt id="hdx.data.dataset.Dataset.max_attempts">
+<code class="descname">max_attempts</code><em class="property"> = 5</em><a class="headerlink" href="#hdx.data.dataset.Dataset.max_attempts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="hdx.data.dataset.Dataset.max_int">
+<code class="descname">max_int</code><em class="property"> = 9223372036854775807</em><a class="headerlink" href="#hdx.data.dataset.Dataset.max_int" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="staticmethod">
 <dt id="hdx.data.dataset.Dataset.read_from_hdx">
@@ -910,9 +924,9 @@ If no format is supplied, an ISO 8601 string is returned.</p>
 </table>
 </dd></dl>
 
-<dl class="staticmethod">
+<dl class="classmethod">
 <dt id="hdx.data.dataset.Dataset.search_in_hdx">
-<em class="property">static </em><code class="descname">search_in_hdx</code><span class="sig-paren">(</span><em>query='*:*'</em>, <em>configuration=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.search_in_hdx" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="descname">search_in_hdx</code><span class="sig-paren">(</span><em>query='*:*'</em>, <em>configuration=None</em>, <em>page_size=1000</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.search_in_hdx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Searches for datasets in HDX</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -921,6 +935,7 @@ If no format is supplied, an ISO 8601 string is returned.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>query</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Query (in Solr format). Defaults to ‘<em>:</em>’.</li>
 <li><strong>configuration</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="hdx.html#hdx.hdx_configuration.Configuration" title="hdx.hdx_configuration.Configuration"><em>Configuration</em></a><em>]</em>) – HDX configuration. Defaults to global configuration.</li>
+<li><strong>page_size</strong> (<em>int</em>) – Size of page to return. Defaults to 1000.</li>
 <li><strong>**kwargs</strong> – See below</li>
 <li><strong>fq</strong> (<em>string</em>) – Any filter queries to apply</li>
 <li><strong>sort</strong> (<em>string</em>) – Sorting of the search results. Defaults to ‘relevance asc, metadata_modified desc’.</li>
@@ -1108,7 +1123,7 @@ vice versa (eg. ‘Every month’ = ‘30’, ‘30’ = ‘Every month’)</p>
 
 <dl class="attribute">
 <dt id="hdx.data.dataset.Dataset.update_frequencies">
-<code class="descname">update_frequencies</code><em class="property"> = {'never': '-1', 'quarterly': '90', '180': 'Every six months', 'every day': '1', '-1': 'Never', '365': 'Every year', 'live': '0', 'daily': '1', 'every other week': '14', 'adhoc': '-2', 'weekly': '7', 'every year': '365', '0': 'Live', 'every two weeks': '14', '30': 'Every month', '1': 'Every day', '-2': 'Adhoc', 'monthly': '30', 'annually': '365', 'every week': '7', 'fortnightly': '14', 'semiannually': '180', '90': 'Every three months', 'yearly': '365', '7': 'Every week', '14': 'Every two weeks', 'every three months': '90', 'every month': '30', 'every six months': '180', 'semiyearly': '180'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
+<code class="descname">update_frequencies</code><em class="property"> = {'monthly': '30', '1': 'Every day', '30': 'Every month', 'semiyearly': '180', 'annually': '365', '180': 'Every six months', '7': 'Every week', 'fortnightly': '14', 'daily': '1', 'yearly': '365', 'every month': '30', 'every year': '365', '0': 'Live', 'every six months': '180', 'semiannually': '180', 'every week': '7', 'every three months': '90', '90': 'Every three months', 'live': '0', 'weekly': '7', 'every other week': '14', '-2': 'Adhoc', 'adhoc': '-2', 'every two weeks': '14', '14': 'Every two weeks', '-1': 'Never', '365': 'Every year', 'quarterly': '90', 'never': '-1', 'every day': '1'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -1543,7 +1558,7 @@ be set if required to any fields that should be ignored for the particular opera
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>capacity</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Filter by capacity eg. member, admin. Defaults to None.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Returns the organization’s users.</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Organization’s users.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">List[<a class="reference internal" href="#hdx.data.user.User" title="hdx.data.user.User">User</a>]</td>
 </tr>
@@ -1914,7 +1929,7 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Returns the resource’s file type or None if it has not been set</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Resource’s file type or None if it has not been set</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Optional[str]</td>
 </tr>
@@ -2252,7 +2267,7 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Returns True if all datasets added or False if any already present</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">True if all datasets added or False if any already present</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">bool</p>
@@ -2290,7 +2305,7 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tags</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – List of tags to add</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Returns True if all tags added or False if any already present.</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if all tags added or False if any already present.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
 </tr>
