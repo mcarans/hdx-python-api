@@ -409,15 +409,21 @@ should be set if required to any fields that should be ignored for the particula
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.create_in_hdx">
-<code class="descname">create_in_hdx</code><span class="sig-paren">(</span><em>allow_no_resources=False</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.create_in_hdx" title="Permalink to this definition">¶</a></dt>
+<code class="descname">create_in_hdx</code><span class="sig-paren">(</span><em>allow_no_resources=False</em>, <em>update_resources=True</em>, <em>update_resources_by_name=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.create_in_hdx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check if dataset exists in HDX and if so, update it, otherwise create it</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>allow_no_resources</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – Whether to allow no resources. Defaults to False.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>allow_no_resources</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – Whether to allow no resources. Defaults to False.</li>
+<li><strong>update_resources</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – Whether to update resources (if updating). Defaults to True.</li>
+<li><strong>update_resources_by_name</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – Compare resource names rather than position in list. Defaults to True.</li>
+</ul>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -439,17 +445,23 @@ should be set if required to any fields that should be ignored for the particula
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.delete_resource">
-<code class="descname">delete_resource</code><span class="sig-paren">(</span><em>resource</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.delete_resource" title="Permalink to this definition">¶</a></dt>
-<dd><p>Delete a resource from the dataset</p>
+<code class="descname">delete_resource</code><span class="sig-paren">(</span><em>resource</em>, <em>delete=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.delete_resource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete a resource from the dataset and also from HDX by default</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>resource</strong> (<em>Union</em><em>[</em><a class="reference internal" href="#hdx.data.resource.Resource" title="hdx.data.resource.Resource"><em>hdx.data.resource.Resource</em></a><em>,</em><em>Dict</em><em>,</em><em>str</em><em>]</em>) – Either resource id or resource metadata from a Resource object or a dictionary</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>resource</strong> (<em>Union</em><em>[</em><a class="reference internal" href="#hdx.data.resource.Resource" title="hdx.data.resource.Resource"><em>hdx.data.resource.Resource</em></a><em>,</em><em>Dict</em><em>,</em><em>str</em><em>]</em>) – Either resource id or resource metadata from a Resource object or a dictionary</li>
+<li><strong>delete</strong> (<em>bool</em>) – Whetehr to delete the resource from HDX (not just the dataset). Defaults to True.</li>
+</ul>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if resource removed or False if not</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">True if resource removed or False if not</p>
+</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">bool</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -705,6 +717,24 @@ If no format is supplied, an ISO 8601 string is returned.</p>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Dataset’s organization</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#hdx.data.organization.Organization" title="hdx.data.organization.Organization">Organization</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.dataset.Dataset.get_resource">
+<code class="descname">get_resource</code><span class="sig-paren">(</span><em>index=0</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.get_resource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get one resource from dataset by index</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>index</strong> (<em>int</em>) – Index of resource in dataset. Defaults to 0.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Resource object</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#hdx.data.resource.Resource" title="hdx.data.resource.Resource">hdx.data.resource.Resource</a></td>
 </tr>
 </tbody>
 </table>
@@ -1123,7 +1153,7 @@ vice versa (eg. ‘Every month’ = ‘30’, ‘30’ = ‘Every month’)</p>
 
 <dl class="attribute">
 <dt id="hdx.data.dataset.Dataset.update_frequencies">
-<code class="descname">update_frequencies</code><em class="property"> = {'monthly': '30', '1': 'Every day', '30': 'Every month', 'semiyearly': '180', 'annually': '365', '180': 'Every six months', '7': 'Every week', 'fortnightly': '14', 'daily': '1', 'yearly': '365', 'every month': '30', 'every year': '365', '0': 'Live', 'every six months': '180', 'semiannually': '180', 'every week': '7', 'every three months': '90', '90': 'Every three months', 'live': '0', 'weekly': '7', 'every other week': '14', '-2': 'Adhoc', 'adhoc': '-2', 'every two weeks': '14', '14': 'Every two weeks', '-1': 'Never', '365': 'Every year', 'quarterly': '90', 'never': '-1', 'every day': '1'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
+<code class="descname">update_frequencies</code><em class="property"> = {'-1': 'Never', 'monthly': '30', 'every day': '1', 'every week': '7', 'every month': '30', '365': 'Every year', '1': 'Every day', 'every three months': '90', '0': 'Live', '30': 'Every month', 'semiannually': '180', 'live': '0', 'every year': '365', 'weekly': '7', 'every six months': '180', 'annually': '365', '7': 'Every week', 'yearly': '365', '-2': 'Adhoc', 'daily': '1', '180': 'Every six months', 'every other week': '14', 'adhoc': '-2', 'fortnightly': '14', 'every two weeks': '14', 'never': '-1', 'semiyearly': '180', 'quarterly': '90', '14': 'Every two weeks', '90': 'Every three months'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -1160,15 +1190,20 @@ vice versa (eg. ‘Every month’ = ‘30’, ‘30’ = ‘Every month’)</p>
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.update_in_hdx">
-<code class="descname">update_in_hdx</code><span class="sig-paren">(</span><em>update_resources=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.update_in_hdx" title="Permalink to this definition">¶</a></dt>
+<code class="descname">update_in_hdx</code><span class="sig-paren">(</span><em>update_resources=True</em>, <em>update_resources_by_name=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.update_in_hdx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check if dataset exists in HDX and if so, update it</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>update_resources</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – Whether to update resources. Defaults to True.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>update_resources</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – Whether to update resources. Defaults to True.</li>
+<li><strong>update_resources_by_name</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – Compare resource names rather than position in list. Defaults to True.</li>
+</ul>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -1400,9 +1435,9 @@ be set if required to any fields that should be ignored for the particular opera
 <dl class="method">
 <dt id="hdx.data.organization.Organization.add_update_user">
 <code class="descname">add_update_user</code><span class="sig-paren">(</span><em>user</em>, <em>capacity=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.organization.Organization.add_update_user" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add new or update existing users item in organization with new metadata. Capacity eg. member, admin
+<dd><p>Add new or update existing user in organization with new metadata. Capacity eg. member, admin
 must be supplied either within the User object or dictionary or using the capacity argument (which takes
-precedence)</p>
+precedence).</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1423,7 +1458,9 @@ precedence)</p>
 <dl class="method">
 <dt id="hdx.data.organization.Organization.add_update_users">
 <code class="descname">add_update_users</code><span class="sig-paren">(</span><em>users</em>, <em>capacity=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.organization.Organization.add_update_users" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add new or update existing users items with new metadata to the organization</p>
+<dd><p>Add new or update existing users in organization with new metadata. Capacity eg. member, admin
+must be supplied either within the User object or dictionary or using the capacity argument (which takes
+precedence).</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1694,6 +1731,38 @@ be set if required to any fields that should be ignored for the particular opera
 </dd></dl>
 
 <dl class="method">
+<dt id="hdx.data.resource.Resource.add_update_resource_view">
+<code class="descname">add_update_resource_view</code><span class="sig-paren">(</span><em>resource_view</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.add_update_resource_view" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add new resource view in resource with new metadata</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>resource_view</strong> (<em>Union</em><em>[</em><em>ResourceView</em><em>,</em><em>Dict</em><em>]</em>) – Resource view metadata either from a ResourceView object or a dictionary</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.resource.Resource.add_update_resource_views">
+<code class="descname">add_update_resource_views</code><span class="sig-paren">(</span><em>resource_views</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.add_update_resource_views" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add new or update existing resource views in resource with new metadata.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>resource_views</strong> (<em>List</em><em>[</em><em>Union</em><em>[</em><em>ResourceView</em><em>,</em><em>Dict</em><em>]</em><em>]</em>) – A list of resource views metadata from ResourceView objects or dictionaries</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="hdx.data.resource.Resource.check_required_fields">
 <code class="descname">check_required_fields</code><span class="sig-paren">(</span><em>ignore_fields=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.check_required_fields" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check that metadata for resource is complete and add resource_type and url_type if not supplied.
@@ -1872,6 +1941,22 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="hdx.data.resource.Resource.delete_resource_view">
+<code class="descname">delete_resource_view</code><span class="sig-paren">(</span><em>resource_view</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.delete_resource_view" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete a resource view from the resource and HDX</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>resource_view</strong> (<em>Union</em><em>[</em><em>ResourceView</em><em>,</em><em>Dict</em><em>,</em><em>str</em><em>]</em>) – Either a resource view id or resource view metadata either from a ResourceView object or a dictionary</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="hdx.data.resource.Resource.download">
 <code class="descname">download</code><span class="sig-paren">(</span><em>folder=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.download" title="Permalink to this definition">¶</a></dt>
 <dd><p>Download resource store to provided folder or temporary folder if no folder supplied</p>
@@ -1937,6 +2022,22 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 </table>
 </dd></dl>
 
+<dl class="method">
+<dt id="hdx.data.resource.Resource.get_resource_views">
+<code class="descname">get_resource_views</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.get_resource_views" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get any resource views in the resource</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">List of resource views</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">List[ResourceView]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 <dl class="staticmethod">
 <dt id="hdx.data.resource.Resource.read_from_hdx">
 <em class="property">static </em><code class="descname">read_from_hdx</code><span class="sig-paren">(</span><em>identifier</em>, <em>configuration=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.read_from_hdx" title="Permalink to this definition">¶</a></dt>
@@ -1956,6 +2057,22 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Optional[<a class="reference internal" href="#hdx.data.resource.Resource" title="hdx.data.resource.Resource">Resource</a>]</p>
 </td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.resource.Resource.reorder_resource_views">
+<code class="descname">reorder_resource_views</code><span class="sig-paren">(</span><em>resource_views</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.reorder_resource_views" title="Permalink to this definition">¶</a></dt>
+<dd><p>Order resource views in resource.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>resource_views</strong> (<em>List</em><em>[</em><em>Union</em><em>[</em><em>ResourceView</em><em>,</em><em>Dict</em><em>,</em><em>str</em><em>]</em><em>]</em>) – A list of either resource view ids or resource views metadata from ResourceView objects or dictionaries</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
 </tbody>
 </table>
@@ -2797,7 +2914,7 @@ be set if required to any fields that should be ignored for the particular opera
       &copy;Michael Rans.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.4</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.5</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |
