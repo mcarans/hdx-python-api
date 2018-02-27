@@ -954,6 +954,25 @@ If no format is supplied, an ISO 8601 string is returned.</p>
 </table>
 </dd></dl>
 
+<dl class="method">
+<dt id="hdx.data.dataset.Dataset.reorder_resources">
+<code class="descname">reorder_resources</code><span class="sig-paren">(</span><em>resource_ids</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.reorder_resources" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reorder resources in dataset according to provided list.
+If only some resource ids are supplied then these are
+assumed to be first and the other resources will stay in
+their original order.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>resource_ids</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – List of resource ids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 <dl class="classmethod">
 <dt id="hdx.data.dataset.Dataset.search_in_hdx">
 <em class="property">classmethod </em><code class="descname">search_in_hdx</code><span class="sig-paren">(</span><em>query='*:*'</em>, <em>configuration=None</em>, <em>page_size=1000</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.search_in_hdx" title="Permalink to this definition">¶</a></dt>
@@ -1153,7 +1172,7 @@ vice versa (eg. ‘Every month’ = ‘30’, ‘30’ = ‘Every month’)</p>
 
 <dl class="attribute">
 <dt id="hdx.data.dataset.Dataset.update_frequencies">
-<code class="descname">update_frequencies</code><em class="property"> = {'-1': 'Never', 'monthly': '30', 'every day': '1', 'every week': '7', 'every month': '30', '365': 'Every year', '1': 'Every day', 'every three months': '90', '0': 'Live', '30': 'Every month', 'semiannually': '180', 'live': '0', 'every year': '365', 'weekly': '7', 'every six months': '180', 'annually': '365', '7': 'Every week', 'yearly': '365', '-2': 'Adhoc', 'daily': '1', '180': 'Every six months', 'every other week': '14', 'adhoc': '-2', 'fortnightly': '14', 'every two weeks': '14', 'never': '-1', 'semiyearly': '180', 'quarterly': '90', '14': 'Every two weeks', '90': 'Every three months'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
+<code class="descname">update_frequencies</code><em class="property"> = {'semiannually': '180', '0': 'Live', 'adhoc': '-2', '14': 'Every two weeks', 'quarterly': '90', 'never': '-1', 'every week': '7', 'semiyearly': '180', 'yearly': '365', '7': 'Every week', 'daily': '1', '1': 'Every day', 'every day': '1', 'weekly': '7', 'every other week': '14', 'fortnightly': '14', 'every three months': '90', 'live': '0', '365': 'Every year', '90': 'Every three months', 'every year': '365', 'every month': '30', '-1': 'Never', '-2': 'Adhoc', 'every two weeks': '14', 'every six months': '180', '30': 'Every month', 'annually': '365', '180': 'Every six months', 'monthly': '30'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">

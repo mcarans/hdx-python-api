@@ -125,7 +125,7 @@
 
 <dl class="classmethod">
 <dt id="hdx.hdx_configuration.Configuration.create">
-<em class="property">classmethod </em><code class="descname">create</code><span class="sig-paren">(</span><em>configuration=None</em>, <em>remoteckan=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.hdx_configuration.Configuration.create" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="descname">create</code><span class="sig-paren">(</span><em>configuration=None</em>, <em>user_agent=None</em>, <em>user_agent_config_yaml=None</em>, <em>remoteckan=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.hdx_configuration.Configuration.create" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create HDX configuration. Can only be called once (will raise an error if called more than once).</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -133,6 +133,8 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>configuration</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="#hdx.hdx_configuration.Configuration" title="hdx.hdx_configuration.Configuration"><em>Configuration</em></a><em>]</em>) – Configuration instance. Defaults to setting one up from passed arguments.</li>
+<li><strong>user_agent</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – User agent string. HDXPythonLibrary/X.X.X- is prefixed. Must be supplied if remoteckan is not.</li>
+<li><strong>user_agent_config_yaml</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Path to YAML user agent configuration. Ignored if user_agent supplied. Defaults to ~/.useragent.yml.</li>
 <li><strong>remoteckan</strong> (<em>Optional</em><em>[</em><em>ckanapi.RemoteCKAN</em><em>]</em>) – CKAN instance. Defaults to setting one up from configuration.</li>
 <li><strong>**kwargs</strong> – See below</li>
 <li><strong>hdx_site</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – HDX site to use eg. prod, test. Defaults to test.</li>
@@ -158,19 +160,27 @@
 </table>
 </dd></dl>
 
-<dl class="method">
+<dl class="staticmethod">
 <dt id="hdx.hdx_configuration.Configuration.create_remoteckan">
-<code class="descname">create_remoteckan</code><span class="sig-paren">(</span><em>session=&lt;requests.sessions.Session object&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.hdx_configuration.Configuration.create_remoteckan" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">create_remoteckan</code><span class="sig-paren">(</span><em>site_url</em>, <em>user_agent</em>, <em>user_agent_config_yaml</em>, <em>session=&lt;requests.sessions.Session object&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.hdx_configuration.Configuration.create_remoteckan" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create remote CKAN instance from configuration</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> – requests Session object to use. Defaults to calling hdx.utilities.session.get_session()</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>site_url</strong> (<em>str</em>) – Site url.</li>
+<li><strong>user_agent</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – User agent string. HDXPythonLibrary/X.X.X- is prefixed.</li>
+<li><strong>user_agent_config_yaml</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Path to YAML user agent configuration. Ignored if user_agent supplied. Defaults to ~/.useragent.yml.</li>
+<li><strong>session</strong> (<em>requests.Session</em>) – requests Session object to use. Defaults to calling hdx.utilities.session.get_session()</li>
+</ul>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Remote CKAN instance</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Remote CKAN instance</p>
+</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">ckanapi.RemoteCKAN</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ckanapi.RemoteCKAN</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -179,6 +189,11 @@
 <dl class="attribute">
 <dt id="hdx.hdx_configuration.Configuration.default_hdx_key_file">
 <code class="descname">default_hdx_key_file</code><em class="property"> = '/home/mcarans/.hdxkey'</em><a class="headerlink" href="#hdx.hdx_configuration.Configuration.default_hdx_key_file" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="hdx.hdx_configuration.Configuration.default_user_agent_config_yaml">
+<code class="descname">default_user_agent_config_yaml</code><em class="property"> = '/home/mcarans/.useragent.yml'</em><a class="headerlink" href="#hdx.hdx_configuration.Configuration.default_user_agent_config_yaml" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="classmethod">
@@ -244,6 +259,11 @@
 </dd></dl>
 
 <dl class="staticmethod">
+<dt id="hdx.hdx_configuration.Configuration.get_version">
+<em class="property">static </em><code class="descname">get_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.hdx_configuration.Configuration.get_version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
 <dt id="hdx.hdx_configuration.Configuration.load_api_key">
 <em class="property">static </em><code class="descname">load_api_key</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.hdx_configuration.Configuration.load_api_key" title="Permalink to this definition">¶</a></dt>
 <dd><p>Load HDX api key</p>
@@ -256,6 +276,30 @@
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">HDX api key</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="hdx.hdx_configuration.Configuration.load_user_agent">
+<em class="property">static </em><code class="descname">load_user_agent</code><span class="sig-paren">(</span><em>prefix</em>, <em>user_agent_config_yaml</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.hdx_configuration.Configuration.load_user_agent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load user agent YAML file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>prefix</strong> (<em>str</em>) – Text to put at start of user agent</li>
+<li><strong>user_agent_yaml</strong> (<em>str</em>) – Path to user agent YAML file</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">user agent</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">str</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -388,15 +432,21 @@
 
 <dl class="method">
 <dt id="hdx.hdx_configuration.Configuration.setup_remoteckan">
-<code class="descname">setup_remoteckan</code><span class="sig-paren">(</span><em>remoteckan=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.hdx_configuration.Configuration.setup_remoteckan" title="Permalink to this definition">¶</a></dt>
+<code class="descname">setup_remoteckan</code><span class="sig-paren">(</span><em>user_agent=None</em>, <em>user_agent_config_yaml=None</em>, <em>remoteckan=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.hdx_configuration.Configuration.setup_remoteckan" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set up remote CKAN from provided CKAN or by creating from configuration</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>remoteckan</strong> (<em>Optional</em><em>[</em><em>ckanapi.RemoteCKAN</em><em>]</em>) – CKAN instance. Defaults to setting one up from configuration.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>user_agent</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – User agent string. HDXPythonLibrary/X.X.X- is prefixed. Must be supplied if remoteckan is not.</li>
+<li><strong>user_agent_config_yaml</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Path to YAML user agent configuration. Ignored if user_agent supplied. Defaults to ~/.useragent.yml.</li>
+<li><strong>remoteckan</strong> (<em>Optional</em><em>[</em><em>ckanapi.RemoteCKAN</em><em>]</em>) – CKAN instance. Defaults to setting one up from configuration.</li>
+</ul>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
+</td>
 </tr>
 </tbody>
 </table>
