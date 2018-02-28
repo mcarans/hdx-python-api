@@ -92,7 +92,7 @@ converted to an iso 3 code. If the country is already added, it is ignored.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>country</strong> (<em>str</em>) – Country to add</li>
-<li><strong>exact</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – True for exact matching or False to allow fuzzy matching. Defaults to True.</li>
+<li><strong>exact</strong> (<em>bool</em>) – True for exact matching or False to allow fuzzy matching. Defaults to True.</li>
 <li><strong>locations</strong> (<em>Optional</em><em>[</em><em>List</em><em>[</em><em>str</em><em>]</em><em>]</em>) – Valid locations list. Defaults to list downloaded from HDX.</li>
 <li><strong>use_live</strong> (<em>bool</em>) – Try to get use latest country data from web rather than file in package. Defaults to True.</li>
 </ul>
@@ -217,7 +217,7 @@ HDX. If the location is already added, it is ignored.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>location</strong> (<em>str</em>) – Location to add</li>
-<li><strong>exact</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – True for exact matching or False to allow fuzzy matching. Defaults to True.</li>
+<li><strong>exact</strong> (<em>bool</em>) – True for exact matching or False to allow fuzzy matching. Defaults to True.</li>
 <li><strong>alterror</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Alternative error message to builtin if location not found. Defaults to None.</li>
 <li><strong>locations</strong> (<em>Optional</em><em>[</em><em>List</em><em>[</em><em>str</em><em>]</em><em>]</em>) – Valid locations list. Defaults to list downloaded from HDX.</li>
 </ul>
@@ -374,7 +374,7 @@ region name. If any country is already added, it is ignored.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>resources</strong> (<em>List</em><em>[</em><em>Union</em><em>[</em><a class="reference internal" href="#hdx.data.resource.Resource" title="hdx.data.resource.Resource"><em>hdx.data.resource.Resource</em></a><em>,</em><em>Dict</em><em>,</em><em>str</em><em>]</em><em>]</em>) – A list of either resource ids or resources metadata from either Resource objects or dictionaries</li>
-<li><strong>ignore_datasetid</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – Whether to ignore dataset id in the resource</li>
+<li><strong>ignore_datasetid</strong> (<em>bool</em>) – Whether to ignore dataset id in the resource. Defaults to False.</li>
 </ul>
 </td>
 </tr>
@@ -396,7 +396,7 @@ should be set if required to any fields that should be ignored for the particula
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>ignore_fields</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – Fields to ignore. Default is [].</li>
-<li><strong>allow_no_resources</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – Whether to allow no resources. Defaults to False.</li>
+<li><strong>allow_no_resources</strong> (<em>bool</em>) – Whether to allow no resources. Defaults to False.</li>
 </ul>
 </td>
 </tr>
@@ -409,16 +409,17 @@ should be set if required to any fields that should be ignored for the particula
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.create_in_hdx">
-<code class="descname">create_in_hdx</code><span class="sig-paren">(</span><em>allow_no_resources=False</em>, <em>update_resources=True</em>, <em>update_resources_by_name=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.create_in_hdx" title="Permalink to this definition">¶</a></dt>
+<code class="descname">create_in_hdx</code><span class="sig-paren">(</span><em>allow_no_resources=False</em>, <em>update_resources=True</em>, <em>update_resources_by_name=True</em>, <em>remove_additional_resources=False</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.create_in_hdx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check if dataset exists in HDX and if so, update it, otherwise create it</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>allow_no_resources</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – Whether to allow no resources. Defaults to False.</li>
-<li><strong>update_resources</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – Whether to update resources (if updating). Defaults to True.</li>
-<li><strong>update_resources_by_name</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – Compare resource names rather than position in list. Defaults to True.</li>
+<li><strong>allow_no_resources</strong> (<em>bool</em>) – Whether to allow no resources. Defaults to False.</li>
+<li><strong>update_resources</strong> (<em>bool</em>) – Whether to update resources (if updating). Defaults to True.</li>
+<li><strong>update_resources_by_name</strong> (<em>bool</em>) – Compare resource names rather than position in list. Defaults to True.</li>
+<li><strong>remove_additional_resources</strong> (<em>bool</em>) – Remove additional resources found in dataset (if updating). Defaults to False.</li>
 </ul>
 </td>
 </tr>
@@ -1143,7 +1144,7 @@ For unambiguous formats, this should be fine.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>requestable</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – Set whether dataset is requestable. Defaults to True.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>requestable</strong> (<em>bool</em>) – Set whether dataset is requestable. Defaults to True.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
@@ -1172,7 +1173,7 @@ vice versa (eg. ‘Every month’ = ‘30’, ‘30’ = ‘Every month’)</p>
 
 <dl class="attribute">
 <dt id="hdx.data.dataset.Dataset.update_frequencies">
-<code class="descname">update_frequencies</code><em class="property"> = {'semiannually': '180', '0': 'Live', 'adhoc': '-2', '14': 'Every two weeks', 'quarterly': '90', 'never': '-1', 'every week': '7', 'semiyearly': '180', 'yearly': '365', '7': 'Every week', 'daily': '1', '1': 'Every day', 'every day': '1', 'weekly': '7', 'every other week': '14', 'fortnightly': '14', 'every three months': '90', 'live': '0', '365': 'Every year', '90': 'Every three months', 'every year': '365', 'every month': '30', '-1': 'Never', '-2': 'Adhoc', 'every two weeks': '14', 'every six months': '180', '30': 'Every month', 'annually': '365', '180': 'Every six months', 'monthly': '30'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
+<code class="descname">update_frequencies</code><em class="property"> = {'daily': '1', 'every day': '1', 'yearly': '365', 'never': '-1', 'every two weeks': '14', 'every year': '365', 'semiyearly': '180', '-1': 'Never', 'monthly': '30', '30': 'Every month', 'every other week': '14', 'every week': '7', '7': 'Every week', '0': 'Live', 'live': '0', 'weekly': '7', 'every month': '30', 'quarterly': '90', '365': 'Every year', '90': 'Every three months', '-2': 'Adhoc', '180': 'Every six months', 'every three months': '90', 'every six months': '180', 'adhoc': '-2', 'annually': '365', '1': 'Every day', 'fortnightly': '14', 'semiannually': '180', '14': 'Every two weeks'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -1209,15 +1210,16 @@ vice versa (eg. ‘Every month’ = ‘30’, ‘30’ = ‘Every month’)</p>
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.update_in_hdx">
-<code class="descname">update_in_hdx</code><span class="sig-paren">(</span><em>update_resources=True</em>, <em>update_resources_by_name=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.update_in_hdx" title="Permalink to this definition">¶</a></dt>
+<code class="descname">update_in_hdx</code><span class="sig-paren">(</span><em>update_resources=True</em>, <em>update_resources_by_name=True</em>, <em>remove_additional_resources=False</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.update_in_hdx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check if dataset exists in HDX and if so, update it</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>update_resources</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – Whether to update resources. Defaults to True.</li>
-<li><strong>update_resources_by_name</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – Compare resource names rather than position in list. Defaults to True.</li>
+<li><strong>update_resources</strong> (<em>bool</em>) – Whether to update resources. Defaults to True.</li>
+<li><strong>update_resources_by_name</strong> (<em>bool</em>) – Compare resource names rather than position in list. Defaults to True.</li>
+<li><strong>remove_additional_resources</strong> (<em>bool</em>) – Remove additional resources found in dataset (if updating). Defaults to False.</li>
 </ul>
 </td>
 </tr>
