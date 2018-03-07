@@ -409,7 +409,7 @@ should be set if required to any fields that should be ignored for the particula
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.create_in_hdx">
-<code class="descname">create_in_hdx</code><span class="sig-paren">(</span><em>allow_no_resources=False</em>, <em>update_resources=True</em>, <em>update_resources_by_name=True</em>, <em>remove_additional_resources=False</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.create_in_hdx" title="Permalink to this definition">¶</a></dt>
+<code class="descname">create_in_hdx</code><span class="sig-paren">(</span><em>allow_no_resources=False</em>, <em>update_resources=True</em>, <em>update_resources_by_name=True</em>, <em>remove_additional_resources=False</em>, <em>hxl_update=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.create_in_hdx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check if dataset exists in HDX and if so, update it, otherwise create it</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -420,6 +420,7 @@ should be set if required to any fields that should be ignored for the particula
 <li><strong>update_resources</strong> (<em>bool</em>) – Whether to update resources (if updating). Defaults to True.</li>
 <li><strong>update_resources_by_name</strong> (<em>bool</em>) – Compare resource names rather than position in list. Defaults to True.</li>
 <li><strong>remove_additional_resources</strong> (<em>bool</em>) – Remove additional resources found in dataset (if updating). Defaults to False.</li>
+<li><strong>hxl_update</strong> (<em>bool</em>) – Whether to call package_hxl_update. Defaults to True.</li>
 </ul>
 </td>
 </tr>
@@ -957,7 +958,7 @@ If no format is supplied, an ISO 8601 string is returned.</p>
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.reorder_resources">
-<code class="descname">reorder_resources</code><span class="sig-paren">(</span><em>resource_ids</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.reorder_resources" title="Permalink to this definition">¶</a></dt>
+<code class="descname">reorder_resources</code><span class="sig-paren">(</span><em>resource_ids</em>, <em>hxl_update=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.reorder_resources" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reorder resources in dataset according to provided list.
 If only some resource ids are supplied then these are
 assumed to be first and the other resources will stay in
@@ -966,9 +967,14 @@ their original order.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>resource_ids</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – List of resource ids</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>resource_ids</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – List of resource ids</li>
+<li><strong>hxl_update</strong> (<em>bool</em>) – Whether to call package_hxl_update. Defaults to True.</li>
+</ul>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -1173,7 +1179,7 @@ vice versa (eg. ‘Every month’ = ‘30’, ‘30’ = ‘Every month’)</p>
 
 <dl class="attribute">
 <dt id="hdx.data.dataset.Dataset.update_frequencies">
-<code class="descname">update_frequencies</code><em class="property"> = {'daily': '1', 'every day': '1', 'yearly': '365', 'never': '-1', 'every two weeks': '14', 'every year': '365', 'semiyearly': '180', '-1': 'Never', 'monthly': '30', '30': 'Every month', 'every other week': '14', 'every week': '7', '7': 'Every week', '0': 'Live', 'live': '0', 'weekly': '7', 'every month': '30', 'quarterly': '90', '365': 'Every year', '90': 'Every three months', '-2': 'Adhoc', '180': 'Every six months', 'every three months': '90', 'every six months': '180', 'adhoc': '-2', 'annually': '365', '1': 'Every day', 'fortnightly': '14', 'semiannually': '180', '14': 'Every two weeks'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
+<code class="descname">update_frequencies</code><em class="property"> = {'30': 'Every month', '-1': 'Never', 'daily': '1', '-2': 'Adhoc', 'every day': '1', '365': 'Every year', 'every other week': '14', '180': 'Every six months', 'quarterly': '90', '7': 'Every week', 'every week': '7', 'yearly': '365', 'every two weeks': '14', '14': 'Every two weeks', 'annually': '365', 'every three months': '90', '90': 'Every three months', 'every month': '30', '0': 'Live', 'live': '0', 'every year': '365', 'adhoc': '-2', 'semiannually': '180', 'fortnightly': '14', '1': 'Every day', 'never': '-1', 'monthly': '30', 'weekly': '7', 'semiyearly': '180', 'every six months': '180'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -1210,7 +1216,7 @@ vice versa (eg. ‘Every month’ = ‘30’, ‘30’ = ‘Every month’)</p>
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.update_in_hdx">
-<code class="descname">update_in_hdx</code><span class="sig-paren">(</span><em>update_resources=True</em>, <em>update_resources_by_name=True</em>, <em>remove_additional_resources=False</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.update_in_hdx" title="Permalink to this definition">¶</a></dt>
+<code class="descname">update_in_hdx</code><span class="sig-paren">(</span><em>update_resources=True</em>, <em>update_resources_by_name=True</em>, <em>remove_additional_resources=False</em>, <em>hxl_update=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.update_in_hdx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check if dataset exists in HDX and if so, update it</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1220,6 +1226,7 @@ vice versa (eg. ‘Every month’ = ‘30’, ‘30’ = ‘Every month’)</p>
 <li><strong>update_resources</strong> (<em>bool</em>) – Whether to update resources. Defaults to True.</li>
 <li><strong>update_resources_by_name</strong> (<em>bool</em>) – Compare resource names rather than position in list. Defaults to True.</li>
 <li><strong>remove_additional_resources</strong> (<em>bool</em>) – Remove additional resources found in dataset (if updating). Defaults to False.</li>
+<li><strong>hxl_update</strong> (<em>bool</em>) – Whether to call package_hxl_update. Defaults to True.</li>
 </ul>
 </td>
 </tr>

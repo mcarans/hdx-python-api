@@ -160,9 +160,9 @@
 </table>
 </dd></dl>
 
-<dl class="staticmethod">
+<dl class="classmethod">
 <dt id="hdx.hdx_configuration.Configuration.create_remoteckan">
-<em class="property">static </em><code class="descname">create_remoteckan</code><span class="sig-paren">(</span><em>site_url</em>, <em>user_agent</em>, <em>user_agent_config_yaml</em>, <em>session=&lt;requests.sessions.Session object&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.hdx_configuration.Configuration.create_remoteckan" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="descname">create_remoteckan</code><span class="sig-paren">(</span><em>site_url</em>, <em>user_agent</em>, <em>user_agent_config_yaml</em>, <em>session=&lt;requests.sessions.Session object&gt;</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.hdx_configuration.Configuration.create_remoteckan" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create remote CKAN instance from configuration</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -281,9 +281,9 @@
 </table>
 </dd></dl>
 
-<dl class="staticmethod">
+<dl class="classmethod">
 <dt id="hdx.hdx_configuration.Configuration.load_user_agent">
-<em class="property">static </em><code class="descname">load_user_agent</code><span class="sig-paren">(</span><em>prefix</em>, <em>user_agent_config_yaml</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.hdx_configuration.Configuration.load_user_agent" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="descname">load_user_agent</code><span class="sig-paren">(</span><em>prefix</em>, <em>user_agent_config_yaml</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.hdx_configuration.Configuration.load_user_agent" title="Permalink to this definition">¶</a></dt>
 <dd><p>Load user agent YAML file</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -432,7 +432,7 @@
 
 <dl class="method">
 <dt id="hdx.hdx_configuration.Configuration.setup_remoteckan">
-<code class="descname">setup_remoteckan</code><span class="sig-paren">(</span><em>user_agent=None</em>, <em>user_agent_config_yaml=None</em>, <em>remoteckan=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.hdx_configuration.Configuration.setup_remoteckan" title="Permalink to this definition">¶</a></dt>
+<code class="descname">setup_remoteckan</code><span class="sig-paren">(</span><em>user_agent=None</em>, <em>user_agent_config_yaml=None</em>, <em>remoteckan=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.hdx_configuration.Configuration.setup_remoteckan" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set up remote CKAN from provided CKAN or by creating from configuration</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
