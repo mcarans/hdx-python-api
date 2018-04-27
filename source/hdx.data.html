@@ -1179,7 +1179,7 @@ vice versa (eg. ‘Every month’ = ‘30’, ‘30’ = ‘Every month’)</p>
 
 <dl class="attribute">
 <dt id="hdx.data.dataset.Dataset.update_frequencies">
-<code class="descname">update_frequencies</code><em class="property"> = {'30': 'Every month', '-1': 'Never', 'daily': '1', '-2': 'Adhoc', 'every day': '1', '365': 'Every year', 'every other week': '14', '180': 'Every six months', 'quarterly': '90', '7': 'Every week', 'every week': '7', 'yearly': '365', 'every two weeks': '14', '14': 'Every two weeks', 'annually': '365', 'every three months': '90', '90': 'Every three months', 'every month': '30', '0': 'Live', 'live': '0', 'every year': '365', 'adhoc': '-2', 'semiannually': '180', 'fortnightly': '14', '1': 'Every day', 'never': '-1', 'monthly': '30', 'weekly': '7', 'semiyearly': '180', 'every six months': '180'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
+<code class="descname">update_frequencies</code><em class="property"> = {'every three months': '90', 'every month': '30', 'never': '-1', 'adhoc': '-2', '0': 'Live', 'fortnightly': '14', 'live': '0', '-2': 'Adhoc', '365': 'Every year', '-1': 'Never', 'every week': '7', 'yearly': '365', 'annually': '365', 'semiannually': '180', 'every two weeks': '14', 'every year': '365', 'every day': '1', 'semiyearly': '180', 'every other week': '14', '180': 'Every six months', 'daily': '1', '7': 'Every week', '90': 'Every three months', 'weekly': '7', '14': 'Every two weeks', '1': 'Every day', 'quarterly': '90', 'monthly': '30', 'every six months': '180', '30': 'Every month'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -2803,6 +2803,24 @@ be set if required to any fields that should be ignored for the particular opera
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">List[<a class="reference internal" href="#hdx.data.user.User" title="hdx.data.user.User">User</a>]</p>
 </td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.user.User.get_organizations">
+<code class="descname">get_organizations</code><span class="sig-paren">(</span><em>permission='read'</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.user.User.get_organizations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get organizations in HDX that this user is a member of.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>permission</strong> (<em>str</em>) – Permission to check for. Defaults to ‘read’.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">List of organizations in HDX that this user is a member of</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">List[<a class="reference internal" href="#hdx.data.organization.Organization" title="hdx.data.organization.Organization">Organization</a>]</td>
 </tr>
 </tbody>
 </table>
