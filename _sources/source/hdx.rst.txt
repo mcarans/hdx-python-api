@@ -12,16 +12,16 @@ Subpackages
 Submodules
 ----------
 
-hdx.hdx_configuration module
-----------------------------
+hdx\.hdx\_configuration module
+------------------------------
 
 .. automodule:: hdx.hdx_configuration
     :members:
     :undoc-members:
     :show-inheritance:
 
-hdx.hdx_locations module
-------------------------
+hdx\.hdx\_locations module
+--------------------------
 
 .. automodule:: hdx.hdx_locations
     :members:

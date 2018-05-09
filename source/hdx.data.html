@@ -1179,7 +1179,7 @@ vice versa (eg. ‘Every month’ = ‘30’, ‘30’ = ‘Every month’)</p>
 
 <dl class="attribute">
 <dt id="hdx.data.dataset.Dataset.update_frequencies">
-<code class="descname">update_frequencies</code><em class="property"> = {'every three months': '90', 'every month': '30', 'never': '-1', 'adhoc': '-2', '0': 'Live', 'fortnightly': '14', 'live': '0', '-2': 'Adhoc', '365': 'Every year', '-1': 'Never', 'every week': '7', 'yearly': '365', 'annually': '365', 'semiannually': '180', 'every two weeks': '14', 'every year': '365', 'every day': '1', 'semiyearly': '180', 'every other week': '14', '180': 'Every six months', 'daily': '1', '7': 'Every week', '90': 'Every three months', 'weekly': '7', '14': 'Every two weeks', '1': 'Every day', 'quarterly': '90', 'monthly': '30', 'every six months': '180', '30': 'Every month'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
+<code class="descname">update_frequencies</code><em class="property"> = {'annually': '365', '30': 'Every month', 'semiannually': '180', 'every month': '30', 'every day': '1', 'every six months': '180', 'monthly': '30', '365': 'Every year', 'daily': '1', 'every two weeks': '14', 'semiyearly': '180', 'live': '0', 'weekly': '7', 'every three months': '90', '14': 'Every two weeks', 'every week': '7', 'never': '-1', '1': 'Every day', '0': 'Live', 'adhoc': '-2', 'quarterly': '90', 'yearly': '365', 'every year': '365', '90': 'Every three months', '-2': 'Adhoc', '180': 'Every six months', 'fortnightly': '14', '7': 'Every week', '-1': 'Never', 'every other week': '14'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -1766,7 +1766,7 @@ be set if required to any fields that should be ignored for the particular opera
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>resource_view</strong> (<em>Union</em><em>[</em><em>ResourceView</em><em>,</em><em>Dict</em><em>]</em>) – Resource view metadata either from a ResourceView object or a dictionary</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>resource_view</strong> (<em>Union</em><em>[</em><a class="reference internal" href="#hdx.data.resource_view.ResourceView" title="hdx.data.resource_view.ResourceView"><em>ResourceView</em></a><em>,</em><em>Dict</em><em>]</em>) – Resource view metadata either from a ResourceView object or a dictionary</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
@@ -1782,7 +1782,7 @@ be set if required to any fields that should be ignored for the particular opera
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>resource_views</strong> (<em>List</em><em>[</em><em>Union</em><em>[</em><em>ResourceView</em><em>,</em><em>Dict</em><em>]</em><em>]</em>) – A list of resource views metadata from ResourceView objects or dictionaries</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>resource_views</strong> (<em>List</em><em>[</em><em>Union</em><em>[</em><a class="reference internal" href="#hdx.data.resource_view.ResourceView" title="hdx.data.resource_view.ResourceView"><em>ResourceView</em></a><em>,</em><em>Dict</em><em>]</em><em>]</em>) – A list of resource views metadata from ResourceView objects or dictionaries</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
@@ -1976,7 +1976,7 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>resource_view</strong> (<em>Union</em><em>[</em><em>ResourceView</em><em>,</em><em>Dict</em><em>,</em><em>str</em><em>]</em>) – Either a resource view id or resource view metadata either from a ResourceView object or a dictionary</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>resource_view</strong> (<em>Union</em><em>[</em><a class="reference internal" href="#hdx.data.resource_view.ResourceView" title="hdx.data.resource_view.ResourceView"><em>ResourceView</em></a><em>,</em><em>Dict</em><em>,</em><em>str</em><em>]</em>) – Either a resource view id or resource view metadata either from a ResourceView object or a dictionary</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
@@ -2060,7 +2060,7 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">List of resource views</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">List[ResourceView]</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">List[<a class="reference internal" href="#hdx.data.resource_view.ResourceView" title="hdx.data.resource_view.ResourceView">ResourceView</a>]</td>
 </tr>
 </tbody>
 </table>
@@ -2098,7 +2098,7 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>resource_views</strong> (<em>List</em><em>[</em><em>Union</em><em>[</em><em>ResourceView</em><em>,</em><em>Dict</em><em>,</em><em>str</em><em>]</em><em>]</em>) – A list of either resource view ids or resource views metadata from ResourceView objects or dictionaries</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>resource_views</strong> (<em>List</em><em>[</em><em>Union</em><em>[</em><a class="reference internal" href="#hdx.data.resource_view.ResourceView" title="hdx.data.resource_view.ResourceView"><em>ResourceView</em></a><em>,</em><em>Dict</em><em>,</em><em>str</em><em>]</em><em>]</em>) – A list of either resource view ids or resource views metadata from ResourceView objects or dictionaries</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
@@ -2325,6 +2325,200 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 <dt id="hdx.data.resource.Resource.update_in_hdx">
 <code class="descname">update_in_hdx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.update_in_hdx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check if resource exists in HDX and if so, update it</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-hdx.data.resource_view">
+<span id="hdx-data-resource-view-module"></span><h2>hdx.data.resource_view module<a class="headerlink" href="#module-hdx.data.resource_view" title="Permalink to this headline">¶</a></h2>
+<p>Resource view class containing all logic for creating, checking, and updating resource views.</p>
+<dl class="class">
+<dt id="hdx.data.resource_view.ResourceView">
+<em class="property">class </em><code class="descclassname">hdx.data.resource_view.</code><code class="descname">ResourceView</code><span class="sig-paren">(</span><em>initial_data=None</em>, <em>configuration=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource_view.ResourceView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#hdx.data.hdxobject.HDXObject" title="hdx.data.hdxobject.HDXObject"><code class="xref py py-class docutils literal"><span class="pre">hdx.data.hdxobject.HDXObject</span></code></a></p>
+<p>ResourceView class containing all logic for creating, checking, and updating resource views.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>initial_data</strong> (<em>Optional</em><em>[</em><em>Dict</em><em>]</em>) – Initial resource view metadata dictionary. Defaults to None.</li>
+<li><strong>configuration</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="hdx.html#hdx.hdx_configuration.Configuration" title="hdx.hdx_configuration.Configuration"><em>Configuration</em></a><em>]</em>) – HDX configuration. Defaults to global configuration.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="staticmethod">
+<dt id="hdx.data.resource_view.ResourceView.actions">
+<em class="property">static </em><code class="descname">actions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource_view.ResourceView.actions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dictionary of actions that can be performed on object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Dictionary of actions that can be performed on object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Dict[str, str]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.resource_view.ResourceView.check_required_fields">
+<code class="descname">check_required_fields</code><span class="sig-paren">(</span><em>ignore_fields=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource_view.ResourceView.check_required_fields" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check that metadata for resource view is complete. The parameter ignore_fields should
+be set if required to any fields that should be ignored for the particular operation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ignore_fields</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – Fields to ignore. Default is [].</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.resource_view.ResourceView.copy">
+<code class="descname">copy</code><span class="sig-paren">(</span><em>resource_view</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource_view.ResourceView.copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copies all fields except id, resource_id and package_id from another resource view.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>resource_view</strong> (<em>Union</em><em>[</em><a class="reference internal" href="#hdx.data.resource_view.ResourceView" title="hdx.data.resource_view.ResourceView"><em>ResourceView</em></a><em>,</em><em>Dict</em><em>,</em><em>str</em><em>]</em>) – Either a resource view id or resource view metadata either from a ResourceView object or a dictionary</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.resource_view.ResourceView.create_in_hdx">
+<code class="descname">create_in_hdx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource_view.ResourceView.create_in_hdx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if resource view exists in HDX and if so, update it, otherwise create resource view</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.resource_view.ResourceView.delete_from_hdx">
+<code class="descname">delete_from_hdx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource_view.ResourceView.delete_from_hdx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes a resource view from HDX.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="hdx.data.resource_view.ResourceView.get_all_for_resource">
+<em class="property">static </em><code class="descname">get_all_for_resource</code><span class="sig-paren">(</span><em>identifier</em>, <em>configuration=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource_view.ResourceView.get_all_for_resource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read all resource views for a resource given by identifier from HDX and returns list of ResourceView objects</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>identifier</strong> (<em>str</em>) – Identifier of resource</li>
+<li><strong>configuration</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="hdx.html#hdx.hdx_configuration.Configuration" title="hdx.hdx_configuration.Configuration"><em>Configuration</em></a><em>]</em>) – HDX configuration. Defaults to global configuration.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">List of ResourceView objects</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">List[<a class="reference internal" href="#hdx.data.resource_view.ResourceView" title="hdx.data.resource_view.ResourceView">ResourceView</a>]</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="hdx.data.resource_view.ResourceView.read_from_hdx">
+<em class="property">static </em><code class="descname">read_from_hdx</code><span class="sig-paren">(</span><em>identifier</em>, <em>configuration=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource_view.ResourceView.read_from_hdx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the resource view given by identifier from HDX and returns ResourceView object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>identifier</strong> (<em>str</em>) – Identifier of resource view</li>
+<li><strong>configuration</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="hdx.html#hdx.hdx_configuration.Configuration" title="hdx.hdx_configuration.Configuration"><em>Configuration</em></a><em>]</em>) – HDX configuration. Defaults to global configuration.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">ResourceView object if successful read, None if not</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Optional[<a class="reference internal" href="#hdx.data.resource_view.ResourceView" title="hdx.data.resource_view.ResourceView">ResourceView</a>]</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.resource_view.ResourceView.update_from_json">
+<code class="descname">update_from_json</code><span class="sig-paren">(</span><em>path='config/hdx_resource_view_static.json'</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource_view.ResourceView.update_from_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update resource view metadata with static metadata from JSON file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Path to JSON dataset metadata. Defaults to config/hdx_resource_view_static.json.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.resource_view.ResourceView.update_from_yaml">
+<code class="descname">update_from_yaml</code><span class="sig-paren">(</span><em>path='config/hdx_resource_view_static.yml'</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource_view.ResourceView.update_from_yaml" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update resource view metadata with static metadata from YAML file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Path to YAML dataset metadata. Defaults to config/hdx_resource_view_static.yml.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.resource_view.ResourceView.update_in_hdx">
+<code class="descname">update_in_hdx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource_view.ResourceView.update_in_hdx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if resource view exists in HDX and if so, update resource view</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -2918,6 +3112,7 @@ be set if required to any fields that should be ignored for the particular opera
 <li><a class="reference internal" href="#module-hdx.data.hdxobject">hdx.data.hdxobject module</a></li>
 <li><a class="reference internal" href="#module-hdx.data.organization">hdx.data.organization module</a></li>
 <li><a class="reference internal" href="#module-hdx.data.resource">hdx.data.resource module</a></li>
+<li><a class="reference internal" href="#module-hdx.data.resource_view">hdx.data.resource_view module</a></li>
 <li><a class="reference internal" href="#module-hdx.data.showcase">hdx.data.showcase module</a></li>
 <li><a class="reference internal" href="#module-hdx.data.user">hdx.data.user module</a></li>
 <li><a class="reference internal" href="#module-hdx.data">Module contents</a></li>
