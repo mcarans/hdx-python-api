@@ -55,6 +55,7 @@
  | <a href="#M"><strong>M</strong></a>
  | <a href="#N"><strong>N</strong></a>
  | <a href="#O"><strong>O</strong></a>
+ | <a href="#P"><strong>P</strong></a>
  | <a href="#R"><strong>R</strong></a>
  | <a href="#S"><strong>S</strong></a>
  | <a href="#T"><strong>T</strong></a>
@@ -139,6 +140,8 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="source/hdx.html#hdx.hdx_configuration.Configuration.call_remoteckan">call_remoteckan() (hdx.hdx_configuration.Configuration method)</a>
 </li>
+      <li><a href="source/hdx.html#hdx.hdx_tagscleanup.ChainRuleError">ChainRuleError</a>
+</li>
       <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.check_required_fields">check_required_fields() (hdx.data.dataset.Dataset method)</a>
 
       <ul>
@@ -155,16 +158,18 @@
         <li><a href="source/hdx.data.html#hdx.data.user.User.check_required_fields">(hdx.data.user.User method)</a>
 </li>
       </ul></li>
+      <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.clean_dataset_tags">clean_dataset_tags() (hdx.data.dataset.Dataset method)</a>
+</li>
       <li><a href="source/hdx.html#hdx.hdx_configuration.Configuration">Configuration (class in hdx.hdx_configuration)</a>
 </li>
       <li><a href="source/hdx.html#hdx.hdx_configuration.ConfigurationError">ConfigurationError</a>
 </li>
       <li><a href="source/hdx.data.html#hdx.data.resource_view.ResourceView.copy">copy() (hdx.data.resource_view.ResourceView method)</a>
 </li>
-      <li><a href="source/hdx.html#hdx.hdx_configuration.Configuration.create">create() (hdx.hdx_configuration.Configuration class method)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="source/hdx.html#hdx.hdx_configuration.Configuration.create">create() (hdx.hdx_configuration.Configuration class method)</a>
+</li>
       <li><a href="source/hdx.data.html#hdx.data.resource.Resource.create_datastore">create_datastore() (hdx.data.resource.Resource method)</a>
 </li>
       <li><a href="source/hdx.data.html#hdx.data.resource.Resource.create_datastore_for_topline">create_datastore_for_topline() (hdx.data.resource.Resource method)</a>
@@ -233,6 +238,8 @@
 </li>
       <li><a href="source/hdx.data.html#hdx.data.resource.Resource.delete_resource_view">delete_resource_view() (hdx.data.resource.Resource method)</a>
 </li>
+      <li><a href="source/hdx.data.html#hdx.data.resource.Resource.disable_dataset_preview">disable_dataset_preview() (hdx.data.resource.Resource method)</a>
+</li>
       <li><a href="source/hdx.data.html#hdx.data.resource.Resource.download">download() (hdx.data.resource.Resource method)</a>
 </li>
   </ul></td>
@@ -243,11 +250,13 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="source/hdx.data.html#hdx.data.user.User.email">email() (hdx.data.user.User method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="source/hdx.data.html#hdx.data.user.User.email_users">email_users() (hdx.data.user.User static method)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="source/hdx.html#hdx.hdx_configuration.Configuration.emailer">emailer() (hdx.hdx_configuration.Configuration method)</a>
+</li>
+      <li><a href="source/hdx.data.html#hdx.data.resource.Resource.enable_dataset_preview">enable_dataset_preview() (hdx.data.resource.Resource method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -369,10 +378,10 @@
 </li>
       <li><a href="source/hdx.data.html#module-hdx.data.showcase">hdx.data.showcase (module)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="source/hdx.data.html#module-hdx.data.user">hdx.data.user (module)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="source/hdx.facades.html#module-hdx.facades">hdx.facades (module)</a>
 </li>
       <li><a href="source/hdx.facades.html#module-hdx.facades.hdx_scraperwiki">hdx.facades.hdx_scraperwiki (module)</a>
@@ -382,6 +391,8 @@
       <li><a href="source/hdx.html#module-hdx.hdx_configuration">hdx.hdx_configuration (module)</a>
 </li>
       <li><a href="source/hdx.html#module-hdx.hdx_locations">hdx.hdx_locations (module)</a>
+</li>
+      <li><a href="source/hdx.html#module-hdx.hdx_tagscleanup">hdx.hdx_tagscleanup (module)</a>
 </li>
       <li><a href="source/hdx.data.html#hdx.data.hdxobject.HDXError">HDXError</a>
 </li>
@@ -442,6 +453,14 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="source/hdx.data.html#hdx.data.organization.Organization">Organization (class in hdx.data.organization)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="P">P</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.preview_off">preview_off() (hdx.data.dataset.Dataset method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -523,19 +542,25 @@
 </li>
       <li><a href="source/hdx.data.html#hdx.data.resource.Resource.set_file_to_upload">set_file_to_upload() (hdx.data.resource.Resource method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="source/hdx.data.html#hdx.data.resource.Resource.set_file_type">set_file_type() (hdx.data.resource.Resource method)</a>
 </li>
       <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.set_maintainer">set_maintainer() (hdx.data.dataset.Dataset method)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.set_organization">set_organization() (hdx.data.dataset.Dataset method)</a>
+</li>
+      <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.set_quickchart_resource">set_quickchart_resource() (hdx.data.dataset.Dataset method)</a>
 </li>
       <li><a href="source/hdx.html#hdx.hdx_configuration.Configuration.set_read_only">set_read_only() (hdx.hdx_configuration.Configuration method)</a>
 </li>
       <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.set_requestable">set_requestable() (hdx.data.dataset.Dataset method)</a>
 </li>
+      <li><a href="source/hdx.html#hdx.hdx_tagscleanup.Tags.set_tagsdict">set_tagsdict() (hdx.hdx_tagscleanup.Tags static method)</a>
+</li>
       <li><a href="source/hdx.html#hdx.hdx_locations.Locations.set_validlocations">set_validlocations() (hdx.hdx_locations.Locations static method)</a>
+</li>
+      <li><a href="source/hdx.html#hdx.hdx_tagscleanup.Tags.set_wildcard_tags">set_wildcard_tags() (hdx.hdx_tagscleanup.Tags static method)</a>
 </li>
       <li><a href="source/hdx.html#hdx.hdx_configuration.Configuration.setup">setup() (hdx.hdx_configuration.Configuration class method)</a>
 </li>
@@ -551,10 +576,14 @@
 <h2 id="T">T</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="source/hdx.data.html#hdx.data.resource.Resource.touch">touch() (hdx.data.resource.Resource method)</a>
+      <li><a href="source/hdx.html#hdx.hdx_tagscleanup.Tags">Tags (class in hdx.hdx_tagscleanup)</a>
+</li>
+      <li><a href="source/hdx.html#hdx.hdx_tagscleanup.Tags.tagscleanupdicts">tagscleanupdicts() (hdx.hdx_tagscleanup.Tags static method)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="source/hdx.data.html#hdx.data.resource.Resource.touch">touch() (hdx.data.resource.Resource method)</a>
+</li>
       <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.transform_update_frequency">transform_update_frequency() (hdx.data.dataset.Dataset static method)</a>
 </li>
   </ul></td>

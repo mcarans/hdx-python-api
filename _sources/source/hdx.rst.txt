@@ -28,6 +28,14 @@ hdx\.hdx\_locations module
     :undoc-members:
     :show-inheritance:
 
+hdx\.hdx\_tagscleanup module
+----------------------------
+
+.. automodule:: hdx.hdx_tagscleanup
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 
 Module contents
 ---------------

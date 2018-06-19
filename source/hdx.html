@@ -582,6 +582,81 @@
 </dd></dl>
 
 </div>
+<div class="section" id="module-hdx.hdx_tagscleanup">
+<span id="hdx-hdx-tagscleanup-module"></span><h2>hdx.hdx_tagscleanup module<a class="headerlink" href="#module-hdx.hdx_tagscleanup" title="Permalink to this headline">¶</a></h2>
+<p>Tags cleaning</p>
+<dl class="exception">
+<dt id="hdx.hdx_tagscleanup.ChainRuleError">
+<em class="property">exception </em><code class="descclassname">hdx.hdx_tagscleanup.</code><code class="descname">ChainRuleError</code><a class="headerlink" href="#hdx.hdx_tagscleanup.ChainRuleError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">Exception</span></code></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="hdx.hdx_tagscleanup.Tags">
+<em class="property">class </em><code class="descclassname">hdx.hdx_tagscleanup.</code><code class="descname">Tags</code><a class="headerlink" href="#hdx.hdx_tagscleanup.Tags" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Methods to help with tags</p>
+<dl class="staticmethod">
+<dt id="hdx.hdx_tagscleanup.Tags.set_tagsdict">
+<em class="property">static </em><code class="descname">set_tagsdict</code><span class="sig-paren">(</span><em>tags_dict</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.hdx_tagscleanup.Tags.set_tagsdict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set tags dictionary</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tags_dict</strong> (<em>Dict</em>) – Tags dictionary</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="hdx.hdx_tagscleanup.Tags.set_wildcard_tags">
+<em class="property">static </em><code class="descname">set_wildcard_tags</code><span class="sig-paren">(</span><em>wildcard_tags</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.hdx_tagscleanup.Tags.set_wildcard_tags" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set wildcard tags dictionary</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>wildcard_tags</strong> (<em>Dict</em>) – Wildcard tags dictionary</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="hdx.hdx_tagscleanup.Tags.tagscleanupdicts">
+<em class="property">static </em><code class="descname">tagscleanupdicts</code><span class="sig-paren">(</span><em>configuration=None</em>, <em>url=None</em>, <em>keycolumn=5</em>, <em>failchained=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.hdx_tagscleanup.Tags.tagscleanupdicts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get tags cleanup dictionaries</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>configuration</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="#hdx.hdx_configuration.Configuration" title="hdx.hdx_configuration.Configuration"><em>Configuration</em></a><em>]</em>) – HDX configuration. Defaults to global configuration.</li>
+<li><strong>url</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Url of tags cleanup spreadsheet. Defaults to None (internal configuration parameter).</li>
+<li><strong>keycolumn</strong> (<em>int</em>) – Column number of tag column in spreadsheet</li>
+<li><strong>failchained</strong> (<em>bool</em>) – Fail if chained rules found. Defaults to True.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Returns (Tags dictionary, Wildcard tags list)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Tuple[Dict,List]</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
 <div class="section" id="module-hdx">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-hdx" title="Permalink to this headline">¶</a></h2>
 </div>
@@ -600,6 +675,7 @@
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
 <li><a class="reference internal" href="#module-hdx.hdx_configuration">hdx.hdx_configuration module</a></li>
 <li><a class="reference internal" href="#module-hdx.hdx_locations">hdx.hdx_locations module</a></li>
+<li><a class="reference internal" href="#module-hdx.hdx_tagscleanup">hdx.hdx_tagscleanup module</a></li>
 <li><a class="reference internal" href="#module-hdx">Module contents</a></li>
 </ul>
 </li>

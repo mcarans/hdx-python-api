@@ -408,6 +408,22 @@ should be set if required to any fields that should be ignored for the particula
 </dd></dl>
 
 <dl class="method">
+<dt id="hdx.data.dataset.Dataset.clean_dataset_tags">
+<code class="descname">clean_dataset_tags</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.clean_dataset_tags" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clean dataset tags according to tags cleanup spreadsheet and return if any changes occurred</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Returns (True if tags changed or False if not, True if error or False if not)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Tuple[bool, bool]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="hdx.data.dataset.Dataset.create_in_hdx">
 <code class="descname">create_in_hdx</code><span class="sig-paren">(</span><em>allow_no_resources=False</em>, <em>update_resources=True</em>, <em>update_resources_by_name=True</em>, <em>remove_additional_resources=False</em>, <em>hxl_update=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.create_in_hdx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check if dataset exists in HDX and if so, update it, otherwise create it</p>
@@ -497,7 +513,7 @@ should be set if required to any fields that should be ignored for the particula
 
 <dl class="classmethod">
 <dt id="hdx.data.dataset.Dataset.get_all_datasets">
-<em class="property">classmethod </em><code class="descname">get_all_datasets</code><span class="sig-paren">(</span><em>configuration=None</em>, <em>page_size=1000</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.get_all_datasets" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="descname">get_all_datasets</code><span class="sig-paren">(</span><em>configuration=None</em>, <em>page_size=1000</em>, <em>check_duplicates=True</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.get_all_datasets" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get all datasets in HDX</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -506,6 +522,7 @@ should be set if required to any fields that should be ignored for the particula
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>configuration</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="hdx.html#hdx.hdx_configuration.Configuration" title="hdx.hdx_configuration.Configuration"><em>Configuration</em></a><em>]</em>) – HDX configuration. Defaults to global configuration.</li>
 <li><strong>page_size</strong> (<em>int</em>) – Size of page to return. Defaults to 1000.</li>
+<li><strong>check_duplicates</strong> (<em>bool</em>) – Whether to check for duplicate datasets. Defaults to True.</li>
 <li><strong>**kwargs</strong> – See below</li>
 <li><strong>limit</strong> (<em>int</em>) – Number of rows to return. Defaults to all datasets (sys.maxsize)</li>
 <li><strong>offset</strong> (<em>int</em>) – Offset in the complete result for where the set of returned datasets should begin</li>
@@ -844,6 +861,20 @@ If no format is supplied, an ISO 8601 string is returned.</p>
 <code class="descname">max_int</code><em class="property"> = 9223372036854775807</em><a class="headerlink" href="#hdx.data.dataset.Dataset.max_int" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<dl class="method">
+<dt id="hdx.data.dataset.Dataset.preview_off">
+<code class="descname">preview_off</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.preview_off" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set dataset preview off</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 <dl class="staticmethod">
 <dt id="hdx.data.dataset.Dataset.read_from_hdx">
 <em class="property">static </em><code class="descname">read_from_hdx</code><span class="sig-paren">(</span><em>identifier</em>, <em>configuration=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.read_from_hdx" title="Permalink to this definition">¶</a></dt>
@@ -1143,6 +1174,24 @@ For unambiguous formats, this should be fine.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="hdx.data.dataset.Dataset.set_quickchart_resource">
+<code class="descname">set_quickchart_resource</code><span class="sig-paren">(</span><em>resource</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.set_quickchart_resource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the resource that will be used for displaying QuickCharts in dataset preview</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>resource</strong> (<em>Union</em><em>[</em><a class="reference internal" href="#hdx.data.resource.Resource" title="hdx.data.resource.Resource"><em>hdx.data.resource.Resource</em></a><em>,</em><em>Dict</em><em>,</em><em>str</em><em>,</em><em>int</em><em>]</em>) – Either resource id or name, resource metadata from a Resource object or a dictionary or position</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Returns True if resource for QuickCharts in dataset preview set or False if not</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="hdx.data.dataset.Dataset.set_requestable">
 <code class="descname">set_requestable</code><span class="sig-paren">(</span><em>requestable=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.set_requestable" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the dataset to be of type requestable or not</p>
@@ -1179,7 +1228,7 @@ vice versa (eg. ‘Every month’ = ‘30’, ‘30’ = ‘Every month’)</p>
 
 <dl class="attribute">
 <dt id="hdx.data.dataset.Dataset.update_frequencies">
-<code class="descname">update_frequencies</code><em class="property"> = {'annually': '365', '30': 'Every month', 'semiannually': '180', 'every month': '30', 'every day': '1', 'every six months': '180', 'monthly': '30', '365': 'Every year', 'daily': '1', 'every two weeks': '14', 'semiyearly': '180', 'live': '0', 'weekly': '7', 'every three months': '90', '14': 'Every two weeks', 'every week': '7', 'never': '-1', '1': 'Every day', '0': 'Live', 'adhoc': '-2', 'quarterly': '90', 'yearly': '365', 'every year': '365', '90': 'Every three months', '-2': 'Adhoc', '180': 'Every six months', 'fortnightly': '14', '7': 'Every week', '-1': 'Never', 'every other week': '14'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
+<code class="descname">update_frequencies</code><em class="property"> = {'every two weeks': '14', '-1': 'Never', 'monthly': '30', '-2': 'Adhoc', 'every month': '30', 'every other week': '14', '14': 'Every two weeks', 'semiyearly': '180', 'every year': '365', 'yearly': '365', 'annually': '365', 'every six months': '180', 'fortnightly': '14', 'semiannually': '180', 'live': '0', '90': 'Every three months', '180': 'Every six months', 'daily': '1', 'adhoc': '-2', 'every day': '1', '1': 'Every day', 'never': '-1', '365': 'Every year', '7': 'Every week', 'weekly': '7', 'quarterly': '90', 'every three months': '90', 'every week': '7', '0': 'Live', '30': 'Every month'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -1985,6 +2034,20 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="hdx.data.resource.Resource.disable_dataset_preview">
+<code class="descname">disable_dataset_preview</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.disable_dataset_preview" title="Permalink to this definition">¶</a></dt>
+<dd><p>Disable dataset preview of resource</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="hdx.data.resource.Resource.download">
 <code class="descname">download</code><span class="sig-paren">(</span><em>folder=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.download" title="Permalink to this definition">¶</a></dt>
 <dd><p>Download resource store to provided folder or temporary folder if no folder supplied</p>
@@ -1997,6 +2060,20 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">(URL downloaded, Path to downloaded file)</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Tuple[str, str]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.resource.Resource.enable_dataset_preview">
+<code class="descname">enable_dataset_preview</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.enable_dataset_preview" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enable dataset preview of resource</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
 </tbody>
 </table>
