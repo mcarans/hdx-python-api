@@ -1,19 +1,19 @@
-hdx\.facades package
-====================
+hdx.facades package
+===================
 
 Submodules
 ----------
 
-hdx\.facades\.hdx\_scraperwiki module
--------------------------------------
+hdx.facades.hdx\_scraperwiki module
+-----------------------------------
 
 .. automodule:: hdx.facades.hdx_scraperwiki
     :members:
     :undoc-members:
     :show-inheritance:
 
-hdx\.facades\.simple module
----------------------------
+hdx.facades.simple module
+-------------------------
 
 .. automodule:: hdx.facades.simple
     :members:

@@ -4,20 +4,12 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>hdx.data package &#8212; HDX Python API 1.0 documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '1.0',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
@@ -31,13 +23,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
-  </head>
-  <body>
+  </head><body>
   
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
+          
+
           <div class="body" role="main">
             
   <div class="section" id="hdx-data-package">
@@ -51,7 +44,7 @@
 <dl class="class">
 <dt id="hdx.data.dataset.Dataset">
 <em class="property">class </em><code class="descclassname">hdx.data.dataset.</code><code class="descname">Dataset</code><span class="sig-paren">(</span><em>initial_data=None</em>, <em>configuration=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#hdx.data.hdxobject.HDXObject" title="hdx.data.hdxobject.HDXObject"><code class="xref py py-class docutils literal"><span class="pre">hdx.data.hdxobject.HDXObject</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#hdx.data.hdxobject.HDXObject" title="hdx.data.hdxobject.HDXObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">hdx.data.hdxobject.HDXObject</span></code></a></p>
 <p>Dataset class enabling operations on datasets and associated resources.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -335,7 +328,7 @@ region name. If any country is already added, it is ignored.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tags</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – list of tags to add</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if all tags added or False if any already present.</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if all tags added or False if any already present</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
 </tr>
@@ -851,6 +844,22 @@ If no format is supplied, an ISO 8601 string is returned.</p>
 </table>
 </dd></dl>
 
+<dl class="method">
+<dt id="hdx.data.dataset.Dataset.is_subnational">
+<code class="descname">is_subnational</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.is_subnational" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return if the dataset is subnational</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">True if the dataset is subnational, False if not</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 <dl class="attribute">
 <dt id="hdx.data.dataset.Dataset.max_attempts">
 <code class="descname">max_attempts</code><em class="property"> = 5</em><a class="headerlink" href="#hdx.data.dataset.Dataset.max_attempts" title="Permalink to this definition">¶</a></dt>
@@ -1221,6 +1230,22 @@ For unambiguous formats, this should be fine.</p>
 </table>
 </dd></dl>
 
+<dl class="method">
+<dt id="hdx.data.dataset.Dataset.set_subnational">
+<code class="descname">set_subnational</code><span class="sig-paren">(</span><em>subnational</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.set_subnational" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set if dataset is subnational or national</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>subnational</strong> (<em>bool</em>) – True for subnational, False for national</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 <dl class="staticmethod">
 <dt id="hdx.data.dataset.Dataset.transform_update_frequency">
 <em class="property">static </em><code class="descname">transform_update_frequency</code><span class="sig-paren">(</span><em>frequency</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.transform_update_frequency" title="Permalink to this definition">¶</a></dt>
@@ -1242,7 +1267,7 @@ vice versa (eg. ‘Every month’ = ‘30’, ‘30’ = ‘Every month’)</p>
 
 <dl class="attribute">
 <dt id="hdx.data.dataset.Dataset.update_frequencies">
-<code class="descname">update_frequencies</code><em class="property"> = {'quarterly': '90', '-2': 'Adhoc', '14': 'Every two weeks', 'annually': '365', 'monthly': '30', 'semiannually': '180', '90': 'Every three months', 'every three months': '90', 'live': '0', '-1': 'Never', 'daily': '1', 'every other week': '14', '30': 'Every month', 'every two weeks': '14', 'never': '-1', 'weekly': '7', 'every year': '365', 'fortnightly': '14', '1': 'Every day', 'every month': '30', 'semiyearly': '180', '180': 'Every six months', 'every six months': '180', 'every week': '7', '365': 'Every year', 'every day': '1', 'yearly': '365', '0': 'Live', 'adhoc': '-2', '7': 'Every week'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
+<code class="descname">update_frequencies</code><em class="property"> = {'-1': 'Never', '-2': 'Adhoc', '0': 'Live', '1': 'Every day', '14': 'Every two weeks', '180': 'Every six months', '30': 'Every month', '365': 'Every year', '7': 'Every week', '90': 'Every three months', 'adhoc': '-2', 'annually': '365', 'daily': '1', 'every day': '1', 'every month': '30', 'every other week': '14', 'every six months': '180', 'every three months': '90', 'every two weeks': '14', 'every week': '7', 'every year': '365', 'fortnightly': '14', 'live': '0', 'monthly': '30', 'never': '-1', 'quarterly': '90', 'semiannually': '180', 'semiyearly': '180', 'weekly': '7', 'yearly': '365'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -1305,7 +1330,7 @@ vice versa (eg. ‘Every month’ = ‘30’, ‘30’ = ‘Every month’)</p>
 <dl class="exception">
 <dt id="hdx.data.dataset.NotRequestableError">
 <em class="property">exception </em><code class="descclassname">hdx.data.dataset.</code><code class="descname">NotRequestableError</code><a class="headerlink" href="#hdx.data.dataset.NotRequestableError" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#hdx.data.hdxobject.HDXError" title="hdx.data.hdxobject.HDXError"><code class="xref py py-class docutils literal"><span class="pre">hdx.data.hdxobject.HDXError</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#hdx.data.hdxobject.HDXError" title="hdx.data.hdxobject.HDXError"><code class="xref py py-class docutils literal notranslate"><span class="pre">hdx.data.hdxobject.HDXError</span></code></a></p>
 </dd></dl>
 
 </div>
@@ -1316,13 +1341,13 @@ New HDX objects should extend this in similar fashion to Resource for example.</
 <dl class="exception">
 <dt id="hdx.data.hdxobject.HDXError">
 <em class="property">exception </em><code class="descclassname">hdx.data.hdxobject.</code><code class="descname">HDXError</code><a class="headerlink" href="#hdx.data.hdxobject.HDXError" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">Exception</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
 </dd></dl>
 
 <dl class="class">
 <dt id="hdx.data.hdxobject.HDXObject">
 <em class="property">class </em><code class="descclassname">hdx.data.hdxobject.</code><code class="descname">HDXObject</code><span class="sig-paren">(</span><em>initial_data</em>, <em>configuration=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.hdxobject.HDXObject" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">collections.UserDict</span></code>, <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">collections.UserDict</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>HDXObject abstract class containing helper functions for creating, checking, and updating HDX objects.
 New HDX objects should extend this in similar fashion to Resource for example.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -1493,7 +1518,7 @@ be set if required to any fields that should be ignored for the particular opera
 <dl class="class">
 <dt id="hdx.data.organization.Organization">
 <em class="property">class </em><code class="descclassname">hdx.data.organization.</code><code class="descname">Organization</code><span class="sig-paren">(</span><em>initial_data=None</em>, <em>configuration=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.organization.Organization" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#hdx.data.hdxobject.HDXObject" title="hdx.data.hdxobject.HDXObject"><code class="xref py py-class docutils literal"><span class="pre">hdx.data.hdxobject.HDXObject</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#hdx.data.hdxobject.HDXObject" title="hdx.data.hdxobject.HDXObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">hdx.data.hdxobject.HDXObject</span></code></a></p>
 <p>Organization class containing all logic for creating, checking, and updating organizations.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1791,7 +1816,7 @@ be set if required to any fields that should be ignored for the particular opera
 <dl class="class">
 <dt id="hdx.data.resource.Resource">
 <em class="property">class </em><code class="descclassname">hdx.data.resource.</code><code class="descname">Resource</code><span class="sig-paren">(</span><em>initial_data=None</em>, <em>configuration=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#hdx.data.hdxobject.HDXObject" title="hdx.data.hdxobject.HDXObject"><code class="xref py py-class docutils literal"><span class="pre">hdx.data.hdxobject.HDXObject</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#hdx.data.hdxobject.HDXObject" title="hdx.data.hdxobject.HDXObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">hdx.data.hdxobject.HDXObject</span></code></a></p>
 <p>Resource class containing all logic for creating, checking, and updating resources.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1856,9 +1881,8 @@ be set if required to any fields that should be ignored for the particular opera
 <dl class="method">
 <dt id="hdx.data.resource.Resource.check_required_fields">
 <code class="descname">check_required_fields</code><span class="sig-paren">(</span><em>ignore_fields=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.check_required_fields" title="Permalink to this definition">¶</a></dt>
-<dd><p>Check that metadata for resource is complete and add resource_type and url_type if not supplied.
-The parameter ignore_fields should be set if required to any fields that should be ignored for the particular
-operation.</p>
+<dd><p>Check that metadata for resource is complete. The parameter ignore_fields should be set if required to
+any fields that should be ignored for the particular operation.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1866,6 +1890,22 @@ operation.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ignore_fields</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – Fields to ignore. Default is [].</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.resource.Resource.check_url_filetoupload">
+<code class="descname">check_url_filetoupload</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.check_url_filetoupload" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if url or file to upload provided for resource and add resource_type and url_type if not supplied.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Whether url field and file_to_upload are both populated</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
 </tr>
 </tbody>
 </table>
@@ -2435,7 +2475,7 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 <dl class="class">
 <dt id="hdx.data.resource_view.ResourceView">
 <em class="property">class </em><code class="descclassname">hdx.data.resource_view.</code><code class="descname">ResourceView</code><span class="sig-paren">(</span><em>initial_data=None</em>, <em>configuration=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource_view.ResourceView" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#hdx.data.hdxobject.HDXObject" title="hdx.data.hdxobject.HDXObject"><code class="xref py py-class docutils literal"><span class="pre">hdx.data.hdxobject.HDXObject</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#hdx.data.hdxobject.HDXObject" title="hdx.data.hdxobject.HDXObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">hdx.data.hdxobject.HDXObject</span></code></a></p>
 <p>ResourceView class containing all logic for creating, checking, and updating resource views.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -2629,7 +2669,7 @@ be set if required to any fields that should be ignored for the particular opera
 <dl class="class">
 <dt id="hdx.data.showcase.Showcase">
 <em class="property">class </em><code class="descclassname">hdx.data.showcase.</code><code class="descname">Showcase</code><span class="sig-paren">(</span><em>initial_data=None</em>, <em>configuration=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.showcase.Showcase" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#hdx.data.hdxobject.HDXObject" title="hdx.data.hdxobject.HDXObject"><code class="xref py py-class docutils literal"><span class="pre">hdx.data.hdxobject.HDXObject</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#hdx.data.hdxobject.HDXObject" title="hdx.data.hdxobject.HDXObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">hdx.data.hdxobject.HDXObject</span></code></a></p>
 <p>Showcase class containing all logic for creating, checking, and updating showcases.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -2938,7 +2978,7 @@ be set if required to any fields that should be ignored for the particular opera
 <dl class="class">
 <dt id="hdx.data.user.User">
 <em class="property">class </em><code class="descclassname">hdx.data.user.</code><code class="descname">User</code><span class="sig-paren">(</span><em>initial_data=None</em>, <em>configuration=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.user.User" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#hdx.data.hdxobject.HDXObject" title="hdx.data.hdxobject.HDXObject"><code class="xref py py-class docutils literal"><span class="pre">hdx.data.hdxobject.HDXObject</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#hdx.data.hdxobject.HDXObject" title="hdx.data.hdxobject.HDXObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">hdx.data.hdxobject.HDXObject</span></code></a></p>
 <p>User class containing all logic for creating, checking, and updating users.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -3191,25 +3231,27 @@ be set if required to any fields that should be ignored for the particular opera
 
 
           </div>
+          
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">hdx.data package</a><ul>
-<li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#module-hdx.data.dataset">hdx.data.dataset module</a></li>
-<li><a class="reference internal" href="#module-hdx.data.hdxobject">hdx.data.hdxobject module</a></li>
-<li><a class="reference internal" href="#module-hdx.data.organization">hdx.data.organization module</a></li>
-<li><a class="reference internal" href="#module-hdx.data.resource">hdx.data.resource module</a></li>
-<li><a class="reference internal" href="#module-hdx.data.resource_view">hdx.data.resource_view module</a></li>
-<li><a class="reference internal" href="#module-hdx.data.showcase">hdx.data.showcase module</a></li>
-<li><a class="reference internal" href="#module-hdx.data.user">hdx.data.user module</a></li>
-<li><a class="reference internal" href="#module-hdx.data">Module contents</a></li>
+<h1 class="logo"><a href="../index.html">HDX Python API</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="hdx.html">hdx package</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">hdx.data package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hdx.facades.html">hdx.facades package</a></li>
 </ul>
-</li>
-</ul>
+
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
@@ -3221,21 +3263,16 @@ be set if required to any fields that should be ignored for the particular opera
   </ul></li>
 </ul>
 </div>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="../_sources/source/hdx.data.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -3246,8 +3283,8 @@ be set if required to any fields that should be ignored for the particular opera
       &copy;Michael Rans.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.5</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.11</a>
       
       |
       <a href="../_sources/source/hdx.data.rst.txt"
