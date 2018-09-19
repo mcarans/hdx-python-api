@@ -1914,7 +1914,7 @@ any fields that should be ignored for the particular operation.</p>
 <dl class="method">
 <dt id="hdx.data.resource.Resource.create_datastore">
 <code class="descname">create_datastore</code><span class="sig-paren">(</span><em>schema=None</em>, <em>primary_key=None</em>, <em>delete_first=0</em>, <em>path=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.create_datastore" title="Permalink to this definition">¶</a></dt>
-<dd><p>For csvs, create a resource in the HDX datastore which enables data preview in HDX. If no schema is provided
+<dd><p>For tabular data, create a resource in the HDX datastore which enables data preview in HDX. If no schema is provided
 all fields are assumed to be text. If path is not supplied, the file is first downloaded from HDX.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1938,7 +1938,7 @@ all fields are assumed to be text. If path is not supplied, the file is first do
 <dl class="method">
 <dt id="hdx.data.resource.Resource.create_datastore_for_topline">
 <code class="descname">create_datastore_for_topline</code><span class="sig-paren">(</span><em>delete_first=0</em>, <em>path=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.create_datastore_for_topline" title="Permalink to this definition">¶</a></dt>
-<dd><p>For csvs, create a resource in the HDX datastore which enables data preview in HDX using the built in
+<dd><p>For tabular data, create a resource in the HDX datastore which enables data preview in HDX using the built in
 YAML definition for a topline. If path is not supplied, the file is first downloaded from HDX.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1960,7 +1960,7 @@ YAML definition for a topline. If path is not supplied, the file is first downlo
 <dl class="method">
 <dt id="hdx.data.resource.Resource.create_datastore_from_dict_schema">
 <code class="descname">create_datastore_from_dict_schema</code><span class="sig-paren">(</span><em>data</em>, <em>delete_first=0</em>, <em>path=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.create_datastore_from_dict_schema" title="Permalink to this definition">¶</a></dt>
-<dd><p>For csvs, create a resource in the HDX datastore which enables data preview in HDX from a dictionary
+<dd><p>For tabular data, create a resource in the HDX datastore which enables data preview in HDX from a dictionary
 containing a list of fields and types of form {‘id’: ‘FIELD’, ‘type’: ‘TYPE’} and optionally a primary key.
 If path is not supplied, the file is first downloaded from HDX.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -1984,7 +1984,7 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 <dl class="method">
 <dt id="hdx.data.resource.Resource.create_datastore_from_json_schema">
 <code class="descname">create_datastore_from_json_schema</code><span class="sig-paren">(</span><em>json_path</em>, <em>delete_first=0</em>, <em>path=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.create_datastore_from_json_schema" title="Permalink to this definition">¶</a></dt>
-<dd><p>For csvs, create a resource in the HDX datastore which enables data preview in HDX from a JSON file
+<dd><p>For tabular data, create a resource in the HDX datastore which enables data preview in HDX from a JSON file
 containing a list of fields and types of form {‘id’: ‘FIELD’, ‘type’: ‘TYPE’} and optionally a primary key.
 If path is not supplied, the file is first downloaded from HDX.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -2008,7 +2008,7 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 <dl class="method">
 <dt id="hdx.data.resource.Resource.create_datastore_from_yaml_schema">
 <code class="descname">create_datastore_from_yaml_schema</code><span class="sig-paren">(</span><em>yaml_path</em>, <em>delete_first=0</em>, <em>path=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.create_datastore_from_yaml_schema" title="Permalink to this definition">¶</a></dt>
-<dd><p>For csvs, create a resource in the HDX datastore which enables data preview in HDX from a YAML file
+<dd><p>For tabular data, create a resource in the HDX datastore which enables data preview in HDX from a YAML file
 containing a list of fields and types of form {‘id’: ‘FIELD’, ‘type’: ‘TYPE’} and optionally a primary key.
 If path is not supplied, the file is first downloaded from HDX.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -2133,6 +2133,24 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 </table>
 </dd></dl>
 
+<dl class="staticmethod">
+<dt id="hdx.data.resource.Resource.get_all_resource_ids_in_datastore">
+<em class="property">static </em><code class="descname">get_all_resource_ids_in_datastore</code><span class="sig-paren">(</span><em>configuration=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.get_all_resource_ids_in_datastore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get list of resources that have a datastore returning their ids.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>configuration</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="hdx.html#hdx.hdx_configuration.Configuration" title="hdx.hdx_configuration.Configuration"><em>Configuration</em></a><em>]</em>) – HDX configuration. Defaults to global configuration.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">List of resource ids that are in the datastore</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">List[str]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 <dl class="method">
 <dt id="hdx.data.resource.Resource.get_dataset">
 <code class="descname">get_dataset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.get_dataset" title="Permalink to this definition">¶</a></dt>
@@ -2192,6 +2210,22 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">List of resource views</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">List[<a class="reference internal" href="#hdx.data.resource_view.ResourceView" title="hdx.data.resource_view.ResourceView">ResourceView</a>]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.resource.Resource.has_datastore">
+<code class="descname">has_datastore</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.has_datastore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the resource has a datastore.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Whether the resource has a datastore or not</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
 </tr>
 </tbody>
 </table>
@@ -2314,7 +2348,7 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 <dl class="method">
 <dt id="hdx.data.resource.Resource.update_datastore">
 <code class="descname">update_datastore</code><span class="sig-paren">(</span><em>schema=None</em>, <em>primary_key=None</em>, <em>path=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.update_datastore" title="Permalink to this definition">¶</a></dt>
-<dd><p>For csvs, update a resource in the HDX datastore which enables data preview in HDX. If no schema is provided
+<dd><p>For tabular data, update a resource in the HDX datastore which enables data preview in HDX. If no schema is provided
 all fields are assumed to be text. If path is not supplied, the file is first downloaded from HDX.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -2337,7 +2371,7 @@ all fields are assumed to be text. If path is not supplied, the file is first do
 <dl class="method">
 <dt id="hdx.data.resource.Resource.update_datastore_for_topline">
 <code class="descname">update_datastore_for_topline</code><span class="sig-paren">(</span><em>path=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.update_datastore_for_topline" title="Permalink to this definition">¶</a></dt>
-<dd><p>For csvs, update a resource in the HDX datastore which enables data preview in HDX using the built in YAML
+<dd><p>For tabular data, update a resource in the HDX datastore which enables data preview in HDX using the built in YAML
 definition for a topline. If path is not supplied, the file is first downloaded from HDX.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -2354,7 +2388,7 @@ definition for a topline. If path is not supplied, the file is first downloaded 
 <dl class="method">
 <dt id="hdx.data.resource.Resource.update_datastore_from_dict_schema">
 <code class="descname">update_datastore_from_dict_schema</code><span class="sig-paren">(</span><em>data</em>, <em>path=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.update_datastore_from_dict_schema" title="Permalink to this definition">¶</a></dt>
-<dd><p>For csvs, update a resource in the HDX datastore which enables data preview in HDX from a dictionary
+<dd><p>For tabular data, update a resource in the HDX datastore which enables data preview in HDX from a dictionary
 containing a list of fields and types of form {‘id’: ‘FIELD’, ‘type’: ‘TYPE’} and optionally a primary key.
 If path is not supplied, the file is first downloaded from HDX.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -2377,7 +2411,7 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 <dl class="method">
 <dt id="hdx.data.resource.Resource.update_datastore_from_json_schema">
 <code class="descname">update_datastore_from_json_schema</code><span class="sig-paren">(</span><em>json_path</em>, <em>path=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.update_datastore_from_json_schema" title="Permalink to this definition">¶</a></dt>
-<dd><p>For csvs, update a resource in the HDX datastore which enables data preview in HDX from a JSON file
+<dd><p>For tabular data, update a resource in the HDX datastore which enables data preview in HDX from a JSON file
 containing a list of fields and types of form {‘id’: ‘FIELD’, ‘type’: ‘TYPE’} and optionally a primary key.
 If path is not supplied, the file is first downloaded from HDX.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -2400,7 +2434,7 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 <dl class="method">
 <dt id="hdx.data.resource.Resource.update_datastore_from_yaml_schema">
 <code class="descname">update_datastore_from_yaml_schema</code><span class="sig-paren">(</span><em>yaml_path</em>, <em>path=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.update_datastore_from_yaml_schema" title="Permalink to this definition">¶</a></dt>
-<dd><p>For csvs, update a resource in the HDX datastore which enables data preview in HDX from a YAML file
+<dd><p>For tabular data, update a resource in the HDX datastore which enables data preview in HDX from a YAML file
 containing a list of fields and types of form {‘id’: ‘FIELD’, ‘type’: ‘TYPE’} and optionally a primary key.
 If path is not supplied, the file is first downloaded from HDX.</p>
 <table class="docutils field-list" frame="void" rules="none">
