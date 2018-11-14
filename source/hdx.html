@@ -78,6 +78,7 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>**kwargs</strong> – See below</li>
+<li><strong>hdx_url</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – HDX url to use. Overrides hdx_site.</li>
 <li><strong>hdx_site</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – HDX site to use eg. prod, test. Defaults to test.</li>
 <li><strong>hdx_read_only</strong> (<em>bool</em>) – Whether to access HDX in read only mode. Defaults to False.</li>
 <li><strong>hdx_key</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Your HDX key. Ignored if hdx_read_only = True.</li>
@@ -134,6 +135,7 @@
 <li><strong>user_agent_lookup</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Lookup key for YAML. Ignored if user_agent supplied.</li>
 <li><strong>remoteckan</strong> (<em>Optional</em><em>[</em><em>ckanapi.RemoteCKAN</em><em>]</em>) – CKAN instance. Defaults to setting one up from configuration.</li>
 <li><strong>**kwargs</strong> – See below</li>
+<li><strong>hdx_url</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – HDX url to use. Overrides hdx_site.</li>
 <li><strong>hdx_site</strong> (<em>str</em>) – HDX site to use eg. prod, test.</li>
 <li><strong>hdx_read_only</strong> (<em>bool</em>) – Whether to access HDX in read only mode. Defaults to False.</li>
 <li><strong>hdx_key</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Your HDX key. Ignored if hdx_read_only = True.</li>
@@ -373,6 +375,7 @@
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>configuration</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="#hdx.hdx_configuration.Configuration" title="hdx.hdx_configuration.Configuration"><em>Configuration</em></a><em>]</em>) – Configuration instance. Defaults to setting one up from passed arguments.</li>
 <li><strong>**kwargs</strong> – See below</li>
+<li><strong>hdx_url</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – HDX url to use. Overrides hdx_site.</li>
 <li><strong>hdx_site</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – HDX site to use eg. prod, test. Defaults to test.</li>
 <li><strong>hdx_read_only</strong> (<em>bool</em>) – Whether to access HDX in read only mode. Defaults to False.</li>
 <li><strong>hdx_key</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Your HDX key. Ignored if hdx_read_only = True.</li>
