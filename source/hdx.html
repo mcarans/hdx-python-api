@@ -53,7 +53,6 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="hdx.facades.html">hdx.facades package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="hdx.facades.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hdx.facades.html#module-hdx.facades.hdx_scraperwiki">hdx.facades.hdx_scraperwiki module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hdx.facades.html#module-hdx.facades.simple">hdx.facades.simple module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hdx.facades.html#module-hdx.facades">Module contents</a></li>
 </ul>
@@ -78,10 +77,13 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>**kwargs</strong> – See below</li>
-<li><strong>hdx_url</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – HDX url to use. Overrides hdx_site.</li>
-<li><strong>hdx_site</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – HDX site to use eg. prod, test. Defaults to test.</li>
+<li><strong>user_agent</strong> (<em>str</em>) – User agent string. HDXPythonLibrary/X.X.X- is prefixed. Must be supplied if remoteckan is not.</li>
+<li><strong>user_agent_config_yaml</strong> (<em>str</em>) – Path to YAML user agent configuration. Ignored if user_agent supplied. Defaults to ~/.useragent.yml.</li>
+<li><strong>user_agent_lookup</strong> (<em>str</em>) – Lookup key for YAML. Ignored if user_agent supplied.</li>
+<li><strong>hdx_url</strong> (<em>str</em>) – HDX url to use. Overrides hdx_site.</li>
+<li><strong>hdx_site</strong> (<em>str</em>) – HDX site to use eg. prod, test.</li>
 <li><strong>hdx_read_only</strong> (<em>bool</em>) – Whether to access HDX in read only mode. Defaults to False.</li>
-<li><strong>hdx_key</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Your HDX key. Ignored if hdx_read_only = True.</li>
+<li><strong>hdx_key</strong> (<em>str</em>) – Your HDX key. Ignored if hdx_read_only = True.</li>
 <li><strong>hdx_config_dict</strong> (<em>dict</em>) – HDX configuration dictionary to use instead of above 3 parameters OR</li>
 <li><strong>hdx_config_json</strong> (<em>str</em>) – Path to JSON HDX configuration OR</li>
 <li><strong>hdx_config_yaml</strong> (<em>str</em>) – Path to YAML HDX configuration</li>
@@ -96,6 +98,11 @@
 </tr>
 </tbody>
 </table>
+<dl class="attribute">
+<dt id="hdx.hdx_configuration.Configuration.apiversion">
+<code class="descname">apiversion</code><em class="property"> = '3.5.5'</em><a class="headerlink" href="#hdx.hdx_configuration.Configuration.apiversion" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="method">
 <dt id="hdx.hdx_configuration.Configuration.call_remoteckan">
 <code class="descname">call_remoteckan</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.hdx_configuration.Configuration.call_remoteckan" title="Permalink to this definition">¶</a></dt>
@@ -122,7 +129,7 @@
 
 <dl class="classmethod">
 <dt id="hdx.hdx_configuration.Configuration.create">
-<em class="property">classmethod </em><code class="descname">create</code><span class="sig-paren">(</span><em>configuration=None</em>, <em>user_agent=None</em>, <em>user_agent_config_yaml=None</em>, <em>user_agent_lookup=None</em>, <em>remoteckan=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.hdx_configuration.Configuration.create" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="descname">create</code><span class="sig-paren">(</span><em>configuration=None</em>, <em>remoteckan=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.hdx_configuration.Configuration.create" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create HDX configuration. Can only be called once (will raise an error if called more than once).</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -130,15 +137,15 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>configuration</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="#hdx.hdx_configuration.Configuration" title="hdx.hdx_configuration.Configuration"><em>Configuration</em></a><em>]</em>) – Configuration instance. Defaults to setting one up from passed arguments.</li>
-<li><strong>user_agent</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – User agent string. HDXPythonLibrary/X.X.X- is prefixed. Must be supplied if remoteckan is not.</li>
-<li><strong>user_agent_config_yaml</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Path to YAML user agent configuration. Ignored if user_agent supplied. Defaults to ~/.useragent.yml.</li>
-<li><strong>user_agent_lookup</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Lookup key for YAML. Ignored if user_agent supplied.</li>
 <li><strong>remoteckan</strong> (<em>Optional</em><em>[</em><em>ckanapi.RemoteCKAN</em><em>]</em>) – CKAN instance. Defaults to setting one up from configuration.</li>
 <li><strong>**kwargs</strong> – See below</li>
-<li><strong>hdx_url</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – HDX url to use. Overrides hdx_site.</li>
+<li><strong>user_agent</strong> (<em>str</em>) – User agent string. HDXPythonLibrary/X.X.X- is prefixed. Must be supplied if remoteckan is not.</li>
+<li><strong>user_agent_config_yaml</strong> (<em>str</em>) – Path to YAML user agent configuration. Ignored if user_agent supplied. Defaults to ~/.useragent.yml.</li>
+<li><strong>user_agent_lookup</strong> (<em>str</em>) – Lookup key for YAML. Ignored if user_agent supplied.</li>
+<li><strong>hdx_url</strong> (<em>str</em>) – HDX url to use. Overrides hdx_site.</li>
 <li><strong>hdx_site</strong> (<em>str</em>) – HDX site to use eg. prod, test.</li>
 <li><strong>hdx_read_only</strong> (<em>bool</em>) – Whether to access HDX in read only mode. Defaults to False.</li>
-<li><strong>hdx_key</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Your HDX key. Ignored if hdx_read_only = True.</li>
+<li><strong>hdx_key</strong> (<em>str</em>) – Your HDX key. Ignored if hdx_read_only = True.</li>
 <li><strong>hdx_config_dict</strong> (<em>dict</em>) – HDX configuration dictionary to use instead of above 3 parameters OR</li>
 <li><strong>hdx_config_json</strong> (<em>str</em>) – Path to JSON HDX configuration OR</li>
 <li><strong>hdx_config_yaml</strong> (<em>str</em>) – Path to YAML HDX configuration</li>
@@ -163,7 +170,7 @@
 
 <dl class="classmethod">
 <dt id="hdx.hdx_configuration.Configuration.create_remoteckan">
-<em class="property">classmethod </em><code class="descname">create_remoteckan</code><span class="sig-paren">(</span><em>site_url</em>, <em>user_agent=None</em>, <em>user_agent_config_yaml=None</em>, <em>user_agent_lookup=None</em>, <em>session=&lt;requests.sessions.Session object&gt;</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.hdx_configuration.Configuration.create_remoteckan" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="descname">create_remoteckan</code><span class="sig-paren">(</span><em>site_url</em>, <em>user_agent=None</em>, <em>user_agent_config_yaml=None</em>, <em>user_agent_lookup=None</em>, <em>session=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.hdx_configuration.Configuration.create_remoteckan" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create remote CKAN instance from configuration</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -198,11 +205,6 @@
 <code class="descname">default_hdx_config_yaml</code><em class="property"> = '/home/mcarans/.hdx_configuration.yml'</em><a class="headerlink" href="#hdx.hdx_configuration.Configuration.default_hdx_config_yaml" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
-<dt id="hdx.hdx_configuration.Configuration.default_user_agent_config_yaml">
-<code class="descname">default_user_agent_config_yaml</code><em class="property"> = '/home/mcarans/.useragent.yml'</em><a class="headerlink" href="#hdx.hdx_configuration.Configuration.default_user_agent_config_yaml" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
 <dl class="classmethod">
 <dt id="hdx.hdx_configuration.Configuration.delete">
 <em class="property">classmethod </em><code class="descname">delete</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.hdx_configuration.Configuration.delete" title="Permalink to this definition">¶</a></dt>
@@ -212,6 +214,22 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.hdx_configuration.Configuration.downloader">
+<code class="descname">downloader</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.hdx_configuration.Configuration.downloader" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the Download object (see HDX Python Utilities library)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The Download object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Download</td>
 </tr>
 </tbody>
 </table>
@@ -265,40 +283,31 @@
 </table>
 </dd></dl>
 
-<dl class="staticmethod">
-<dt id="hdx.hdx_configuration.Configuration.get_version">
-<em class="property">static </em><code class="descname">get_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.hdx_configuration.Configuration.get_version" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dl class="method">
+<dt id="hdx.hdx_configuration.Configuration.get_user_agent">
+<code class="descname">get_user_agent</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.hdx_configuration.Configuration.get_user_agent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return user agent</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">User agent</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="hdx.hdx_configuration.Configuration.home_folder">
 <code class="descname">home_folder</code><em class="property"> = '/home/mcarans'</em><a class="headerlink" href="#hdx.hdx_configuration.Configuration.home_folder" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="classmethod">
-<dt id="hdx.hdx_configuration.Configuration.load_user_agent">
-<em class="property">classmethod </em><code class="descname">load_user_agent</code><span class="sig-paren">(</span><em>prefix</em>, <em>user_agent_config_yaml</em>, <em>user_agent_lookup=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.hdx_configuration.Configuration.load_user_agent" title="Permalink to this definition">¶</a></dt>
-<dd><p>Load user agent YAML file</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>prefix</strong> (<em>str</em>) – Text to put at start of user agent</li>
-<li><strong>user_agent_config_yaml</strong> (<em>str</em>) – Path to user agent YAML file</li>
-<li><strong>user_agent_lookup</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Lookup key for YAML. Ignored if user_agent supplied.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">user agent</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">str</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
+<dl class="attribute">
+<dt id="hdx.hdx_configuration.Configuration.prefix">
+<code class="descname">prefix</code><em class="property"> = 'HDXPythonLibrary/3.5.5'</em><a class="headerlink" href="#hdx.hdx_configuration.Configuration.prefix" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="classmethod">
 <dt id="hdx.hdx_configuration.Configuration.read">
@@ -375,10 +384,13 @@
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>configuration</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="#hdx.hdx_configuration.Configuration" title="hdx.hdx_configuration.Configuration"><em>Configuration</em></a><em>]</em>) – Configuration instance. Defaults to setting one up from passed arguments.</li>
 <li><strong>**kwargs</strong> – See below</li>
-<li><strong>hdx_url</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – HDX url to use. Overrides hdx_site.</li>
-<li><strong>hdx_site</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – HDX site to use eg. prod, test. Defaults to test.</li>
+<li><strong>user_agent</strong> (<em>str</em>) – User agent string. HDXPythonLibrary/X.X.X- is prefixed. Must be supplied if remoteckan is not.</li>
+<li><strong>user_agent_config_yaml</strong> (<em>str</em>) – Path to YAML user agent configuration. Ignored if user_agent supplied. Defaults to ~/.useragent.yml.</li>
+<li><strong>user_agent_lookup</strong> (<em>str</em>) – Lookup key for YAML. Ignored if user_agent supplied.</li>
+<li><strong>hdx_url</strong> (<em>str</em>) – HDX url to use. Overrides hdx_site.</li>
+<li><strong>hdx_site</strong> (<em>str</em>) – HDX site to use eg. prod, test.</li>
 <li><strong>hdx_read_only</strong> (<em>bool</em>) – Whether to access HDX in read only mode. Defaults to False.</li>
-<li><strong>hdx_key</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Your HDX key. Ignored if hdx_read_only = True.</li>
+<li><strong>hdx_key</strong> (<em>str</em>) – Your HDX key. Ignored if hdx_read_only = True.</li>
 <li><strong>hdx_config_dict</strong> (<em>dict</em>) – HDX configuration dictionary to use instead of above 3 parameters OR</li>
 <li><strong>hdx_config_json</strong> (<em>str</em>) – Path to JSON HDX configuration OR</li>
 <li><strong>hdx_config_yaml</strong> (<em>str</em>) – Path to YAML HDX configuration</li>
@@ -430,22 +442,15 @@
 
 <dl class="method">
 <dt id="hdx.hdx_configuration.Configuration.setup_remoteckan">
-<code class="descname">setup_remoteckan</code><span class="sig-paren">(</span><em>user_agent=None</em>, <em>user_agent_config_yaml=None</em>, <em>user_agent_lookup=None</em>, <em>remoteckan=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.hdx_configuration.Configuration.setup_remoteckan" title="Permalink to this definition">¶</a></dt>
+<code class="descname">setup_remoteckan</code><span class="sig-paren">(</span><em>remoteckan=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.hdx_configuration.Configuration.setup_remoteckan" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set up remote CKAN from provided CKAN or by creating from configuration</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>user_agent</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – User agent string. HDXPythonLibrary/X.X.X- is prefixed. Must be supplied if remoteckan is not.</li>
-<li><strong>user_agent_config_yaml</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Path to YAML user agent configuration. Ignored if user_agent supplied. Defaults to ~/.useragent.yml.</li>
-<li><strong>user_agent_lookup</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Lookup key for YAML. Ignored if user_agent supplied.</li>
-<li><strong>remoteckan</strong> (<em>Optional</em><em>[</em><em>ckanapi.RemoteCKAN</em><em>]</em>) – CKAN instance. Defaults to setting one up from configuration.</li>
-</ul>
-</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>remoteckan</strong> (<em>Optional</em><em>[</em><em>ckanapi.RemoteCKAN</em><em>]</em>) – CKAN instance. Defaults to setting one up from configuration.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
-</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
 </tbody>
 </table>
@@ -637,7 +642,7 @@
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>configuration</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="#hdx.hdx_configuration.Configuration" title="hdx.hdx_configuration.Configuration"><em>Configuration</em></a><em>]</em>) – HDX configuration. Defaults to global configuration.</li>
 <li><strong>url</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Url of tags cleanup spreadsheet. Defaults to None (internal configuration parameter).</li>
-<li><strong>keycolumn</strong> (<em>int</em>) – Column number of tag column in spreadsheet</li>
+<li><strong>keycolumn</strong> (<em>int</em>) – Column number of tag column in spreadsheet. Defaults to 5.</li>
 <li><strong>failchained</strong> (<em>bool</em>) – Fail if chained rules found. Defaults to True.</li>
 </ul>
 </td>
@@ -653,6 +658,15 @@
 </dd></dl>
 
 </dd></dl>
+
+</div>
+<div class="section" id="module-hdx.version">
+<span id="hdx-version-module"></span><h2>hdx.version module<a class="headerlink" href="#module-hdx.version" title="Permalink to this headline">¶</a></h2>
+<p>Version utility</p>
+<dl class="function">
+<dt id="hdx.version.get_api_version">
+<code class="descclassname">hdx.version.</code><code class="descname">get_api_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.version.get_api_version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </div>
 <div class="section" id="module-hdx">

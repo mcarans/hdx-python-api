@@ -36,6 +36,14 @@ hdx.hdx\_tagscleanup module
     :undoc-members:
     :show-inheritance:
 
+hdx.version module
+------------------
+
+.. automodule:: hdx.version
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 
 Module contents
 ---------------

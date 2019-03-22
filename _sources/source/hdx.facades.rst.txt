@@ -4,14 +4,6 @@ hdx.facades package
 Submodules
 ----------
 
-hdx.facades.hdx\_scraperwiki module
------------------------------------
-
-.. automodule:: hdx.facades.hdx_scraperwiki
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
 hdx.facades.simple module
 -------------------------
 

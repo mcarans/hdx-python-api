@@ -1263,6 +1263,11 @@ For unambiguous formats, this should be fine.</p>
 </table>
 </dd></dl>
 
+<dl class="attribute">
+<dt id="hdx.data.dataset.Dataset.temporary_url">
+<code class="descname">temporary_url</code><em class="property"> = 'updated_by_file_upload_step'</em><a class="headerlink" href="#hdx.data.dataset.Dataset.temporary_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="staticmethod">
 <dt id="hdx.data.dataset.Dataset.transform_update_frequency">
 <em class="property">static </em><code class="descname">transform_update_frequency</code><span class="sig-paren">(</span><em>frequency</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.transform_update_frequency" title="Permalink to this definition">¶</a></dt>
@@ -1916,14 +1921,12 @@ any fields that should be ignored for the particular operation.</p>
 <dl class="method">
 <dt id="hdx.data.resource.Resource.check_url_filetoupload">
 <code class="descname">check_url_filetoupload</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.check_url_filetoupload" title="Permalink to this definition">¶</a></dt>
-<dd><p>Check if url or file to upload provided for resource and add resource_type and url_type if not supplied.</p>
+<dd><p>Check if url or file to upload provided for resource and add resource_type and url_type if not supplied</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Whether url field and file_to_upload are both populated</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
 </tbody>
 </table>
@@ -2320,7 +2323,7 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 <dl class="method">
 <dt id="hdx.data.resource.Resource.set_file_to_upload">
 <code class="descname">set_file_to_upload</code><span class="sig-paren">(</span><em>file_to_upload</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.set_file_to_upload" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the file uploaded to the local path provided</p>
+<dd><p>Delete any existing url and set the file uploaded to the local path provided</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -2344,20 +2347,6 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>file_type</strong> (<em>str</em>) – resource’s file type</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="hdx.data.resource.Resource.touch">
-<code class="descname">touch</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.touch" title="Permalink to this definition">¶</a></dt>
-<dd><p>Touch resource</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
 </tbody>
 </table>
@@ -2506,13 +2495,20 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 
 <dl class="method">
 <dt id="hdx.data.resource.Resource.update_in_hdx">
-<code class="descname">update_in_hdx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.update_in_hdx" title="Permalink to this definition">¶</a></dt>
+<code class="descname">update_in_hdx</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.update_in_hdx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check if resource exists in HDX and if so, update it</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>**kwargs</strong> – See below</li>
+<li><strong>operation</strong> (<em>string</em>) – Operation to perform eg. patch. Defaults to update.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
+</td>
 </tr>
 </tbody>
 </table>
