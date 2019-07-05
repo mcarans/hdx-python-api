@@ -1,12 +1,10 @@
 
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Index &#8212; HDX Python API 1.0 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,6 +12,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="#" />
     <link rel="search" title="Search" href="search.html" />
    
@@ -74,6 +73,8 @@
 </li>
         <li><a href="source/hdx.data.html#hdx.data.user.User.actions">(hdx.data.user.User static method)</a>
 </li>
+        <li><a href="source/hdx.data.html#hdx.data.vocabulary.Vocabulary.actions">(hdx.data.vocabulary.Vocabulary static method)</a>
+</li>
       </ul></li>
       <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.add_country_location">add_country_location() (hdx.data.dataset.Dataset method)</a>
 </li>
@@ -91,6 +92,10 @@
 </li>
       <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.add_filetypes">add_filetypes() (hdx.data.dataset.Dataset method)</a>
 </li>
+      <li><a href="source/hdx.data.html#hdx.data.vocabulary.Vocabulary.add_mapped_tag">add_mapped_tag() (hdx.data.vocabulary.Vocabulary class method)</a>
+</li>
+      <li><a href="source/hdx.data.html#hdx.data.vocabulary.Vocabulary.add_mapped_tags">add_mapped_tags() (hdx.data.vocabulary.Vocabulary class method)</a>
+</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.add_other_location">add_other_location() (hdx.data.dataset.Dataset method)</a>
@@ -106,11 +111,15 @@
       <ul>
         <li><a href="source/hdx.data.html#hdx.data.showcase.Showcase.add_tag">(hdx.data.showcase.Showcase method)</a>
 </li>
+        <li><a href="source/hdx.data.html#hdx.data.vocabulary.Vocabulary.add_tag">(hdx.data.vocabulary.Vocabulary method)</a>
+</li>
       </ul></li>
       <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.add_tags">add_tags() (hdx.data.dataset.Dataset method)</a>
 
       <ul>
         <li><a href="source/hdx.data.html#hdx.data.showcase.Showcase.add_tags">(hdx.data.showcase.Showcase method)</a>
+</li>
+        <li><a href="source/hdx.data.html#hdx.data.vocabulary.Vocabulary.add_tags">(hdx.data.vocabulary.Vocabulary method)</a>
 </li>
       </ul></li>
       <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.add_update_resource">add_update_resource() (hdx.data.dataset.Dataset method)</a>
@@ -127,6 +136,8 @@
 </li>
       <li><a href="source/hdx.html#hdx.hdx_configuration.Configuration.apiversion">apiversion (hdx.hdx_configuration.Configuration attribute)</a>
 </li>
+      <li><a href="source/hdx.data.html#hdx.data.vocabulary.Vocabulary.approved_tags">approved_tags() (hdx.data.vocabulary.Vocabulary class method)</a>
+</li>
   </ul></td>
 </tr></table>
 
@@ -135,7 +146,7 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="source/hdx.html#hdx.hdx_configuration.Configuration.call_remoteckan">call_remoteckan() (hdx.hdx_configuration.Configuration method)</a>
 </li>
-      <li><a href="source/hdx.html#hdx.hdx_tagscleanup.ChainRuleError">ChainRuleError</a>
+      <li><a href="source/hdx.data.html#hdx.data.vocabulary.ChainRuleError">ChainRuleError</a>
 </li>
       <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.check_required_fields">check_required_fields() (hdx.data.dataset.Dataset method)</a>
 
@@ -152,11 +163,19 @@
 </li>
         <li><a href="source/hdx.data.html#hdx.data.user.User.check_required_fields">(hdx.data.user.User method)</a>
 </li>
+        <li><a href="source/hdx.data.html#hdx.data.vocabulary.Vocabulary.check_required_fields">(hdx.data.vocabulary.Vocabulary method)</a>
+</li>
       </ul></li>
       <li><a href="source/hdx.data.html#hdx.data.resource.Resource.check_url_filetoupload">check_url_filetoupload() (hdx.data.resource.Resource method)</a>
 </li>
-      <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.clean_dataset_tags">clean_dataset_tags() (hdx.data.dataset.Dataset method)</a>
+      <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.clean_tags">clean_tags() (hdx.data.dataset.Dataset method)</a>
+
+      <ul>
+        <li><a href="source/hdx.data.html#hdx.data.showcase.Showcase.clean_tags">(hdx.data.showcase.Showcase method)</a>
 </li>
+        <li><a href="source/hdx.data.html#hdx.data.vocabulary.Vocabulary.clean_tags">(hdx.data.vocabulary.Vocabulary class method)</a>
+</li>
+      </ul></li>
       <li><a href="source/hdx.html#hdx.hdx_configuration.Configuration">Configuration (class in hdx.hdx_configuration)</a>
 </li>
       <li><a href="source/hdx.html#hdx.hdx_configuration.ConfigurationError">ConfigurationError</a>
@@ -166,6 +185,8 @@
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="source/hdx.html#hdx.hdx_configuration.Configuration.create">create() (hdx.hdx_configuration.Configuration class method)</a>
+</li>
+      <li><a href="source/hdx.data.html#hdx.data.vocabulary.Vocabulary.create_approved_vocabulary">create_approved_vocabulary() (hdx.data.vocabulary.Vocabulary class method)</a>
 </li>
       <li><a href="source/hdx.data.html#hdx.data.resource.Resource.create_datastore">create_datastore() (hdx.data.resource.Resource method)</a>
 </li>
@@ -194,6 +215,8 @@
 </li>
         <li><a href="source/hdx.data.html#hdx.data.user.User.create_in_hdx">(hdx.data.user.User method)</a>
 </li>
+        <li><a href="source/hdx.data.html#hdx.data.vocabulary.Vocabulary.create_in_hdx">(hdx.data.vocabulary.Vocabulary method)</a>
+</li>
       </ul></li>
       <li><a href="source/hdx.html#hdx.hdx_configuration.Configuration.create_remoteckan">create_remoteckan() (hdx.hdx_configuration.Configuration class method)</a>
 </li>
@@ -213,6 +236,8 @@
 </li>
       <li><a href="source/hdx.html#hdx.hdx_configuration.Configuration.delete">delete() (hdx.hdx_configuration.Configuration class method)</a>
 </li>
+      <li><a href="source/hdx.data.html#hdx.data.vocabulary.Vocabulary.delete_approved_vocabulary">delete_approved_vocabulary() (hdx.data.vocabulary.Vocabulary class method)</a>
+</li>
       <li><a href="source/hdx.data.html#hdx.data.resource.Resource.delete_datastore">delete_datastore() (hdx.data.resource.Resource method)</a>
 </li>
       <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.delete_from_hdx">delete_from_hdx() (hdx.data.dataset.Dataset method)</a>
@@ -230,6 +255,8 @@
 </li>
         <li><a href="source/hdx.data.html#hdx.data.user.User.delete_from_hdx">(hdx.data.user.User method)</a>
 </li>
+        <li><a href="source/hdx.data.html#hdx.data.vocabulary.Vocabulary.delete_from_hdx">(hdx.data.vocabulary.Vocabulary method)</a>
+</li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
@@ -240,8 +267,6 @@
       <li><a href="source/hdx.data.html#hdx.data.resource.Resource.disable_dataset_preview">disable_dataset_preview() (hdx.data.resource.Resource method)</a>
 </li>
       <li><a href="source/hdx.data.html#hdx.data.resource.Resource.download">download() (hdx.data.resource.Resource method)</a>
-</li>
-      <li><a href="source/hdx.html#hdx.hdx_configuration.Configuration.downloader">downloader() (hdx.hdx_configuration.Configuration method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -265,8 +290,12 @@
 <h2 id="F">F</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="source/hdx.facades.html#hdx.facades.simple.facade">facade() (in module hdx.facades.simple)</a>
+      <li><a href="source/hdx.facades.html#hdx.facades.keyword_arguments.facade">facade() (in module hdx.facades.keyword_arguments)</a>
+
+      <ul>
+        <li><a href="source/hdx.facades.html#hdx.facades.simple.facade">(in module hdx.facades.simple)</a>
 </li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -285,11 +314,17 @@
 </li>
       <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.get_all_resources">get_all_resources() (hdx.data.dataset.Dataset static method)</a>
 </li>
+      <li><a href="source/hdx.data.html#hdx.data.showcase.Showcase.get_all_showcases">get_all_showcases() (hdx.data.showcase.Showcase class method)</a>
+</li>
       <li><a href="source/hdx.data.html#hdx.data.user.User.get_all_users">get_all_users() (hdx.data.user.User static method)</a>
+</li>
+      <li><a href="source/hdx.data.html#hdx.data.vocabulary.Vocabulary.get_all_vocabularies">get_all_vocabularies() (hdx.data.vocabulary.Vocabulary static method)</a>
 </li>
       <li><a href="source/hdx.html#hdx.hdx_configuration.Configuration.get_api_key">get_api_key() (hdx.hdx_configuration.Configuration method)</a>
 </li>
       <li><a href="source/hdx.html#hdx.version.get_api_version">get_api_version() (in module hdx.version)</a>
+</li>
+      <li><a href="source/hdx.data.html#hdx.data.vocabulary.Vocabulary.get_approved_vocabulary">get_approved_vocabulary() (hdx.data.vocabulary.Vocabulary class method)</a>
 </li>
       <li><a href="source/hdx.data.html#hdx.data.resource.Resource.get_dataset">get_dataset() (hdx.data.resource.Resource method)</a>
 </li>
@@ -313,25 +348,31 @@
 </li>
       <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.get_fieldnames">get_fieldnames() (hdx.data.dataset.Dataset method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="source/hdx.data.html#hdx.data.resource.Resource.get_file_to_upload">get_file_to_upload() (hdx.data.resource.Resource method)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="source/hdx.data.html#hdx.data.resource.Resource.get_file_type">get_file_type() (hdx.data.resource.Resource method)</a>
 </li>
       <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.get_filetypes">get_filetypes() (hdx.data.dataset.Dataset method)</a>
 </li>
-      <li><a href="source/hdx.html#hdx.hdx_locations.Locations.get_HDX_code_from_location">get_HDX_code_from_location() (hdx.hdx_locations.Locations static method)</a>
+      <li><a href="source/hdx.html#hdx.hdx_locations.Locations.get_HDX_code_from_location">get_HDX_code_from_location() (hdx.hdx_locations.Locations class method)</a>
 </li>
-      <li><a href="source/hdx.html#hdx.hdx_locations.Locations.get_HDX_code_from_location_partial">get_HDX_code_from_location_partial() (hdx.hdx_locations.Locations static method)</a>
+      <li><a href="source/hdx.html#hdx.hdx_locations.Locations.get_HDX_code_from_location_partial">get_HDX_code_from_location_partial() (hdx.hdx_locations.Locations class method)</a>
 </li>
       <li><a href="source/hdx.html#hdx.hdx_configuration.Configuration.get_hdx_site_url">get_hdx_site_url() (hdx.hdx_configuration.Configuration method)</a>
 </li>
+      <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.get_hdx_url">get_hdx_url() (hdx.data.dataset.Dataset method)</a>
+</li>
       <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.get_location">get_location() (hdx.data.dataset.Dataset method)</a>
 </li>
-      <li><a href="source/hdx.html#hdx.hdx_locations.Locations.get_location_from_HDX_code">get_location_from_HDX_code() (hdx.hdx_locations.Locations static method)</a>
+      <li><a href="source/hdx.html#hdx.hdx_locations.Locations.get_location_from_HDX_code">get_location_from_HDX_code() (hdx.hdx_locations.Locations class method)</a>
 </li>
       <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.get_maintainer">get_maintainer() (hdx.data.dataset.Dataset method)</a>
+</li>
+      <li><a href="source/hdx.data.html#hdx.data.vocabulary.Vocabulary.get_mapped_tag">get_mapped_tag() (hdx.data.vocabulary.Vocabulary class method)</a>
+</li>
+      <li><a href="source/hdx.data.html#hdx.data.vocabulary.Vocabulary.get_mapped_tags">get_mapped_tags() (hdx.data.vocabulary.Vocabulary class method)</a>
 </li>
       <li><a href="source/hdx.data.html#hdx.data.hdxobject.HDXObject.get_old_data_dict">get_old_data_dict() (hdx.data.hdxobject.HDXObject method)</a>
 </li>
@@ -351,6 +392,8 @@
 
       <ul>
         <li><a href="source/hdx.data.html#hdx.data.showcase.Showcase.get_tags">(hdx.data.showcase.Showcase method)</a>
+</li>
+        <li><a href="source/hdx.data.html#hdx.data.vocabulary.Vocabulary.get_tags">(hdx.data.vocabulary.Vocabulary method)</a>
 </li>
       </ul></li>
       <li><a href="source/hdx.html#hdx.hdx_configuration.Configuration.get_user_agent">get_user_agent() (hdx.hdx_configuration.Configuration method)</a>
@@ -385,15 +428,17 @@
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="source/hdx.data.html#module-hdx.data.vocabulary">hdx.data.vocabulary (module)</a>
+</li>
       <li><a href="source/hdx.facades.html#module-hdx.facades">hdx.facades (module)</a>
+</li>
+      <li><a href="source/hdx.facades.html#module-hdx.facades.keyword_arguments">hdx.facades.keyword_arguments (module)</a>
 </li>
       <li><a href="source/hdx.facades.html#module-hdx.facades.simple">hdx.facades.simple (module)</a>
 </li>
       <li><a href="source/hdx.html#module-hdx.hdx_configuration">hdx.hdx_configuration (module)</a>
 </li>
       <li><a href="source/hdx.html#module-hdx.hdx_locations">hdx.hdx_locations (module)</a>
-</li>
-      <li><a href="source/hdx.html#module-hdx.hdx_tagscleanup">hdx.hdx_tagscleanup (module)</a>
 </li>
       <li><a href="source/hdx.html#module-hdx.version">hdx.version (module)</a>
 </li>
@@ -412,6 +457,8 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.init_resources">init_resources() (hdx.data.dataset.Dataset method)</a>
+</li>
+      <li><a href="source/hdx.data.html#hdx.data.vocabulary.Vocabulary.is_approved">is_approved() (hdx.data.vocabulary.Vocabulary class method)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
@@ -438,7 +485,11 @@
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.max_int">max_int (hdx.data.dataset.Dataset attribute)</a>
+
+      <ul>
+        <li><a href="source/hdx.data.html#hdx.data.showcase.Showcase.max_int">(hdx.data.showcase.Showcase attribute)</a>
 </li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -492,7 +543,11 @@
 </li>
         <li><a href="source/hdx.data.html#hdx.data.user.User.read_from_hdx">(hdx.data.user.User static method)</a>
 </li>
+        <li><a href="source/hdx.data.html#hdx.data.vocabulary.Vocabulary.read_from_hdx">(hdx.data.vocabulary.Vocabulary static method)</a>
+</li>
       </ul></li>
+      <li><a href="source/hdx.data.html#hdx.data.vocabulary.Vocabulary.read_tags_mappings">read_tags_mappings() (hdx.data.vocabulary.Vocabulary class method)</a>
+</li>
       <li><a href="source/hdx.html#hdx.hdx_configuration.Configuration.remoteckan">remoteckan() (hdx.hdx_configuration.Configuration method)</a>
 </li>
       <li><a href="source/hdx.data.html#hdx.data.showcase.Showcase.remove_dataset">remove_dataset() (hdx.data.showcase.Showcase method)</a>
@@ -511,6 +566,8 @@
 
       <ul>
         <li><a href="source/hdx.data.html#hdx.data.showcase.Showcase.remove_tag">(hdx.data.showcase.Showcase method)</a>
+</li>
+        <li><a href="source/hdx.data.html#hdx.data.vocabulary.Vocabulary.remove_tag">(hdx.data.vocabulary.Vocabulary method)</a>
 </li>
       </ul></li>
       <li><a href="source/hdx.data.html#hdx.data.organization.Organization.remove_user">remove_user() (hdx.data.organization.Organization method)</a>
@@ -534,6 +591,8 @@
       <ul>
         <li><a href="source/hdx.data.html#hdx.data.resource.Resource.search_in_hdx">(hdx.data.resource.Resource static method)</a>
 </li>
+        <li><a href="source/hdx.data.html#hdx.data.showcase.Showcase.search_in_hdx">(hdx.data.showcase.Showcase class method)</a>
+</li>
       </ul></li>
       <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.separate_resources">separate_resources() (hdx.data.dataset.Dataset method)</a>
 </li>
@@ -551,10 +610,10 @@
 </li>
       <li><a href="source/hdx.data.html#hdx.data.resource.Resource.set_file_type">set_file_type() (hdx.data.resource.Resource method)</a>
 </li>
-      <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.set_maintainer">set_maintainer() (hdx.data.dataset.Dataset method)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.set_maintainer">set_maintainer() (hdx.data.dataset.Dataset method)</a>
+</li>
       <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.set_organization">set_organization() (hdx.data.dataset.Dataset method)</a>
 </li>
       <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.set_quickchart_resource">set_quickchart_resource() (hdx.data.dataset.Dataset method)</a>
@@ -565,11 +624,9 @@
 </li>
       <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.set_subnational">set_subnational() (hdx.data.dataset.Dataset method)</a>
 </li>
-      <li><a href="source/hdx.html#hdx.hdx_tagscleanup.Tags.set_tagsdict">set_tagsdict() (hdx.hdx_tagscleanup.Tags static method)</a>
+      <li><a href="source/hdx.data.html#hdx.data.vocabulary.Vocabulary.set_tagsdict">set_tagsdict() (hdx.data.vocabulary.Vocabulary class method)</a>
 </li>
-      <li><a href="source/hdx.html#hdx.hdx_locations.Locations.set_validlocations">set_validlocations() (hdx.hdx_locations.Locations static method)</a>
-</li>
-      <li><a href="source/hdx.html#hdx.hdx_tagscleanup.Tags.set_wildcard_tags">set_wildcard_tags() (hdx.hdx_tagscleanup.Tags static method)</a>
+      <li><a href="source/hdx.html#hdx.hdx_locations.Locations.set_validlocations">set_validlocations() (hdx.hdx_locations.Locations class method)</a>
 </li>
       <li><a href="source/hdx.html#hdx.hdx_configuration.Configuration.setup">setup() (hdx.hdx_configuration.Configuration class method)</a>
 </li>
@@ -585,14 +642,10 @@
 <h2 id="T">T</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="source/hdx.html#hdx.hdx_tagscleanup.Tags">Tags (class in hdx.hdx_tagscleanup)</a>
-</li>
-      <li><a href="source/hdx.html#hdx.hdx_tagscleanup.Tags.tagscleanupdicts">tagscleanupdicts() (hdx.hdx_tagscleanup.Tags static method)</a>
+      <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.temporary_url">temporary_url (hdx.data.dataset.Dataset attribute)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.temporary_url">temporary_url (hdx.data.dataset.Dataset attribute)</a>
-</li>
       <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.transform_update_frequency">transform_update_frequency() (hdx.data.dataset.Dataset static method)</a>
 </li>
   </ul></td>
@@ -601,6 +654,8 @@
 <h2 id="U">U</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="source/hdx.data.html#hdx.data.vocabulary.Vocabulary.update_approved_vocabulary">update_approved_vocabulary() (hdx.data.vocabulary.Vocabulary class method)</a>
+</li>
       <li><a href="source/hdx.data.html#hdx.data.resource.Resource.update_datastore">update_datastore() (hdx.data.resource.Resource method)</a>
 </li>
       <li><a href="source/hdx.data.html#hdx.data.resource.Resource.update_datastore_for_topline">update_datastore_for_topline() (hdx.data.resource.Resource method)</a>
@@ -628,6 +683,8 @@
 </li>
         <li><a href="source/hdx.data.html#hdx.data.user.User.update_from_json">(hdx.data.user.User method)</a>
 </li>
+        <li><a href="source/hdx.data.html#hdx.data.vocabulary.Vocabulary.update_from_json">(hdx.data.vocabulary.Vocabulary method)</a>
+</li>
       </ul></li>
       <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.update_from_yaml">update_from_yaml() (hdx.data.dataset.Dataset method)</a>
 
@@ -643,6 +700,8 @@
         <li><a href="source/hdx.data.html#hdx.data.showcase.Showcase.update_from_yaml">(hdx.data.showcase.Showcase method)</a>
 </li>
         <li><a href="source/hdx.data.html#hdx.data.user.User.update_from_yaml">(hdx.data.user.User method)</a>
+</li>
+        <li><a href="source/hdx.data.html#hdx.data.vocabulary.Vocabulary.update_from_yaml">(hdx.data.vocabulary.Vocabulary method)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -662,6 +721,8 @@
 </li>
         <li><a href="source/hdx.data.html#hdx.data.user.User.update_in_hdx">(hdx.data.user.User method)</a>
 </li>
+        <li><a href="source/hdx.data.html#hdx.data.vocabulary.Vocabulary.update_in_hdx">(hdx.data.vocabulary.Vocabulary method)</a>
+</li>
       </ul></li>
       <li><a href="source/hdx.data.html#hdx.data.user.User">User (class in hdx.data.user)</a>
 </li>
@@ -671,7 +732,11 @@
 <h2 id="V">V</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="source/hdx.html#hdx.hdx_locations.Locations.validlocations">validlocations() (hdx.hdx_locations.Locations static method)</a>
+      <li><a href="source/hdx.html#hdx.hdx_locations.Locations.validlocations">validlocations() (hdx.hdx_locations.Locations class method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="source/hdx.data.html#hdx.data.vocabulary.Vocabulary">Vocabulary (class in hdx.data.vocabulary)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -708,17 +773,23 @@
 </ul>
 </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
         </div>
       </div>
       <div class="clearer"></div>
@@ -727,8 +798,8 @@
       &copy;Michael Rans.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.6</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.11</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
     </div>
 
