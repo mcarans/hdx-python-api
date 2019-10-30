@@ -442,13 +442,16 @@ should be set if required to any fields that should be ignored for the particula
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.generate_resource_view">
-<code class="sig-name descname">generate_resource_view</code><span class="sig-paren">(</span><em class="sig-param">resource=0</em>, <em class="sig-param">path='config/hdx_resource_view_static.yml'</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.generate_resource_view" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create QuickCharts for dataset from configuration saved in resource view</p>
+<code class="sig-name descname">generate_resource_view</code><span class="sig-paren">(</span><em class="sig-param">resource=0</em>, <em class="sig-param">path='config/hdx_resource_view_static.yml'</em>, <em class="sig-param">bites_disabled=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.generate_resource_view" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create QuickCharts for dataset from configuration saved in resource view. You can disable specific bites
+by providing bites_disabled, a list of bools where True indicates a specific bite is disabled and False
+indicates leave enabled.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>resource</strong> (<em>Union</em><em>[</em><a class="reference internal" href="#hdx.data.resource.Resource" title="hdx.data.resource.Resource"><em>hdx.data.resource.Resource</em></a><em>,</em><em>Dict</em><em>,</em><em>str</em><em>,</em><em>int</em><em>]</em>) – Either resource id or name, resource metadata from a Resource object or a dictionary or position. Defaults to 0.</p></li>
 <li><p><strong>path</strong> (<em>str</em>) – Path to YAML resource view metadata. Defaults to config/hdx_resource_view_static.yml.</p></li>
+<li><p><strong>bites_disabled</strong> (<em>Optional</em><em>[</em><em>List</em><em>[</em><em>bool</em><em>]</em><em>]</em>) – Which QC bites should be disabled. Defaults to None (all bites enabled).</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
