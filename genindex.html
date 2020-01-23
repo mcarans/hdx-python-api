@@ -53,6 +53,7 @@
  | <a href="#T"><strong>T</strong></a>
  | <a href="#U"><strong>U</strong></a>
  | <a href="#V"><strong>V</strong></a>
+ | <a href="#Y"><strong>Y</strong></a>
  
 </div>
 <h2 id="A">A</h2>
@@ -236,6 +237,8 @@
 </li>
       <li><a href="source/hdx.data.html#hdx.data.filestore_helper.FilestoreHelper.dataset_merge_filestore_resource">dataset_merge_filestore_resource() (hdx.data.filestore_helper.FilestoreHelper class method)</a>
 </li>
+      <li><a href="source/hdx.data.html#hdx.data.dataset_title_helper.DatasetTitleHelper">DatasetTitleHelper (class in hdx.data.dataset_title_helper)</a>
+</li>
       <li><a href="source/hdx.html#hdx.hdx_configuration.Configuration.default_hdx_base_config_yaml">default_hdx_base_config_yaml (hdx.hdx_configuration.Configuration attribute)</a>
 </li>
       <li><a href="source/hdx.html#hdx.hdx_configuration.Configuration.default_hdx_config_yaml">default_hdx_config_yaml (hdx.hdx_configuration.Configuration attribute)</a>
@@ -288,6 +291,8 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="source/hdx.html#hdx.hdx_configuration.Configuration.emailer">emailer() (hdx.hdx_configuration.Configuration method)</a>
 </li>
+      <li><a href="source/hdx.data.html#hdx.data.dataset_title_helper.DatasetTitleHelper.EMPTY_BRACKET_PATTERN">EMPTY_BRACKET_PATTERN (hdx.data.dataset_title_helper.DatasetTitleHelper attribute)</a>
+</li>
       <li><a href="source/hdx.data.html#hdx.data.resource.Resource.enable_dataset_preview">enable_dataset_preview() (hdx.data.resource.Resource method)</a>
 </li>
   </ul></td>
@@ -305,6 +310,8 @@
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="source/hdx.data.html#hdx.data.filestore_helper.FilestoreHelper">FilestoreHelper (class in hdx.data.filestore_helper)</a>
+</li>
+      <li><a href="source/hdx.data.html#hdx.data.dataset_title_helper.DatasetTitleHelper.fuzzy_match_dates_in_title">fuzzy_match_dates_in_title() (hdx.data.dataset_title_helper.DatasetTitleHelper class method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -350,18 +357,22 @@
 </li>
       <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.get_dataset_end_date_as_datetime">get_dataset_end_date_as_datetime() (hdx.data.dataset.Dataset method)</a>
 </li>
+      <li><a href="source/hdx.html#hdx.hdx_configuration.Configuration.get_dataset_url">get_dataset_url() (hdx.hdx_configuration.Configuration method)</a>
+</li>
       <li><a href="source/hdx.data.html#hdx.data.organization.Organization.get_datasets">get_datasets() (hdx.data.organization.Organization method)</a>
 
       <ul>
         <li><a href="source/hdx.data.html#hdx.data.showcase.Showcase.get_datasets">(hdx.data.showcase.Showcase method)</a>
 </li>
       </ul></li>
-      <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.get_expected_update_frequency">get_expected_update_frequency() (hdx.data.dataset.Dataset method)</a>
+      <li><a href="source/hdx.data.html#hdx.data.dataset_title_helper.DatasetTitleHelper.get_dates_from_title">get_dates_from_title() (hdx.data.dataset_title_helper.DatasetTitleHelper class method)</a>
 </li>
-      <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.get_fieldnames">get_fieldnames() (hdx.data.dataset.Dataset method)</a>
+      <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.get_expected_update_frequency">get_expected_update_frequency() (hdx.data.dataset.Dataset method)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.get_fieldnames">get_fieldnames() (hdx.data.dataset.Dataset method)</a>
+</li>
       <li><a href="source/hdx.data.html#hdx.data.resource.Resource.get_file_to_upload">get_file_to_upload() (hdx.data.resource.Resource method)</a>
 </li>
       <li><a href="source/hdx.data.html#hdx.data.resource.Resource.get_file_type">get_file_type() (hdx.data.resource.Resource method)</a>
@@ -426,6 +437,8 @@
 </li>
       <li><a href="source/hdx.data.html#module-hdx.data.dataset">hdx.data.dataset (module)</a>
 </li>
+      <li><a href="source/hdx.data.html#module-hdx.data.dataset_title_helper">hdx.data.dataset_title_helper (module)</a>
+</li>
       <li><a href="source/hdx.data.html#module-hdx.data.filestore_helper">hdx.data.filestore_helper (module)</a>
 </li>
       <li><a href="source/hdx.data.html#module-hdx.data.hdxobject">hdx.data.hdxobject (module)</a>
@@ -438,10 +451,10 @@
 </li>
       <li><a href="source/hdx.data.html#module-hdx.data.showcase">hdx.data.showcase (module)</a>
 </li>
-      <li><a href="source/hdx.data.html#module-hdx.data.user">hdx.data.user (module)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="source/hdx.data.html#module-hdx.data.user">hdx.data.user (module)</a>
+</li>
       <li><a href="source/hdx.data.html#module-hdx.data.vocabulary">hdx.data.vocabulary (module)</a>
 </li>
       <li><a href="source/hdx.facades.html#module-hdx.facades">hdx.facades (module)</a>
@@ -532,11 +545,13 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="source/hdx.html#hdx.hdx_configuration.Configuration.prefix">prefix (hdx.hdx_configuration.Configuration attribute)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.preview_off">preview_off() (hdx.data.dataset.Dataset method)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.preview_resource">preview_resource() (hdx.data.dataset.Dataset method)</a>
+</li>
+      <li><a href="source/hdx.data.html#hdx.data.dataset_title_helper.DatasetTitleHelper.PUNCTUATION_PATTERN">PUNCTUATION_PATTERN (hdx.data.dataset_title_helper.DatasetTitleHelper attribute)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -572,6 +587,8 @@
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.remove_dates_from_title">remove_dates_from_title() (hdx.data.dataset.Dataset method)</a>
+</li>
       <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.remove_fieldname">remove_fieldname() (hdx.data.dataset.Dataset method)</a>
 </li>
       <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.remove_filetype">remove_filetype() (hdx.data.dataset.Dataset method)</a>
@@ -628,10 +645,10 @@
 </li>
       <li><a href="source/hdx.data.html#hdx.data.resource.Resource.set_file_type">set_file_type() (hdx.data.resource.Resource method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.set_maintainer">set_maintainer() (hdx.data.dataset.Dataset method)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.set_organization">set_organization() (hdx.data.dataset.Dataset method)</a>
 </li>
       <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.set_quickchart_resource">set_quickchart_resource() (hdx.data.dataset.Dataset method)</a>
@@ -643,6 +660,8 @@
       <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.set_subnational">set_subnational() (hdx.data.dataset.Dataset method)</a>
 </li>
       <li><a href="source/hdx.data.html#hdx.data.vocabulary.Vocabulary.set_tagsdict">set_tagsdict() (hdx.data.vocabulary.Vocabulary class method)</a>
+</li>
+      <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.set_updated_by_script">set_updated_by_script() (hdx.data.dataset.Dataset method)</a>
 </li>
       <li><a href="source/hdx.html#hdx.hdx_locations.Locations.set_validlocations">set_validlocations() (hdx.hdx_locations.Locations class method)</a>
 </li>
@@ -759,6 +778,20 @@
   </ul></td>
 </tr></table>
 
+<h2 id="Y">Y</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="source/hdx.data.html#hdx.data.dataset_title_helper.DatasetTitleHelper.YEAR_PATTERN">YEAR_PATTERN (hdx.data.dataset_title_helper.DatasetTitleHelper attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="source/hdx.data.html#hdx.data.dataset_title_helper.DatasetTitleHelper.YEAR_RANGE_PATTERN">YEAR_RANGE_PATTERN (hdx.data.dataset_title_helper.DatasetTitleHelper attribute)</a>
+</li>
+      <li><a href="source/hdx.data.html#hdx.data.dataset_title_helper.DatasetTitleHelper.YEAR_RANGE_PATTERN2">YEAR_RANGE_PATTERN2 (hdx.data.dataset_title_helper.DatasetTitleHelper attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
 
 
           </div>
@@ -816,7 +849,7 @@
       &copy;Michael Rans.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.1.2</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.3.1</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
     </div>

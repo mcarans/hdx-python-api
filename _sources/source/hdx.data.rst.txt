@@ -12,6 +12,14 @@ hdx.data.dataset module
    :undoc-members:
    :show-inheritance:
 
+hdx.data.dataset\_title\_helper module
+--------------------------------------
+
+.. automodule:: hdx.data.dataset_title_helper
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 hdx.data.filestore\_helper module
 ---------------------------------
 

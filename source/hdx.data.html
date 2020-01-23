@@ -445,7 +445,8 @@ should be set if required to any fields that should be ignored for the particula
 <code class="sig-name descname">generate_resource_view</code><span class="sig-paren">(</span><em class="sig-param">resource=0</em>, <em class="sig-param">path='config/hdx_resource_view_static.yml'</em>, <em class="sig-param">bites_disabled=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.generate_resource_view" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create QuickCharts for dataset from configuration saved in resource view. You can disable specific bites
 by providing bites_disabled, a list of bools where True indicates a specific bite is disabled and False
-indicates leave enabled.</p>
+indicates leave enabled. Creation of the resource view will be delayed until after the next dataset create
+or update if a resource id is not yet available.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -487,21 +488,27 @@ indicates leave enabled.</p>
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.get_all_datasets">
-<em class="property">classmethod </em><code class="sig-name descname">get_all_datasets</code><span class="sig-paren">(</span><em class="sig-param">configuration=None</em>, <em class="sig-param">page_size=1000</em>, <em class="sig-param">check_duplicates=True</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.get_all_datasets" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get all datasets in HDX</p>
+<em class="property">classmethod </em><code class="sig-name descname">get_all_datasets</code><span class="sig-paren">(</span><em class="sig-param">configuration=None</em>, <em class="sig-param">page_size=1000</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.get_all_datasets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all datasets from HDX (just calls search_in_hdx)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>configuration</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="hdx.html#hdx.hdx_configuration.Configuration" title="hdx.hdx_configuration.Configuration"><em>Configuration</em></a><em>]</em>) – HDX configuration. Defaults to global configuration.</p></li>
 <li><p><strong>page_size</strong> (<em>int</em>) – Size of page to return. Defaults to 1000.</p></li>
-<li><p><strong>check_duplicates</strong> (<em>bool</em>) – Whether to check for duplicate datasets. Defaults to True.</p></li>
 <li><p><strong>**kwargs</strong> – See below</p></li>
-<li><p><strong>rows</strong> (<em>int</em>) – Number of rows to return. Defaults to all datasets (sys.maxsize)</p></li>
+<li><p><strong>fq</strong> (<em>string</em>) – Any filter queries to apply</p></li>
+<li><p><strong>rows</strong> (<em>int</em>) – Number of matching rows to return. Defaults to all datasets (sys.maxsize).</p></li>
 <li><p><strong>start</strong> (<em>int</em>) – Offset in the complete result for where the set of returned datasets should begin</p></li>
+<li><p><strong>sort</strong> (<em>string</em>) – Sorting of results. Defaults to ‘metadata_modified asc’.</p></li>
+<li><p><strong>facet</strong> (<em>string</em>) – Whether to enable faceted results. Default to True.</p></li>
+<li><p><strong>facet.mincount</strong> (<em>int</em>) – Minimum counts for facet fields should be included in the results</p></li>
+<li><p><strong>facet.limit</strong> (<em>int</em>) – Maximum number of values the facet fields return (- = unlimited). Defaults to 50.</p></li>
+<li><p><strong>facet.field</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – Fields to facet upon. Default is empty.</p></li>
+<li><p><strong>use_default_schema</strong> (<em>bool</em>) – Use default package schema instead of custom schema. Defaults to False.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>list of all datasets in HDX</p>
+<dd class="field-even"><p>list of datasets resulting from query</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>List[<a class="reference internal" href="#hdx.data.dataset.Dataset" title="hdx.data.dataset.Dataset">Dataset</a>]</p>
@@ -881,6 +888,29 @@ If no format is supplied, an ISO 8601 string is returned.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="hdx.data.dataset.Dataset.remove_dates_from_title">
+<code class="sig-name descname">remove_dates_from_title</code><span class="sig-paren">(</span><em class="sig-param">change_title=True</em>, <em class="sig-param">set_dataset_date=False</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.remove_dates_from_title" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove dates from dataset title returning sorted the dates that were found in title. The title in
+the dataset metadata will be changed by default. The dataset’s metadata field dataset date will not
+be changed by default, but if set_dataset_date is True, then the range with the lowest start date
+will be used to set the dataset date field.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>change_title</strong> (<em>bool</em>) – Whether to change the dataset title. Defaults to True.</p></li>
+<li><p><strong>set_dataset_date</strong> (<em>bool</em>) – Whether to set the dataset date from date or range in the title. Defaults to False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Date ranges found in title</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>List[Tuple[datetime,datetime]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
 <dt id="hdx.data.dataset.Dataset.remove_fieldname">
 <code class="sig-name descname">remove_fieldname</code><span class="sig-paren">(</span><em class="sig-param">fieldname</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.remove_fieldname" title="Permalink to this definition">¶</a></dt>
 <dd><p>Remove a fieldname. Only applicable to requestable datasets.</p>
@@ -994,9 +1024,9 @@ their original order.</p>
 <li><p><strong>page_size</strong> (<em>int</em>) – Size of page to return. Defaults to 1000.</p></li>
 <li><p><strong>**kwargs</strong> – See below</p></li>
 <li><p><strong>fq</strong> (<em>string</em>) – Any filter queries to apply</p></li>
-<li><p><strong>sort</strong> (<em>string</em>) – Sorting of the search results. Defaults to ‘relevance asc, metadata_modified desc’.</p></li>
 <li><p><strong>rows</strong> (<em>int</em>) – Number of matching rows to return. Defaults to all datasets (sys.maxsize).</p></li>
 <li><p><strong>start</strong> (<em>int</em>) – Offset in the complete result for where the set of returned datasets should begin</p></li>
+<li><p><strong>sort</strong> (<em>string</em>) – Sorting of results. Defaults to ‘relevance asc, metadata_modified desc’ if rows&lt;=page_size or ‘metadata_modified asc’ if rows&gt;page_size.</p></li>
 <li><p><strong>facet</strong> (<em>string</em>) – Whether to enable faceted results. Default to True.</p></li>
 <li><p><strong>facet.mincount</strong> (<em>int</em>) – Minimum counts for facet fields should be included in the results</p></li>
 <li><p><strong>facet.limit</strong> (<em>int</em>) – Maximum number of values the facet fields return (- = unlimited). Defaults to 50.</p></li>
@@ -1026,15 +1056,20 @@ their original order.</p>
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.set_dataset_date">
-<code class="sig-name descname">set_dataset_date</code><span class="sig-paren">(</span><em class="sig-param">dataset_date</em>, <em class="sig-param">dataset_end_date=None</em>, <em class="sig-param">date_format=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.set_dataset_date" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_dataset_date</code><span class="sig-paren">(</span><em class="sig-param">dataset_date</em>, <em class="sig-param">dataset_end_date=None</em>, <em class="sig-param">date_format=None</em>, <em class="sig-param">allow_range=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.set_dataset_date" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set dataset date from string using specified format. If no format is supplied, the function will guess.
-For unambiguous formats, this should be fine.</p>
+For unambiguous formats, this should be fine. If allow_range is True and dataset_end_date is not supplied,
+then if dataset_date lacks days and/or months, it will be taken to be a date range. If allow_range is True,
+dataset_end_date is supplied and both dataset_date and dataset_end_date lack days and/or months, then a
+date range will be used from the start date of dataset_date range and the end date of the dataset_end_date
+range. If allow_range is False, date ranges will not be allowed.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>dataset_date</strong> (<em>str</em>) – Dataset date string</p></li>
 <li><p><strong>dataset_end_date</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Dataset end date string</p></li>
 <li><p><strong>date_format</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Date format. If None is given, will attempt to guess. Defaults to None.</p></li>
+<li><p><strong>allow_range</strong> (<em>bool</em>) – Whether to allow dataset_date to be a range. Defaults to True.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -1166,6 +1201,17 @@ update frequency can be found from Dataset.list_valid_update_frequencies().</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="hdx.data.dataset.Dataset.set_updated_by_script">
+<code class="sig-name descname">set_updated_by_script</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.set_updated_by_script" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set metadata field updated_by_script</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
 <dt id="hdx.data.dataset.Dataset.transform_update_frequency">
 <em class="property">classmethod </em><code class="sig-name descname">transform_update_frequency</code><span class="sig-paren">(</span><em class="sig-param">frequency</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.transform_update_frequency" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get numeric update frequency (as string since that is required field format) from textual representation or
@@ -1185,7 +1231,7 @@ vice versa (eg. ‘Every month’ = ‘30’, ‘30’ or 30 = ‘Every month’
 
 <dl class="attribute">
 <dt id="hdx.data.dataset.Dataset.update_frequencies">
-<code class="sig-name descname">update_frequencies</code><em class="property"> = {'-1': 'Never', '-2': 'As needed', '0': 'Live', '1': 'Every day', '14': 'Every two weeks', '180': 'Every six months', '30': 'Every month', '365': 'Every year', '7': 'Every week', '90': 'Every three months', 'adhoc': '-2', 'annually': '365', 'as needed': '-2', 'daily': '1', 'every day': '1', 'every month': '30', 'every other week': '14', 'every six months': '180', 'every three months': '90', 'every two weeks': '14', 'every week': '7', 'every year': '365', 'fortnightly': '14', 'live': '0', 'monthly': '30', 'never': '-1', 'quarterly': '90', 'semiannually': '180', 'semiyearly': '180', 'weekly': '7', 'yearly': '365'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">update_frequencies</code><em class="property"> = {'-1': 'Never', '-2': 'As needed', '0': 'Live', '1': 'Every day', '14': 'Every two weeks', '180': 'Every six months', '30': 'Every month', '365': 'Every year', '7': 'Every week', '90': 'Every three months', 'adhoc': '-2', 'annually': '365', 'as needed': '-2', 'daily': '1', 'every day': '1', 'every month': '30', 'every other week': '14', 'every quarter': '90', 'every six months': '180', 'every three months': '90', 'every two weeks': '14', 'every week': '7', 'every year': '365', 'fortnightly': '14', 'live': '0', 'monthly': '30', 'never': '-1', 'quarterly': '90', 'semiannually': '180', 'semiyearly': '180', 'weekly': '7', 'yearly': '365'}</em><a class="headerlink" href="#hdx.data.dataset.Dataset.update_frequencies" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -1242,6 +1288,78 @@ vice versa (eg. ‘Every month’ = ‘30’, ‘30’ or 30 = ‘Every month’
 <dt id="hdx.data.dataset.NotRequestableError">
 <em class="property">exception </em><code class="sig-prename descclassname">hdx.data.dataset.</code><code class="sig-name descname">NotRequestableError</code><a class="headerlink" href="#hdx.data.dataset.NotRequestableError" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#hdx.data.hdxobject.HDXError" title="hdx.data.hdxobject.HDXError"><code class="xref py py-class docutils literal notranslate"><span class="pre">hdx.data.hdxobject.HDXError</span></code></a></p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-hdx.data.dataset_title_helper">
+<span id="hdx-data-dataset-title-helper-module"></span><h2>hdx.data.dataset_title_helper module<a class="headerlink" href="#module-hdx.data.dataset_title_helper" title="Permalink to this headline">¶</a></h2>
+<p>Helper to the Dataset class for handling processing dataset titles.</p>
+<dl class="class">
+<dt id="hdx.data.dataset_title_helper.DatasetTitleHelper">
+<em class="property">class </em><code class="sig-prename descclassname">hdx.data.dataset_title_helper.</code><code class="sig-name descname">DatasetTitleHelper</code><a class="headerlink" href="#hdx.data.dataset_title_helper.DatasetTitleHelper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="hdx.data.dataset_title_helper.DatasetTitleHelper.EMPTY_BRACKET_PATTERN">
+<code class="sig-name descname">EMPTY_BRACKET_PATTERN</code><em class="property"> = re.compile('(\\s?\\(\\)\\s?)')</em><a class="headerlink" href="#hdx.data.dataset_title_helper.DatasetTitleHelper.EMPTY_BRACKET_PATTERN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="hdx.data.dataset_title_helper.DatasetTitleHelper.PUNCTUATION_PATTERN">
+<code class="sig-name descname">PUNCTUATION_PATTERN</code><em class="property"> = re.compile('[!&quot;#$%&amp;\'()*+,-./:;&lt;=&gt;?&#64;[\\]^_`{|}~]')</em><a class="headerlink" href="#hdx.data.dataset_title_helper.DatasetTitleHelper.PUNCTUATION_PATTERN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="hdx.data.dataset_title_helper.DatasetTitleHelper.YEAR_PATTERN">
+<code class="sig-name descname">YEAR_PATTERN</code><em class="property"> = re.compile('([12]\\d\\d\\d)')</em><a class="headerlink" href="#hdx.data.dataset_title_helper.DatasetTitleHelper.YEAR_PATTERN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="hdx.data.dataset_title_helper.DatasetTitleHelper.YEAR_RANGE_PATTERN">
+<code class="sig-name descname">YEAR_RANGE_PATTERN</code><em class="property"> = re.compile('([12]\\d\\d\\d)(\\/\\d\\d)?(-| &amp; | and )([12]\\d\\d\\d)')</em><a class="headerlink" href="#hdx.data.dataset_title_helper.DatasetTitleHelper.YEAR_RANGE_PATTERN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="hdx.data.dataset_title_helper.DatasetTitleHelper.YEAR_RANGE_PATTERN2">
+<code class="sig-name descname">YEAR_RANGE_PATTERN2</code><em class="property"> = re.compile('([12]\\d\\d\\d)(/|-)(\\d\\d)')</em><a class="headerlink" href="#hdx.data.dataset_title_helper.DatasetTitleHelper.YEAR_RANGE_PATTERN2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.dataset_title_helper.DatasetTitleHelper.fuzzy_match_dates_in_title">
+<em class="property">classmethod </em><code class="sig-name descname">fuzzy_match_dates_in_title</code><span class="sig-paren">(</span><em class="sig-param">title</em>, <em class="sig-param">ranges</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset_title_helper.DatasetTitleHelper.fuzzy_match_dates_in_title" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fuzzy match dates in title appending to ranges</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>title</strong> (<em>str</em>) – Title to parse</p></li>
+<li><p><strong>ranges</strong> (<em>List</em><em>[</em><em>Tuple</em><em>[</em><em>datetime</em><em>,</em><em>datetime</em><em>]</em><em>]</em>) – List of date ranges found so far</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Title with dates removed</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.dataset_title_helper.DatasetTitleHelper.get_dates_from_title">
+<em class="property">classmethod </em><code class="sig-name descname">get_dates_from_title</code><span class="sig-paren">(</span><em class="sig-param">title</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset_title_helper.DatasetTitleHelper.get_dates_from_title" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get dataset dates (start and end dates in a list) from title and clean title of dates</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>title</strong> (<em>str</em>) – Title to get date from and clean</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Cleaned title, list of start and end dates</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Tuple[str,List[Tuple[datetime,datetime]]]</p>
+</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 </div>
@@ -2904,16 +3022,18 @@ be set if required to any fields that should be ignored for the particular opera
 
 <dl class="method">
 <dt id="hdx.data.user.User.email_users">
-<em class="property">static </em><code class="sig-name descname">email_users</code><span class="sig-paren">(</span><em class="sig-param">users</em>, <em class="sig-param">subject</em>, <em class="sig-param">text_body</em>, <em class="sig-param">html_body=None</em>, <em class="sig-param">sender=None</em>, <em class="sig-param">configuration=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.user.User.email_users" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">email_users</code><span class="sig-paren">(</span><em class="sig-param">users</em>, <em class="sig-param">subject</em>, <em class="sig-param">text_body</em>, <em class="sig-param">html_body=None</em>, <em class="sig-param">sender=None</em>, <em class="sig-param">cc=None</em>, <em class="sig-param">bcc=None</em>, <em class="sig-param">configuration=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.user.User.email_users" title="Permalink to this definition">¶</a></dt>
 <dd><p>Email a list of users</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>users</strong> (<em>List</em><em>[</em><a class="reference internal" href="#hdx.data.user.User" title="hdx.data.user.User"><em>User</em></a><em>]</em>) – List of users</p></li>
+<li><p><strong>users</strong> (<em>List</em><em>[</em><a class="reference internal" href="#hdx.data.user.User" title="hdx.data.user.User"><em>User</em></a><em>]</em>) – List of users in To address</p></li>
 <li><p><strong>subject</strong> (<em>str</em>) – Email subject</p></li>
 <li><p><strong>text_body</strong> (<em>str</em>) – Plain text email body</p></li>
 <li><p><strong>html_body</strong> (<em>str</em>) – HTML email body</p></li>
 <li><p><strong>sender</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Email sender. Defaults to SMTP username.</p></li>
+<li><p><strong>(</strong><strong>Optional</strong><strong>[</strong><strong>List</strong><strong>[</strong><strong>User</strong><strong>]</strong><strong>]</strong> (<em>bcc</em>) – List of users to cc. Defaults to None.</p></li>
+<li><p><strong>(</strong><strong>Optional</strong><strong>[</strong><strong>List</strong><strong>[</strong><strong>User</strong><strong>]</strong><strong>]</strong> – List of users to bcc. Defaults to None.</p></li>
 <li><p><strong>configuration</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="hdx.html#hdx.hdx_configuration.Configuration" title="hdx.hdx_configuration.Configuration"><em>Configuration</em></a><em>]</em>) – HDX configuration. Defaults to configuration of first user in list.</p></li>
 <li><p><strong>**kwargs</strong> – See below</p></li>
 <li><p><strong>mail_options</strong> (<em>List</em>) – Mail options (see smtplib documentation)</p></li>
@@ -3565,7 +3685,7 @@ be set if required to any fields that should be ignored for the particular opera
       &copy;Michael Rans.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.1.2</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.3.1</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
