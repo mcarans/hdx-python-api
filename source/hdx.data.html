@@ -441,6 +441,53 @@ should be set if required to any fields that should be ignored for the particula
 </dd></dl>
 
 <dl class="method">
+<dt id="hdx.data.dataset.Dataset.generate_resource_from_download">
+<code class="sig-name descname">generate_resource_from_download</code><span class="sig-paren">(</span><em class="sig-param">downloader</em>, <em class="sig-param">url</em>, <em class="sig-param">hxltags</em>, <em class="sig-param">folder</em>, <em class="sig-param">filename</em>, <em class="sig-param">resourcedata</em>, <em class="sig-param">header_insertions=None</em>, <em class="sig-param">row_function=None</em>, <em class="sig-param">yearcol=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.generate_resource_from_download" title="Permalink to this definition">¶</a></dt>
+<dd><p>Download url, write rows to csv and create resource, adding to it the dataset</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>downloader</strong> (<em>Download</em>) – Download object</p></li>
+<li><p><strong>url</strong> (<em>str</em>) – URL to download</p></li>
+<li><p><strong>hxltags</strong> (<em>Dict</em><em>[</em><em>str</em><em>,</em><em>str</em><em>]</em>) – Header to HXL hashtag mapping</p></li>
+<li><p><strong>folder</strong> (<em>str</em>) – Folder to which to write file containing rows</p></li>
+<li><p><strong>filename</strong> (<em>str</em>) – Filename of file to write rows</p></li>
+<li><p><strong>resourcedata</strong> (<em>Dict</em>) – Resource data</p></li>
+<li><p><strong>header_insertions</strong> (<em>Optional</em><em>[</em><em>List</em><em>[</em><em>Tuple</em><em>[</em><em>int</em><em>,</em><em>str</em><em>]</em><em>]</em><em>]</em>) – List of (position, header) to insert. Defaults to None.</p></li>
+<li><p><strong>row_function</strong> (<em>Optional</em><em>[</em><em>Callable</em><em>[</em><em>[</em><em>List</em><em>[</em><em>str</em><em>]</em><em>,</em><em>Union</em><em>[</em><em>List</em><em>,</em><em>Dict</em><em>]</em><em>]</em><em>,</em><em>Union</em><em>[</em><em>List</em><em>,</em><em>Dict</em><em>]</em><em>]</em><em>]</em>) – Function to call for each row. Defaults to None.</p></li>
+<li><p><strong>yearcol</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Year column for setting dataset year range. Defaults to None (don’t set).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True or sorted list of years if resource created, False or None if not</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Union[bool,Optional[List]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.dataset.Dataset.generate_resource_from_rows">
+<code class="sig-name descname">generate_resource_from_rows</code><span class="sig-paren">(</span><em class="sig-param">folder</em>, <em class="sig-param">filename</em>, <em class="sig-param">rows</em>, <em class="sig-param">resourcedata</em>, <em class="sig-param">headers=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.generate_resource_from_rows" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write rows to csv and create resource, adding to it the dataset</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>folder</strong> (<em>str</em>) – Folder to which to write file containing rows</p></li>
+<li><p><strong>filename</strong> (<em>str</em>) – Filename of file to write rows</p></li>
+<li><p><strong>rows</strong> (<em>List</em><em>[</em><em>Union</em><em>[</em><em>DictUpperBound</em><em>, </em><em>List</em><em>]</em><em>]</em>) – List of rows</p></li>
+<li><p><strong>resourcedata</strong> (<em>Dict</em>) – Resource data</p></li>
+<li><p><strong>headers</strong> (<em>Optional</em><em>[</em><em>List</em><em>[</em><em>str</em><em>]</em><em>]</em>) – List of headers. Defaults to None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
 <dt id="hdx.data.dataset.Dataset.generate_resource_view">
 <code class="sig-name descname">generate_resource_view</code><span class="sig-paren">(</span><em class="sig-param">resource=0</em>, <em class="sig-param">path='config/hdx_resource_view_static.yml'</em>, <em class="sig-param">bites_disabled=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.generate_resource_view" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create QuickCharts for dataset from configuration saved in resource view. You can disable specific bites
@@ -1102,12 +1149,15 @@ range. If allow_range is False, date ranges will not be allowed.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>dataset_year</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>int</em><em>]</em>) – Dataset year given as string or int</p></li>
+<li><p><strong>dataset_year</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>int</em><em>, </em><em>Iterable</em><em>]</em>) – Dataset year given as string or int or range in an iterable</p></li>
 <li><p><strong>dataset_end_year</strong> (<em>Optional</em><em>[</em><em>Union</em><em>[</em><em>str</em><em>, </em><em>int</em><em>]</em><em>]</em>) – Dataset end year given as string or int</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>None</p>
+<dd class="field-even"><p>The start and end year if supplied or sorted list of years</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>List[int]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1299,13 +1349,23 @@ vice versa (eg. ‘Every month’ = ‘30’, ‘30’ or 30 = ‘Every month’
 <em class="property">class </em><code class="sig-prename descclassname">hdx.data.dataset_title_helper.</code><code class="sig-name descname">DatasetTitleHelper</code><a class="headerlink" href="#hdx.data.dataset_title_helper.DatasetTitleHelper" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="attribute">
+<dt id="hdx.data.dataset_title_helper.DatasetTitleHelper.DATE_INTRO_WORDS">
+<code class="sig-name descname">DATE_INTRO_WORDS</code><em class="property"> = ['on', 'at', 'for', 'of', 'in']</em><a class="headerlink" href="#hdx.data.dataset_title_helper.DatasetTitleHelper.DATE_INTRO_WORDS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
 <dt id="hdx.data.dataset_title_helper.DatasetTitleHelper.EMPTY_BRACKET_PATTERN">
-<code class="sig-name descname">EMPTY_BRACKET_PATTERN</code><em class="property"> = re.compile('(\\s?\\(\\)\\s?)')</em><a class="headerlink" href="#hdx.data.dataset_title_helper.DatasetTitleHelper.EMPTY_BRACKET_PATTERN" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">EMPTY_BRACKET_PATTERN</code><em class="property"> = re.compile('(\\s?\\(\\s*\\)\\s?)')</em><a class="headerlink" href="#hdx.data.dataset_title_helper.DatasetTitleHelper.EMPTY_BRACKET_PATTERN" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="hdx.data.dataset_title_helper.DatasetTitleHelper.PUNCTUATION_PATTERN">
 <code class="sig-name descname">PUNCTUATION_PATTERN</code><em class="property"> = re.compile('[!&quot;#$%&amp;\'()*+,-./:;&lt;=&gt;?&#64;[\\]^_`{|}~]')</em><a class="headerlink" href="#hdx.data.dataset_title_helper.DatasetTitleHelper.PUNCTUATION_PATTERN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="hdx.data.dataset_title_helper.DatasetTitleHelper.WORD_RIGHT_BRACKET_PATTERN">
+<code class="sig-name descname">WORD_RIGHT_BRACKET_PATTERN</code><em class="property"> = re.compile('\\b(\\s*)(\\w{2,})\\b\\)')</em><a class="headerlink" href="#hdx.data.dataset_title_helper.DatasetTitleHelper.WORD_RIGHT_BRACKET_PATTERN" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -1315,23 +1375,24 @@ vice versa (eg. ‘Every month’ = ‘30’, ‘30’ or 30 = ‘Every month’
 
 <dl class="attribute">
 <dt id="hdx.data.dataset_title_helper.DatasetTitleHelper.YEAR_RANGE_PATTERN">
-<code class="sig-name descname">YEAR_RANGE_PATTERN</code><em class="property"> = re.compile('([12]\\d\\d\\d)(\\/\\d\\d)?(-| &amp; | and )([12]\\d\\d\\d)')</em><a class="headerlink" href="#hdx.data.dataset_title_helper.DatasetTitleHelper.YEAR_RANGE_PATTERN" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">YEAR_RANGE_PATTERN</code><em class="property"> = re.compile('([12]\\d\\d\\d)(/(\\d{1,2}))?(-| &amp; | and )([12]\\d\\d\\d)')</em><a class="headerlink" href="#hdx.data.dataset_title_helper.DatasetTitleHelper.YEAR_RANGE_PATTERN" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="hdx.data.dataset_title_helper.DatasetTitleHelper.YEAR_RANGE_PATTERN2">
-<code class="sig-name descname">YEAR_RANGE_PATTERN2</code><em class="property"> = re.compile('([12]\\d\\d\\d)(/|-)(\\d\\d)')</em><a class="headerlink" href="#hdx.data.dataset_title_helper.DatasetTitleHelper.YEAR_RANGE_PATTERN2" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">YEAR_RANGE_PATTERN2</code><em class="property"> = re.compile('([12]\\d\\d\\d)([/-])(\\d{1,2})')</em><a class="headerlink" href="#hdx.data.dataset_title_helper.DatasetTitleHelper.YEAR_RANGE_PATTERN2" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="hdx.data.dataset_title_helper.DatasetTitleHelper.fuzzy_match_dates_in_title">
-<em class="property">classmethod </em><code class="sig-name descname">fuzzy_match_dates_in_title</code><span class="sig-paren">(</span><em class="sig-param">title</em>, <em class="sig-param">ranges</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset_title_helper.DatasetTitleHelper.fuzzy_match_dates_in_title" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="sig-name descname">fuzzy_match_dates_in_title</code><span class="sig-paren">(</span><em class="sig-param">title</em>, <em class="sig-param">ranges</em>, <em class="sig-param">ignore_wrong_years</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset_title_helper.DatasetTitleHelper.fuzzy_match_dates_in_title" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fuzzy match dates in title appending to ranges</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>title</strong> (<em>str</em>) – Title to parse</p></li>
 <li><p><strong>ranges</strong> (<em>List</em><em>[</em><em>Tuple</em><em>[</em><em>datetime</em><em>,</em><em>datetime</em><em>]</em><em>]</em>) – List of date ranges found so far</p></li>
+<li><p><strong>ignore_wrong_years</strong> (<em>List</em><em>[</em><em>int</em><em>]</em>) – Numbers identified as years that probably are not years</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -1356,6 +1417,26 @@ vice versa (eg. ‘Every month’ = ‘30’, ‘30’ or 30 = ‘Every month’
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>Tuple[str,List[Tuple[datetime,datetime]]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.dataset_title_helper.DatasetTitleHelper.get_month_year_in_slash_range">
+<em class="property">classmethod </em><code class="sig-name descname">get_month_year_in_slash_range</code><span class="sig-paren">(</span><em class="sig-param">match</em>, <em class="sig-param">ignore_wrong_years</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset_title_helper.DatasetTitleHelper.get_month_year_in_slash_range" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get year(s) and month from slash range eg. 2007/08. If second value is between 1 and 12, take it as a month.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>match</strong> (<em>Match</em>) – Match object</p></li>
+<li><p><strong>ignore_wrong_years</strong> (<em>List</em><em>[</em><em>int</em><em>]</em>) – Numbers identified as years that probably are not years</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>First year, first month, second year</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Tuple[Optional[int], Optional[int], Optional[int]]</p>
 </dd>
 </dl>
 </dd></dl>
