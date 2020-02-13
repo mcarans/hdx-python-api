@@ -442,8 +442,17 @@ should be set if required to any fields that should be ignored for the particula
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.generate_resource_from_download">
-<code class="sig-name descname">generate_resource_from_download</code><span class="sig-paren">(</span><em class="sig-param">downloader</em>, <em class="sig-param">url</em>, <em class="sig-param">hxltags</em>, <em class="sig-param">folder</em>, <em class="sig-param">filename</em>, <em class="sig-param">resourcedata</em>, <em class="sig-param">header_insertions=None</em>, <em class="sig-param">row_function=None</em>, <em class="sig-param">yearcol=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.generate_resource_from_download" title="Permalink to this definition">¶</a></dt>
-<dd><p>Download url, write rows to csv and create resource, adding to it the dataset</p>
+<code class="sig-name descname">generate_resource_from_download</code><span class="sig-paren">(</span><em class="sig-param">downloader</em>, <em class="sig-param">url</em>, <em class="sig-param">hxltags</em>, <em class="sig-param">folder</em>, <em class="sig-param">filename</em>, <em class="sig-param">resourcedata</em>, <em class="sig-param">header_insertions=None</em>, <em class="sig-param">row_function=None</em>, <em class="sig-param">yearcol=None</em>, <em class="sig-param">quickcharts=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.generate_resource_from_download" title="Permalink to this definition">¶</a></dt>
+<dd><p>Download url, write rows to csv and create resource, adding to it the dataset.</p>
+<p>Optionally, headers can be inserted at specific positions. This is achieved using the header_insertions
+argument. If supplied, it is a list of tuples of the form (position, header) to be inserted. A function is
+called for each row. If supplied, it takes as arguments: headers (prior to any insertions) and
+row (which will be in dict or list form depending upon the dict_rows argument) and outputs a modified row.</p>
+<p>The date of dataset can optionally be set by supplying a column in which the year is to be looked up. In this
+case, the list of years is returned in the key years of the returned dictionary.</p>
+<p>A list of booleans indicating which QuickCharts bites should be enabled can be returned in the key
+bites_disabled in the returned dictionary if the quickcharts parameter is supplied. It is a dictionary with
+keys: hashtag - the HXL hashtag to examine - and values - the 3 values to look for in that column.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -456,13 +465,14 @@ should be set if required to any fields that should be ignored for the particula
 <li><p><strong>header_insertions</strong> (<em>Optional</em><em>[</em><em>List</em><em>[</em><em>Tuple</em><em>[</em><em>int</em><em>,</em><em>str</em><em>]</em><em>]</em><em>]</em>) – List of (position, header) to insert. Defaults to None.</p></li>
 <li><p><strong>row_function</strong> (<em>Optional</em><em>[</em><em>Callable</em><em>[</em><em>[</em><em>List</em><em>[</em><em>str</em><em>]</em><em>,</em><em>Union</em><em>[</em><em>List</em><em>,</em><em>Dict</em><em>]</em><em>]</em><em>,</em><em>Union</em><em>[</em><em>List</em><em>,</em><em>Dict</em><em>]</em><em>]</em><em>]</em>) – Function to call for each row. Defaults to None.</p></li>
 <li><p><strong>yearcol</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Year column for setting dataset year range. Defaults to None (don’t set).</p></li>
+<li><p><strong>quickcharts</strong> (<em>Optional</em><em>[</em><em>Dict</em><em>]</em>) – Dictionary containing keys: hashtag and values</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>True or sorted list of years if resource created, False or None if not</p>
+<dd class="field-even"><p>(True if resource added, dictionary of results)</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>Union[bool,Optional[List]]</p>
+<dd class="field-odd"><p>Tuple[bool, Dict]</p>
 </dd>
 </dl>
 </dd></dl>
