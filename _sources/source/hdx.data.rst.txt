@@ -20,6 +20,14 @@ hdx.data.dataset\_title\_helper module
    :undoc-members:
    :show-inheritance:
 
+hdx.data.date\_helper module
+----------------------------
+
+.. automodule:: hdx.data.date_helper
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 hdx.data.filestore\_helper module
 ---------------------------------
 
@@ -48,6 +56,14 @@ hdx.data.resource module
 ------------------------
 
 .. automodule:: hdx.data.resource
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+hdx.data.resource\_matcher module
+---------------------------------
+
+.. automodule:: hdx.data.resource_matcher
    :members:
    :undoc-members:
    :show-inheritance:

@@ -340,6 +340,27 @@ region name. If any country is already added, it is ignored.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="hdx.data.dataset.Dataset.autocomplete">
+<em class="property">classmethod </em><code class="sig-name descname">autocomplete</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">limit=20</em>, <em class="sig-param">configuration=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.autocomplete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Autocomplete a dataset name and return matches</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – Name to autocomplete</p></li>
+<li><p><strong>limit</strong> (<em>int</em>) – Maximum number of matches to return</p></li>
+<li><p><strong>configuration</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="hdx.html#hdx.hdx_configuration.Configuration" title="hdx.hdx_configuration.Configuration"><em>Configuration</em></a><em>]</em>) – HDX configuration. Defaults to global configuration.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Autocomplete matches</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>List</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
 <dt id="hdx.data.dataset.Dataset.check_required_fields">
 <code class="sig-name descname">check_required_fields</code><span class="sig-paren">(</span><em class="sig-param">ignore_fields=[]</em>, <em class="sig-param">allow_no_resources=False</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.check_required_fields" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check that metadata for dataset and its resources is complete. The parameter ignore_fields
@@ -390,17 +411,21 @@ should be set if required to any fields that should be ignored for the particula
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.create_in_hdx">
-<code class="sig-name descname">create_in_hdx</code><span class="sig-paren">(</span><em class="sig-param">allow_no_resources=False</em>, <em class="sig-param">update_resources=True</em>, <em class="sig-param">update_resources_by_name=True</em>, <em class="sig-param">remove_additional_resources=False</em>, <em class="sig-param">create_default_views=True</em>, <em class="sig-param">hxl_update=True</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.create_in_hdx" title="Permalink to this definition">¶</a></dt>
-<dd><p>Check if dataset exists in HDX and if so, update it, otherwise create it</p>
+<code class="sig-name descname">create_in_hdx</code><span class="sig-paren">(</span><em class="sig-param">allow_no_resources=False</em>, <em class="sig-param">update_resources=True</em>, <em class="sig-param">match_resources_by_metadata=True</em>, <em class="sig-param">remove_additional_resources=False</em>, <em class="sig-param">create_default_views=True</em>, <em class="sig-param">hxl_update=True</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.create_in_hdx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if dataset exists in HDX and if so, update it, otherwise create it. match_resources_by_metadata uses
+ids if they are available, otherwise names only if names are unique or format in addition if not.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>allow_no_resources</strong> (<em>bool</em>) – Whether to allow no resources. Defaults to False.</p></li>
 <li><p><strong>update_resources</strong> (<em>bool</em>) – Whether to update resources (if updating). Defaults to True.</p></li>
-<li><p><strong>update_resources_by_name</strong> (<em>bool</em>) – Compare resource names rather than position in list. Defaults to True.</p></li>
+<li><p><strong>match_resources_by_metadata</strong> (<em>bool</em>) – Compare resource metadata rather than position in list. Defaults to True.</p></li>
 <li><p><strong>remove_additional_resources</strong> (<em>bool</em>) – Remove additional resources found in dataset (if updating). Defaults to False.</p></li>
 <li><p><strong>create_default_views</strong> (<em>bool</em>) – Whether to call package_create_default_resource_views (if updating). Defaults to True.</p></li>
 <li><p><strong>hxl_update</strong> (<em>bool</em>) – Whether to call package_hxl_update. Defaults to True.</p></li>
+<li><p><strong>**kwargs</strong> – See below</p></li>
+<li><p><strong>updated_by_script</strong> (<em>str</em>) – String to identify your script. Defaults to your user agent.</p></li>
+<li><p><strong>batch</strong> (<em>str</em>) – A string you can specify to show which datasets are part of a single batch update</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -441,18 +466,31 @@ should be set if required to any fields that should be ignored for the particula
 </dd></dl>
 
 <dl class="method">
-<dt id="hdx.data.dataset.Dataset.generate_resource_from_download">
-<code class="sig-name descname">generate_resource_from_download</code><span class="sig-paren">(</span><em class="sig-param">downloader</em>, <em class="sig-param">url</em>, <em class="sig-param">hxltags</em>, <em class="sig-param">folder</em>, <em class="sig-param">filename</em>, <em class="sig-param">resourcedata</em>, <em class="sig-param">header_insertions=None</em>, <em class="sig-param">row_function=None</em>, <em class="sig-param">yearcol=None</em>, <em class="sig-param">quickcharts=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.generate_resource_from_download" title="Permalink to this definition">¶</a></dt>
-<dd><p>Download url, write rows to csv and create resource, adding to it the dataset.</p>
+<dt id="hdx.data.dataset.Dataset.download_and_generate_resource">
+<code class="sig-name descname">download_and_generate_resource</code><span class="sig-paren">(</span><em class="sig-param">downloader</em>, <em class="sig-param">url</em>, <em class="sig-param">hxltags</em>, <em class="sig-param">folder</em>, <em class="sig-param">filename</em>, <em class="sig-param">resourcedata</em>, <em class="sig-param">header_insertions=None</em>, <em class="sig-param">row_function=None</em>, <em class="sig-param">yearcol=None</em>, <em class="sig-param">date_function=None</em>, <em class="sig-param">quickcharts=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.download_and_generate_resource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Download url, write rows to csv and create resource, adding to it the dataset. The returned dictionary
+will contain the resource in the key resource, headers in the key headers and list of rows in the key rows.</p>
 <p>Optionally, headers can be inserted at specific positions. This is achieved using the header_insertions
 argument. If supplied, it is a list of tuples of the form (position, header) to be inserted. A function is
 called for each row. If supplied, it takes as arguments: headers (prior to any insertions) and
 row (which will be in dict or list form depending upon the dict_rows argument) and outputs a modified row.</p>
-<p>The date of dataset can optionally be set by supplying a column in which the year is to be looked up. In this
-case, the list of years is returned in the key years of the returned dictionary.</p>
-<p>A list of booleans indicating which QuickCharts bites should be enabled can be returned in the key
-bites_disabled in the returned dictionary if the quickcharts parameter is supplied. It is a dictionary with
-keys: hashtag - the HXL hashtag to examine - and values - the 3 values to look for in that column.</p>
+<p>The date of dataset can optionally be set by supplying a column in which the year is to be looked up or
+a function to obtain handle any dates in a row. The function should accept a row and should return None to
+ignore the row or a dictionary which can either be empty if there are no dates in the row or can be populated
+with keys startdate and/or enddate which are of type datetime. The lowest start date and highest end date are
+used to set the date of dataset and are returned in the results dictionary in keys: startdate and endddate.</p>
+<p>If the parameter quickcharts is supplied then various QuickCharts related actions will occur depending upon the
+keys given in the dictionary and the returned dictionary will contain the QuickCharts resource in the key
+qc_resource. If the keys: hashtag - the HXL hashtag to examine - and values - the 3 values to look for in that
+column - are supplied, then a list of booleans indicating which QuickCharts bites should be enabled will be
+returned in the key bites_disabled in the returned dictionary. For the 3 values, if the key: numeric_hashtag
+is supplied then if that column for a given value contains no numbers, then the corresponding bite will be
+disabled. If the key: cutdown is given, if it is 1, then a separate cut down list is created containing only
+columns with HXL hashtags and rows with desired values (if hashtag and values are supplied) for the purpose of
+driving QuickCharts. It is returned in the key qcrows in the returned dictionary with the matching headers in
+qcheaders. If cutdown is 2, then a resource is created using the cut down list. If the key cutdownhashtags is
+supplied, then only the provided hashtags are used for cutting down otherwise the full list of hxl tags is
+used.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -465,7 +503,82 @@ keys: hashtag - the HXL hashtag to examine - and values - the 3 values to look f
 <li><p><strong>header_insertions</strong> (<em>Optional</em><em>[</em><em>List</em><em>[</em><em>Tuple</em><em>[</em><em>int</em><em>,</em><em>str</em><em>]</em><em>]</em><em>]</em>) – List of (position, header) to insert. Defaults to None.</p></li>
 <li><p><strong>row_function</strong> (<em>Optional</em><em>[</em><em>Callable</em><em>[</em><em>[</em><em>List</em><em>[</em><em>str</em><em>]</em><em>,</em><em>Union</em><em>[</em><em>List</em><em>,</em><em>Dict</em><em>]</em><em>]</em><em>,</em><em>Union</em><em>[</em><em>List</em><em>,</em><em>Dict</em><em>]</em><em>]</em><em>]</em>) – Function to call for each row. Defaults to None.</p></li>
 <li><p><strong>yearcol</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Year column for setting dataset year range. Defaults to None (don’t set).</p></li>
-<li><p><strong>quickcharts</strong> (<em>Optional</em><em>[</em><em>Dict</em><em>]</em>) – Dictionary containing keys: hashtag and values</p></li>
+<li><p><strong>date_function</strong> (<em>Optional</em><em>[</em><em>Callable</em><em>[</em><em>[</em><em>Dict</em><em>]</em><em>,</em><em>Optional</em><em>[</em><em>Dict</em><em>]</em><em>]</em><em>]</em>) – Date function to call for each row. Defaults to None.</p></li>
+<li><p><strong>quickcharts</strong> (<em>Optional</em><em>[</em><em>Dict</em><em>]</em>) – Dictionary containing optional keys: hashtag, values, cutdown and/or cutdownhashtags</p></li>
+<li><p><strong>**kwargs</strong> – Any additional args to pass to downloader.get_tabular_rows</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>(True if resource added, dictionary of results)</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Tuple[bool, Dict]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.dataset.Dataset.generate_qc_resource_from_rows">
+<code class="sig-name descname">generate_qc_resource_from_rows</code><span class="sig-paren">(</span><em class="sig-param">folder</em>, <em class="sig-param">filename</em>, <em class="sig-param">rows</em>, <em class="sig-param">resourcedata</em>, <em class="sig-param">columnname</em>, <em class="sig-param">hxltags</em>, <em class="sig-param">qc_indicator_codes</em>, <em class="sig-param">headers=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.generate_qc_resource_from_rows" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate QuickCharts rows by cutting down input rows by indicator code and optionally restricting to certain
+columns. Output to csv and create resource, adding to it the dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>folder</strong> (<em>str</em>) – Folder to which to write file containing rows</p></li>
+<li><p><strong>filename</strong> (<em>str</em>) – Filename of file to write rows</p></li>
+<li><p><strong>rows</strong> (<em>List</em><em>[</em><em>DictUpperBound</em><em>]</em>) – List of rows in dict form</p></li>
+<li><p><strong>resourcedata</strong> (<em>Dict</em>) – Resource data</p></li>
+<li><p><strong>columnname</strong> (<em>str</em>) – Name of column containing indicator code</p></li>
+<li><p><strong>hxltags</strong> (<em>Dict</em><em>[</em><em>str</em><em>,</em><em>str</em><em>]</em>) – Header to HXL hashtag mapping</p></li>
+<li><p><strong>qc_indicator_codes</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – List of indicator codes to match</p></li>
+<li><p><strong>headers</strong> (<em>Optional</em><em>[</em><em>List</em><em>[</em><em>str</em><em>]</em><em>]</em>) – List of headers to output. Defaults to None (all headers).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The created resource or None</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Optional[<a class="reference internal" href="#hdx.data.resource.Resource" title="hdx.data.resource.Resource">hdx.data.resource.Resource</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.dataset.Dataset.generate_resource_from_iterator">
+<code class="sig-name descname">generate_resource_from_iterator</code><span class="sig-paren">(</span><em class="sig-param">headers</em>, <em class="sig-param">iterator</em>, <em class="sig-param">hxltags</em>, <em class="sig-param">folder</em>, <em class="sig-param">filename</em>, <em class="sig-param">resourcedata</em>, <em class="sig-param">yearcol=None</em>, <em class="sig-param">date_function=None</em>, <em class="sig-param">quickcharts=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.generate_resource_from_iterator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given headers and an iterator, write rows to csv and create resource, adding to it the dataset. The returned
+dictionary will contain the resource in the key resource, headers in the key headers and list of rows in
+the key rows.</p>
+<p>The date of dataset can optionally be set by supplying a column in which the year is to be looked up or
+a function to obtain handle any dates in a row. The function should accept a row and should return None to
+ignore the row or a dictionary which can either be empty if there are no dates in the row or can be populated
+with keys startdate and/or enddate which are of type datetime. The lowest start date and highest end date are
+used to set the date of dataset and are returned in the results dictionary in keys: startdate and endddate.</p>
+<p>If the parameter quickcharts is supplied then various QuickCharts related actions will occur depending upon the
+keys given in the dictionary and the returned dictionary will contain the QuickCharts resource in the key
+qc_resource. If the keys: hashtag - the HXL hashtag to examine - and values - the 3 values to look for in that
+column - are supplied, then a list of booleans indicating which QuickCharts bites should be enabled will be
+returned in the key bites_disabled in the returned dictionary. For the 3 values, if the key: numeric_hashtag
+is supplied then if that column for a given value contains no numbers, then the corresponding bite will be
+disabled. If the key: cutdown is given, if it is 1, then a separate cut down list is created containing only
+columns with HXL hashtags and rows with desired values (if hashtag and values are supplied) for the purpose of
+driving QuickCharts. It is returned in the key qcrows in the returned dictionary with the matching headers in
+qcheaders. If cutdown is 2, then a resource is created using the cut down list. If the key cutdownhashtags is
+supplied, then only the provided hashtags are used for cutting down otherwise the full list of hxl tags is
+used.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>headers</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – Headers</p></li>
+<li><p><strong>iterator</strong> (<em>Iterator</em><em>[</em><em>Union</em><em>[</em><em>List</em><em>,</em><em>Dict</em><em>]</em><em>]</em>) – Iterator returning rows</p></li>
+<li><p><strong>hxltags</strong> (<em>Dict</em><em>[</em><em>str</em><em>,</em><em>str</em><em>]</em>) – Header to HXL hashtag mapping</p></li>
+<li><p><strong>folder</strong> (<em>str</em>) – Folder to which to write file containing rows</p></li>
+<li><p><strong>filename</strong> (<em>str</em>) – Filename of file to write rows</p></li>
+<li><p><strong>resourcedata</strong> (<em>Dict</em>) – Resource data</p></li>
+<li><p><strong>yearcol</strong> (<em>Optional</em><em>[</em><em>Union</em><em>[</em><em>int</em><em>,</em><em>str</em><em>]</em><em>]</em>) – Year column for setting dataset year range. Defaults to None (don’t set).</p></li>
+<li><p><strong>date_function</strong> (<em>Optional</em><em>[</em><em>Callable</em><em>[</em><em>[</em><em>Dict</em><em>]</em><em>,</em><em>Optional</em><em>[</em><em>Dict</em><em>]</em><em>]</em><em>]</em>) – Date function to call for each row. Defaults to None.</p></li>
+<li><p><strong>quickcharts</strong> (<em>Optional</em><em>[</em><em>Dict</em><em>]</em>) – Dictionary containing optional keys: hashtag, values, cutdown and/or cutdownhashtags</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -492,24 +605,31 @@ keys: hashtag - the HXL hashtag to examine - and values - the 3 values to look f
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>None</p>
+<dd class="field-even"><p>The created resource</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#hdx.data.resource.Resource" title="hdx.data.resource.Resource">hdx.data.resource.Resource</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.generate_resource_view">
-<code class="sig-name descname">generate_resource_view</code><span class="sig-paren">(</span><em class="sig-param">resource=0</em>, <em class="sig-param">path='config/hdx_resource_view_static.yml'</em>, <em class="sig-param">bites_disabled=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.generate_resource_view" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">generate_resource_view</code><span class="sig-paren">(</span><em class="sig-param">resource=0</em>, <em class="sig-param">path=None</em>, <em class="sig-param">bites_disabled=None</em>, <em class="sig-param">indicators=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.generate_resource_view" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create QuickCharts for dataset from configuration saved in resource view. You can disable specific bites
-by providing bites_disabled, a list of bools where True indicates a specific bite is disabled and False
-indicates leave enabled. Creation of the resource view will be delayed until after the next dataset create
+by providing bites_disabled, a list of 3 bools where True indicates a specific bite is disabled and False
+indicates leave enabled. If you supply indicators, then the internal indicators resource view template will be
+used. The parameter indicators is a list with 3 dictionaries of form:
+{‘code’: ‘MY_INDICATOR_CODE’, ‘title’: ‘MY_INDICATOR_TITLE’, ‘unit’: ‘MY_INDICATOR_UNIT’}.
+Creation of the resource view will be delayed until after the next dataset create
 or update if a resource id is not yet available.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>resource</strong> (<em>Union</em><em>[</em><a class="reference internal" href="#hdx.data.resource.Resource" title="hdx.data.resource.Resource"><em>hdx.data.resource.Resource</em></a><em>,</em><em>Dict</em><em>,</em><em>str</em><em>,</em><em>int</em><em>]</em>) – Either resource id or name, resource metadata from a Resource object or a dictionary or position. Defaults to 0.</p></li>
-<li><p><strong>path</strong> (<em>str</em>) – Path to YAML resource view metadata. Defaults to config/hdx_resource_view_static.yml.</p></li>
+<li><p><strong>path</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Path to YAML resource view metadata. Defaults to None (config/hdx_resource_view_static.yml or internal template).</p></li>
 <li><p><strong>bites_disabled</strong> (<em>Optional</em><em>[</em><em>List</em><em>[</em><em>bool</em><em>]</em><em>]</em>) – Which QC bites should be disabled. Defaults to None (all bites enabled).</p></li>
+<li><p><strong>indicators</strong> (<em>Optional</em><em>[</em><em>List</em><em>[</em><em>Dict</em><em>]</em><em>]</em>) – Indicator codes, QC titles and units for resource view template. Defaults to None (don’t use template).</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -591,79 +711,24 @@ or update if a resource id is not yet available.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="hdx.data.dataset.Dataset.get_dataset_date">
-<code class="sig-name descname">get_dataset_date</code><span class="sig-paren">(</span><em class="sig-param">date_format=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.get_dataset_date" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get dataset date as string in specified format. For range returns start date.
-If no format is supplied, an ISO 8601 string is returned.</p>
+<dt id="hdx.data.dataset.Dataset.get_date_of_dataset">
+<code class="sig-name descname">get_date_of_dataset</code><span class="sig-paren">(</span><em class="sig-param">date_format=None</em>, <em class="sig-param">today=datetime.datetime(2020</em>, <em class="sig-param">12</em>, <em class="sig-param">30</em>, <em class="sig-param">6</em>, <em class="sig-param">43</em>, <em class="sig-param">35</em>, <em class="sig-param">428596)</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.get_date_of_dataset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get dataset date as datetimes and strings in specified format. If no format is supplied, the ISO 8601
+format is used. Returns a dictionary containing keys startdate (start date as datetime), enddate (end
+date as datetime), startdate_str (start date as string), enddate_str (end date as string) and ongoing
+(whether the end date is a rolls forward every day).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>date_format</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Date format. None is taken to be ISO 8601. Defaults to None.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>date_format</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Date format. None is taken to be ISO 8601. Defaults to None.</p></li>
+<li><p><strong>today</strong> (<em>datetime.date</em>) – Date to use for today. Defaults to datetime.now.</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Dataset date string or None if no date is set</p>
+<dd class="field-even"><p>Dictionary of date information</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>Optional[str]</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="hdx.data.dataset.Dataset.get_dataset_date_as_datetime">
-<code class="sig-name descname">get_dataset_date_as_datetime</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.get_dataset_date_as_datetime" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get dataset date as datetime.datetime object. For range returns start date.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>Dataset date in datetime object or None if no date is set</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>Optional[datetime.datetime]</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="hdx.data.dataset.Dataset.get_dataset_date_type">
-<code class="sig-name descname">get_dataset_date_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.get_dataset_date_type" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get type of dataset date (range, date) or None if no date is set</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>Type of dataset date (range, date) or None if no date is set</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>Optional[str]</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="hdx.data.dataset.Dataset.get_dataset_end_date">
-<code class="sig-name descname">get_dataset_end_date</code><span class="sig-paren">(</span><em class="sig-param">date_format=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.get_dataset_end_date" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get dataset date as string in specified format. For range returns start date.
-If no format is supplied, an ISO 8601 string is returned.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>date_format</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Date format. None is taken to be ISO 8601. Defaults to None.</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Dataset date string or None if no date is set</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>Optional[str]</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="hdx.data.dataset.Dataset.get_dataset_end_date_as_datetime">
-<code class="sig-name descname">get_dataset_end_date_as_datetime</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.get_dataset_end_date_as_datetime" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get dataset end date as datetime.datetime object.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>Dataset date in datetime object or None if no date is set</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>Optional[datetime.datetime]</p>
+<dd class="field-odd"><p>Dict</p>
 </dd>
 </dl>
 </dd></dl>
@@ -792,7 +857,7 @@ If no format is supplied, an ISO 8601 string is returned.</p>
 <dd><p>Get dataset’s resources</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>list of Resource objects</p>
+<dd class="field-odd"><p>List of Resource objects</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p>List[<a class="reference internal" href="#hdx.data.resource.Resource" title="hdx.data.resource.Resource">hdx.data.resource.Resource</a>]</p>
@@ -903,6 +968,20 @@ If no format is supplied, an ISO 8601 string is returned.</p>
 <dd></dd></dl>
 
 <dl class="method">
+<dt id="hdx.data.dataset.Dataset.number_of_resources">
+<code class="sig-name descname">number_of_resources</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.number_of_resources" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get number of dataset’s resources</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Number of Resource objects</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
 <dt id="hdx.data.dataset.Dataset.preview_off">
 <code class="sig-name descname">preview_off</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.preview_off" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set dataset preview off</p>
@@ -920,6 +999,20 @@ If no format is supplied, an ISO 8601 string is returned.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.dataset.Dataset.quickcharts_resource_last">
+<code class="sig-name descname">quickcharts_resource_last</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.quickcharts_resource_last" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move the QuickCharts resource to be last. Assumes that it’s name begins ‘QuickCharts-‘.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True if QuickCharts resource found, False if not</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>bool</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1112,47 +1205,6 @@ their original order.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="hdx.data.dataset.Dataset.set_dataset_date">
-<code class="sig-name descname">set_dataset_date</code><span class="sig-paren">(</span><em class="sig-param">dataset_date</em>, <em class="sig-param">dataset_end_date=None</em>, <em class="sig-param">date_format=None</em>, <em class="sig-param">allow_range=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.set_dataset_date" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set dataset date from string using specified format. If no format is supplied, the function will guess.
-For unambiguous formats, this should be fine. If allow_range is True and dataset_end_date is not supplied,
-then if dataset_date lacks days and/or months, it will be taken to be a date range. If allow_range is True,
-dataset_end_date is supplied and both dataset_date and dataset_end_date lack days and/or months, then a
-date range will be used from the start date of dataset_date range and the end date of the dataset_end_date
-range. If allow_range is False, date ranges will not be allowed.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>dataset_date</strong> (<em>str</em>) – Dataset date string</p></li>
-<li><p><strong>dataset_end_date</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Dataset end date string</p></li>
-<li><p><strong>date_format</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Date format. If None is given, will attempt to guess. Defaults to None.</p></li>
-<li><p><strong>allow_range</strong> (<em>bool</em>) – Whether to allow dataset_date to be a range. Defaults to True.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>None</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="hdx.data.dataset.Dataset.set_dataset_date_from_datetime">
-<code class="sig-name descname">set_dataset_date_from_datetime</code><span class="sig-paren">(</span><em class="sig-param">dataset_date</em>, <em class="sig-param">dataset_end_date=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.set_dataset_date_from_datetime" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set dataset date from datetime.datetime object</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>dataset_date</strong> (<em>datetime.datetime</em>) – Dataset date</p></li>
-<li><p><strong>dataset_end_date</strong> (<em>Optional</em><em>[</em><em>datetime.datetime</em><em>]</em>) – Dataset end date</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>None</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
 <dt id="hdx.data.dataset.Dataset.set_dataset_year_range">
 <code class="sig-name descname">set_dataset_year_range</code><span class="sig-paren">(</span><em class="sig-param">dataset_year</em>, <em class="sig-param">dataset_end_year=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.set_dataset_year_range" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set dataset date as a range from year or start and end year.</p>
@@ -1168,6 +1220,23 @@ range. If allow_range is False, date ranges will not be allowed.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>List[int]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.dataset.Dataset.set_date_of_dataset">
+<code class="sig-name descname">set_date_of_dataset</code><span class="sig-paren">(</span><em class="sig-param">startdate</em>, <em class="sig-param">enddate</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.set_date_of_dataset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set dataset date from either datetime.datetime objects or strings.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>startdate</strong> (<em>Union</em><em>[</em><em>datetime.datetime</em><em>, </em><em>str</em><em>]</em>) – Dataset start date</p></li>
+<li><p><strong>enddate</strong> (<em>Union</em><em>[</em><em>datetime.datetime</em><em>, </em><em>str</em><em>]</em>) – Dataset end date</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1261,17 +1330,6 @@ update frequency can be found from Dataset.list_valid_update_frequencies().</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="hdx.data.dataset.Dataset.set_updated_by_script">
-<code class="sig-name descname">set_updated_by_script</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.set_updated_by_script" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set metadata field updated_by_script</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>None</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
 <dt id="hdx.data.dataset.Dataset.transform_update_frequency">
 <em class="property">classmethod </em><code class="sig-name descname">transform_update_frequency</code><span class="sig-paren">(</span><em class="sig-param">frequency</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.transform_update_frequency" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get numeric update frequency (as string since that is required field format) from textual representation or
@@ -1324,16 +1382,20 @@ vice versa (eg. ‘Every month’ = ‘30’, ‘30’ or 30 = ‘Every month’
 
 <dl class="method">
 <dt id="hdx.data.dataset.Dataset.update_in_hdx">
-<code class="sig-name descname">update_in_hdx</code><span class="sig-paren">(</span><em class="sig-param">update_resources=True</em>, <em class="sig-param">update_resources_by_name=True</em>, <em class="sig-param">remove_additional_resources=False</em>, <em class="sig-param">create_default_views=True</em>, <em class="sig-param">hxl_update=True</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.update_in_hdx" title="Permalink to this definition">¶</a></dt>
-<dd><p>Check if dataset exists in HDX and if so, update it</p>
+<code class="sig-name descname">update_in_hdx</code><span class="sig-paren">(</span><em class="sig-param">update_resources=True</em>, <em class="sig-param">match_resources_by_metadata=True</em>, <em class="sig-param">remove_additional_resources=False</em>, <em class="sig-param">create_default_views=True</em>, <em class="sig-param">hxl_update=True</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.dataset.Dataset.update_in_hdx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if dataset exists in HDX and if so, update it. match_resources_by_metadata uses ids if they are
+available, otherwise names only if names are unique or format in addition if not.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>update_resources</strong> (<em>bool</em>) – Whether to update resources. Defaults to True.</p></li>
-<li><p><strong>update_resources_by_name</strong> (<em>bool</em>) – Compare resource names rather than position in list. Defaults to True.</p></li>
+<li><p><strong>match_resources_by_metadata</strong> (<em>bool</em>) – Compare resource metadata rather than position in list. Defaults to True.</p></li>
 <li><p><strong>remove_additional_resources</strong> (<em>bool</em>) – Remove additional resources found in dataset. Defaults to False.</p></li>
 <li><p><strong>create_default_views</strong> (<em>bool</em>) – Whether to call package_create_default_resource_views. Defaults to True.</p></li>
 <li><p><strong>hxl_update</strong> (<em>bool</em>) – Whether to call package_hxl_update. Defaults to True.</p></li>
+<li><p><strong>**kwargs</strong> – See below</p></li>
+<li><p><strong>updated_by_script</strong> (<em>str</em>) – String to identify your script. Defaults to your user agent.</p></li>
+<li><p><strong>batch</strong> (<em>str</em>) – A string you can specify to show which datasets are part of a single batch update</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -1371,6 +1433,11 @@ vice versa (eg. ‘Every month’ = ‘30’, ‘30’ or 30 = ‘Every month’
 <dl class="attribute">
 <dt id="hdx.data.dataset_title_helper.DatasetTitleHelper.PUNCTUATION_PATTERN">
 <code class="sig-name descname">PUNCTUATION_PATTERN</code><em class="property"> = re.compile('[!&quot;#$%&amp;\'()*+,-./:;&lt;=&gt;?&#64;[\\]^_`{|}~]')</em><a class="headerlink" href="#hdx.data.dataset_title_helper.DatasetTitleHelper.PUNCTUATION_PATTERN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="hdx.data.dataset_title_helper.DatasetTitleHelper.VERSION_PATTERN">
+<code class="sig-name descname">VERSION_PATTERN</code><em class="property"> = re.compile('(\\d)?(\\d)?\\d')</em><a class="headerlink" href="#hdx.data.dataset_title_helper.DatasetTitleHelper.VERSION_PATTERN" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -1454,6 +1521,81 @@ vice versa (eg. ‘Every month’ = ‘30’, ‘30’ or 30 = ‘Every month’
 </dd></dl>
 
 </div>
+<div class="section" id="module-hdx.data.date_helper">
+<span id="hdx-data-date-helper-module"></span><h2>hdx.data.date_helper module<a class="headerlink" href="#module-hdx.data.date_helper" title="Permalink to this headline">¶</a></h2>
+<p>Helper to the Dataset and Resource classes for handling HDX dates.</p>
+<dl class="class">
+<dt id="hdx.data.date_helper.DateHelper">
+<em class="property">class </em><code class="sig-prename descclassname">hdx.data.date_helper.</code><code class="sig-name descname">DateHelper</code><a class="headerlink" href="#hdx.data.date_helper.DateHelper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="hdx.data.date_helper.DateHelper.get_date_info">
+<em class="property">static </em><code class="sig-name descname">get_date_info</code><span class="sig-paren">(</span><em class="sig-param">hdx_date</em>, <em class="sig-param">date_format=None</em>, <em class="sig-param">today=datetime.datetime(2020</em>, <em class="sig-param">12</em>, <em class="sig-param">30</em>, <em class="sig-param">6</em>, <em class="sig-param">43</em>, <em class="sig-param">35</em>, <em class="sig-param">240191)</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.date_helper.DateHelper.get_date_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get date as datetimes and strings in specified format. If no format is supplied, the ISO 8601
+format is used. Returns a dictionary containing keys startdate (start date as datetime), enddate (end
+date as datetime), startdate_str (start date as string), enddate_str (end date as string) and ongoing
+(whether the end date is a rolls forward every day).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>hdx_date</strong> (<em>str</em>) – Input date</p></li>
+<li><p><strong>date_format</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Date format. None is taken to be ISO 8601. Defaults to None.</p></li>
+<li><p><strong>today</strong> (<em>date</em>) – Date to use for today. Defaults to datetime.now.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Dictionary of date information</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.date_helper.DateHelper.get_hdx_date">
+<em class="property">static </em><code class="sig-name descname">get_hdx_date</code><span class="sig-paren">(</span><em class="sig-param">startdate</em>, <em class="sig-param">enddate=None</em>, <em class="sig-param">ongoing=False</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.date_helper.DateHelper.get_hdx_date" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get an HDX date from either datetime.datetime objects or strings with option to set ongoing.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>startdate</strong> (<em>Union</em><em>[</em><em>datetime</em><em>, </em><em>str</em><em>]</em>) – Dataset start date</p></li>
+<li><p><strong>enddate</strong> (<em>Union</em><em>[</em><em>datetime</em><em>, </em><em>str</em><em>, </em><em>None</em><em>]</em>) – Dataset end date. Defaults to None.</p></li>
+<li><p><strong>ongoing</strong> (<em>bool</em>) – True if ongoing, False if not. Defaults to False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>HDX date</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.date_helper.DateHelper.get_hdx_date_from_years">
+<em class="property">classmethod </em><code class="sig-name descname">get_hdx_date_from_years</code><span class="sig-paren">(</span><em class="sig-param">startyear</em>, <em class="sig-param">endyear=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.date_helper.DateHelper.get_hdx_date_from_years" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get an HDX date from an iterable of years or a start and end year.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>startyear</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>int</em><em>, </em><em>Iterable</em><em>]</em>) – Start year given as string or int or range in an iterable</p></li>
+<li><p><strong>endyear</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>int</em><em>, </em><em>None</em><em>]</em>) – End year given as string or int</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>(HDX date, the start and end year if supplied or sorted list of years)</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Tuple[str,List[int]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
 <div class="section" id="module-hdx.data.filestore_helper">
 <span id="hdx-data-filestore-helper-module"></span><h2>hdx.data.filestore_helper module<a class="headerlink" href="#module-hdx.data.filestore_helper" title="Permalink to this headline">¶</a></h2>
 <p>Helper to the Dataset class for handling resources with filestores.</p>
@@ -1463,7 +1605,7 @@ vice versa (eg. ‘Every month’ = ‘30’, ‘30’ or 30 = ‘Every month’
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="method">
 <dt id="hdx.data.filestore_helper.FilestoreHelper.add_filestore_resources">
-<em class="property">static </em><code class="sig-name descname">add_filestore_resources</code><span class="sig-paren">(</span><em class="sig-param">resources_list</em>, <em class="sig-param">filestore_resources</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.filestore_helper.FilestoreHelper.add_filestore_resources" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">add_filestore_resources</code><span class="sig-paren">(</span><em class="sig-param">resources_list</em>, <em class="sig-param">filestore_resources</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.filestore_helper.FilestoreHelper.add_filestore_resources" title="Permalink to this definition">¶</a></dt>
 <dd><p>Helper method to create files in filestore by updating resources.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1480,7 +1622,7 @@ vice versa (eg. ‘Every month’ = ‘30’, ‘30’ or 30 = ‘Every month’
 
 <dl class="method">
 <dt id="hdx.data.filestore_helper.FilestoreHelper.check_filestore_resource">
-<em class="property">classmethod </em><code class="sig-name descname">check_filestore_resource</code><span class="sig-paren">(</span><em class="sig-param">resource</em>, <em class="sig-param">ignore_fields</em>, <em class="sig-param">filestore_resources</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.filestore_helper.FilestoreHelper.check_filestore_resource" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="sig-name descname">check_filestore_resource</code><span class="sig-paren">(</span><em class="sig-param">resource</em>, <em class="sig-param">ignore_fields</em>, <em class="sig-param">filestore_resources</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.filestore_helper.FilestoreHelper.check_filestore_resource" title="Permalink to this definition">¶</a></dt>
 <dd><p>Helper method to add new resource from dataset including filestore.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1498,7 +1640,7 @@ vice versa (eg. ‘Every month’ = ‘30’, ‘30’ or 30 = ‘Every month’
 
 <dl class="method">
 <dt id="hdx.data.filestore_helper.FilestoreHelper.dataset_merge_filestore_resource">
-<em class="property">classmethod </em><code class="sig-name descname">dataset_merge_filestore_resource</code><span class="sig-paren">(</span><em class="sig-param">resource</em>, <em class="sig-param">updated_resource</em>, <em class="sig-param">filestore_resources</em>, <em class="sig-param">ignore_fields</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.filestore_helper.FilestoreHelper.dataset_merge_filestore_resource" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="sig-name descname">dataset_merge_filestore_resource</code><span class="sig-paren">(</span><em class="sig-param">resource</em>, <em class="sig-param">updated_resource</em>, <em class="sig-param">filestore_resources</em>, <em class="sig-param">ignore_fields</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.filestore_helper.FilestoreHelper.dataset_merge_filestore_resource" title="Permalink to this definition">¶</a></dt>
 <dd><p>Helper method to merge updated resource from dataset into HDX resource read from HDX including filestore.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1743,6 +1885,27 @@ precedence).</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="hdx.data.organization.Organization.autocomplete">
+<em class="property">classmethod </em><code class="sig-name descname">autocomplete</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">limit=20</em>, <em class="sig-param">configuration=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.organization.Organization.autocomplete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Autocomplete an organization name and return matches</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – Name to autocomplete</p></li>
+<li><p><strong>limit</strong> (<em>int</em>) – Maximum number of matches to return</p></li>
+<li><p><strong>configuration</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="hdx.html#hdx.hdx_configuration.Configuration" title="hdx.hdx_configuration.Configuration"><em>Configuration</em></a><em>]</em>) – HDX configuration. Defaults to global configuration.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Autocomplete matches</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>List</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
 <dt id="hdx.data.organization.Organization.check_required_fields">
 <code class="sig-name descname">check_required_fields</code><span class="sig-paren">(</span><em class="sig-param">ignore_fields=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.organization.Organization.check_required_fields" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check that metadata for organization is complete. The parameter ignore_fields should
@@ -1853,7 +2016,7 @@ be set if required to any fields that should be ignored for the particular opera
 
 <dl class="method">
 <dt id="hdx.data.organization.Organization.read_from_hdx">
-<em class="property">static </em><code class="sig-name descname">read_from_hdx</code><span class="sig-paren">(</span><em class="sig-param">identifier</em>, <em class="sig-param">configuration=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.organization.Organization.read_from_hdx" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="sig-name descname">read_from_hdx</code><span class="sig-paren">(</span><em class="sig-param">identifier</em>, <em class="sig-param">configuration=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.organization.Organization.read_from_hdx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reads the organization given by identifier from HDX and returns Organization object</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -2230,6 +2393,29 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="hdx.data.resource.Resource.get_date_of_resource">
+<code class="sig-name descname">get_date_of_resource</code><span class="sig-paren">(</span><em class="sig-param">date_format=None</em>, <em class="sig-param">today=datetime.date(2020</em>, <em class="sig-param">12</em>, <em class="sig-param">30)</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.get_date_of_resource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get resource date as datetimes and strings in specified format. If no format is supplied, the ISO 8601
+format is used. Returns a dictionary containing keys startdate (start date as datetime), enddate (end
+date as datetime), startdate_str (start date as string), enddate_str (end date as string) and ongoing
+(whether the end date is a rolls forward every day).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>date_format</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Date format. None is taken to be ISO 8601. Defaults to None.</p></li>
+<li><p><strong>today</strong> (<em>datetime.date</em>) – Date to use for today. Defaults to date.today.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Dictionary of date information</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
 <dt id="hdx.data.resource.Resource.get_file_to_upload">
 <code class="sig-name descname">get_file_to_upload</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.get_file_to_upload" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the file uploaded</p>
@@ -2287,7 +2473,7 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 
 <dl class="method">
 <dt id="hdx.data.resource.Resource.read_from_hdx">
-<em class="property">static </em><code class="sig-name descname">read_from_hdx</code><span class="sig-paren">(</span><em class="sig-param">identifier</em>, <em class="sig-param">configuration=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.read_from_hdx" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="sig-name descname">read_from_hdx</code><span class="sig-paren">(</span><em class="sig-param">identifier</em>, <em class="sig-param">configuration=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.read_from_hdx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reads the resource given by identifier from HDX and returns Resource object</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -2339,6 +2525,23 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>List[<a class="reference internal" href="#hdx.data.resource.Resource" title="hdx.data.resource.Resource">Resource</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.resource.Resource.set_date_of_resource">
+<code class="sig-name descname">set_date_of_resource</code><span class="sig-paren">(</span><em class="sig-param">startdate</em>, <em class="sig-param">enddate</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource.Resource.set_date_of_resource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set resource date from either datetime.datetime objects or strings.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>startdate</strong> (<em>Union</em><em>[</em><em>datetime.datetime</em><em>, </em><em>str</em><em>]</em>) – Dataset start date</p></li>
+<li><p><strong>enddate</strong> (<em>Union</em><em>[</em><em>datetime.datetime</em><em>, </em><em>str</em><em>]</em>) – Dataset end date</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2510,6 +2713,57 @@ If path is not supplied, the file is first downloaded from HDX.</p>
 </dd></dl>
 
 </div>
+<div class="section" id="module-hdx.data.resource_matcher">
+<span id="hdx-data-resource-matcher-module"></span><h2>hdx.data.resource_matcher module<a class="headerlink" href="#module-hdx.data.resource_matcher" title="Permalink to this headline">¶</a></h2>
+<p>Helper to the Dataset class for handling matching resources.</p>
+<dl class="class">
+<dt id="hdx.data.resource_matcher.ResourceMatcher">
+<em class="property">class </em><code class="sig-prename descclassname">hdx.data.resource_matcher.</code><code class="sig-name descname">ResourceMatcher</code><a class="headerlink" href="#hdx.data.resource_matcher.ResourceMatcher" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="hdx.data.resource_matcher.ResourceMatcher.match_resource_list">
+<em class="property">static </em><code class="sig-name descname">match_resource_list</code><span class="sig-paren">(</span><em class="sig-param">resources1</em>, <em class="sig-param">resource2</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource_matcher.ResourceMatcher.match_resource_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Helper method to find the index of a resource that matches a given resource</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>resources1</strong> (<em>List</em><em>[</em><a class="reference internal" href="#hdx.data.resource.Resource" title="hdx.data.resource.Resource"><em>hdx.data.resource.Resource</em></a><em>]</em>) – List of resources</p></li>
+<li><p><strong>resource2</strong> (<a class="reference internal" href="#hdx.data.resource.Resource" title="hdx.data.resource.Resource"><em>hdx.data.resource.Resource</em></a>) – Resource to match with list</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Index of resource that matches in list or None</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Optional[int]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.resource_matcher.ResourceMatcher.match_resource_lists">
+<em class="property">static </em><code class="sig-name descname">match_resource_lists</code><span class="sig-paren">(</span><em class="sig-param">resources1</em>, <em class="sig-param">resources2</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource_matcher.ResourceMatcher.match_resource_lists" title="Permalink to this definition">¶</a></dt>
+<dd><p>Helper method to match two lists of resources returning the indices that match in two lists and
+that don’t match in two more lists</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>resources1</strong> (<em>List</em><em>[</em><a class="reference internal" href="#hdx.data.resource.Resource" title="hdx.data.resource.Resource"><em>hdx.data.resource.Resource</em></a><em>]</em>) – List of resources</p></li>
+<li><p><strong>resources2</strong> (<em>List</em><em>[</em><a class="reference internal" href="#hdx.data.resource.Resource" title="hdx.data.resource.Resource"><em>hdx.data.resource.Resource</em></a><em>]</em>) – List of resources to match with first list</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Returns indices that match (2 lists) and that don’t match (2 lists)</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Tuple[List, List, List, List]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
 <div class="section" id="module-hdx.data.resource_view">
 <span id="hdx-data-resource-view-module"></span><h2>hdx.data.resource_view module<a class="headerlink" href="#module-hdx.data.resource_view" title="Permalink to this headline">¶</a></h2>
 <p>Resource view class containing all logic for creating, checking, and updating resource views.</p>
@@ -2613,7 +2867,7 @@ be set if required to any fields that should be ignored for the particular opera
 
 <dl class="method">
 <dt id="hdx.data.resource_view.ResourceView.read_from_hdx">
-<em class="property">static </em><code class="sig-name descname">read_from_hdx</code><span class="sig-paren">(</span><em class="sig-param">identifier</em>, <em class="sig-param">configuration=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource_view.ResourceView.read_from_hdx" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="sig-name descname">read_from_hdx</code><span class="sig-paren">(</span><em class="sig-param">identifier</em>, <em class="sig-param">configuration=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.resource_view.ResourceView.read_from_hdx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reads the resource view given by identifier from HDX and returns ResourceView object</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -2900,7 +3154,7 @@ be set if required to any fields that should be ignored for the particular opera
 
 <dl class="method">
 <dt id="hdx.data.showcase.Showcase.read_from_hdx">
-<em class="property">static </em><code class="sig-name descname">read_from_hdx</code><span class="sig-paren">(</span><em class="sig-param">identifier</em>, <em class="sig-param">configuration=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.showcase.Showcase.read_from_hdx" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="sig-name descname">read_from_hdx</code><span class="sig-paren">(</span><em class="sig-param">identifier</em>, <em class="sig-param">configuration=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.showcase.Showcase.read_from_hdx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reads the showcase given by identifier from HDX and returns Showcase object</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -3053,6 +3307,27 @@ be set if required to any fields that should be ignored for the particular opera
 </dd></dl>
 
 <dl class="method">
+<dt id="hdx.data.user.User.autocomplete">
+<em class="property">classmethod </em><code class="sig-name descname">autocomplete</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">limit=20</em>, <em class="sig-param">configuration=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.user.User.autocomplete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Autocomplete a user name and return matches</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – Name to autocomplete</p></li>
+<li><p><strong>limit</strong> (<em>int</em>) – Maximum number of matches to return</p></li>
+<li><p><strong>configuration</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="hdx.html#hdx.hdx_configuration.Configuration" title="hdx.hdx_configuration.Configuration"><em>Configuration</em></a><em>]</em>) – HDX configuration. Defaults to global configuration.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Autocomplete matches</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>List</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
 <dt id="hdx.data.user.User.check_required_fields">
 <code class="sig-name descname">check_required_fields</code><span class="sig-paren">(</span><em class="sig-param">ignore_fields=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.user.User.check_required_fields" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check that metadata for user is complete. The parameter ignore_fields should
@@ -3178,7 +3453,7 @@ be set if required to any fields that should be ignored for the particular opera
 
 <dl class="method">
 <dt id="hdx.data.user.User.read_from_hdx">
-<em class="property">static </em><code class="sig-name descname">read_from_hdx</code><span class="sig-paren">(</span><em class="sig-param">identifier</em>, <em class="sig-param">configuration=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.user.User.read_from_hdx" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="sig-name descname">read_from_hdx</code><span class="sig-paren">(</span><em class="sig-param">identifier</em>, <em class="sig-param">configuration=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.user.User.read_from_hdx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reads the user given by identifier from HDX and returns User object</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -3365,6 +3640,29 @@ be set if required to any fields that should be ignored for the particular opera
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>List[str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="hdx.data.vocabulary.Vocabulary.autocomplete">
+<em class="property">classmethod </em><code class="sig-name descname">autocomplete</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">limit=20</em>, <em class="sig-param">configuration=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.vocabulary.Vocabulary.autocomplete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Autocomplete a tag name and return matches</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – Name to autocomplete</p></li>
+<li><p><strong>limit</strong> (<em>int</em>) – Maximum number of matches to return</p></li>
+<li><p><strong>configuration</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="hdx.html#hdx.hdx_configuration.Configuration" title="hdx.hdx_configuration.Configuration"><em>Configuration</em></a><em>]</em>) – HDX configuration. Defaults to global configuration.</p></li>
+<li><p><strong>**kwargs</strong> – </p></li>
+<li><p><strong>offset</strong> (<em>int</em>) – The offset to start returning tags from.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Autocomplete matches</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>List</p>
 </dd>
 </dl>
 </dd></dl>
@@ -3578,7 +3876,7 @@ be set if required to any fields that should be ignored for the particular opera
 
 <dl class="method">
 <dt id="hdx.data.vocabulary.Vocabulary.read_from_hdx">
-<em class="property">static </em><code class="sig-name descname">read_from_hdx</code><span class="sig-paren">(</span><em class="sig-param">identifier</em>, <em class="sig-param">configuration=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.vocabulary.Vocabulary.read_from_hdx" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="sig-name descname">read_from_hdx</code><span class="sig-paren">(</span><em class="sig-param">identifier</em>, <em class="sig-param">configuration=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hdx.data.vocabulary.Vocabulary.read_from_hdx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reads the vocabulary given by identifier from HDX and returns Vocabulary object</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
