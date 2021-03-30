@@ -1,18 +1,17 @@
 
-
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Index &#8212; HDX Python API 1.0 documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="#" />
     <link rel="search" title="Search" href="search.html" />
    
@@ -91,8 +90,6 @@
 </li>
       <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.add_fieldnames">add_fieldnames() (hdx.data.dataset.Dataset method)</a>
 </li>
-      <li><a href="source/hdx.data.html#hdx.data.filestore_helper.FilestoreHelper.add_filestore_resources">add_filestore_resources() (hdx.data.filestore_helper.FilestoreHelper static method)</a>
-</li>
       <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.add_filetype">add_filetype() (hdx.data.dataset.Dataset method)</a>
 </li>
       <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.add_filetypes">add_filetypes() (hdx.data.dataset.Dataset method)</a>
@@ -103,10 +100,10 @@
 </li>
       <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.add_other_location">add_other_location() (hdx.data.dataset.Dataset method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.add_region_location">add_region_location() (hdx.data.dataset.Dataset method)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.add_showcase">add_showcase() (hdx.data.dataset.Dataset method)</a>
 </li>
       <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.add_showcases">add_showcases() (hdx.data.dataset.Dataset method)</a>
@@ -184,6 +181,8 @@
 </li>
       </ul></li>
       <li><a href="source/hdx.data.html#hdx.data.resource.Resource.check_url_filetoupload">check_url_filetoupload() (hdx.data.resource.Resource method)</a>
+</li>
+      <li><a href="source/hdx.data.html#hdx.data.resource.Resource.clean_file_type">clean_file_type() (hdx.data.resource.Resource method)</a>
 </li>
       <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.clean_tags">clean_tags() (hdx.data.dataset.Dataset method)</a>
 
@@ -391,10 +390,10 @@
 </li>
       <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.get_fieldnames">get_fieldnames() (hdx.data.dataset.Dataset method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="source/hdx.data.html#hdx.data.resource.Resource.get_file_to_upload">get_file_to_upload() (hdx.data.resource.Resource method)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="source/hdx.data.html#hdx.data.resource.Resource.get_file_type">get_file_type() (hdx.data.resource.Resource method)</a>
 </li>
       <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.get_filetypes">get_filetypes() (hdx.data.dataset.Dataset method)</a>
@@ -411,11 +410,15 @@
 </li>
       <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.get_hdx_url">get_hdx_url() (hdx.data.dataset.Dataset method)</a>
 </li>
-      <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.get_location">get_location() (hdx.data.dataset.Dataset method)</a>
-</li>
       <li><a href="source/hdx.html#hdx.hdx_locations.Locations.get_location_from_HDX_code">get_location_from_HDX_code() (hdx.hdx_locations.Locations class method)</a>
 </li>
+      <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.get_location_iso3s">get_location_iso3s() (hdx.data.dataset.Dataset method)</a>
+</li>
+      <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.get_location_names">get_location_names() (hdx.data.dataset.Dataset method)</a>
+</li>
       <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.get_maintainer">get_maintainer() (hdx.data.dataset.Dataset method)</a>
+</li>
+      <li><a href="source/hdx.data.html#hdx.data.resource.Resource.get_mapped_format">get_mapped_format() (hdx.data.resource.Resource class method)</a>
 </li>
       <li><a href="source/hdx.data.html#hdx.data.vocabulary.Vocabulary.get_mapped_tag">get_mapped_tag() (hdx.data.vocabulary.Vocabulary class method)</a>
 </li>
@@ -457,48 +460,148 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="source/hdx.data.html#hdx.data.resource.Resource.has_datastore">has_datastore() (hdx.data.resource.Resource method)</a>
 </li>
-      <li><a href="source/hdx.html#module-hdx">hdx (module)</a>
+      <li>
+    hdx
+
+      <ul>
+        <li><a href="source/hdx.html#module-hdx">module</a>
 </li>
-      <li><a href="source/hdx.data.html#module-hdx.data">hdx.data (module)</a>
+      </ul></li>
+      <li>
+    hdx.data
+
+      <ul>
+        <li><a href="source/hdx.data.html#module-hdx.data">module</a>
 </li>
-      <li><a href="source/hdx.data.html#module-hdx.data.dataset">hdx.data.dataset (module)</a>
+      </ul></li>
+      <li>
+    hdx.data.dataset
+
+      <ul>
+        <li><a href="source/hdx.data.html#module-hdx.data.dataset">module</a>
 </li>
-      <li><a href="source/hdx.data.html#module-hdx.data.dataset_title_helper">hdx.data.dataset_title_helper (module)</a>
+      </ul></li>
+      <li>
+    hdx.data.dataset_title_helper
+
+      <ul>
+        <li><a href="source/hdx.data.html#module-hdx.data.dataset_title_helper">module</a>
 </li>
-      <li><a href="source/hdx.data.html#module-hdx.data.date_helper">hdx.data.date_helper (module)</a>
+      </ul></li>
+      <li>
+    hdx.data.date_helper
+
+      <ul>
+        <li><a href="source/hdx.data.html#module-hdx.data.date_helper">module</a>
 </li>
-      <li><a href="source/hdx.data.html#module-hdx.data.filestore_helper">hdx.data.filestore_helper (module)</a>
+      </ul></li>
+      <li>
+    hdx.data.filestore_helper
+
+      <ul>
+        <li><a href="source/hdx.data.html#module-hdx.data.filestore_helper">module</a>
 </li>
-      <li><a href="source/hdx.data.html#module-hdx.data.hdxobject">hdx.data.hdxobject (module)</a>
+      </ul></li>
+      <li>
+    hdx.data.hdxobject
+
+      <ul>
+        <li><a href="source/hdx.data.html#module-hdx.data.hdxobject">module</a>
 </li>
-      <li><a href="source/hdx.data.html#module-hdx.data.organization">hdx.data.organization (module)</a>
+      </ul></li>
+      <li>
+    hdx.data.organization
+
+      <ul>
+        <li><a href="source/hdx.data.html#module-hdx.data.organization">module</a>
 </li>
-      <li><a href="source/hdx.data.html#module-hdx.data.resource">hdx.data.resource (module)</a>
+      </ul></li>
+      <li>
+    hdx.data.resource
+
+      <ul>
+        <li><a href="source/hdx.data.html#module-hdx.data.resource">module</a>
 </li>
-      <li><a href="source/hdx.data.html#module-hdx.data.resource_matcher">hdx.data.resource_matcher (module)</a>
+      </ul></li>
+      <li>
+    hdx.data.resource_matcher
+
+      <ul>
+        <li><a href="source/hdx.data.html#module-hdx.data.resource_matcher">module</a>
 </li>
-      <li><a href="source/hdx.data.html#module-hdx.data.resource_view">hdx.data.resource_view (module)</a>
+      </ul></li>
+      <li>
+    hdx.data.resource_view
+
+      <ul>
+        <li><a href="source/hdx.data.html#module-hdx.data.resource_view">module</a>
 </li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="source/hdx.data.html#module-hdx.data.showcase">hdx.data.showcase (module)</a>
+      <li>
+    hdx.data.showcase
+
+      <ul>
+        <li><a href="source/hdx.data.html#module-hdx.data.showcase">module</a>
 </li>
-      <li><a href="source/hdx.data.html#module-hdx.data.user">hdx.data.user (module)</a>
+      </ul></li>
+      <li>
+    hdx.data.user
+
+      <ul>
+        <li><a href="source/hdx.data.html#module-hdx.data.user">module</a>
 </li>
-      <li><a href="source/hdx.data.html#module-hdx.data.vocabulary">hdx.data.vocabulary (module)</a>
+      </ul></li>
+      <li>
+    hdx.data.vocabulary
+
+      <ul>
+        <li><a href="source/hdx.data.html#module-hdx.data.vocabulary">module</a>
 </li>
-      <li><a href="source/hdx.facades.html#module-hdx.facades">hdx.facades (module)</a>
+      </ul></li>
+      <li>
+    hdx.facades
+
+      <ul>
+        <li><a href="source/hdx.facades.html#module-hdx.facades">module</a>
 </li>
-      <li><a href="source/hdx.facades.html#module-hdx.facades.keyword_arguments">hdx.facades.keyword_arguments (module)</a>
+      </ul></li>
+      <li>
+    hdx.facades.keyword_arguments
+
+      <ul>
+        <li><a href="source/hdx.facades.html#module-hdx.facades.keyword_arguments">module</a>
 </li>
-      <li><a href="source/hdx.facades.html#module-hdx.facades.simple">hdx.facades.simple (module)</a>
+      </ul></li>
+      <li>
+    hdx.facades.simple
+
+      <ul>
+        <li><a href="source/hdx.facades.html#module-hdx.facades.simple">module</a>
 </li>
-      <li><a href="source/hdx.html#module-hdx.hdx_configuration">hdx.hdx_configuration (module)</a>
+      </ul></li>
+      <li>
+    hdx.hdx_configuration
+
+      <ul>
+        <li><a href="source/hdx.html#module-hdx.hdx_configuration">module</a>
 </li>
-      <li><a href="source/hdx.html#module-hdx.hdx_locations">hdx.hdx_locations (module)</a>
+      </ul></li>
+      <li>
+    hdx.hdx_locations
+
+      <ul>
+        <li><a href="source/hdx.html#module-hdx.hdx_locations">module</a>
 </li>
-      <li><a href="source/hdx.html#module-hdx.version">hdx.version (module)</a>
+      </ul></li>
+      <li>
+    hdx.version
+
+      <ul>
+        <li><a href="source/hdx.html#module-hdx.version">module</a>
 </li>
+      </ul></li>
       <li><a href="source/hdx.data.html#hdx.data.hdxobject.HDXError">HDXError</a>
 </li>
       <li><a href="source/hdx.data.html#hdx.data.hdxobject.HDXObject">HDXObject (class in hdx.data.hdxobject)</a>
@@ -545,14 +648,57 @@
 </li>
       <li><a href="source/hdx.data.html#hdx.data.resource_matcher.ResourceMatcher.match_resource_lists">match_resource_lists() (hdx.data.resource_matcher.ResourceMatcher static method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.max_attempts">max_attempts (hdx.data.dataset.Dataset attribute)</a>
 </li>
       <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.max_int">max_int (hdx.data.dataset.Dataset attribute)</a>
 
       <ul>
         <li><a href="source/hdx.data.html#hdx.data.showcase.Showcase.max_int">(hdx.data.showcase.Showcase attribute)</a>
+</li>
+      </ul></li>
+      <li>
+    module
+
+      <ul>
+        <li><a href="source/hdx.html#module-hdx">hdx</a>
+</li>
+        <li><a href="source/hdx.data.html#module-hdx.data">hdx.data</a>
+</li>
+        <li><a href="source/hdx.data.html#module-hdx.data.dataset">hdx.data.dataset</a>
+</li>
+        <li><a href="source/hdx.data.html#module-hdx.data.dataset_title_helper">hdx.data.dataset_title_helper</a>
+</li>
+        <li><a href="source/hdx.data.html#module-hdx.data.date_helper">hdx.data.date_helper</a>
+</li>
+        <li><a href="source/hdx.data.html#module-hdx.data.filestore_helper">hdx.data.filestore_helper</a>
+</li>
+        <li><a href="source/hdx.data.html#module-hdx.data.hdxobject">hdx.data.hdxobject</a>
+</li>
+        <li><a href="source/hdx.data.html#module-hdx.data.organization">hdx.data.organization</a>
+</li>
+        <li><a href="source/hdx.data.html#module-hdx.data.resource">hdx.data.resource</a>
+</li>
+        <li><a href="source/hdx.data.html#module-hdx.data.resource_matcher">hdx.data.resource_matcher</a>
+</li>
+        <li><a href="source/hdx.data.html#module-hdx.data.resource_view">hdx.data.resource_view</a>
+</li>
+        <li><a href="source/hdx.data.html#module-hdx.data.showcase">hdx.data.showcase</a>
+</li>
+        <li><a href="source/hdx.data.html#module-hdx.data.user">hdx.data.user</a>
+</li>
+        <li><a href="source/hdx.data.html#module-hdx.data.vocabulary">hdx.data.vocabulary</a>
+</li>
+        <li><a href="source/hdx.facades.html#module-hdx.facades">hdx.facades</a>
+</li>
+        <li><a href="source/hdx.facades.html#module-hdx.facades.keyword_arguments">hdx.facades.keyword_arguments</a>
+</li>
+        <li><a href="source/hdx.facades.html#module-hdx.facades.simple">hdx.facades.simple</a>
+</li>
+        <li><a href="source/hdx.html#module-hdx.hdx_configuration">hdx.hdx_configuration</a>
+</li>
+        <li><a href="source/hdx.html#module-hdx.hdx_locations">hdx.hdx_locations</a>
+</li>
+        <li><a href="source/hdx.html#module-hdx.version">hdx.version</a>
 </li>
       </ul></li>
   </ul></td>
@@ -606,6 +752,8 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="source/hdx.html#hdx.hdx_configuration.Configuration.read">read() (hdx.hdx_configuration.Configuration class method)</a>
+</li>
+      <li><a href="source/hdx.data.html#hdx.data.resource.Resource.read_formats_mappings">read_formats_mappings() (hdx.data.resource.Resource class method)</a>
 </li>
       <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.read_from_hdx">read_from_hdx() (hdx.data.dataset.Dataset static method)</a>
 
@@ -663,6 +811,8 @@
 </li>
       <li><a href="source/hdx.data.html#hdx.data.resource_view.ResourceView">ResourceView (class in hdx.data.resource_view)</a>
 </li>
+      <li><a href="source/hdx.data.html#hdx.data.dataset.Dataset.revise">revise() (hdx.data.dataset.Dataset static method)</a>
+</li>
   </ul></td>
 </tr></table>
 
@@ -692,6 +842,8 @@
       <li><a href="source/hdx.data.html#hdx.data.resource.Resource.set_file_to_upload">set_file_to_upload() (hdx.data.resource.Resource method)</a>
 </li>
       <li><a href="source/hdx.data.html#hdx.data.resource.Resource.set_file_type">set_file_type() (hdx.data.resource.Resource method)</a>
+</li>
+      <li><a href="source/hdx.data.html#hdx.data.resource.Resource.set_formatsdict">set_formatsdict() (hdx.data.resource.Resource class method)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
@@ -888,7 +1040,7 @@
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
 
 
 
@@ -905,7 +1057,7 @@
       &copy;Michael Rans.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.3.1</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.3</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
     </div>

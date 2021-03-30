@@ -100,7 +100,6 @@ hdx.data.vocabulary module
    :undoc-members:
    :show-inheritance:
 
-
 Module contents
 ---------------
 

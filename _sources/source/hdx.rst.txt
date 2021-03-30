@@ -5,6 +5,7 @@ Subpackages
 -----------
 
 .. toctree::
+   :maxdepth: 4
 
    hdx.data
    hdx.facades
@@ -35,7 +36,6 @@ hdx.version module
    :members:
    :undoc-members:
    :show-inheritance:
-
 
 Module contents
 ---------------
